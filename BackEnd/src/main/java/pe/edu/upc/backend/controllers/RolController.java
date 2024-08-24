@@ -5,10 +5,8 @@ import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.backend.dtos.RolDTO;
 import pe.edu.upc.backend.entities.Rol;
 import pe.edu.upc.backend.serviceinterfaces.IRolService;
-
 import java.util.List;
 import java.util.stream.Collectors;
-
 @RestController
 @RequestMapping("/roles")
 public class RolController {

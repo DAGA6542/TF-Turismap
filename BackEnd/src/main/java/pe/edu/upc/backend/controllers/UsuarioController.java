@@ -6,10 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.backend.dtos.UsuarioDTO;
 import pe.edu.upc.backend.entities.Usuario;
 import pe.edu.upc.backend.serviceinterfaces.IUsuarioService;
-
 import java.util.List;
 import java.util.stream.Collectors;
-
 @RestController
 @RequestMapping("/usuarios")
 public class UsuarioController {
