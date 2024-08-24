@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turismapp</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+/>
+    <!--Link de la letras que usaremos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <!--poener bien el liink con css al final-->
+    <!-- Link del css-->
+    <link rel="stylesheet" href="../styles.css">
+
+</head>
+
+
+<body>
+    <!-- Header secciones de estrellas  -->
+    <header>
+        <div id="menu-bar" class="fas fa-bars"></div>
+        <img class="imagen" src="../img/logo.png" alt="">
+
+        <a href="#" class="logo"> <span>Turis</span>Mapp</a><!--Parte del logo-->
+        
+        <nav class="navbar">
+            <a href="../index.html">Inicio</a>
+            <a href="../pages/nosotros.html">Nosotros</a>
+            <a href="../pages/Festividad.html">Festividades</a>
+            <a href="../pages/centros.html">Centros</a>
+            <a href="../pages/hoteles.html">Hoteles</a>
+            <a href="../pages/resturante.html">Restaurantes</a>
+            <a href="../pages/ayuda.html">Ayuda</a>
+
+        </nav>
+
+        <div class="iconos">
+            <i class="fas fa-search" id="search-btn"></i>
+            <i class="fas fa-user"  id="login-btn"></i>
+        </div>
+
+        <form action="" class="barra-busqueda"> <!--search-bar-container-->
+            <input type="search" id="search-bar" placeholder="Escribe aqui..">
+            <label for="search-bar" class="fas fa-search"></label>
+
+        </form>
+    </header>
+
+    <div class="inicio-sesion">
+        <i class="fas fa-time" id="form-close"></i>
+        <form action="">
+            <h3>login</h3>
+            <input type="email" class="box" placeholder="Ingresa tu email">
+            <input type="password" class="box" placeholder="Ingresa tu contraseña">
+            <input type="submit" value="Ingresar" class="btn"> <!--Login now= ingresar-->
+            <input type="checkbox" id="recordar"> <!--remenber-->
+            <label for="recordar"> Recuerdame </label>
+            <p>¿Olvidaste la contraseña? <a href="#">Click aqui</a></p>
+            <p>¿No tienes una cuenta? <a href="#">Registrate</a></p>
+
+
+        </form>
+       
+    </div>
+     <!--Hoteles-->
+    <section class="hoteles" id="hoteles">
+            <h1 class="encabezado">
+            <span>R</span>
+            <span>e</span>
+            <span>s</span>
+            <span>e</span>
+            <span>r</span>
+            <span>v</span>
+            <span>a</span>
+            <span class="espacio"></span>
+            <span>d</span>
+            <span>e</span>
+            <span class="espacio"></span>
+            <span>R</span>
+            <span>e</span>
+            <span>s</span>
+            <span>t</span>
+            <span>a</span>
+            <span>u</span>
+            <span>r</span>
+            <span>a</span>
+            <span>n</span>
+            <span>t</span>
+            <span>e</span>
+            <span>s</span>
+        </h1>
+            <div class="caja-contenido"> <!--box-container-->
+                <div class="caja"> <!--box-->
+                    <img src="../img/laquintares.jpg" alt="">
+                    <div class="content">
+                        <h3> <i class="fas fa-map-marker-alt"></i> La Quinta Restaurantes</h3>
+                        <p>Comer en este restaurante, con sus estupendas vistas de Parque Orellana Pumaqchupan, es una oportunidad genial para sus clientes. Carpe diem: su cocina peruana te está esperando. Basándonos en las opiniones de los críticos, los camareros te ofrecen aquí una generosa sopa de pollo, un perfectamente elaborado pato y un casero laing. La gente normalmente visita La Quinta Restaurante para pedir su extraordinario vino, su sorprendente cordial o su espectacular cerveza. De acuerdo con las opiniones de los usuarios, aquí los camareros sirven una buena limonada.</p>
+                        <div class="estrellas"> <!--stars-->
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="precio"> S/150.00 <span> S/120.00</span></div>
+                        <a href="#" class="btn">Reservar ahora</a>
+                    </div>
+                </div>
+    
+    
+                <div class="caja"> <!--box-->
+                    <img src="../img/espaciolagom.jpg" alt=" Cerros de colores">
+                    <div class="content">
+                        <h3> <i class="fas fa-map-marker-alt"></i> Espacio Lagom-Arequipa</h3>
+                        <p>Ven aquí a comer tras ver Chachani. Una serie de clientes consideran que aquí puedes comer con confianza unos caseros sushi, unos atrayentes rollos y una perfectamente elaborada sopa ramen. Tal y como sus visitantes escriben en sus comentarios, la cerveza artesanal que ofrece este restaurante es extraordinaria. Tras una larga jornada de trabajo, degusta unos sensacionales zumos frescos, un delicioso café o un estupendo té.</p>
+                        <div class="estrellas"> <!--stars-->
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="precio"> S/150.00 <span> S/120.00</span></div>
+                        <a href="#" class="btn">Reservar ahora</a>
+                    </div>
+                </div>
+    
+    
+                <div class="caja"> <!--box-->
+                    <img src="../img/RestobarYakumama.jpg" alt="">
+                    <div class="content">
+                        <h3> <i class="fas fa-map-marker-alt"></i> Yakumama Resto Bar Flotante</h3>
+                        <p>Aquí podrás descubrir recetas e ingredientes de la cocina peruana. Su ambiente esta cuidado, y muchos invitados reconocen el estilo de este restaurante. Los usuarios de Google le han asignado una valoración de 4,8 a YAKUMAMA RESTOBAR FLOTANTE.</p>
+                        <div class="estrellas"> <!--stars-->
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="precio"> S/180.00 <span> S/250.00</span></div>
+                        <a href="#" class="btn">Reservar ahora</a>
+                    </div>
+                </div>
+    
+                <div class="caja"> <!--box-->
+                    <img src="../img/RestauranteAmazona.jpg" alt="">
+                    <div class="content">
+                        <h3> <i class="fas fa-map-marker-alt"></i> Restaurante Amazona</h3>
+                        <p>Ven a disfrutar de los platos tipicos de la selva peruana y disfruta tu estadia en Madre de Dios con las mejores recetas de nuestra cocina.</p>
+                        <div class="estrellas"> <!--stars-->
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="precio"> S/140.00 <span> S/180.00</span></div>
+                        <a href="#" class="btn">Reservar ahora</a>
+                    </div>
+                </div>
+                
+    
+                
+                <div class="caja"> <!--box-->
+                    <img src="../img/hotelsantarosa.jpg" alt="">
+                    <div class="content">
+                        <h3> <i class="fas fa-map-marker-alt"></i> Hotel Santa Rosa</h3>
+                        <p>A media cuadra de la Plaza de Armas, se encuentra una de las primeras casonas de la época de la colonia: la Casona Gutierrez. Edificada en 1630, hoy en día es el Hotel Santa Rosa, paradero obligatorio para disfrutar lo mejor de Ayacucho. Gracias a los trabajos de restauración y conservación, el Hotel Santa Rosa es declarado como Patrimonio Cultural para convertirse en una muestra viva y permanente de la fusión de arte andino y europeo, creando una atmósfera histórica única como hotel en Ayacucho.</p>
+                        <div class="estrellas"> <!--stars-->
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="precio"> S/110.00 <span> S/160.00</span></div>
+                        <a href="#" class="btn">Reservar ahora</a>
+                    </div>
+                </div>
+    
+                <div class="caja"> <!--box-->
+                    <img src="../img/GOCTA.jpg" alt="">
+                    <div class="content">
+                        <h3> <i class="fas fa-map-marker-alt"></i> Gocta Andes Lodge</h3>
+                        <p>Gocta Andes Lodge está ubicado en el hermoso Caserío de Cocachimba, a escasos minutos de distancia de las cataratas de Gocta. Disfruta de las mejores vistas en los ambientes más sofisticados, acogedores y amplios, diseñados específicamente para que los huéspedes se relajen y pasen momentos agradables, en compañía de sus familiares, amigos o parejas. Su ubicación estratégica no solo permite un rápido acceso, sino que también te da la posibilidad de recorrer fácilmente las regiones de Chachapoyas, como Kuélap, Leymebamba y Karajía. </p>
+                        <div class="estrellas"> <!--stars-->
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="precio"> S/80.00 <span> S/120.00</span></div>
+                        <a href="#" class="btn">Reservar ahora</a>
+                    </div>
+                </div>
+    
+            </div>
+        </h1>
+        
+    </section>
+
+    <section class="footer">
+        <div class="caja-contenido">
+
+            <div class="caja">
+                <h3>Sobre Nosotros</h3>
+                <p>Somos Una Empresa Pequeña Que Ayudara Tanto A Los Turistcas Loca
+                    les Como Internacionales Mediante La IA En La Aplicacion A Poder Di
+                    sfrutar Al 100% Las Hermosas Vistas De Lugares Turisticos Del Peru</p>
+
+            </div>
+            <div class="caja">
+                <h3>Localizacion</h3>
+                <a href="#">Peru</a>
+            </div>
+            <div class="caja">
+                <h3>Links</h3>
+                <a href="../index.html">Inicio</a>
+                <a href="../pages/nosotros.html">Nosotros</a>
+                <a href="../pages/Festividad.html">Festividades</a>
+                <a href="../pages/centros.html">Centros</a>
+                <a href="../pages/hoteles.html">Hoteles</a>
+                <a href="../pages/resturante.html">Restaurantes</a>
+                <a href="../pages/ayuda.html">Ayuda</a>
+            </div>
+
+            <div class="caja">
+                <h3>Siguenos</h3>
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">twitter</a>
+                
+            </div>
+
+        </div>
+        <h1 class="credito"> Creado por <span> Equipo Turismapp</span> todos los derechos reservados</h1>
+
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  
+
+    
+
+    <!-- Link de javascript-->
+    <script src="../script.js"></script>
+ 
+</body>
+</html>

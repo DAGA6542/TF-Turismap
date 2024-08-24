@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turismapp</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+/>
+    <!--Link de la letras que usaremos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <!--poener bien el liink con css al final-->
+    <!-- Link del css-->
+    <link rel="stylesheet" href="../styles.css">
+
+</head>
+
+
+<body>
+    <!-- Header secciones de estrellas  -->
+    <header>
+        <div id="menu-bar" class="fas fa-bars"></div>
+        <img class="imagen" src="../img/logo.png" alt="">
+
+        <a href="#" class="logo"> <span>Turis</span>Mapp</a><!--Parte del logo-->
+        
+        <nav class="navbar">
+            <a href="../index.html">Inicio</a>
+            <a href="../pages/nosotros.html">Nosotros</a>
+            <a href="../pages/Festividad.html">Festividades</a>
+            <a href="../pages/centros.html">Centros</a>
+            <a href="../pages/hoteles.html">Hoteles</a>
+            <a href="../pages/resturante.html">Restaurantes</a>
+            <a href="../pages/ayuda.html">Ayuda</a>
+
+        </nav>
+
+        <div class="iconos">
+            <i class="fas fa-search" id="search-btn"></i>
+            <i class="fas fa-user"  id="login-btn"></i>
+        </div>
+
+        <form action="" class="barra-busqueda"> <!--search-bar-container-->
+            <input type="search" id="search-bar" placeholder="Escribe aqui..">
+            <label for="search-bar" class="fas fa-search"></label>
+
+        </form>
+    </header>
+
+    <div class="inicio-sesion">
+        <i class="fas fa-time" id="form-close"></i>
+        <form action="">
+            <h3>login</h3>
+            <input type="email" class="box" placeholder="Ingresa tu email">
+            <input type="password" class="box" placeholder="Ingresa tu contraseña">
+            <input type="submit" value="Ingresar" class="btn"> <!--Login now= ingresar-->
+            <input type="checkbox" id="recordar"> <!--remenber-->
+            <label for="recordar"> Recuerdame </label>
+            <p>¿Olvidaste la contraseña? <a href="#">Click aqui</a></p>
+            <p>¿No tienes una cuenta? <a href="#">Registrate</a></p>
+
+
+        </form>
+       
+    </div>
+    <!--Hoteles-->
+    <section class="hoteles" id="hoteles">
+
+        <h1 class="encabezado">
+            <span>H</span>
+            <span>o</span>
+            <span>t</span>
+            <span>e</span>
+            <span>l</span>
+            <span>e</span>
+            <span>s</span>
+        </h1>
+        <div class = "rooms-container">
+            <!-- single room -->
+            <article class = "room">
+                <div class = "room-image">
+                    <img src = "../img/hotel1.JPG" alt = "room image">
+                </div>
+                <div class = "room-text">
+                    <h3>Ibis Styles (Lima)</h3>
+                    <ul>
+                        <li>
+                            <i class = "fas fa-arrow-alt-circle-right"></i>
+                            El ibis Styles Lima Benavides Miraflores se encuentra en Lima, a 2,4 km de la playa Redondo, y cuenta con restaurante, terraza, aparcamiento privado gratuito y salón compartido.
+                        </li>
+                        <li>
+                            <i class = "fas fa-arrow-alt-circle-right"></i>
+                            Este hotel de 3 estrellas dispone de bar y habitaciones con aire acondicionado, WiFi gratuita y baño privado
+                        </li>
+                        <li>
+                            <i class = "fas fa-arrow-alt-circle-right"></i>
+                            El establecimiento es para no fumadores y está a 2,5 km de la playa de La Estrella.
+                        </li>
+                    </ul>
+                    <p>El ibis Styles Lima Benavides Miraflores sirve un desayuno buffet todas las mañanas.Hay centro de negocios y bar cafetería. 
+                        El personal de la recepción, abierta las 24 horas, habla español e inglés, y puede facilitar información útil sobre la zona.
+                        El aeropuerto más cercano es el internacional Jorge Chávez, a 22 km del ibis Styles Lima Benavides Miraflores.
+                    </p>
+                    <p class = "rate">
+                        <span>$99.00 /</span> Per Night
+                    </p>
+                    <button type = "button" class = "btn">Reservar</button>
+                </div>
+            </article>
+            <!-- end of single room -->
+            <!-- single room -->
+            <article class = "room">
+                <div class = "room-image">
+                    <img src = "../img/hotel2.JPG" alt = "room image">
+                </div>
+                <div class = "room-text">
+                    <h3>Boulevard (Lima)</h3>
+                    <ul>
+                        <li>
+                            <i class = "fas fa-arrow-alt-circle-right"></i>
+                            El Hotel Boulevard ofrece alojamiento en el distrito Miraflores de Lima, 
+                            a 10 minutos a pie del parque Kennedy. Hay WiFi gratuita. 
+                            Se sirve un desayuno gratuito a diario
+                        </li>
+                        <li>
+                            <i class = "fas fa-arrow-alt-circle-right"></i>
+                            Las habitaciones disponen de baño privado y TV de pantalla plana con canales por cable. 
+                        </li>
+                        <li>
+                            <i class = "fas fa-arrow-alt-circle-right"></i>
+                            Las suites también incluyen bañera de hidromasaje.
+                        </li>
+                    </ul>
+                    <p>El Hotel Boulevard cuenta con centro de fitness y piscina al aire libre disponible durante todo el año. 
+                        Alberga un restaurante. Hay aparcamiento privado gratuito y recepción 24 horas.
+                        Este hotel se encuentra a 15 minutos en coche del centro comercial Larcomar. 
+                        El aeropuerto internacional Jorge Chávez queda a 45 minutos en coche.</p>
+                    <p class = "rate">
+                        <span>Entre S/200 - s/500</span> Por noche
+                    </p>
+                    <button type = "button" class = "btn">Reservar</button>
+                </div>
+            </article>
+            <!-- end of single room -->
+            <!-- single room -->
+            <article class = "room">
+                <div class = "room-image">
+                    <img src = "../img/hotel5.JPG" alt = "room image">
+                </div>
+                <div class = "room-text">
+                    <h3>La Hostería Boutique Hotel (Arequipa)</h3>
+                    <ul>
+                        <li>
+                            <i class = "fas fa-arrow-alt-circle-right"></i>
+                            Esta posada, situada en una casa colonial restaurada 
+                            con un precioso patio decorado con azulejos y una 
+                            pequeña fuente, ofrece habitaciones con WiFi 
+                            gratuita a solo 5 minutos a pie de la plaza
+                             principal de Arequipa. 
+                        </li>
+                        <li>
+                            <i class = "fas fa-arrow-alt-circle-right"></i>
+                            El acceso al spa y la sauna comporta un suplemento.
+                        </li>
+                        <li>
+                            <i class = "fas fa-arrow-alt-circle-right"></i>
+                            Las habitaciones disponen de suelo de moqueta, 
+                            muebles de madera oscura, colcha blanca, TV por cable y minibar.
+                        </li>
+                    </ul>
+                    
+                    <p>Algunas de las habitaciones tienen chimenea y balcón con vistas a la ciudad. Todas las habitaciones incluyen baño privado de estilo moderno.
+                        Se sirve un desayuno continental diario con fruta tropical y mermeladas de la zona en el bar, equipado con suelo de parquet y paredes rústicas.
+                        Hay recepción 24 horas y el establecimiento puede gestionar servicios de enlace con el aeropuerto.
+                        Nuestros clientes dicen que esta parte de Arequipa es su favorita, según los comentarios independientes</p>
+                    <p class = "rate">
+                        <span>Entre S/150-350</span> por noche
+                    </p>
+                    <button type = "button" class = "btn">Reservar</button>
+                </div>
+            </article>
+            /**/
+            <article class = "room">
+                <div class = "room-image">
+                    <img src = "../img/hotel3.JPG" alt = "room image">
+                </div>
+                <div class = "room-text">
+                    <h3>La posada del Vaijero (Cuzco)</h3>
+                    <ul>
+                        <li>
+                            <i class = "fas fa-arrow-alt-circle-right"></i>
+                            La Posada del Viajero se encuentra a 300 metros de la catedral de Cusco. 
+                            El aeropuerto 
+                            internacional Alejandro Velasco Astete se encuentra a 15 minutos en coche.
+                        </li>
+                        <li>
+                            <i class = "fas fa-arrow-alt-circle-right"></i>
+                            Las habitaciones de La Posada del Viajero cuentan con TV y baño privado. La ropa de cama está incluida.
+                        </li>
+                        <li>
+                            <i class = "fas fa-arrow-alt-circle-right"></i>
+                            Todos los días se ofrece un desayuno bufé gratuito.
+                        </li>
+                    </ul>
+                    
+                    <p>Los huéspedes también encontrarán un salón compartido y una zona de TV, 
+                        así como consigna de equipaje gratuita. Los huéspedes pueden reservar 
+                        excursiones en el mostrador de información turística y el transporte
+                         desde y hacia el aeropuerto está disponible por un suplemento.</p>
+                    <p class = "rate">
+                        <span>Entre S/140-350</span> por noche
+                    </p>
+                    <button type = "button" class = "btn">Reservar</button>
+                </div>
+            </article>
+
+            <article class = "room">
+                <div class = "room-image">
+                    <img src = "../img/hotel4.JPG" alt = "room image">
+                </div>
+                <div class = "room-text">
+                    <h3>Curasi (Ica)</h3>
+                    <ul>
+                        <li>
+                            <i class = "fas fa-arrow-alt-circle-right"></i>
+                            El Hotel Curasi ofrece un restaurante, una piscina exterior y
+                             alojamiento en Ica. Cuenta con conexión Wi-Fi gratuita. 
+                            La laguna Hucachina se encuentra a 1 minuto a pie.
+                        </li>
+                        <li>
+                            <i class = "fas fa-arrow-alt-circle-right"></i>
+                            Todas las habitaciones tienen baño privado y TV por cable.
+                             Ofrecen vistas al lago. Además, se incluye un desayuno americano.
+                        </li>
+                        <li>
+                            <i class = "fas fa-arrow-alt-circle-right"></i>
+                            El Hotel Curasi dispone de recepción 24 horas, un jardín y una terraza.
+                        </li>
+                    </ul>
+                    
+                    <p> El establecimiento también pone a su disposición un salón compartido, un
+                         mostrador de información turística y una consigna de equipaje. 
+                         El establecimiento cuenta con aparcamiento gratuito.
+                        El Hotel Curasi está situado a pocos pasos de las dunas de arena 
+                        y a 20 minutos en coche de la bodega El Catador, donde podrá probar
+                         diferentes tipos de pisco.</p>
+                    <p class = "rate">
+                        <span>Entre S/150-350</span> por noche
+                    </p>
+                    <button type = "button" class = "btn">Reservar</button>
+                </div>
+            </article>
+        </div>
+
+    </section>
+
+    
+
+
+    <section class="footer">
+        <div class="caja-contenido">
+
+            <div class="caja">
+                <h3>Sobre Nosotros</h3>
+                <p>Somos una empresa pequeña que ayudara tanto a los turistcas locales como internacionales mediante la IA en la aplicacion a poder disfrutar al 100% las hermosas vistas de lugares turisticos del Peru</p>
+
+            </div>
+            <div class="caja">
+                <h3>Localizacion</h3>
+                <a href="#">Peru</a>
+            </div>
+            <div class="caja">
+                <h3>Links</h3>
+                <a href="../index.html">Inicio</a>
+                <a href="../pages/nosotros.html">Nosotros</a>
+                <a href="../pages/Festividad.html">Festividades</a>
+                <a href="../pages/centros.html">Centros</a>
+                <a href="../pages/hoteles.html">Hoteles</a>
+                <a href="../pages/resturante.html">Restaurantes</a>
+                <a href="../pages/ayuda.html">Ayuda</a>
+            </div>
+
+            <div class="caja">
+                <h3>Siguenos</h3>
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">twitter</a>
+                
+            </div>
+
+        </div>
+        <h1 class="credito"> Creado por <span> Equipo Turismapp</span> todos los derechos reservados</h1>
+
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+        
+
+
+    
+        
+
+    <!-- Link de javascript-->
+    <script src="../script.js"></script>
+ 
+</body>
+</html>

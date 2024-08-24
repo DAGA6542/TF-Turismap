@@ -1,0 +1,1082 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700&family=Nunito:wght@300&family=Roboto+Slab:wght@500&display=swap');
+
+:root{
+    --naranja: #ffa500;
+}
+*{
+   font-family: 'Nunito', sans-serif;
+   margin: 0; 
+   padding: 0;
+   box-sizing: border-box;
+   /*text-transform: capitalize;*/
+   outline: none;
+   border:none ;
+   text-decoration: none;
+   transition: all -2s linear;
+}
+*::selection{
+    background: var(--naranja);
+    color: #fff;
+}
+*::-webkit-scrollbar{
+    height: .5rem;
+    width: 1rem;
+ }
+ 
+ *::-webkit-scrollbar-track{
+    background-color: transparent;
+ }
+ 
+ *::-webkit-scrollbar-thumb{
+    background-color:#89d631;
+    border-radius: 5rem;
+ }
+html{
+    font-size:62.5% ; /*tamaño de la pagina*/
+    overflow-x: hidden;
+    scroll-padding-top: 6rem;
+    scroll-behavior: smooth;
+}
+section{
+    padding: 2rem 9% ;
+
+}
+.encabezado{
+   text-transform: capitalize;
+    text-align: center;
+    padding:8.5rem 0;
+   
+}
+.encabezado span{
+    
+    font-size:  3.5rem;
+    background: rgba(255, 165,0,.2);
+    color: var(--naranja);
+    border-radius: -5rem;
+    padding: .2rem 1rem;
+    
+    
+   /* display: inline-block;*/
+}
+.encabezado span.espacio{
+    
+    background: none;
+}
+
+.btn{
+    display: inline-block;
+    margin-top: 1rem;
+    background: var(--naranja);
+    color: #fff;
+    padding: .8rem 3rem;
+    border: .2rem solid var(--naranja) ;
+    cursor: pointer;
+    font-size: 1.7rem;
+}
+.btn:hover{
+    background:rgba(255, 165,0,.2) ;
+    color: var(--naranja);
+}
+/*parte del header donde esta lo general */
+header{
+    position: fixed;
+    top:0;
+    left:0 ;
+    right: 0;
+    background: #72cb10; /*color de la barra */
+    z-index: 1000;
+    display: flex; 
+    align-items: center;
+    justify-content: space-between;
+    padding:2rem 9%;
+   
+}
+header  img{
+    width:90px;
+    height: 90px;
+
+
+    position: absolute;
+    top: 50%;
+    left: 4rem;
+     /* Ajusta el ancho según el tamaño de tu imagen */
+   
+    transform: translateY(-50%);
+  
+    
+}
+
+/* Parte del logo es q no tengo la imgen */
+header .logo{
+    font-size: 2.5rem;
+    font-weight:bolder ;
+    color:#fff ;
+    text-transform: uppercase;
+
+}
+header .logo span{
+    color: #ffa500;
+}
+/*parte de la barra donde estan los botones principales*/
+header .navbar a{
+    color: black; /*color de la letra*/
+    font-size: 2rem;
+    margin:0 .8rem;
+    
+
+}
+header .navbar a:hover{
+    color: var(--naranja); /*cuando acercas el mouse sale el color naranja*/
+}
+/*Parte de los iconos */
+header .iconos i{
+    font-size:  2.5rem;
+    color: #fff;
+    cursor: pointer;
+    margin-right: 2rem;
+
+}
+header .iconos i:hover{
+    color: var(--naranja); /* lo mismo q el navbar*/
+}
+header .barra-busqueda{  /*search-bar-container*/
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 1.5rem 2rem;
+    background: #a9e159; /* color de la barra de busqueda*/
+    border-top: .1rem solid rgb(255,255,255,.2);
+   display: flex;
+    align-items: center;
+    z-index: 1001;
+    clip-path: polygon(0 0,100% 0,100% 0, 0 0) ;/*Desarece la barra de busqueda pero ...*/
+}
+
+header .barra-busqueda.active{
+    clip-path: polygon(0 0,100% 0,100% 100%, 0 100%) ;/*Aparece la barra de busqueda*/
+}
+
+header .barra-busqueda #search-bar{
+    width: 100%;
+    padding: 1rem;
+    text-transform: none;
+    color: #333; 
+    font-size: 1.7rem; /*tamañ*/
+    border-radius:  .5rem;/*es para q se vea redondo*/
+    
+}
+
+header .barra-busqueda #search-bar label{
+    color: #fff;
+    cursor: pointer;
+    font-size: 3rem;
+    margin-left: 1.5rem;
+
+}
+
+header .barra-busqueda #search-bar label:hover{
+    color: var(--naranja);
+}
+/*body{
+    /*height: 200rem;
+    font-family: 'Nunito', sans-serif;
+}*/
+.inicio-sesion{
+    position: fixed;
+    top: -120%;
+    left: 0;
+    z-index: 10000;
+    min-height:100vh ;
+    width:100% ;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.inicio-sesion.active{
+    top: 0;
+}
+.inicio-sesion form{
+    margin: 2rem;
+    padding: 1.5rem 2rem;
+    border-radius: .5rem;
+    background: #72cb10;
+    width: 50rem;
+
+}
+.inicio-sesion form h3{
+    font-size: 3rem;
+    color: #444;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 1rem 0;
+}
+.inicio-sesion form .box{
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.7rem;
+    color: #333;
+    margin: .6rem 0;
+    border: .1rem solid rgba(0, 0,0,.3);
+    text-transform:  none;
+}
+.inicio-sesion form .box:focus{
+    border-color: var(--naranja);
+}
+.inicio-sesion form #recordar{
+    margin:2rem 0;
+}
+.inicio-sesion form label{
+    font-size: 1.5rem;
+}
+.inicio-sesion form .btn{
+    display: block;
+    width: 100%;
+}
+.inicio-sesion form p{
+    padding:.5rem 0 ;
+    font-size:  1.5rem;
+    color: #a71a1a;  
+}
+.inicio-sesion form p a{
+    color: black;
+}
+.inicio-sesion form p a:hover{
+    color: #a71a1a;
+    text-decoration: underline;
+}
+.inicio-sesion #form-close{
+    position: absolute;
+    top: 2rem;
+    right: 3rem;
+    font-size: 5rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+#menu-bar{
+    color: #fff;
+    border: .1rem solid #fff;
+    border-radius: .5rem;
+    font-size: 3rem;
+    padding: .5rem 1.2rem;
+    cursor:pointer;
+    display: none;
+
+}
+
+.inicio{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    position: relative;
+    z-index: 0;
+
+}
+.inicio .contenido{
+    text-align: center;
+
+}
+.inicio .contenido h3{
+    font-size: 4.5rem;
+    color: #fff;
+   text-transform: uppercase;
+    text-shadow: 0 .3rem .5rem rgba(0,0,0,.1);
+}
+.inicio .contenido p{
+    font-size: 2.5rem;
+    color: #fff;
+    padding:.5rem 0;
+    
+}
+.inicio .video-contenido video{ /*Para q las letras esten adelante*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+
+}
+.inicio .control{
+    padding: 1rem;
+    border-radius:  5rem;
+    background: rgba(0, 0, 0, 0.7);
+    position: relative;
+    top: 10rem;
+}
+.inicio .control .vid-btn{
+    height: 2rem;
+    width: 2rem;
+    display: inline-block;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+    margin: 0 .5rem;
+}
+.inicio .control .vid-btn.active{
+   background: var(--naranja);
+}
+
+.book .lista{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items:center ;
+}
+.book .lista .imagen{
+    flex:1 1 40rem;
+}
+.book .lista .imagen img{
+    width:100%;
+}
+.book .lista form{
+    flex:1 1 40rem;
+    padding: 2rem;
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.1);
+    border-radius: .5rem;
+}
+.book .lista form .inputBox{
+    padding: .5rem 0;
+}
+.book .lista form .inputBox input{
+    width: 100%;
+    padding: 1rem;
+    border: .1rem solid rgba(0,0,0,.1);
+    font-size: 1.7rem;
+    color:#333 ; /*Lista el color*/
+     text-transform: none;
+}
+.book .lista form .inputBox h3{ /*Para la letra */
+    font-size: 2rem;
+    padding:1rem 0 ;
+    color: #666;
+    text-transform:  none
+}
+
+/*Hoteles
+.hoteles .caja-contenido{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.hoteles .caja-contenido .caja{
+    flex: 1 1 30rem;
+    border-radius:  .5rem;
+    overflow: hidden;
+    box-shadow:0 1 2rem rgba(0, 0, 0, 0.1) ;
+}
+
+.hoteles .caja-contenido .caja img{
+    height: 25rem;
+    width: 100%;
+    object-fit: cover;
+}
+.hoteles .caja-contenido .caja .content{
+    padding: 2rem;
+}
+.hoteles .caja-contenido .caja .content h3{
+    font-size: 2rem;
+    color: #333;
+
+}
+.hoteles .caja-contenido .caja .content h3 i{
+    color: var(--naranja);
+}
+.hoteles .caja-contenido .caja .content p{
+    font-size: 1.7rem;
+    font-family: serif, monospace;
+    text-transform: none;
+    color: #666;
+    padding: 1rem 0;
+}
+.hoteles .caja-contenido .caja .content .estrellas i{
+    font-size: 1.7rem;
+    color: var(--naranja);
+}
+.hoteles .caja-contenido .caja .content .precio{
+    font-size:  2rem;
+    color: #333;
+    padding-top: 1rem;
+
+}
+.hoteles .caja-contenido .caja .content .precio span{
+    color: #666;
+    font-size: 1.5rem;
+    text-decoration: line-through ;
+}
+
+/*Nosotros*/
+.nosotros .row {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    padding: 2rem 0;
+    padding-bottom: 3rem;
+  }
+  .nosotros .row .video-container {
+    flex: 1 1 40rem;
+    position: relative;
+  }
+  .nosotros .row .video-container video {
+    width: 100%;
+    border: 1.5rem solid yellow;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    height: 100%;
+    object-fit: cover;
+  }
+  .nosotros .row .video-container h3 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 3rem;
+    background: yellow;
+    width: 100%;
+    padding: 1rem 2rem;
+    text-align: center;
+    mix-blend-mode: screen;
+  }
+  .nosotros .row .contenido {
+    flex: 1 1 40rem;
+  }
+  .nosotros .row .contenido h3 {
+    padding-top: 3rem;
+    font-size: 3rem;
+    color: #333;
+  }
+  .nosotros .row .contenido p {
+    font-size: 1.5rem;
+    color: #333;
+    padding: 0.5rem 0;
+    padding-top: 1rem;
+    line-height: 1.5;
+  }
+/*Parte de centros turisticos*/
+.centros .caja-contenido{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.centros .caja-contenido .caja{
+    flex: 1 1 30rem;
+    border-radius:  .5rem;
+    overflow: hidden;
+    box-shadow:0 1 2rem rgba(0, 0, 0, 0.1) ;
+}
+
+.centros .caja-contenido .caja img{
+    height: 25rem;
+    width: 100%;
+    object-fit: cover;
+}
+.centros .caja-contenido .caja .content{
+    padding: 2rem;
+}
+.centros .caja-contenido .caja .content h3{
+    font-size: 2rem;
+    color: #333;
+
+}
+.centros .caja-contenido .caja .content h3 i{
+    color: var(--naranja);
+}
+.centros .caja-contenido .caja .content p{
+    font-size: 1.7rem;
+    font-family: serif, monospace;
+    text-transform: none;
+    color: #666;
+    padding: 1rem 0;
+}
+.centros .caja-contenido .caja .content .estrellas i{
+    font-size: 1.7rem;
+    color: var(--naranja);
+}
+.centros .caja-contenido .caja .content .precio{
+    font-size:  2rem;
+    color: #333;
+    padding-top: 1rem;
+
+}
+.centros .caja-contenido .caja .content .precio span{
+    color: #666;
+    font-size: 1.5rem;
+    text-decoration: line-through ;
+}
+.servicios .caja-contenido{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+
+}
+.servicios .caja-contenido .caja{
+    flex: 1 1 30rem;
+    border-radius: .5rem;
+    padding:1rem ;
+    text-align: center;
+    
+}
+.servicios .caja-contenido .caja i{
+    padding: 1rem;
+    font-size: 5rem;
+    color: var(--naranja);
+    
+}
+.servicios .caja-contenido .caja h3{
+    font-size: 2.5rem;
+    color: #333;
+    
+}
+
+.servicios .caja-contenido .caja p{  
+    font-size: 1.5rem;
+    color:#666;
+    padding: 1rem 0;  
+}
+
+.servicios .caja-contenido .caja:hover{
+   box-shadow:  0 1rem 2rem rgba(0, 0, 0, 0.1); 
+}
+
+.grupo .container{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap:15px;
+    align-items: flex-start;
+    padding: 5px 5%; 
+}
+.grupo .container .main-video{
+    background: #fff;
+    border-radius: .5px;
+    padding: 10px
+}
+.grupo .container .main-video video{
+    width: 100%;
+    border-radius: 5px;
+}
+.grupo .container .main-video .title{
+   color: #333;
+   font-size: 23px;
+   padding-top: 15px;
+   padding-bottom: 15px;
+}
+.grupo .container .video-list{
+    background: #fff;
+    border-radius: 5px;
+    height: 520px;
+    overflow-y: scroll;
+}
+.grupo .container .video-list::-webkit-scrollbar{
+    width: 7px;
+}
+.grupo .container .video-list::-webkit-scrollbar-track{
+   background: #ccc;
+   border-radius: 50px;
+}
+.grupo .container .video-list::-webkit-scrollbar-thumb{
+    background: #666;
+    border-radius: 50px;
+}
+.grupo .container .video-list .vid video{
+   width: 150px;
+   border-radius: 5px;
+}
+.grupo .container .video-list .vid{
+    display: flex;
+    align-items: center;
+    gap:15px;
+    background: #f7f7f7;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid rgba(0,0,0,.1);
+    cursor: pointer; 
+}
+.grupo .container .video-list .vid:hover{
+    background: #eee;
+}
+.grupo .container .video-list .vid.active{
+    background: #2980b9;
+}
+.grupo .container .video-list .vid.active .title{
+    color:#fff;
+}
+.grupo .container .video-list .vid .title{
+    color:#333;
+    font-size: 17px;
+}
+@media(max-width: 991px){
+    .grupo .container{
+        grid-template-columns: 2fr 1fr;
+        padding: 10px; 
+    }
+}
+
+@media(max-width: 768px){
+    .grupo .container{
+  
+        grid-template-columns:1fr;
+        
+        padding: 10px; 
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Parte de hoteles*/
+/* room */
+
+/*.hoteles .room{
+    margin: 40px 0;
+}*/
+.hoteles{
+    margin: 40px 0;
+}
+.room{
+    margin: 45px 0;
+    padding-bottom: 25px;
+    background: black;
+    color: white;
+}
+.room-text{
+    padding: 5px 20px;
+}
+.room-text h3{
+
+    font-size: 30px;
+}
+.room-text ul{
+    list-style-type: none;
+    margin: 20px 0;
+}
+.room-text ul li{
+    padding: 7px 0;
+    font-size: 18px;
+}
+.room-text p{
+    font-size: 18px;
+}
+
+.room-text ul li i{
+    color: yellowgreen;
+    margin-right: 10px;
+} 
+.rate{
+    opacity: 0.8;
+}
+.rate span{
+    font-size: 40px;
+    font-weight: 900;
+    color: yellow;
+}
+.room-image{
+    overflow: hidden;
+}
+.room-image img{
+    transition: all 0.7s ease;
+}
+.room-image:hover img{
+    transform: scale(1.1);
+}
+/**/
+.galeria .caja-contenido{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(27rem,1fr) );
+    gap: 1.5rem;
+    
+}
+.galeria .caja-contenido .caja{
+    border-radius: 1rem;
+    overflow: hidden;
+    background: #72cb10;
+
+}
+.galeria .caja-contenido .caja .imagen{
+    height: 20rem;
+    overflow: hidden;
+    width: 100%;
+
+}
+.galeria .caja-contenido .caja .imagen img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+
+}
+
+.galeria .caja-contenido .caja .imagen img:hover{
+    transform: scale(1.1);
+
+}
+.galeria .caja-contenido .caja .contenido{
+   padding: 2rem;
+   text-align: center;
+
+}
+.galeria .caja-contenido .caja .contenido h3{
+    font-size: 2rem;
+    color:red;
+    
+}
+.galeria .caja-contenido .caja .contenido p{
+    padding: 1rem 0;
+    font-size: 1.4rem;
+    color:black;
+    line-height: 1.2;
+    
+}
+.galeria .caja-contenido .caja .contenido a{
+    font-size: 1.7rem;
+    color: blue;
+    
+}
+.galeria .caja-contenido .caja .contenido a:hover i{
+    padding-left: 1rem;
+    
+}
+.galeria .caja-contenido .caja .contenido a i{
+    padding: .5rem;
+    
+}
+
+/*Parte de ayuda*/
+.contact .row{
+    display: flex;
+    align-items: flex-start;
+    gap: 3rem;
+    flex-wrap: wrap;
+    
+    
+}
+ 
+.contact .row form{
+    flex: 1 1 45rem;
+    border: .5rem solid rgb(231, 152, 6);
+    border-radius: .5rem;
+    padding: 2rem;
+    text-align: center;
+}
+ 
+.contact .row .faq{
+    flex: 1 1 40rem;
+    padding: 2rem;
+}
+ 
+.contact .row form h3{
+    margin-bottom: 1rem;
+    border-radius: .5rem;
+    padding: 1.5rem;
+    color:#89d631;
+    background-color: black;
+    font-size: 2.2rem;
+    text-transform: capitalize;
+}
+ 
+.contact .row form .box{
+    padding: 1rem 0;
+    margin: 1rem 0;
+    border-bottom: .1rem solid rgba(220, 198, 156, .3);
+    font-size: 1.8rem;
+    color: black;
+    background:#89d631;
+    width: 100%;
+}
+ 
+.contact .row form .box::placeholder{
+    color: rgba(148, 7, 7, 0.6);
+}
+ 
+.contact .row form textarea{
+    height: 15rem;
+    resize: none;
+}
+ 
+.contact .row .faq .title{
+    padding-bottom: .5rem;
+    font-size: 2.5rem;
+    color:#89d631;
+    text-transform: capitalize;
+    text-align: center;
+}
+ 
+.contact .row .faq .box{
+    border-radius: .5rem;
+    border: .1rem solid rgba(20, 20, 20, 0.3);
+    margin-top: 2rem;
+}
+ 
+.contact .row .faq .box h3{
+    background-color: black;
+    color:#89d631;
+    padding: 1.5rem;
+    font-size: 2rem;
+    border-radius: .5rem;
+    cursor: pointer;
+}
+ 
+.contact .row .faq .box p{
+    padding:1.5rem 2rem;
+    line-height: 2;
+    font-size: 1.6rem;
+    color:black;
+    display: none;
+}
+ 
+.contact .row .faq .box.active p{
+    display: inline-block;
+}
+
+
+.brand-container{
+    text-align: center;
+    
+}
+.footer{
+    background: #333;
+}
+
+.footer .caja-contenido{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+.footer .caja-contenido .caja{
+    padding:1rem 0 ;
+    flex: 1 1 25rem;
+}
+
+.footer .caja-contenido .caja h3{
+    font-size: 2.5rem;
+    padding: .7rem 0;
+    color: #fff;
+}
+.footer .caja-contenido .caja p{
+    font-size: 1.5rem;
+    padding: .7rem 0;
+    color: #eee;
+}
+.footer .caja-contenido .caja a{
+    display: block;
+    font-size: 1.5rem;
+    padding: .7rem 0;
+    color: #eee;
+}
+.footer .caja-contenido .caja a:hover{
+   
+    color: var(--naranja);
+    text-decoration:underline ;
+}
+.footer .credito{
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 1rem;
+    font-size: 2rem;
+    font-weight: normal;
+    color: #fff;
+    border-top: .1rem solid rgb(255,255,255,.2);
+}
+.footer .credito span {
+    color: var(--naranja);
+}
+.brand-container .swiper-slide img{
+    height: 13rem;
+    width: 13rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+
+
+.hoteles .caja-contenido{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.hoteles .caja-contenido .caja{
+    flex: 1 1 30rem;
+    border-radius:  .5rem;
+    overflow: hidden;
+    box-shadow:0 1 2rem rgba(0, 0, 0, 0.1) ;
+}
+
+.hoteles .caja-contenido .caja img{
+    height: 25rem;
+    width: 100%;
+    object-fit: cover;
+}
+.hoteles .caja-contenido .caja .content{
+    padding: 2rem;
+}
+.hoteles .caja-contenido .caja .content h3{
+    font-size: 2rem;
+    color: #333;
+
+}
+.hoteles .caja-contenido .caja .content h3 i{
+    color: var(--naranja);
+}
+.hoteles .caja-contenido .caja .content p{
+    font-size: 1.7rem;
+    font-family: serif, monospace;
+    text-transform: none;
+    color: #666;
+    padding: 1rem 0;
+}
+.hoteles .caja-contenido .caja .content .estrellas i{
+    font-size: 1.7rem;
+    color: var(--naranja);
+}
+.hoteles .caja-contenido .caja .content .precio{
+    font-size:  2rem;
+    color: #333;
+    padding-top: 1rem;
+
+}
+.hoteles .caja-contenido .caja .content .precio span{
+    color: #666;
+    font-size: 1.5rem;
+    text-decoration: line-through ;
+}
+
+
+@media(min-width: 1370px){
+    .rooms-container{
+        flex-direction: column;
+    }
+    .room{
+        display: flex;
+        padding-bottom: 0;
+        margin: 5px 0;
+    }
+    .room-image{
+        flex: 1;
+    }
+    .room-image img{
+        height: 100%;
+    }
+    .room-text{
+        flex: 1;
+    }
+    .room:nth-child(even){
+        flex-direction: row-reverse;
+    }
+}
+
+
+
+
+
+/*Las media queries*/
+@media (max-width:1200px){
+    html{
+       font-size: 55%;
+    }
+}
+@media (max-width:991px){
+    header{
+        padding: 2rem;
+        
+    }
+    section{
+        padding: 2rem;
+    }
+
+    .rooms-container{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .room{
+        flex: 0 0 calc(50% - 20px);
+        margin: 10px;
+    }
+
+}
+@media (max-width:768px){
+    #menu-bar{
+        display: initial;
+    }
+    header{
+        height: 13rem;
+    }
+    header .navbar{
+        position: absolute;
+        top:100%;
+        right: 0;
+        left: 0;
+        background: #89d631; /*cambia de color los botones de busqueda*/
+        border-top: .1rem solid rgb(255,255,255,.2);
+        padding:1rem 2rem;
+        clip-path: polygon(0 0,100% 0, 100% 0, 0 0); /*desaparece la barra*/
+
+    }
+    header .navbar.active{
+        clip-path: polygon(0 0,100% 0, 100% 100%, 0 100%);
+    }
+    header .navbar a{
+        display: block;
+        border-radius:  .5rem;
+        padding: 1.5rem;
+        margin: 1.2rem 0;
+        background: #a9e159; /*meter color a la parte de los botones*/
+
+    }
+   /**/
+   header {
+    position: relative;
+   }
+  
+   header .logo {
+    position: relative;
+    z-index: 1;
+    font-size: 2rem;
+    top:5rem;
+
+    left: 3%;
+
+  }
+  
+   header img {
+    position: absolute;
+    top: 0;
+  
+    left: 50%; /* Centra el logo horizontalmente */
+    transform: translateX(-50%); /* Centra el logo horizontalmente */
+    z-index: 0;
+  }
+}
+
+@media (max-width:450px){
+    html{
+       font-size: 50%;
+    }
+    .encabezado span{
+       font-size: 2.5rem;
+    }
+}
+

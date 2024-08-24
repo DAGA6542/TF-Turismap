@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turismapp.com</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+/>
+   <!--- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" /> -->
+    <!--Link de la letras que usaremos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <!--poener bien el liink con css al final-->
+    <!-- Link del css-->
+    <link rel="stylesheet" href="./styles.css">
+
+</head>
+
+
+<body>
+    <!-- Header secciones de estrellas  -->
+    <header>
+        <div id="menu-bar" class="fas fa-bars"></div>
+        
+        <img class="imagen" src="./img/logo.png" alt="">
+        <a href="#" class="logo"> <span>Turis</span>Mapp</a><!--Parte del logo-->
+        
+        <nav class="navbar">
+            <a href="./index.html">Inicio</a>
+            <a href="./pages/nosotros.html">Nosotros</a>
+            <a href="./pages/Festividad.html">Festividades</a>
+            <a href="./pages/centros.html">Centros</a>
+            <a href="./pages/hoteles.html">Hoteles</a>
+            <a href="./pages/resturante.html">Restaurantes</a>
+            <a href="./pages/ayuda.html">Ayuda</a>
+
+        </nav>
+
+        <div class="iconos">
+            <i class="fas fa-search" id="search-btn"></i>
+            <i class="fas fa-user"  id="login-btn"></i>
+        </div>
+
+        <form action="" class="barra-busqueda"> <!--search-bar-container-->
+            <input type="search" id="search-bar" placeholder="Escribe aqui..">
+            <label for="search-bar" class="fas fa-search"></label>
+
+        </form>
+    </header>
+
+    <div class="inicio-sesion">
+        <i class="fas fa-time" id="form-close"></i>
+        <form action="">
+            <h3>login</h3>
+            <input type="email" class="box" placeholder="Ingresa tu email">
+            <input type="password" class="box" placeholder="Ingresa tu contraseña">
+            <input type="submit" value="Ingresar" class="btn"> <!--Login now= ingresar-->
+            <input type="checkbox" id="recordar"> <!--remenber-->
+            <label for="recordar"> Recuerdame </label>
+            <p>¿Olvidaste la contraseña? <a href="#">Click aqui</a></p>
+            <p>¿No tienes una cuenta? <a href="#">Registrate</a></p>
+
+
+        </form>
+       
+    </div>
+    
+    <section class="inicio" id="inicio">  <!--home-->
+        <div class="contenido">
+            <h3>Viaja y disfruta </h3>
+            <p> ¿Estás buscando una aventura verdaderamente emocionante? 
+                ¡Explora nuevos lugares con nosotros y vive una experiencia única!</p>
+            <a href="#" class="btn"> Descubre mas</a>
+        </div>
+        <div class="control">
+            <span class="vid-btn active" data-src="img/video-1.mp4"></span>
+            
+            <span class="vid-btn" data-src="img/video-2.mp4"></span>
+            <span class="vid-btn" data-src="img/video-3.mp4"></span>
+            <span class="vid-btn" data-src="img/video-4.mp4"></span>
+            <span class="vid-btn" data-src="img/video-5.mp4"></span>
+
+        </div>
+
+        <div class="video-contenido">
+            <video src="img/video-1.mp4" id="video-slider" loop autoplay muted></video>
+        </div>
+
+    </section>
+
+   
+
+
+    <section class="footer">
+        <div class="caja-contenido">
+
+            <div class="caja">
+                <h3>Sobre Nosotros</h3>
+                <p>Somos una empresa pequeña que ayudara tanto a los turistcas locales como internacionales mediante la IA en la aplicacion a poder disfrutar al 100% las hermosas vistas de lugares turisticos del Peru</p>
+
+            </div>
+            <div class="caja">
+                <h3>Localizacion</h3>
+                <a href="#">Peru</a>
+            </div>
+            <div class="caja">
+                <h3>Links</h3>
+                <a href="./index.html">Inicio</a>
+                <a href="./pages/nosotros.html">Nosotros</a>
+                <a href="./pages/Festividad.html">Festividades</a>
+                <a href="./pages/centros.html">Centros</a>
+                <a href="./pages/hoteles.html">Hoteles</a>
+                <a href="./pages/resturante.html">Restaurantes</a>
+                <a href="./pages/ayuda.html">Ayuda</a>
+            </div>
+
+            <div class="caja">
+                <h3>Siguenos</h3>
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">twitter</a>
+                
+            </div>
+
+        </div>
+        <h1 class="credito"> Creado por <span> Equipo Turismapp</span> todos los derechos reservados</h1>
+
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+    <!--<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>-->
+    <!-- Link de javascript-->
+    <script src="./script.js"></script>
+ 
+</body>
+</html>

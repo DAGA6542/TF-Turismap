@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centros Turisticos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+/>
+    <!--Link de la letras que usaremos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <!--poener bien el liink con css al final-->
+    <!-- Link del css-->
+    <link rel="stylesheet" href="../styles.css">
+
+</head>
+
+
+<body>
+    <!-- Header secciones de estrellas  -->
+    <header>
+        <div id="menu-bar" class="fas fa-bars"></div>
+        <img class="imagen" src="../img/logo.png" alt="">
+
+        <a href="#" class="logo"> <span>Turis</span>Mapp</a><!--Parte del logo-->
+        
+        <nav class="navbar">
+            <a href="../index.html">Inicio</a>
+            <a href="../pages/nosotros.html">Nosotros</a>
+            <a href="../pages/Festividad.html">Festividades</a>
+            <a href="../pages/centros.html">Centros</a>
+            <a href="../pages/hoteles.html">Hoteles</a>
+            <a href="../pages/resturante.html">Restaurantes</a>
+            <a href="../pages/ayuda.html">Ayuda</a>
+
+        </nav>
+
+        <div class="iconos">
+            <i class="fas fa-search" id="search-btn"></i>
+            <i class="fas fa-user"  id="login-btn"></i>
+        </div>
+
+        <form action="" class="barra-busqueda"> <!--search-bar-container-->
+            <input type="search" id="search-bar" placeholder="Escribe aqui..">
+            <label for="search-bar" class="fas fa-search"></label>
+
+        </form>
+    </header>
+
+    <div class="inicio-sesion">
+        <i class="fas fa-time" id="form-close"></i>
+        <form action="">
+            <h3>login</h3>
+            <input type="email" class="box" placeholder="Ingresa tu email">
+            <input type="password" class="box" placeholder="Ingresa tu contraseña">
+            <input type="submit" value="Ingresar" class="btn"> <!--Login now= ingresar-->
+            <input type="checkbox" id="recordar"> <!--remenber-->
+            <label for="recordar"> Recuerdame </label>
+            <p>¿Olvidaste la contraseña? <a href="#">Click aqui</a></p>
+            <p>¿No tienes una cuenta? <a href="#">Registrate</a></p>
+
+        </form>
+    </div>
+    <section class="centros" id="centros"> <!--pakages       heading-->
+        
+        <h1 class="encabezado">
+            <span>C</span>
+            <span>e</span>
+            <span>n</span>
+            <span>t</span>
+            <span>r</span>
+            <span>o</span>
+            <span>s</span>
+            <span class="espacio"></span>
+            <span>T</span>
+            <span>u</span>
+            <span>r</span>
+            <span>i</span>
+            <span>s</span>
+            <span>t</span>
+            <span>i</span>
+            <span>c</span>
+            <span>o</span>
+            <span>s</span>
+        </h1>
+        <div class="caja-contenido"> <!--box-container-->
+
+            <div class="caja"> <!--box-->
+
+                <img src="../img/machu.jpg" alt="Imagen" onmouseover="document.getElementById('audio').play();" style="cursor: pointer;"> <!-- Reemplaza 'ruta_de_la_imagen.jpg' con la ubicación de tu imagen -->
+                <audio id="audio" src="../aud/machupicchu1.mp3" preload="auto"></audio>
+
+                <div class="content">
+                    <h3> <i class="fas fa-map-marker-alt"></i> Machu Picchu</h3>
+                    <p>Machu Picchu es el sitio arqueológico inca más sobresaliente debido a su creativo diseño urbano, la belleza de su arquitectura y el fino trabajo en piedra de sus construcciones. En su planificación se aprovechó notablemente la topografía de la cima de la montaña a la que transformó en una imponente llaqta.</p>
+                    <div class="estrellas"> <!--stars-->
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="precio"> S/150.00 <span> S/120.00</span></div>
+                    <a href="#" class="btn">Reservar ahora</a>
+                </div>
+            </div>
+
+
+            <div class="caja"> <!--box-->
+                
+                <img src="../img/imagen-2.jpg" alt="Imagen" onmouseover="document.getElementById('cerro').play();" style="cursor: pointer;"> <!-- Reemplaza 'ruta_de_la_imagen.jpg' con la ubicación de tu imagen -->
+                <audio id="cerro" src="../aud/cerro-colores.mp3" preload="auto"></audio>
+                
+                <div class="content">
+                    <h3> <i class="fas fa-map-marker-alt"></i> Cerro de Colores</h3>
+                    <p>Se trata de la montaña de los Siete Colores, también conocida como Vinicunca o Arcoíris. El monte se encuentra en la Cordillera del Vilcanota a 5.200 metros sobre el nivel del mar, en el distrito de Pitumarca. Sus laderas y cumbres están teñidas por unas franjas de intensos tonos de fucsia, turquesa, lavanda y dorado.</p>
+                    <div class="estrellas"> <!--stars-->
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="precio"> S/150.00 <span> S/120.00</span></div>
+                    <a href="#" class="btn">Reservar ahora</a>
+                </div>
+            </div>
+
+
+            <div class="caja"> <!--box-->
+
+                <img src="../img/chavin.jpg" alt="Imagen" onmouseover="document.getElementById('chavin').play();" style="cursor: pointer;"> <!-- Reemplaza 'ruta_de_la_imagen.jpg' con la ubicación de tu imagen -->
+                <audio id="chavin" src="../aud/chavin-huantar.mp3" preload="auto"></audio>
+              
+                <div class="content">
+                    <h3> <i class="fas fa-map-marker-alt"></i> Chavin de Huantar</h3>
+                    <p>Chavín de Huántar es un complejo arqueológico construido por la cultura chavín entre los siglos II y I antes de Cristo y utilizado hasta el 200 a. C., cuando fue abandonado. Este impresionante lugar está ubicado en las faldas de la cordillera de los Andes, en el punto en el que se juntan los ríos Mosna y Huacheqsa.</p>
+                    <div class="estrellas"> <!--stars-->
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="precio"> S/180.00 <span> S/250.00</span></div>
+                    <a href="#" class="btn">Reservar ahora</a>
+                </div>
+            </div>
+
+
+            <div class="caja"> <!--box-->
+
+                <img src="../img/sondor.jpeg" alt="Imagen" onmouseover="document.getElementById('sondor').play();" style="cursor: pointer;"> <!-- Reemplaza 'ruta_de_la_imagen.jpg' con la ubicación de tu imagen -->
+                <audio id="sondor" src="../aud/sondor.mp3" preload="auto"></audio>
+
+                <div class="content">
+                    <h3> <i class="fas fa-map-marker-alt"></i> Sondor de Andahuaylas</h3>
+                    <p>Sóndor es un complejo arqueológico de la cultura Chanca, antecesora al Imperio Incaico (aunque gran parte de la arquitectura visible es incaica). Está situado en el valle la laguna Pacucha, en los andes central de Perú, a 21 kilómetros al noreste de Andahuaylas. Pertenece al distrito de Pacucha.1 Sóndor ostenta una antigüedad de 2,000 años a. C. A Sóndor concurrían en fechas claves del calendario agrícola, es decir en cada uno de los solsticios y equinoccios, en el cual desarrollaban una serie de fiestas rituales, así mismo se celebraba el reencuentro entre comunidades lejanas.</p>
+                    <div class="estrellas"> <!--stars-->
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="precio"> S/80.00 <span> S/120.00</span></div>
+                    <a href="#" class="btn">Reservar ahora</a>
+                </div>
+            </div>
+
+            
+            <div class="caja"> <!--box-->
+
+                <img src="../img/sacsayhuaman.jpg" alt="Imagen" onmouseover="document.getElementById('sacsa').play();" style="cursor: pointer;"> <!-- Reemplaza 'ruta_de_la_imagen.jpg' con la ubicación de tu imagen -->
+                <audio id="sacsa" src="../aud/sacsa.mp3" preload="auto"></audio>
+
+                <div class="content">
+                    <h3> <i class="fas fa-map-marker-alt"></i> Sacsayhuaman</h3>
+                    <p>Sacsayhuaman es un lugar icónico que muestra la maravillosa arquitectura de los incas. Ubicado a 2 km de la ciudad del Cusco y a una altura de 3600 m.s.n.m., los turistas pueden llegar a pie en 25 minutos o en auto en 10 minutos, para disfrutar de las 3.093 hectáreas del Parque Arqueológico.</p>
+                    <div class="estrellas"> <!--stars-->
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="precio"> S/110.00 <span> S/160.00</span></div>
+                    <a href="#" class="btn">Reservar ahora</a>
+                </div>
+            </div>
+
+            <div class="caja"> <!--box-->
+
+                <img src="../img/Kuelap.jpg" alt="Imagen" onmouseover="document.getElementById('kuel').play();" style="cursor: pointer;"> <!-- Reemplaza 'ruta_de_la_imagen.jpg' con la ubicación de tu imagen -->
+                <audio id="kuel" src="../aud/Kuélap.mp3" preload="auto"></audio>
+
+                <div class="content">
+                    <h3> <i class="fas fa-map-marker-alt"></i> Kuelap</h3>
+                    <p>Ubicada a 3000 m s. n. m., en la cima de una montaña que domina el estrecho valle del río Utcubamba, esta imponente fortaleza, de seis hectáreas de extensión, es una de las más grandes de América. Fue descubierta en 1843 por Juan Crisóstomo Nieto, en ese entonces juez de Chachapoyas, durante una expedición por la zona.</p>
+                    <div class="estrellas"> <!--stars-->
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="precio"> S/140.00 <span> S/180.00</span></div>
+                    <a href="#" class="btn">Reservar ahora</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="book" id="book">
+        <h1 class="encabezado"> <!--heading-->
+            <span>r</span>
+            <span>e</span>
+            <span>s</span>
+            <span>e</span>
+            <span>r</span>
+            <span>v</span>
+            <span>a</span>
+            <span>r</span>
+            <span class="espacio"> </span>
+            <span>a</span>
+            <span>h</span>
+            <span>o</span>
+            <span>r</span>
+            <span>a</span>
+
+        </h1>
+
+        <div class="lista"> <!--lista-->
+            <div class="imagen">
+                <img src="../img/plazamayorcusco.jpg" height="1000" wigth="565">
+            </div>
+            <form action="">
+                <div class="inputBox">
+                    <h3>Lugar o Centro Turistico</h3>
+                    <input type="text" placeholder="Nombre ">
+                </div>
+
+                <div class="inputBox">
+                    <h3>Cantidad de personas</h3>
+                    <input type="number" placeholder="Numero" min="0" > 
+                </div>
+
+                <div class="inputBox">
+                    <h3>Fecha de viaje</h3>
+                    <input type="date">
+                </div>
+
+                <div class="inputBox">
+                    <h3>Fecha de retorno</h3>
+                    <input type="date">
+                </div>
+                  <input type="submit" class="btn" value="reservar ahora">
+            </form>
+        </div>
+
+    </section> 
+
+    
+   
+
+    <section class="footer">
+        <div class="caja-contenido">
+
+            <div class="caja">
+                <h3>Sobre Nosotros</h3>
+                <p>Somos una empresa pequeña que ayudara tanto a los turistcas locales como internacionales mediante la IA en la aplicacion a poder disfrutar al 100% las hermosas vistas de lugares turisticos del Peru</p>
+
+            </div>
+            <div class="caja">
+                <h3>Localizacion</h3>
+                <a href="#">Peru</a>
+            </div>
+            <div class="caja">
+                <h3>Links</h3>
+                <a href="../index.html">Inicio</a>
+                <a href="../pages/nosotros.html">Nosotros</a>
+                <a href="../pages/Festividad.html">Festividades</a>
+                <a href="../pages/centros.html">Centros</a>
+                <a href="../pages/hoteles.html">Hoteles</a>
+                <a href="../pages/resturante.html">Restaurantes</a>
+                <a href="../pages/ayuda.html">Ayuda</a>
+            </div>
+
+            <div class="caja">
+                <h3>Siguenos</h3>
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">twitter</a>
+                
+            </div>
+
+        </div>
+        <h1 class="credito"> Creado por <span> Equipo Turismapp</span> todos los derechos reservados</h1>
+
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+    
+    
+
+    <!-- Link de javascript-->
+    <script src="../script.js"></script>
+ 
+</body>
+</html>

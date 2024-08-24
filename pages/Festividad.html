@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festividades Turisticas</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+/>
+    <!--Link de la letras que usaremos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <!--poener bien el liink con css al final-->
+    <!-- Link del css-->
+    <link rel="stylesheet" href="../styles.css">
+
+</head>
+
+
+<body>
+    <!-- Header secciones de estrellas  -->
+    <header>
+        <div id="menu-bar" class="fas fa-bars"></div>
+        <img class="imagen" src="../img/logo.png" alt="">
+
+        <a href="#" class="logo"> <span>Turis</span>Mapp</a><!--Parte del logo-->
+        
+        <nav class="navbar">
+            <a href="../index.html">Inicio</a>
+            <a href="../pages/nosotros.html">Nosotros</a>
+            <a href="../pages/Festividad.html">Festividades</a>
+            <a href="../pages/centros.html">Centros</a>
+            <a href="../pages/hoteles.html">Hoteles</a>
+            <a href="../pages/resturante.html">Restaurantes</a>
+            <a href="../pages/ayuda.html">Ayuda</a>
+
+        </nav>
+
+        <div class="iconos">
+            <i class="fas fa-search" id="search-btn"></i>
+            <i class="fas fa-user"  id="login-btn"></i>
+        </div>
+
+        <form action="" class="barra-busqueda"> <!--search-bar-container-->
+            <input type="search" id="search-bar" placeholder="Escribe aqui..">
+            <label for="search-bar" class="fas fa-search"></label>
+
+        </form>
+    </header>
+
+    <div class="inicio-sesion">
+        <i class="fas fa-time" id="form-close"></i>
+        <form action="">
+            <h3>login</h3>
+            <input type="email" class="box" placeholder="Ingresa tu email">
+            <input type="password" class="box" placeholder="Ingresa tu contraseña">
+            <input type="submit" value="Ingresar" class="btn"> <!--Login now= ingresar-->
+            <input type="checkbox" id="recordar"> <!--remenber-->
+            <label for="recordar"> Recuerdame </label>
+            <p>¿Olvidaste la contraseña? <a href="#">Click aqui</a></p>
+            <p>¿No tienes una cuenta? <a href="#">Registrate</a></p>
+
+
+        </form>
+       
+    </div>
+    
+    <section class="galeria" id="galeria">
+        <h1 class="encabezado">
+            <span>g</span>
+            <span>a</span>
+            <span>l</span>
+            <span>e</span>
+            <span>r</span>
+            <span>i</span>
+            <span>a</span>
+        </h1>
+
+        <div class="caja-contenido">
+
+            <div class="caja">
+                <div class="imagen">
+                    <img src="../img/festividad1.jpg" alt="">
+                </div>
+                <div class="contenido">
+                    <h3>Procesión en honor al Señor de los Milagros en Lima</h3>
+                    <p>La imagen del Señor de los Milagros representa la fe más significativa de
+                        los limeños. Cuenta la historia que su imagen fue pintada en 1651
+                        por un esclavo africano en el poblado de Pachacamilla, al sur de
+                        la ciudad. En el terremoto de 1665 se vino abajo toda la construcción 
+                        a excepción del muro donde yacía esta imagen. 
+                    </p>
+                    <p>Fecha: 18, 19 y 28 de octubre.</p>
+                    <a href="#">Leer mas <i class="fas fa-angle-right"></i></a>
+
+                </div>
+
+            </div>
+
+            <div class="caja">
+                <div class="imagen">
+                    <img src="../img/festividad3.jpg" alt="">
+                </div>
+                <div class="contenido">
+                    <h3>Fiesta de los Carnavales (Cajamarca)</h3>
+                    <p>Los carnavales están presentes en varios países de Sudamérica. 
+                    En Perú éstos se caracterizan por los juegos con agua, talco, picapica
+                    así como las danzas, música y la alegría general. Los carnavales de Cajamarca se caracterizan 
+                     por el color, las danzas, la música y alegría general.
+                    </p>
+                    <p>Fecha: A finales de febrero o principios de marzo (fecha movible).</p>
+                   
+                    <a href="#">Leer mas <i class="fas fa-angle-right"></i></a>
+
+                </div>
+
+            </div>
+
+            <div class="caja">
+                <div class="imagen">
+                    <img src="../img/festividad4.jpg" alt="">
+                </div>
+                <div class="contenido">
+                    <h3>Corpus Christi</h3>
+                    <p>El Corpus Christi es una celebración religiosa cristiana instaurada 
+                        en el Perú durante los inicios de la colonia española en el siglo XVI.
+                         Se lleva a cabo en distintas regiones del país, especialmente en Cusco
+                          donde se lleva a cabo la famosa procesión de los quince principales
+                           santos y vírgenes de la ciudad.
+                    </p>
+                    <p>Fecha: 9 semanas después del Jueves Santo (fecha movible).</p>
+                    <a href="#">Leer mas <i class="fas fa-angle-right"></i></a>
+
+                </div>
+
+            </div>
+
+            <div class="caja">
+                <div class="imagen">
+                    <img src="../img/festividad2.jpg" alt="">
+                </div>
+                <div class="contenido">
+                    <h3>Fiesta de la Virgen de la Calendaria</h3>
+                    <p>La fiesta en homenaje a la Virgen de la Candelaria se celebra 
+                    en varios pueblos del Perú. Sin embargo, es en la ciudad de Puno
+                    donde se manifiesta con más arraigo y alegría. Allí se mezclaron
+                    las tradiciones cristianas junto con la cosmovisión de los pueblos 
+                    aymaras. 
+                    </p>
+                    <p>Fecha: 2 de febrero.</p>
+                    <a href="#">Leer mas <i class="fas fa-angle-right"></i></a>
+
+                </div>
+
+            </div>
+
+            <div class="caja">
+                <div class="imagen">
+                    <img src="../img/festividad5.jpg" alt="">
+                </div>
+                <div class="contenido">
+                    <h3>El Inti Raymi (Cuzco)</h3>
+                    <p>El Inti Raymi es la ‘Fiesta del sol’, una celebración religiosa de origen
+                         inca que se celebra en el Cusco. Se lleva a cabo en el
+                          solsticio de invierno (24 de junio), cuando el sol está más
+                           cerca de la tierra. Los incas rendían culto al sol en esta 
+                           fecha mediante una multitudinaria ceremonias en el templo del Coricancha
+                    </p>
+                    <p>
+                        Fecha: 24 de junio.
+                    </p>
+                    <a href="#">Leer mas <i class="fas fa-angle-right"></i></a>
+
+                </div>
+
+            </div>
+
+            <div class="caja">
+                <div class="imagen">
+                    <img src="../img/festividad6.jpg" alt="">
+                </div>
+                <div class="contenido">
+                    <h3>Yawar fiesta</h3>
+                    <p>Es una fiesta que se celebra en diversas ciudades o pueblos de los andes peruanos, 
+                        es la lucha del cóndor que representa al hombre campesino…
+                    </p>
+                    <p>Fecha:
+                        El Yawar Fiesta se celebra en los últimos días del mes de Julio de cada año.</p>
+                    <a href="#">Leer mas <i class="fas fa-angle-right"></i></a>
+
+                </div>
+
+            </div>
+
+            <div class="caja">
+                <div class="imagen">
+                    <img src="../img/festividad7.jpg" alt="">
+                </div>
+                <div class="contenido">
+                    <h3>El Señor de los Temblores
+                    </h3>
+                    <p>Desde aquel terremoto del 31 de agosto de 1960,
+                         cuando el milagroso santo hizo parar el movimiento telúrico, quedo impregnado en la memoria del pueblo…
+                    </p>
+                    <p>Fecha: 31 de marzo</p>
+                    <a href="#">Leer mas <i class="fas fa-angle-right"></i></a>
+
+                </div>
+
+            </div>
+
+            <div class="caja">
+                <div class="imagen">
+                    <img src="../img/festividad8.jpg" alt="">
+                </div>
+                <div class="contenido">
+                    <h3>Semana Santa en Ayacucho
+                    </h3>
+                    <p>La Semana Santa ayacuchana es una de las festividades religiosas de mayor trascendencia 
+                        a nivel nacional y mundial, caracterizadas por mantener su propia peculiaridad y…
+                    </p>
+                    <p>Fecha:
+                        La Semana Santa en Ayacucho se celebra entre la segunda quincena de Marzo a la primera semana de Abril, la fecha es cambiante.</p>
+                    <a href="#">Leer mas <i class="fas fa-angle-right"></i></a>
+
+                </div>
+
+            </div>
+
+            <div class="caja">
+                <div class="imagen">
+                    <img src="../img/festividad9.jpg" alt="">
+                </div>
+                <div class="contenido">
+                    <h3>Fiesta de San Juan</h3>
+                    <p>El 24 de junio de todos los años se celebra en toda la Amazonía peruana la 
+                        fiesta de San Juan Bautista patrono de esta región,…
+                    </p>
+                    <p>
+                        Fecha:
+                        La fiesta de San Juan se celebra el 24 de junio de cada año</p>
+                    <a href="#">Leer mas <i class="fas fa-angle-right"></i></a>
+
+                </div>
+
+            </div>
+
+            <div class="caja">
+                <div class="imagen">
+                    <img src="../img/festividad10.jpg" alt="">
+                </div>
+                <div class="contenido">
+                    <h3>Mistura</h3>
+                    <p>Es la feria gastronómica más importante del Perú, 
+                        los peruanos de los diferentes géneros, edades, sectores sociales, 
+                        celebran su tradición culinaria, para así mostrar la…
+                    </p>
+                    <p>Fecha:En primera mitad del mes de Setiembre, de todos los años.</p>
+                    <a href="#">Leer mas <i class="fas fa-angle-right"></i></a>
+
+                </div>
+
+            </div>
+
+            <div class="caja">
+                <div class="imagen">
+                    <img src="../img/festividad12.jpg" alt="">
+                </div>
+                <div class="contenido">
+                    <h3>Santurantikuy
+                    </h3>
+                    <p>Significa “venta de santos” en pequeños tamaños, hechos a base 
+                        de materiales artesanales, son figurillas de barro que representan el
+                         nacimiento del niño Jesus, se…
+                    </p>
+                    <p>Fecha:
+                        El Santurantikuy se celebra todos los años, el 24 de Diciembre</p>
+                    <a href="#">Leer mas <i class="fas fa-angle-right"></i></a>
+
+                </div>
+
+            </div>
+
+
+            <div class="caja">
+                <div class="imagen">
+                    <img src="../img/festividad11.jpg" alt="">
+                </div>
+                <div class="contenido">
+                    <h3>El Señor de Qoyllur Rit'i
+                    </h3>
+                    <p>Es una peregrinación que hacen los devotos al nevado del Ausangate. 
+                        Se realiza cada año en el mes de mayo o junio, la fecha no…
+                    </p>
+                    <p>Fecha: Entre los meses de Mayo y junio, la fecha es movible</p>
+                    <a href="#">Leer mas <i class="fas fa-angle-right"></i></a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </section>
+    
+
+    <section class="footer">
+        <div class="caja-contenido">
+
+            <div class="caja">
+                <h3>Sobre Nosotros</h3>
+                <p>Somos una empresa pequeña que ayudara tanto a los turistcas locales como internacionales mediante la IA en la aplicacion a poder disfrutar al 100% las hermosas vistas de lugares turisticos del Peru</p>
+
+            </div>
+            <div class="caja">
+                <h3>Localizacion</h3>
+                <a href="#">Peru</a>
+            </div>
+            <div class="caja">
+                <h3>Links</h3>
+                <a href="../index.html">Inicio</a>
+                <a href="../pages/nosotros.html">Nosotros</a>
+                <a href="../pages/Festividad.html">Festividades</a>
+                <a href="../pages/centros.html">Centros</a>
+                <a href="../pages/hoteles.html">Hoteles</a>
+                <a href="../pages/resturante.html">Restaurantes</a>
+                <a href="../pages/ayuda.html">Ayuda</a>
+            </div>
+
+            <div class="caja">
+                <h3>Siguenos</h3>
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">twitter</a>
+                
+            </div>
+
+        </div>
+        <h1 class="credito"> Creado por <span> Equipo Turismapp</span> todos los derechos reservados</h1>
+
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  
+
+    
+
+    <!-- Link de javascript-->
+    <script src="../script.js"></script>
+ 
+</body>
+</html>

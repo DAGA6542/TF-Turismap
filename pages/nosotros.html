@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turismapp</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+    <!--Link de la letras que usaremos -->
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <!--poener bien el liink con css al final-->
+    <!-- Link del css-->
+    <link rel="stylesheet" href="../styles.css">
+
+</head>
+
+
+<body>
+    <!-- Header secciones de estrellas  -->
+    <header>
+        <div id="menu-bar" class="fas fa-bars"></div>
+        <img class="imagen" src="../img/logo.png" alt="">
+
+        <a href="#" class="logo"> <span>Turis</span>Mapp</a><!--Parte del logo-->
+        
+        <nav class="navbar">
+            <a href="../index.html">Inicio</a>
+            <a href="./nosotros.html">Nosotros</a>
+            <a href="../pages/Festividad.html">Festividades</a>
+            <a href="../pages/centros.html">Centros</a>
+            <a href="../pages/hoteles.html">Hoteles</a>
+            <a href="../pages/resturante.html">Restaurantes</a>
+            <a href="../pages/ayuda.html">Ayuda</a>
+
+        </nav>
+
+        <div class="iconos">
+            <i class="fas fa-search" id="search-btn"></i>
+            <i class="fas fa-user"  id="login-btn"></i>
+        </div>
+
+        <form action="" class="barra-busqueda"> <!--search-bar-container-->
+            <input type="search" id="search-bar" placeholder="Escribe aqui..">
+            <label for="search-bar" class="fas fa-search"></label>
+
+        </form>
+    </header>
+
+    <div class="inicio-sesion">
+        <i class="fas fa-time" id="form-close"></i>
+        <form action="">
+            <h3>login</h3>
+            <input type="email" class="box" placeholder="Ingresa tu email">
+            <input type="password" class="box" placeholder="Ingresa tu contraseña">
+            <input type="submit" value="Ingresar" class="btn"> <!--Login now= ingresar-->
+            <input type="checkbox" id="recordar"> <!--remenber-->
+            <label for="recordar"> Recuerdame </label>
+            <p>¿Olvidaste la contraseña? <a href="#">Click aqui</a></p>
+            <p>¿No tienes una cuenta? <a href="#">Registrate</a></p>
+        </form>
+       
+    </div>
+
+     <!--Nosotros-->
+     <section class="nosotros" id="nosotros">
+
+        <h1 class="heading"> <span> Sobre </span> Nosotros </h1>
+
+        <div class="row">
+            <div class="video-container">
+                <video src="../img/video-container.mp4" loop autoplay muted></video>
+                <h3> Mejores recomendaciones </h3>
+            </div>
+
+            <div class="contenido">
+                <h3>¿Porque elegirnos?</h3>
+                <p>Turismapp se compromete a mejorar el turismo en el país así como también guiar a los turistas 
+                    en cada uno de sus viajes y así brindarles experiencias inolvidables que les darán ganas de 
+                    regresar al ver la riqueza de nuestra cultura, gastronomía, geografía y todo lo que el Perú
+                     pueda ofrecer.
+                </p>   
+               <p>
+                Misión: Nuestra misión es brindar a nuestros usuarios una mejor experiencia en sus
+                 viajes e impulsar el turismo en nuestro país. Por ello se contará con información básica
+                 de cada lugar turístico según el idioma del usuario y se notificará cada vez que esté
+                  cerca de un lugar. 
+                    
+                </p>  
+                
+                <p>
+                    Visión: Nuestra visión, a largo plazo, es ser reconocida por la mayoría de 
+                    los turistas tanto internacionales, como nacionalmente y que usen la aplicación 
+                    constantemente y al mismo tiempo que estén satisfechos con el servicio brindado,
+                     pero, principalmente, que nuestros usuarios sepan que  la aplicación es confiable
+                      y de gran ayuda.
+                </p>
+
+               
+                <a href="#" class="btn">Subir</a>
+            </div>
+        </div>
+    </section> 
+
+    <section class="grupo" id="grupo">
+        <h1 class="encabezado"> <!--heading-->
+        
+
+            <span>V</span>
+            <span>i</span>
+
+            <span>d</span>
+            <span>e</span>
+            <span>o</span>
+            <span>s</span>
+            
+        </h1>
+
+        <div class="container">
+
+            <div class="main-video">
+                <div class="video ">
+                    <video src="../img/about-product.mp4" controls ></video>
+                    <h3 class="title">01.About Product</h3>
+                </div>
+         
+            </div>
+        
+            <div class="video-list">
+                <div class="vid active ">
+                    <video src="../img/about-product.mp4" controls ></video>
+                    <h3 class="title">01.About Product</h3>
+                </div>
+                <div class="vid ">
+                    <video src="../img/about-us.mp4" controls></video>
+                    <h3 class="title">02.About us</h3>
+                </div>
+                <div class="vid ">
+                    <video src="../img/about-team.mp4" controls></video>
+                    <h3 class="title">03.About team</h3>
+                </div>
+        
+            </div>
+        </div>
+
+
+    </section>
+
+    <script>
+        let listVideo = document.querySelectorAll('.video-list .vid');
+        let mainVideo = document.querySelector('.main-video video');
+        let title = document.querySelector('.main-video .title');
+    
+        listVideo.forEach(video =>{
+            video.onclick = () =>{
+               listVideo.forEach(vid=> vid.classList.remove('active'));
+               video.classList.add ('active');
+               if(video.classList.contains ('active')){
+                    let src =video.children[0].getAttribute('src');
+                     mainVideo.src =src;
+                     let text =video.children[1].innerHTML;
+                     title.innerHTML =text;
+               };
+            };
+        });
+    
+    </script>
+    
+
+    
+    <section class="servicios" id="servicios">
+        <h1 class="encabezado"> <!--heading-->
+            <span>s</span>
+            <span>e</span>
+            <span>r</span>
+            <span>v</span>
+            <span>i</span>
+            <span>c</span>
+            <span>i</span>
+            <span>o</span>
+            <span>s</span>
+        </h1>
+
+        <div class="caja-contenido">
+            <div class="caja">
+                <i class="fas fa-hotel"></i>
+                <h3>Comodos hoteles</h3>
+                <p> Si Estás Buscando Los Mejores Hoteles Para Tu Próximo Viaje, Hay Una Gran Variedad De Opciones.</p>
+            </div>
+
+            <div class="caja">
+                <i class="fas fa-utensils"></i>
+                <h3>Comida y Bebidas</h3>
+                <p>¿Estás buscando sabores auténticos y exóticos para tu próxima salida a comer? Te invitamos a probar la deliciosa cocina peruana en algunos de los mejores restaurantes peruanos de la ciudad.</p>
+            </div>
+
+            <div class="caja">
+                <i class="fas fa-bullhorn"></i>
+                <h3>Guias turisticos</h3>
+                <p> ¿Estás planificando tu próximo viaje pero no sabes por dónde empezar? 
+                    ¿Quieres descubrir los secretos mejor guardados de tu destino?
+                     ¡Contrata a un guía turístico local para que te muestre todo lo que necesitas ver!.</p>
+            </div>
+
+            <div class="caja">
+                <i class="fas fa-globe-asia"></i>
+                <h3>Viaja por todo el Peru</h3>
+                <p> ¿Estás preparado para un viaje 
+                    que te llevará a través de la 
+                    rica y diversa cultura del Perú?
+                     ¡Ven y descubre todo lo que este 
+                     hermoso país tiene para ofrecer 
+                     con nuestro tour completo por todo 
+                     el Perú!</p>
+            </div>
+            
+            <div class="caja">
+                <i class="fas fa-plane"></i>
+                <h3>Viajes rapidos</h3>
+                <p> ¿Quieres aprovechar al máximo tu 
+                    tiempo en el Perú? ¡Nuestros 
+                    viajes rápidos son la respuesta 
+                    perfecta para ti!
+                    Nuestros viajes rápidos te llevan
+                     a los lugares más impresionantes 
+                     del Perú en un corto periodo de tiempo.</p>
+            </div>
+
+            <div class="caja">
+                <i class="fas fa-hiking"></i>
+                <h3>Aventuras</h3>
+                <p> ¿Te gusta la aventura y la emoción? 
+                    ¿Quieres experimentar la naturaleza
+                     en su máxima expresión? ¡Ven y
+                      descubre el Perú, el destino 
+                      perfecto para los amantes de 
+                      la aventura!.</p>
+            </div>
+
+        </div>
+
+
+
+    </section>
+
+    <section class="brand-container">
+        <h1 class="encabezado"> <!--heading-->
+            <span>s</span>
+            <span>o</span>
+            <span>c</span>
+            <span>i</span>
+            <span>o</span>
+            <span>s</span>
+            
+        </h1>
+
+        <div class="swiper mySwiper brand-slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="../img/brand.jpeg" alt=""></div>
+                <div class="swiper-slide"><img src="../img/brand1.png" alt=""></div>
+                <div class="swiper-slide"><img src="../img/brand2.png" alt=""></div>
+                <div class="swiper-slide"><img src="../img/brand3.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="../img/brand4.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="../img/brand5.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="../img/brand6.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="../img/brand7.jpg" alt=""></div>
+                
+             </div>
+        </div>
+        
+
+    </section>
+
+    <section class="footer">
+        <div class="caja-contenido">
+
+            <div class="caja">
+                <h3>Sobre Nosotros</h3>
+                <p>Somos una empresa pequeña que ayudara tanto a los turistcas locales como internacionales mediante la IA en la aplicacion a poder disfrutar al 100% las hermosas vistas de lugares turisticos del Peru</p>
+
+            </div>
+            <div class="caja">
+                <h3>Localizacion</h3>
+                <a href="#">Peru</a>
+            </div>
+            <div class="caja">
+                <h3>Links</h3>
+                <a href="../index.html">Inicio</a>
+                <a href="../pages/nosotros.html">Nosotros</a>
+                <a href="../pages/Festividad.html">Festividades</a>
+                <a href="../pages/centros.html">Centros</a>
+                <a href="../pages/hoteles.html">Hoteles</a>
+                <a href="../pages/resturante.html">Restaurantes</a>
+                <a href="../pages/ayuda.html">Ayuda</a>
+            </div>
+
+            <div class="caja">
+                <h3>Siguenos</h3>
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">twitter</a>
+                
+            </div>
+
+        </div>
+        <h1 class="credito"> Creado por <span> Equipo Turismapp</span> todos los derechos reservados</h1>
+
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+    <!-- Link de javascript-->
+    <script src="../script.js"></script>
+
+</body>
+</html>

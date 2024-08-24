@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turismapp</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+    <!--Link de la letras que usaremos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <!--poener bien el liink con css al final-->
+    <!-- Link del css-->
+    <link rel="stylesheet" href="../styles.css">
+
+</head>
+
+
+<body>
+    <!-- Header secciones de estrellas  -->
+    <header>
+        <div id="menu-bar" class="fas fa-bars"></div>
+        <img class="imagen" src="../img/logo.png" alt="">
+
+        <a href="#" class="logo"> <span>Turis</span>Mapp</a><!--Parte del logo-->
+        
+        <nav class="navbar">
+            <a href="../index.html">Inicio</a>
+            <a href="../pages/nosotros.html">Nosotros</a>
+            <a href="../pages/Festividad.html">Festividades</a>
+            <a href="../pages/centros.html">Centros</a>
+            <a href="../pages/hoteles.html">Hoteles</a>
+            <a href="../pages/resturante.html">Restaurantes</a>
+            <a href="../pages/ayuda.html">Ayuda</a>
+
+        </nav>
+
+        <div class="iconos">
+            <i class="fas fa-search" id="search-btn"></i>
+            <i class="fas fa-user"  id="login-btn"></i>
+        </div>
+
+        <form action="" class="barra-busqueda"> <!--search-bar-container-->
+            <input type="search" id="search-bar" placeholder="Escribe aqui..">
+            <label for="search-bar" class="fas fa-search"></label>
+
+        </form>
+    </header>
+
+    <div class="inicio-sesion">
+        <i class="fas fa-time" id="form-close"></i>
+        <form action="">
+            <h3>login</h3>
+            <input type="email" class="box" placeholder="Ingresa tu email">
+            <input type="password" class="box" placeholder="Ingresa tu contraseña">
+            <input type="submit" value="Ingresar" class="btn"> <!--Login now= ingresar-->
+            <input type="checkbox" id="recordar"> <!--remenber-->
+            <label for="recordar"> Recuerdame </label>
+            <p>¿Olvidaste la contraseña? <a href="#">Click aqui</a></p>
+            <p>¿No tienes una cuenta? <a href="#">Registrate</a></p>
+
+
+        </form>
+       
+    </div>
+    <section class="ayuda" id="ayuda">
+
+        <h1 class="encabezado">
+            <span>C</span>
+            <span>e</span>
+            <span>n</span>
+            <span>t</span>
+            <span>r</span>
+            <span>o</span>
+            <span class="espacio"> </span>
+            <span>d</span>
+            <span>e</span>
+            <span class="espacio"> </span>
+            <span>a</span>
+            <span>y</span>
+            <span>u</span>
+            <span>d</span>
+            <span>a</span>
+        </h1>
+
+    </section>
+
+      <section class="contact" id="contact">
+
+        <div class="row">
+     
+           <form action="" method="post">
+              <h3>Enviar mensaje</h3>
+              <input type="text" name="name" required maxlength="50" placeholder="Ingresa nombre" class="box">
+              <input type="email" name="email" required maxlength="50" placeholder="Ingresa tu email" class="box">
+              <input type="number" name="number" required maxlength="10" min="0" max="9999999999" placeholder="Ingresa celular" class="box">
+              <textarea name="msg" class="box" required maxlength="1000" placeholder="Escribe un mensaje" cols="30" rows="10"></textarea>
+              <input type="submit" value="send message" name="send" class="btn">
+           </form>
+     
+           <div class="faq">
+              <h3 class="title">Preguntas Frecuentes </h3>
+              <div class="box active">
+                 <h3>¿Como cancelar?</h3>
+                 <p>Solo aprietas el boton de la pagina y te mostrara la pagina principal del restaurante o hotel para que puedas reservar </p>
+              </div>
+              <div class="box">
+                 <h3>¿En que parte de la pagina web puedo usar el mapa?  </h3>
+                 <p>Para usar el mapa tienes que descargar nuestra aplicacion Turismapp que esta en la PlayStore (habilitada para  Android y Iphone)</p>
+              </div>
+              <div class="box">
+                 <h3>¿Cuales son los metodos de pago de la aplicacion?</h3>
+                 <p>Los metodos de pago para el uso de nuestra aplicacion es del valor de S/9 soles</p>
+              </div>
+              <div class="box">
+                 <h3>¿Cómo reclamar códigos de cupones?</h3>
+                 <p>Tienes que acercarte al local y mostrar nuestra aplicacion y vea que eres cliente nuestro</p>
+              </div>
+              <div class="box">
+                 <h3>¿Cuáles son los requisitos de edad?</h3>
+                 <p>Esta aplicacion es para mayores de 18 años</p>
+              </div>
+           </div>
+     
+        </div>
+     
+     </section>
+    
+    <section class="footer">
+        <div class="caja-contenido">
+
+            <div class="caja">
+                <h3>Sobre Nosotros</h3>
+                <p>Somos una empresa pequeña que ayudara tanto a los turistcas locales como internacionales mediante la IA en la aplicacion a poder disfrutar al 100% las hermosas vistas de lugares turisticos del Peru</p>
+
+            </div>
+            <div class="caja">
+                <h3>Localizacion</h3>
+                <a href="#">Peru</a>
+            </div>
+            <div class="caja">
+                <h3>Links</h3>
+                <a href="../index.html">Inicio</a>
+                <a href="../pages/nosotros.html">Nosotros</a>
+                <a href="../pages/Festividad.html">Festividades</a>
+                <a href="../pages/centros.html">Centros</a>
+                <a href="../pages/hoteles.html">Hoteles</a>
+                <a href="../pages/resturante.html">Restaurantes</a>
+                <a href="../pages/ayuda.html">Ayuda</a>
+            </div>
+
+            <div class="caja">
+                <h3>Siguenos</h3>
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">twitter</a>
+                
+            </div>
+
+        </div>
+        <h1 class="credito"> Creado por <span> Equipo Turismapp</span> todos los derechos reservados</h1>
+
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+    
+  
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+
+    <!-- Link de javascript-->
+    <script src="../script.js"></script>
+ 
+</body>
+</html>
