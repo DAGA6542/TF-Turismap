@@ -6,7 +6,7 @@ import pe.edu.upc.backend.repositories.IUsuarioRepository;
 import pe.edu.upc.backend.serviceinterfaces.IUsuarioService;
 import java.util.List;
 @Service
-public class UsuarioRespository implements IUsuarioService {
+public class UsuarioImplement implements IUsuarioService {
     @Autowired
     private IUsuarioRepository uR;
     @Override
