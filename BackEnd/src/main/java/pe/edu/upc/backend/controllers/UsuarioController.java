@@ -23,7 +23,7 @@ public class UsuarioController {
     public void modificar(@RequestBody UsuarioDTO usuarioDTO) {
         ModelMapper m = new ModelMapper();
         Usuario usuario = m.map(usuarioDTO, Usuario.class);
-        uS.insert(usuario);
+        uS.update(usuario);
     }
     @GetMapping
     public List<UsuarioDTO> listar() {

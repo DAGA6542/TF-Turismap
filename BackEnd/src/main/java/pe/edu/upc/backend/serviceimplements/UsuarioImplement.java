@@ -14,5 +14,7 @@ public class UsuarioImplement implements IUsuarioService {
     @Override
     public List<Usuario> list() { return uR.findAll(); }
     @Override
+    public void update(Usuario usuario) { uR.save(usuario); }
+    @Override
     public void delete(int idUsuario) { uR.deleteById(idUsuario); }
 }

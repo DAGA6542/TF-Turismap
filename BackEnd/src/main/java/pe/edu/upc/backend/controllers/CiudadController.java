@@ -22,7 +22,7 @@ public class CiudadController {
     public void modificar(@RequestBody CiudadDTO ciudadDTO) {
         ModelMapper m = new ModelMapper();
         Ciudad ciudad = m.map(ciudadDTO, Ciudad.class);
-        cS.insert(ciudad);
+        cS.update(ciudad);
     }
     @GetMapping
     public List<CiudadDTO> listar() {

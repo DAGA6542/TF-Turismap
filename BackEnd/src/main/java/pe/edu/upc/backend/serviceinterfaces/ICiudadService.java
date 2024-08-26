@@ -4,5 +4,6 @@ import java.util.List;
 public interface ICiudadService {
     public void insert(Ciudad ciudad);
     public List<Ciudad> list();
+    public void update(Ciudad ciudad);
     public void delete(int idCiudad);
 }

@@ -22,7 +22,7 @@ public class RolController {
     public void modificar(@RequestBody RolDTO rolDTO) {
         ModelMapper m = new ModelMapper();
         Rol ciudad = m.map(rolDTO, Rol.class);
-        rS.insert(ciudad);
+        rS.update(ciudad);
     }
     @GetMapping
     public List<RolDTO> listar() {

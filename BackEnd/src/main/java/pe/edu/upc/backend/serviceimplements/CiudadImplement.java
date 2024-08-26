@@ -14,5 +14,7 @@ public class CiudadImplement implements ICiudadService {
     @Override
     public List<Ciudad> list() { return cR.findAll(); }
     @Override
+    public void update(Ciudad ciudad) { cR.save(ciudad); }
+    @Override
     public void delete(int idCiudad) { cR.deleteById(idCiudad); }
 }

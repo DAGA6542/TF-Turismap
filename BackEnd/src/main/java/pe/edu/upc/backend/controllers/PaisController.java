@@ -22,7 +22,7 @@ public class PaisController {
     public void modificar(@RequestBody PaisDTO paisDTO) {
         ModelMapper m = new ModelMapper();
         Pais pais = m.map(paisDTO, Pais.class);
-        pS.insert(pais);
+        pS.update(pais);
     }
     @GetMapping
     public List<PaisDTO> listar() {

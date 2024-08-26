@@ -7,5 +7,6 @@ import java.util.List;
 public interface IUsuarioService {
     public void insert(Usuario usuario);
     public List<Usuario> list();
+    public void update(Usuario usuario);
     public void delete(int idUsuario);
 }

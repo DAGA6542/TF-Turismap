@@ -12,6 +12,8 @@ public class PaisImplement implements IPaisService {
     @Override
     public void insert(Pais pais) { pR.save(pais); }
     @Override
+    public void update(Pais pais) { pR.save(pais); }
+    @Override
     public List<Pais> list() { return pR.findAll(); }
     @Override
     public void delete(int idPais) { pR.deleteById(idPais); }

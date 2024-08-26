@@ -22,7 +22,7 @@ public class DepartamentoController {
     public void modificar(@RequestBody DepartamentoDTO departamentoDTO) {
         ModelMapper m = new ModelMapper();
         Departamento departamento = m.map(departamentoDTO, Departamento.class);
-        dS.insert(departamento);
+        dS.update(departamento);
     }
     @GetMapping
     public List<DepartamentoDTO> listar() {

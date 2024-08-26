@@ -14,5 +14,7 @@ public class DepartamentoImplement implements IDepartamentoService {
     @Override
     public List<Departamento> list() { return dR.findAll(); }
     @Override
+    public void update(Departamento departamento) { dR.save(departamento); }
+    @Override
     public void delete(int idDepartamento) { dR.deleteById(idDepartamento); }
 }

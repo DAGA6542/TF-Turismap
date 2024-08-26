@@ -4,5 +4,6 @@ import java.util.List;
 public interface IDepartamentoService {
     public void insert(Departamento departamento);
     public List<Departamento> list();
+    public void update(Departamento departamento);
     public void delete(int idDepartamento);
 }
