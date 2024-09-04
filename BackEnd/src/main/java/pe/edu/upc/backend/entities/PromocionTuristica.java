@@ -17,9 +17,9 @@ public class PromocionTuristica {
     private String nombrePromocion;
     @Column(name = "descripcionPromocion", nullable = false, length = 150)
     private String descripcionPromocion;
-    @Column(name = "precioPromocion", nullable = false, precision = 12, scale = 2)
+    @Column(name = "precioPromocion", nullable = false)
     private double precioPromocion;
-    @Column(name = "descuentoPromocion", nullable = false, precision = 12, scale = 2)
+    @Column(name = "descuentoPromocion", nullable = false)
     private double descuentoPromocion;
     @Column(name = "fechaInicioPromocion", nullable = false)
     private LocalDate fechaInicioPromocion;
