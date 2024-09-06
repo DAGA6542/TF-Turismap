@@ -2,9 +2,12 @@ package pe.edu.upc.backend.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.backend.dtos.CantidadUsuarioxRol;
 import pe.edu.upc.backend.dtos.RolDTO;
 import pe.edu.upc.backend.entities.Rol;
 import pe.edu.upc.backend.serviceinterfaces.IRolService;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 @RestController
@@ -34,5 +37,19 @@ public class RolController {
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") int id) {
         rS.delete(id);
+    }
+
+    @GetMapping("/cantidades")
+    public List<CantidadUsuarioxRol> obtenerCantidad() {
+        List<String[]> lista = rS.contarRol();
+        List<CantidadUsuarioxRol> listaDTO = new ArrayList<>();
+        for (String[] columna : lista) {
+            CantidadUsuarioxRol dto = new CantidadUsuarioxRol();
+            dto.setNombreRol(columna[0]);
+            dto.setCantidadUsuario(Integer.parseInt(columna[1]));
+            listaDTO.add(dto);
+        }
+        return listaDTO;
+
     }
 }
