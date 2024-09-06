@@ -15,4 +15,10 @@ public interface ICiudadRepository extends JpaRepository<Ciudad, Integer> {
     List<Ciudad> longitudMenor(@Param("longitud") double longitud); // longitud menor a lo especificado
     @Query("SELECT c FROM Ciudad c WHERE c.poblacionCiudad >= :poblacion")
     List<Ciudad> poblacionMayor(@Param("poblacion") Long poblacion); // poblacion mayor igual a lo especificado
+
+    @Query(value = " select c.nombre_ciudad, count(*)\n" +
+            "         from ciudad c inner join turismo tu\n" +
+            "         on c.id_ciudad=tu.id_ciudad\n" +
+            "        group by c.nombre_ciudad",nativeQuery = true)
+    public List<String[]>cantidadTurismo();
 }

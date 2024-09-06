@@ -25,4 +25,7 @@ public class CiudadImplement implements ICiudadService {
     public List<Ciudad> longitudMenor(double longitud) { return cR.longitudMenor(longitud); }
     @Override
     public List<Ciudad> poblacionMayor(Long poblacion) { return cR.poblacionMayor(poblacion); }
+
+    @Override
+    public List<String[]> cantidadTurismo() {return cR.cantidadTurismo();}
 }

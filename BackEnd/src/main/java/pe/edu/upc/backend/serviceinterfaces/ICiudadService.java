@@ -10,4 +10,5 @@ public interface ICiudadService {
     List<Ciudad> latitudMayor(double latitud);
     List<Ciudad> longitudMenor(double longitud);
     List<Ciudad> poblacionMayor(Long poblacion);
+    public List<String[]>cantidadTurismo();
 }
