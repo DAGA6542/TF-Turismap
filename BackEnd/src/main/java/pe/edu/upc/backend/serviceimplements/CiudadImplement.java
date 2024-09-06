@@ -17,4 +17,12 @@ public class CiudadImplement implements ICiudadService {
     public void update(Ciudad ciudad) { cR.save(ciudad); }
     @Override
     public void delete(int idCiudad) { cR.deleteById(idCiudad); }
+    @Override
+    public List<Ciudad> buscarNombreCiudad(String nombreCiudad) { return cR.buscarNombreCiudad(nombreCiudad); }
+    @Override
+    public List<Ciudad> latitudMayor(double latitud) { return cR.latitudMayor(latitud); }
+    @Override
+    public List<Ciudad> longitudMenor(double longitud) { return cR.longitudMenor(longitud); }
+    @Override
+    public List<Ciudad> poblacionMayor(Long poblacion) { return cR.poblacionMayor(poblacion); }
 }
