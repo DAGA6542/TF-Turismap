@@ -22,4 +22,5 @@ public interface IDepartamentoRepository extends JpaRepository<Departamento, Int
     List<Departamento> obtenerPorPoblacionDesc(); // Listar departamentos ordenados por población de forma descendente
     @Query("SELECT d FROM Departamento d WHERE LOWER(d.capitalDepartamento) LIKE LOWER(CONCAT('%', :capital, '%'))")
     List<Departamento> buscarPorCapital(@Param("capital") String capital); //Buscar departamentos por la capital
+
 }
