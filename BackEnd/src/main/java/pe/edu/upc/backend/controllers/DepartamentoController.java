@@ -35,4 +35,47 @@ public class DepartamentoController {
     public void eliminar(@PathVariable("id") Integer id) {
         dS.delete(id);
     }
+
+    @GetMapping("/buscarpais")
+    public List<DepartamentoDTO> listarPorPais(int idPais) {
+        return dS.list().stream().map(y->{
+            ModelMapper m = new ModelMapper();
+            return m.map(y,DepartamentoDTO.class);
+        }).collect(Collectors.toList());
+    }
+    @GetMapping("/buscarnombre")
+    public List<DepartamentoDTO> buscarPorNombre(String nombre) {
+        return dS.buscarPorNombre(nombre).stream().map(y->{
+            ModelMapper m = new ModelMapper();
+            return m.map(y,DepartamentoDTO.class);
+        }).collect(Collectors.toList());
+    }
+    @GetMapping("/obtenerdepapoblac")
+    public List<DepartamentoDTO> obtenerDepartamentPoblac(Long poblacion) {
+        return dS.obtenerDepartamentPoblac(poblacion).stream().map(y->{
+            ModelMapper m = new ModelMapper();
+            return m.map(y,DepartamentoDTO.class);
+        }).collect(Collectors.toList());
+    }
+    @GetMapping("/buscardepasuperficie")
+    public List<DepartamentoDTO> buscarDepartamentoConSuperficie(int minSuperficie, int maxSuperficie) {
+        return dS.buscarDepartamentoConSuperficie(minSuperficie, maxSuperficie).stream().map(y->{
+            ModelMapper m = new ModelMapper();
+            return m.map(y,DepartamentoDTO.class);
+        }).collect(Collectors.toList());
+    }
+    @GetMapping("/obtenerpoblaciones")
+    public List<DepartamentoDTO> obtenerPorPoblacionDesc() {
+        return dS.obtenerPorPoblacionDesc().stream().map(y->{
+            ModelMapper m = new ModelMapper();
+            return m.map(y,DepartamentoDTO.class);
+        }).collect(Collectors.toList());
+    }
+    @GetMapping("/buscarcapital")
+    public List<DepartamentoDTO> buscarPorCapital(String capital) {
+        return dS.buscarPorCapital(capital).stream().map(y->{
+            ModelMapper m = new ModelMapper();
+            return m.map(y,DepartamentoDTO.class);
+        }).collect(Collectors.toList());
+    }
 }

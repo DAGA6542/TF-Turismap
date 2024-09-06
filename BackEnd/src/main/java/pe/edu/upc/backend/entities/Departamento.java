@@ -18,18 +18,18 @@ public class Departamento {
     private int superficieDepartamento;
     @ManyToOne
     @JoinColumn(name = "idPais")
-    private Pais idPaid;
+    private Pais idPais;
 
     public Departamento() {
     }
 
-    public Departamento(int idDepartamento, String nombreDepartamento, String capitalDepartamento, Long poblacionDepartamento, int superficieDepartamento, Pais idPaid) {
+    public Departamento(int idDepartamento, String nombreDepartamento, String capitalDepartamento, Long poblacionDepartamento, int superficieDepartamento, Pais idPais) {
         this.idDepartamento = idDepartamento;
         this.nombreDepartamento = nombreDepartamento;
         this.capitalDepartamento = capitalDepartamento;
         this.poblacionDepartamento = poblacionDepartamento;
         this.superficieDepartamento = superficieDepartamento;
-        this.idPaid = idPaid;
+        this.idPais = idPais;
     }
 
     public int getIdDepartamento() {
@@ -73,10 +73,10 @@ public class Departamento {
     }
 
     public Pais getIdPaid() {
-        return idPaid;
+        return idPais;
     }
 
     public void setIdPaid(Pais idPaid) {
-        this.idPaid = idPaid;
+        this.idPais = idPaid;
     }
 }
