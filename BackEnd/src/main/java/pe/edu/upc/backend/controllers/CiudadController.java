@@ -2,9 +2,13 @@ package pe.edu.upc.backend.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.backend.dtos.CantidadTurismoxCiudadDTO;
+import pe.edu.upc.backend.dtos.CantidadUsuarioxRol;
 import pe.edu.upc.backend.dtos.CiudadDTO;
 import pe.edu.upc.backend.entities.Ciudad;
 import pe.edu.upc.backend.serviceinterfaces.ICiudadService;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 @RestController
@@ -62,6 +66,19 @@ public class CiudadController {
             ModelMapper m = new ModelMapper();
             return m.map(y, CiudadDTO.class);
         }).collect(Collectors.toList());
+    }
+    @GetMapping("/cantidades")
+    public List<CantidadTurismoxCiudadDTO> obtenerCantidad() {
+        List<String[]> lista = cS.cantidadTurismo();
+        List<CantidadTurismoxCiudadDTO> listaDTO = new ArrayList<>();
+        for (String[] columna : lista) {
+            CantidadTurismoxCiudadDTO dto = new CantidadTurismoxCiudadDTO();
+            dto.setNombreCiudad(columna[0]);
+            dto.setCantidadTurismoxCiudad(Integer.parseInt(columna[1]));
+            listaDTO.add(dto);
+        }
+        return listaDTO;
+
     }
 
 }
