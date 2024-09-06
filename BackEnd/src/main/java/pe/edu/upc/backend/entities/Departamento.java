@@ -22,5 +22,5 @@ public class Departamento {
     private int superficieDepartamento;
     @ManyToOne
     @JoinColumn(name = "idPais")
-    private Pais idPaid;
+    private Pais idPais;
 }
