@@ -1,12 +1,7 @@
 package pe.edu.upc.backend.entities;
+
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import java.time.LocalDate;
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+
 @Entity
 @Table(name = "Negocio")
 public class Negocio {
@@ -24,4 +19,64 @@ public class Negocio {
     @ManyToOne
     @JoinColumn(name = "idCiudad")
     private Ciudad idCiudad;
+
+    public Negocio() {
+    }
+
+    public Negocio(int idNegocio, String nombreNegocio, String horarioNegocio, int numeroTelefonoNegocio, int calificacionNegocio, Ciudad idCiudad) {
+        this.idNegocio = idNegocio;
+        this.nombreNegocio = nombreNegocio;
+        this.horarioNegocio = horarioNegocio;
+        this.numeroTelefonoNegocio = numeroTelefonoNegocio;
+        this.calificacionNegocio = calificacionNegocio;
+        this.idCiudad = idCiudad;
+    }
+
+    public int getIdNegocio() {
+        return idNegocio;
+    }
+
+    public void setIdNegocio(int idNegocio) {
+        this.idNegocio = idNegocio;
+    }
+
+    public String getNombreNegocio() {
+        return nombreNegocio;
+    }
+
+    public void setNombreNegocio(String nombreNegocio) {
+        this.nombreNegocio = nombreNegocio;
+    }
+
+    public String getHorarioNegocio() {
+        return horarioNegocio;
+    }
+
+    public void setHorarioNegocio(String horarioNegocio) {
+        this.horarioNegocio = horarioNegocio;
+    }
+
+    public int getNumeroTelefonoNegocio() {
+        return numeroTelefonoNegocio;
+    }
+
+    public void setNumeroTelefonoNegocio(int numeroTelefonoNegocio) {
+        this.numeroTelefonoNegocio = numeroTelefonoNegocio;
+    }
+
+    public int getCalificacionNegocio() {
+        return calificacionNegocio;
+    }
+
+    public void setCalificacionNegocio(int calificacionNegocio) {
+        this.calificacionNegocio = calificacionNegocio;
+    }
+
+    public Ciudad getIdCiudad() {
+        return idCiudad;
+    }
+
+    public void setIdCiudad(Ciudad idCiudad) {
+        this.idCiudad = idCiudad;
+    }
 }
