@@ -3,11 +3,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.backend.dtos.CantidadTurismoxCiudadDTO;
-import pe.edu.upc.backend.dtos.CantidadUsuarioxRol;
 import pe.edu.upc.backend.dtos.CiudadDTO;
 import pe.edu.upc.backend.entities.Ciudad;
 import pe.edu.upc.backend.serviceinterfaces.ICiudadService;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -78,7 +76,5 @@ public class CiudadController {
             listaDTO.add(dto);
         }
         return listaDTO;
-
     }
-
 }

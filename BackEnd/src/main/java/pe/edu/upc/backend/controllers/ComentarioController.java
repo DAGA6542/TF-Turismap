@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.backend.dtos.ComentarioDTO;
 import pe.edu.upc.backend.entities.Comentario;
 import pe.edu.upc.backend.serviceinterfaces.IComentarioService;
-
 import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;

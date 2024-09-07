@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import pe.edu.upc.backend.entities.MenbresiaVIP;
 import pe.edu.upc.backend.repositories.IMenbresiaVIPRepository;
 import pe.edu.upc.backend.serviceinterfaces.IMenbresiaVIPService;
+import java.time.LocalDate;
 import java.util.List;
 @Service
 public class MenbresiaVIPImplement implements IMenbresiaVIPService {
@@ -17,4 +18,18 @@ public class MenbresiaVIPImplement implements IMenbresiaVIPService {
     public void update(MenbresiaVIP menbresiaVIP) { mR.save(menbresiaVIP); }
     @Override
     public void delete(int idMenbresiaVIP) { mR.deleteById(idMenbresiaVIP); }
+    @Override
+    public List<MenbresiaVIP> obtenerMenbresActiv() { return mR.obtenerMenbresActiv(); }
+    @Override
+    public List<MenbresiaVIP> obtenerMenbresDeUsuar(int idUsuario) { return mR.obtenerMenbresDeUsuar(idUsuario); }
+    @Override
+    public List<MenbresiaVIP> obtenerMenbresiasTipoMayorEspecifico(String tipo) { return mR.obtenerMenbresiasTipoMayorEspecifico(tipo); }
+    @Override
+    public long cantidadMenbresActivas() { return mR.cantidadMenbresActivas(); }
+    @Override
+    public List<MenbresiaVIP> obtenerMenbresExpiranEnFechaEspecifi(LocalDate fecha) { return mR.obtenerMenbresExpiranEnFechaEspecifi(fecha); }
+    @Override
+    public List<MenbresiaVIP> obtenerMenbresDeUsuario(int idUsuario) { return mR.obtenerMenbresDeUsuario(idUsuario); }
+    @Override
+    public void eliminarTodaMenbresInactiva() { mR.eliminarTodaMenbresInactiva(); }
 }
