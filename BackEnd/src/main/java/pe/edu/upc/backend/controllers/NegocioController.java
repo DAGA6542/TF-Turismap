@@ -38,7 +38,7 @@ public class NegocioController {
     public void eliminar(@PathVariable int id) { nS.delete(id); }
     @GetMapping("/obtenerporciudad")
     public List<NegocioDTO> obtenerPorCiudad(@RequestParam int idCiudad) {
-        return nS.list().stream().map(y->{
+        return nS.obtenerPorCiudad(idCiudad).stream().map(y->{
             ModelMapper m = new ModelMapper();
             return m.map(y,NegocioDTO.class);
         }).collect(Collectors.toList());
