@@ -44,32 +44,32 @@ public class FavoritosController {
         }).collect(Collectors.toList());
     }
     @GetMapping("/obtenerfavorporfechaagre")
-    public List<FavoritosDTO> obtenerFavPorFechaAgregado(LocalDate fecha) {
+    public List<FavoritosDTO> obtenerFavPorFechaAgregado(@RequestParam LocalDate fecha) {
         return fS.obtenerFavPorFechaAgregado(fecha).stream().map(y->{
             ModelMapper m = new ModelMapper();
             return m.map(y,FavoritosDTO.class);
         }).collect(Collectors.toList());
     }
     @GetMapping("/cantidadfavordeusuar")
-    public long cantidadFavoritosDeUsuario(int idUsuario) {
+    public long cantidadFavoritosDeUsuario(@RequestParam int idUsuario) {
         return fS.cantidadFavoritosDeUsuario(idUsuario);
     }
     @GetMapping("/obtenerfavorrelacanegocio")
-    public List<FavoritosDTO> obtenerFavoRelacionANegocio(int idNegocio) {
+    public List<FavoritosDTO> obtenerFavoRelacionANegocio(@RequestParam int idNegocio) {
         return fS.obtenerFavoRelacionANegocio(idNegocio).stream().map(y->{
             ModelMapper m = new ModelMapper();
             return m.map(y,FavoritosDTO.class);
         }).collect(Collectors.toList());
     }
     @GetMapping("/obtenerfavorporfechamodifi")
-    public List<FavoritosDTO> obtenerFavoritosPorFechaModificacion(LocalDate fecha) {
+    public List<FavoritosDTO> obtenerFavoritosPorFechaModificacion(@RequestParam LocalDate fecha) {
         return fS.obtenerFavoritosPorFechaModificacion(fecha).stream().map(y->{
             ModelMapper m = new ModelMapper();
             return m.map(y,FavoritosDTO.class);
         }).collect(Collectors.toList());
     }
     @GetMapping("obtenerfavordeturismo")
-    public List<FavoritosDTO> ObtenerFavoDeTurismo(int idTurismo) {
+    public List<FavoritosDTO> ObtenerFavoDeTurismo(@RequestParam int idTurismo) {
         return fS.ObtenerFavoDeTurismo(idTurismo).stream().map(y->{
             ModelMapper m = new ModelMapper();
             return m.map(y,FavoritosDTO.class);
