@@ -3,6 +3,9 @@ package pe.edu.upc.backend.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.backend.dtos.ComentarioDTO;
+import pe.edu.upc.backend.dtos.LugarTuristicoPorCiudadDTO;
+import pe.edu.upc.backend.dtos.NegocioDTO;
 import pe.edu.upc.backend.dtos.TurismoDTO;
 import pe.edu.upc.backend.entities.Turismo;
 import pe.edu.upc.backend.serviceinterfaces.ITurismoService;
@@ -36,4 +39,23 @@ public class TurismoController {
     public void eliminar(@PathVariable int id) {
         tS.delete(id);
     }
+
+    @GetMapping("/buscarnumero")
+    public List<TurismoDTO> buscarnumero(@RequestParam int idTurismo) {
+        return tS.listarPorNumero(idTurismo).stream().map(y->{
+            ModelMapper m = new ModelMapper();
+            m.map(y,TurismoDTO.class);
+            return m.map(y,TurismoDTO.class);
+        }).collect(Collectors.toList());
+    }
+
+    @GetMapping("/lugarturisticoporciudad")
+    public List<LugarTuristicoPorCiudadDTO> buscarlugartusriticoporciudad1(@RequestParam String nombreCiudad){
+        return tS.listarlugarturisticoporciudad1(nombreCiudad).stream().map(y->{
+            ModelMapper m=new ModelMapper();
+            m.map(y,LugarTuristicoPorCiudadDTO.class);
+            return m.map(y,LugarTuristicoPorCiudadDTO.class);
+        }).collect(Collectors.toList());
+    }
+
 }
