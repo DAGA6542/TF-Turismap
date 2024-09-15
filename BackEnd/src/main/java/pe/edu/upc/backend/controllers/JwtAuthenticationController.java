@@ -1,6 +1,4 @@
 package pe.edu.upc.backend.controllers;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -16,7 +14,6 @@ import pe.edu.upc.backend.securities.JwtRequest;
 import pe.edu.upc.backend.securities.JwtResponse;
 import pe.edu.upc.backend.securities.JwtTokenUtil;
 import pe.edu.upc.backend.serviceimplements.JwtUserDetailsService;
-
 //Clase 3
 @RestController
 @CrossOrigin
@@ -27,8 +24,6 @@ public class JwtAuthenticationController {
     private JwtTokenUtil jwtTokenUtil;
     @Autowired
     private JwtUserDetailsService userDetailsService;
-
-
     @PostMapping("/login")
     public ResponseEntity<JwtResponse> login(@RequestBody JwtRequest req) throws Exception {
         authenticate(req.getUsername(), req.getPassword());
@@ -36,7 +31,6 @@ public class JwtAuthenticationController {
         final String token = jwtTokenUtil.generateToken(userDetails);
         return ResponseEntity.ok(new JwtResponse(token));
     }
-
     private void authenticate(String username, String password) throws Exception {
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
@@ -45,7 +39,5 @@ public class JwtAuthenticationController {
         } catch (BadCredentialsException e) {
             throw new Exception("INVALID_CREDENTIALS", e);
         }
-
-
     }
 }

@@ -1,13 +1,9 @@
 package pe.edu.upc.backend.entities;
-
 import jakarta.persistence.*;
-
 import java.time.LocalDate;
-
-
 @Entity
-@Table(name = "Favoritos")
-public class Favoritos {
+@Table(name = "Favorito")
+public class Favorito {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idFavorito;
@@ -19,68 +15,54 @@ public class Favoritos {
     @JoinColumn(name = "idUsuario")
     private Usuario idUsuario;
     @ManyToOne
-    @JoinColumn(name = "idTurismo")
-    private Turismo idTurismo;
+    @JoinColumn(name = "idTuristico")
+    private LugarTuristico idTuristico;
     @ManyToOne
     @JoinColumn(name = "idNegocio")
     private Negocio idNegocio;
-
-    public Favoritos() {
+    public Favorito() {}
+    public Favorito(int idFavorito, LocalDate fechaAgregadoFavorito, LocalDate fechaModificacionFavorito) {
+        this.idFavorito = idFavorito;
+        this.fechaAgregadoFavorito = fechaAgregadoFavorito;
+        this.fechaModificacionFavorito = fechaModificacionFavorito;
     }
-
-    public Favoritos(int idFavorito, LocalDate fechaAgregadoFavorito, LocalDate fechaModificacionFavorito, Usuario idUsuario, Turismo idTurismo, Negocio idNegocio) {
+    public Favorito(int idFavorito, LocalDate fechaAgregadoFavorito, LocalDate fechaModificacionFavorito, Usuario idUsuario, LugarTuristico idTuristico, Negocio idNegocio) {
         this.idFavorito = idFavorito;
         this.fechaAgregadoFavorito = fechaAgregadoFavorito;
         this.fechaModificacionFavorito = fechaModificacionFavorito;
         this.idUsuario = idUsuario;
-        this.idTurismo = idTurismo;
+        this.idTuristico = idTuristico;
         this.idNegocio = idNegocio;
     }
-
     public int getIdFavorito() {
         return idFavorito;
     }
-
     public void setIdFavorito(int idFavorito) {
         this.idFavorito = idFavorito;
     }
-
     public LocalDate getFechaAgregadoFavorito() {
         return fechaAgregadoFavorito;
     }
-
-    public void setFechaAgregadoFavorito(LocalDate fechaAgregadoFavorito) {
-        this.fechaAgregadoFavorito = fechaAgregadoFavorito;
-    }
-
+    public void setFechaAgregadoFavorito(LocalDate fechaAgregadoFavorito) { this.fechaAgregadoFavorito = fechaAgregadoFavorito; }
     public LocalDate getFechaModificacionFavorito() {
         return fechaModificacionFavorito;
     }
-
-    public void setFechaModificacionFavorito(LocalDate fechaModificacionFavorito) {
-        this.fechaModificacionFavorito = fechaModificacionFavorito;
-    }
-
+    public void setFechaModificacionFavorito(LocalDate fechaModificacionFavorito) { this.fechaModificacionFavorito = fechaModificacionFavorito; }
     public Usuario getIdUsuario() {
         return idUsuario;
     }
-
     public void setIdUsuario(Usuario idUsuario) {
         this.idUsuario = idUsuario;
     }
-
-    public Turismo getIdTurismo() {
-        return idTurismo;
+    public LugarTuristico getIdTuristico() {
+        return idTuristico;
     }
-
-    public void setIdTurismo(Turismo idTurismo) {
-        this.idTurismo = idTurismo;
+    public void setIdTurismo(LugarTuristico idTuristico) {
+        this.idTuristico = idTuristico;
     }
-
     public Negocio getIdNegocio() {
         return idNegocio;
     }
-
     public void setIdNegocio(Negocio idNegocio) {
         this.idNegocio = idNegocio;
     }

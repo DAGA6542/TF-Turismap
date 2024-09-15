@@ -7,10 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.backend.dtos.NegocioDTO;
 import pe.edu.upc.backend.entities.Negocio;
 import pe.edu.upc.backend.serviceinterfaces.INegocioService;
-
 import java.util.List;
 import java.util.stream.Collectors;
-
 @RestController
 @RequestMapping("/negocio")
 @PreAuthorize("hasAuthority('JEFE') or hasAuthority('ADMIN')")
@@ -36,5 +34,4 @@ public class NegocioController {
             return m.map(y,NegocioDTO.class);
         }).collect(Collectors.toList());
     }
-
 }

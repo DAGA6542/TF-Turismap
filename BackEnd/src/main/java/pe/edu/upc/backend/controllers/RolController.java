@@ -7,7 +7,6 @@ import pe.edu.upc.backend.dtos.CantidadUsuarioxRol;
 import pe.edu.upc.backend.dtos.RolDTO;
 import pe.edu.upc.backend.entities.Rol;
 import pe.edu.upc.backend.serviceinterfaces.IRolService;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
