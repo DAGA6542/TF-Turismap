@@ -21,9 +21,9 @@ public class Pais {
     @Column(name = "poblacionPais", nullable = false)
     private Long poblacionPais;
     @Column(name = "superficiePais", nullable = false)
-    private int superficiePais;
+    private Long superficiePais;
     public Pais() {}
-    public Pais(int idPais, String nombrePais, String codigoIsoPais, String continentePais, String capitalPais, String monedaPais, String idiomaOficialPais, Long poblacionPais, int superficiePais) {
+    public Pais(int idPais, String nombrePais, String codigoIsoPais, String continentePais, String capitalPais, String monedaPais, String idiomaOficialPais, Long poblacionPais, Long superficiePais) {
         this.idPais = idPais;
         this.nombrePais = nombrePais;
         this.codigoIsoPais = codigoIsoPais;
@@ -76,16 +76,14 @@ public class Pais {
     public void setIdiomaOficialPais(String idiomaOficialPais) {
         this.idiomaOficialPais = idiomaOficialPais;
     }
-    public Long getPoblacionPais() {
-        return poblacionPais;
-    }
+    public Long getPoblacionPais() { return poblacionPais; }
     public void setPoblacionPais(Long poblacionPais) {
         this.poblacionPais = poblacionPais;
     }
-    public int getSuperficiePais() {
+    public Long getSuperficiePais() {
         return superficiePais;
     }
-    public void setSuperficiePais(int superficiePais) {
+    public void setSuperficiePais(Long superficiePais) {
         this.superficiePais = superficiePais;
     }
 }
