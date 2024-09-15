@@ -1,6 +1,7 @@
 package pe.edu.upc.backend.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.backend.dtos.CantidadTurismoxCiudadDTO;
 import pe.edu.upc.backend.dtos.CiudadDTO;
@@ -11,6 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/ciudades")
+@PreAuthorize("hasAuthority('ADMIN')")
 public class CiudadController {
     @Autowired
     private ICiudadService cS;
@@ -77,4 +79,5 @@ public class CiudadController {
         }
         return listaDTO;
     }
+
 }

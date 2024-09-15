@@ -1,17 +1,18 @@
 package pe.edu.upc.backend.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.backend.dtos.CantidadUsuarioxRol;
 import pe.edu.upc.backend.dtos.RolDTO;
 import pe.edu.upc.backend.entities.Rol;
 import pe.edu.upc.backend.serviceinterfaces.IRolService;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/roles")
+@PreAuthorize("hasAuthority('ADMIN')")
 public class RolController {
     @Autowired
     private IRolService rS;

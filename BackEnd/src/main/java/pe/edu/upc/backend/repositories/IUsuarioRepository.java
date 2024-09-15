@@ -6,6 +6,7 @@ import pe.edu.upc.backend.entities.Usuario;
 import java.util.List;
 @Repository
 public interface IUsuarioRepository extends JpaRepository<Usuario, Integer> {
+<<<<<<< HEAD
     // Buscar usuarios por nombre
     @Query(value = "Select * from Usuario where nombre_usuario like %:partialName%", nativeQuery = true)
     List<Usuario> buscarPorNombre(String partialName);
@@ -22,4 +23,7 @@ public interface IUsuarioRepository extends JpaRepository<Usuario, Integer> {
     @Query(value = "Select * from Usuario order by nombre_usuario asc", nativeQuery = true)
     List<Usuario> listarPorNombreAscendente();
 
+=======
+    public Usuario findOneByUsername(String username);
+>>>>>>> origin/josephgag
 }

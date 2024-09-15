@@ -73,10 +73,17 @@ public class Pais {
     public String getIdiomaOficialPais() {
         return idiomaOficialPais;
     }
+<<<<<<< HEAD
     public void setIdiomaOficialPais(String idiomaOficialPais) { this.idiomaOficialPais = idiomaOficialPais; }
     public Long getPoblacionPais() {
         return poblacionPais;
     }
+=======
+    public void setIdiomaOficialPais(String idiomaOficialPais) {
+        this.idiomaOficialPais = idiomaOficialPais;
+    }
+    public Long getPoblacionPais() { return poblacionPais; }
+>>>>>>> origin/josephgag
     public void setPoblacionPais(Long poblacionPais) {
         this.poblacionPais = poblacionPais;
     }
