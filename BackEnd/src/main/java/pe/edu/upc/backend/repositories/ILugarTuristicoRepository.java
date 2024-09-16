@@ -4,4 +4,5 @@ import org.springframework.stereotype.Repository;
 import pe.edu.upc.backend.entities.LugarTuristico;
 @Repository
 public interface ILugarTuristicoRepository extends JpaRepository<LugarTuristico, Integer> {
+
 }
