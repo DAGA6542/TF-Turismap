@@ -73,9 +73,7 @@ public class Pais {
     public Long getPoblacionPais() {
         return poblacionPais;
     }
-    public void setPoblacionPais(Long poblacionPais) {
-        this.poblacionPais = poblacionPais;
-    }
+    public void setPoblacionPais(Long poblacionPais) { this.poblacionPais = poblacionPais; }
     public Long getSuperficiePais() {
         return superficiePais;
     }

@@ -6,7 +6,7 @@ public class Ciudad {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idCiudad;
-    @Column(name = "nombreCiudad", nullable = false, length = 50)
+    @Column(name = "nombreCiudad", nullable = false, length = 70)
     private String nombreCiudad;
     @Column(name = "poblacionCiudad", nullable = false)
     private Long poblacionCiudad;

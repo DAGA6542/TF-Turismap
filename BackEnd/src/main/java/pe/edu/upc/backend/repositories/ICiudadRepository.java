@@ -7,14 +7,19 @@ import pe.edu.upc.backend.entities.Ciudad;
 import java.util.List;
 @Repository
 public interface ICiudadRepository extends JpaRepository<Ciudad, Integer> {
+    // buscar ciudad por nombre
     @Query("Select c from Ciudad c where c.nombreCiudad like %:nombre%")
     public List<Ciudad> buscarNombreCiudad(@Param("nombre") String nombreCiudad);
+    // latitud mayor a lo especificado
     @Query("SELECT c FROM Ciudad c WHERE c.latitudCiudad >= :latitud")
-    public List<Ciudad> latitudMayor(@Param("latitud") double latitud); // latitud mayor a lo especificado
+    public List<Ciudad> latitudMayor(@Param("latitud") double latitud);
+    // longitud menor a lo especificado
     @Query("SELECT c FROM Ciudad c WHERE c.longitudCiudad <= :longitud")
-    public List<Ciudad> longitudMenor(@Param("longitud") double longitud); // longitud menor a lo especificado
+    public List<Ciudad> longitudMenor(@Param("longitud") double longitud);
+    // poblacion mayor igual a lo especificado
     @Query("SELECT c FROM Ciudad c WHERE c.poblacionCiudad >= :poblacion")
-    public List<Ciudad> poblacionMayor(@Param("poblacion") Long poblacion); // poblacion mayor igual a lo especificado
+    public List<Ciudad> poblacionMayor(@Param("poblacion") Long poblacion);
+    // cantidad de turismo
     @Query(value = " select c.nombre_ciudad, count(*)\n" +
             "         from ciudad c inner join turismo tu\n" +
             "         on c.id_ciudad=tu.id_ciudad\n" +

@@ -7,9 +7,9 @@ public class Promocion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idPromocion;
-    @Column(name = "nombrePromocion", nullable = false, length = 50)
+    @Column(name = "nombrePromocion", nullable = false, length = 60)
     private String nombrePromocion;
-    @Column(name = "descripcionPromocion", nullable = false, length = 150)
+    @Column(name = "descripcionPromocion", nullable = false, length = 250)
     private String descripcionPromocion;
     @Column(name = "precioPromocion", nullable = false)
     private double precioPromocion;

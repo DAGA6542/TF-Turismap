@@ -11,7 +11,7 @@ public interface IDepartamentoRepository extends JpaRepository<Departamento, Int
     @Query("Select d from Departamento d where lower(d.nombreDepartamento) = lower(:nombre)")
     public List<Departamento> buscarPorNombre(@Param("nombre") String nombre);
     // Listar departamento por pais
-    @Query("Select d from Departamento d where d.idPaid.idPais = :idPais")
+    @Query("Select d from Departamento d where d.idPais.idPais = :idPais")
     public List<Departamento> listarPorPais(@Param("idPais") int idPais);
     // Obtener departamentos con población mayor a un cierto umbral
     @Query("Select d from Departamento d where d.poblacionDepartamento > :poblacion")

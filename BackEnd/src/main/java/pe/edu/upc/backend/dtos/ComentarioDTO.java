@@ -28,4 +28,10 @@ public class ComentarioDTO {
     public void setFechaComentario(LocalDate fechaComentario) {
         this.fechaComentario = fechaComentario;
     }
+    public Usuario getIdUsuario() { return idUsuario; }
+    public void setIdUsuario(Usuario idUsuario) { this.idUsuario = idUsuario; }
+    public LugarTuristico getIdLugarTuristico() { return idLugarTuristico; }
+    public void setIdLugarTuristico(LugarTuristico idLugarTuristico) { this.idLugarTuristico = idLugarTuristico; }
+    public Negocio getIdNegocio() { return idNegocio; }
+    public void setIdNegocio(Negocio idNegocio) { this.idNegocio = idNegocio; }
 }
