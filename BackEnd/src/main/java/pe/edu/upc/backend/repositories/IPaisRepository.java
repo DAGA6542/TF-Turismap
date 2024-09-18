@@ -34,4 +34,5 @@ public interface IPaisRepository extends JpaRepository<Pais, Integer> {
     // Obtener países cuya capital es igual a un valor dado
     @Query("Select p from Pais p where p.capitalPais = :capital")
     public Pais obtenerPorCapital(@Param("capital") String capital);
+
 }
