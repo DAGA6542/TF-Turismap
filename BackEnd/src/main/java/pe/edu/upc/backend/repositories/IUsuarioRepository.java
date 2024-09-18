@@ -23,4 +23,5 @@ public interface IUsuarioRepository extends JpaRepository<Usuario, Integer> {
     //  Listar usuarios ordenados por nombre en orden ascendente
     @Query(value = "Select * from Usuario order by nombre_usuario asc", nativeQuery = true)
     List<Usuario> listarPorNombreAscendente();
+    public Usuario findOneByUsername(String username);
 }
