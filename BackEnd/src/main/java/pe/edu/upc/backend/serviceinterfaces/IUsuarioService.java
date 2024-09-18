@@ -6,4 +6,10 @@ public interface IUsuarioService {
     public List<Usuario> list();
     public void update(Usuario usuario);
     public void delete(int idUsuario);
+    public List<Usuario> buscarPorNombre(String partialName);
+    public Usuario buscarPorEmail(String emailUsuario);
+    public List<Usuario> buscarPorRol(int idRol);
+    public Usuario buscarPorTelefono(int telefonoUsuario);
+    public List<Usuario> listarPorNombreAscendente();
+    public Usuario findOneByUsername(String username);
 }

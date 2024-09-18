@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.backend.dtos.MenbresiaVIPDTO;
 import pe.edu.upc.backend.entities.MenbresiaVIP;
 import pe.edu.upc.backend.serviceinterfaces.IMenbresiaVIPService;
+
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 @RestController
@@ -39,5 +41,44 @@ public class MenbresiaVIPController {
     @PreAuthorize("hasAuthority('VIP') or hasAuthority('ADMIN')")
     public void eliminar(@RequestParam("id") int id) {
         mS.delete(id);
+    }
+    @GetMapping("/obtenermenbresactiv")
+    public List<MenbresiaVIPDTO> obtenerMenbresActiv() {
+        return mS.obtenerMenbresActiv().stream().map(y->{
+            ModelMapper m = new ModelMapper();
+            return m.map(y,MenbresiaVIPDTO.class);
+        }).collect(Collectors.toList());
+    }
+    @GetMapping("/obtenermenbresdeusuar")
+    public List<MenbresiaVIPDTO> obtenerMenbresDeUsuar(@RequestParam int idUsuario) {
+        return mS.obtenerMenbresDeUsuar(idUsuario).stream().map(y->{
+            ModelMapper m = new ModelMapper();
+            return m.map(y,MenbresiaVIPDTO.class);
+        }).collect(Collectors.toList());
+    }
+    @GetMapping("/obtenermenbresiastipomayorespecifico")
+    public List<MenbresiaVIPDTO> obtenerMenbresiasTipoMayorEspecifico(@RequestParam String tipo) {
+        return mS.obtenerMenbresiasTipoMayorEspecifico(tipo).stream().map(y->{
+            ModelMapper m = new ModelMapper();
+            return m.map(y,MenbresiaVIPDTO.class);
+        }).collect(Collectors.toList());
+    }
+    @GetMapping("/cantidadmenbresactivas")
+    public int cantidadMenbresActivas() {
+        return mS.cantidadMenbresActivas();
+    }
+    @GetMapping("/obtenermenbresexpiranenfechaespecifi")
+    public List<MenbresiaVIPDTO> obtenerMenbresExpiranEnFechaEspecifi(@RequestParam LocalDate fecha) {
+        return mS.obtenerMenbresExpiranEnFechaEspecifi(fecha).stream().map(y->{
+            ModelMapper m = new ModelMapper();
+            return m.map(y,MenbresiaVIPDTO.class);
+        }).collect(Collectors.toList());
+    }
+    @GetMapping("/obtenermenbresdeusuario")
+    public List<MenbresiaVIPDTO> obtenerMenbresDeUsuario(@RequestParam int idUsuario) {
+        return mS.obtenerMenbresDeUsuario(idUsuario).stream().map(y->{
+            ModelMapper m = new ModelMapper();
+            return m.map(y,MenbresiaVIPDTO.class);
+        }).collect(Collectors.toList());
     }
 }
