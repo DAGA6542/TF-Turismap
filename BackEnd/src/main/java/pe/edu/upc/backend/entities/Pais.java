@@ -6,17 +6,17 @@ public class Pais {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idPais;
-    @Column(name = "nombrePais", nullable = false, length = 40)
+    @Column(name = "nombrePais", nullable = false, length = 60)
     private String nombrePais;
-    @Column(name = "codigoIsoPais", nullable = false, length = 3)
+    @Column(name = "codigoIsoPais", nullable = false, length = 5)
     private String codigoIsoPais;
-    @Column(name = "continentePais", nullable = false, length = 40)
+    @Column(name = "continentePais", nullable = false, length = 50)
     private String continentePais;
     @Column(name = "capitalPais", nullable = false, length = 50)
     private String capitalPais;
-    @Column(name = "monedaPais", nullable = false, length = 20)
+    @Column(name = "monedaPais", nullable = false, length = 50)
     private String monedaPais;
-    @Column(name = "idiomaOficialPais", nullable = false, length = 15)
+    @Column(name = "idiomaOficialPais", nullable = false, length = 40)
     private String idiomaOficialPais;
     @Column(name = "poblacionPais", nullable = false)
     private Long poblacionPais;
@@ -73,10 +73,17 @@ public class Pais {
     public String getIdiomaOficialPais() {
         return idiomaOficialPais;
     }
+<<<<<<< HEAD
+    public void setIdiomaOficialPais(String idiomaOficialPais) { this.idiomaOficialPais = idiomaOficialPais; }
+    public Long getPoblacionPais() {
+        return poblacionPais;
+    }
+=======
     public void setIdiomaOficialPais(String idiomaOficialPais) {
         this.idiomaOficialPais = idiomaOficialPais;
     }
     public Long getPoblacionPais() { return poblacionPais; }
+>>>>>>> origin/josephgag
     public void setPoblacionPais(Long poblacionPais) {
         this.poblacionPais = poblacionPais;
     }
