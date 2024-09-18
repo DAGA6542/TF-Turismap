@@ -17,4 +17,16 @@ public class UsuarioImplement implements IUsuarioService {
     public void update(Usuario usuario) { uR.save(usuario); }
     @Override
     public void delete(int idUsuario) { uR.deleteById(idUsuario); }
+    @Override
+    public List<Usuario> buscarPorNombre(String partialName) { return uR.buscarPorNombre(partialName); }
+    @Override
+    public Usuario buscarPorEmail(String emailUsuario) { return uR.buscarPorEmail(emailUsuario); }
+    @Override
+    public List<Usuario> buscarPorRol(int idRol) { return uR.buscarPorRol(idRol); }
+    @Override
+    public Usuario buscarPorTelefono(int telefonoUsuario) { return uR.buscarPorTelefono(telefonoUsuario); }
+    @Override
+    public List<Usuario> listarPorNombreAscendente() { return uR.listarPorNombreAscendente(); }
+    @Override
+    public Usuario findOneByUsername(String username) { return uR.findOneByUsername(username); }
 }

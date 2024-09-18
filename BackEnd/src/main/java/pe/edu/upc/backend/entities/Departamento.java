@@ -52,10 +52,10 @@ public class Departamento {
         return superficieDepartamento;
     }
     public void setSuperficieDepartamento(int superficieDepartamento) { this.superficieDepartamento = superficieDepartamento; }
-    public Pais getIdPaid() {
+    public Pais getIdPais() {
         return idPais;
     }
-    public void setIdPaid(Pais idPaid) {
-        this.idPais = idPaid;
+    public void setIdPais(Pais idPais) {
+        this.idPais = idPais;
     }
 }

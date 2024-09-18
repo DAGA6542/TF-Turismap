@@ -6,7 +6,7 @@ public class Ciudad {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idCiudad;
-    @Column(name = "nombreCiudad", nullable = false, length = 50)
+    @Column(name = "nombreCiudad", nullable = false, length = 70)
     private String nombreCiudad;
     @Column(name = "poblacionCiudad", nullable = false)
     private Long poblacionCiudad;
@@ -32,52 +32,20 @@ public class Ciudad {
         this.codigoPostalCiudad = codigoPostalCiudad;
         this.idDepartamento = idDepartamento;
     }
-    public int getIdCiudad() {
-        return idCiudad;
-    }
-    public void setIdCiudad(int idCiudad) {
-        this.idCiudad = idCiudad;
-    }
-    public String getNombreCiudad() {
-        return nombreCiudad;
-    }
-    public void setNombreCiudad(String nombreCiudad) {
-        this.nombreCiudad = nombreCiudad;
-    }
-    public Long getPoblacionCiudad() {
-        return poblacionCiudad;
-    }
-    public void setPoblacionCiudad(Long poblacionCiudad) {
-        this.poblacionCiudad = poblacionCiudad;
-    }
-    public int getSuperficieCiudad() {
-        return superficieCiudad;
-    }
-    public void setSuperficieCiudad(int superficieCiudad) {
-        this.superficieCiudad = superficieCiudad;
-    }
-    public double getLatitudCiudad() {
-        return latitudCiudad;
-    }
-    public void setLatitudCiudad(double latitudCiudad) {
-        this.latitudCiudad = latitudCiudad;
-    }
-    public double getLongitudCiudad() {
-        return longitudCiudad;
-    }
-    public void setLongitudCiudad(double longitudCiudad) {
-        this.longitudCiudad = longitudCiudad;
-    }
-    public int getCodigoPostalCiudad() {
-        return codigoPostalCiudad;
-    }
-    public void setCodigoPostalCiudad(int codigoPostalCiudad) {
-        this.codigoPostalCiudad = codigoPostalCiudad;
-    }
-    public Departamento getIdDepartamento() {
-        return idDepartamento;
-    }
-    public void setIdDepartamento(Departamento idDepartamento) {
-        this.idDepartamento = idDepartamento;
-    }
+    public int getIdCiudad() { return idCiudad; }
+    public void setIdCiudad(int idCiudad) { this.idCiudad = idCiudad; }
+    public String getNombreCiudad() { return nombreCiudad; }
+    public void setNombreCiudad(String nombreCiudad) { this.nombreCiudad = nombreCiudad; }
+    public Long getPoblacionCiudad() { return poblacionCiudad; }
+    public void setPoblacionCiudad(Long poblacionCiudad) { this.poblacionCiudad = poblacionCiudad; }
+    public int getSuperficieCiudad() { return superficieCiudad; }
+    public void setSuperficieCiudad(int superficieCiudad) { this.superficieCiudad = superficieCiudad; }
+    public double getLatitudCiudad() { return latitudCiudad; }
+    public void setLatitudCiudad(double latitudCiudad) { this.latitudCiudad = latitudCiudad; }
+    public double getLongitudCiudad() { return longitudCiudad; }
+    public void setLongitudCiudad(double longitudCiudad) { this.longitudCiudad = longitudCiudad; }
+    public int getCodigoPostalCiudad() { return codigoPostalCiudad; }
+    public void setCodigoPostalCiudad(int codigoPostalCiudad) { this.codigoPostalCiudad = codigoPostalCiudad; }
+    public Departamento getIdDepartamento() { return idDepartamento; }
+    public void setIdDepartamento(Departamento idDepartamento) { this.idDepartamento = idDepartamento; }
 }

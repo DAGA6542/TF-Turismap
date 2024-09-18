@@ -2,8 +2,8 @@ package pe.edu.upc.backend.entities;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 @Entity
-@Table(name = "Favoritos")
-public class Favoritos {
+@Table(name = "Favorito")
+public class Favorito {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idFavorito;
@@ -15,18 +15,23 @@ public class Favoritos {
     @JoinColumn(name = "idUsuario")
     private Usuario idUsuario;
     @ManyToOne
-    @JoinColumn(name = "idTurismo")
-    private Turismo idTurismo;
+    @JoinColumn(name = "idLugarTuristico")
+    private LugarTuristico idLugarTuristico;
     @ManyToOne
     @JoinColumn(name = "idNegocio")
     private Negocio idNegocio;
-    public Favoritos() {}
-    public Favoritos(int idFavorito, LocalDate fechaAgregadoFavorito, LocalDate fechaModificacionFavorito, Usuario idUsuario, Turismo idTurismo, Negocio idNegocio) {
+    public Favorito() {}
+    public Favorito(int idFavorito, LocalDate fechaAgregadoFavorito, LocalDate fechaModificacionFavorito) {
+        this.idFavorito = idFavorito;
+        this.fechaAgregadoFavorito = fechaAgregadoFavorito;
+        this.fechaModificacionFavorito = fechaModificacionFavorito;
+    }
+    public Favorito(int idFavorito, LocalDate fechaAgregadoFavorito, LocalDate fechaModificacionFavorito, Usuario idUsuario, LugarTuristico idLugarTuristico, Negocio idNegocio) {
         this.idFavorito = idFavorito;
         this.fechaAgregadoFavorito = fechaAgregadoFavorito;
         this.fechaModificacionFavorito = fechaModificacionFavorito;
         this.idUsuario = idUsuario;
-        this.idTurismo = idTurismo;
+        this.idLugarTuristico = idLugarTuristico;
         this.idNegocio = idNegocio;
     }
     public int getIdFavorito() {
@@ -43,17 +48,15 @@ public class Favoritos {
         return fechaModificacionFavorito;
     }
     public void setFechaModificacionFavorito(LocalDate fechaModificacionFavorito) { this.fechaModificacionFavorito = fechaModificacionFavorito; }
-    public Usuario getIdUsuario() {
-        return idUsuario;
-    }
+    public Usuario getIdUsuario() { return idUsuario; }
     public void setIdUsuario(Usuario idUsuario) {
         this.idUsuario = idUsuario;
     }
-    public Turismo getIdTurismo() {
-        return idTurismo;
+    public LugarTuristico getIdLugarTuristico() {
+        return idLugarTuristico;
     }
-    public void setIdTurismo(Turismo idTurismo) {
-        this.idTurismo = idTurismo;
+    public void setIdLugarTuristico(LugarTuristico idLugarTuristico) {
+        this.idLugarTuristico = idLugarTuristico;
     }
     public Negocio getIdNegocio() {
         return idNegocio;

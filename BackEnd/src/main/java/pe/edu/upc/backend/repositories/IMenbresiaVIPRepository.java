@@ -1,9 +1,9 @@
 package pe.edu.upc.backend.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.RequestParam;
 import pe.edu.upc.backend.entities.MenbresiaVIP;
 import java.time.LocalDate;
 import java.util.List;
@@ -20,15 +20,11 @@ public interface IMenbresiaVIPRepository extends JpaRepository<MenbresiaVIP, Int
     public List<MenbresiaVIP> obtenerMenbresiasTipoMayorEspecifico(@Param("tipo") String tipo);
     // Contar cuántas membresías VIP están activas
     @Query("Select count(m) from MenbresiaVIP m where m.estadoMenbresiaVIP = true")
-    public long cantidadMenbresActivas();
+    public int cantidadMenbresActivas();
     // Obtener las membresías que expiran antes de una fecha específica
     @Query("Select m from MenbresiaVIP m where m.fechaFinMenbresiaVIP < :fecha")
     public List<MenbresiaVIP> obtenerMenbresExpiranEnFechaEspecifi(@Param("fecha") LocalDate fecha);
     // Obtener las membresías activas de un usuario específico
     @Query("Select m from MenbresiaVIP m where m.idUsuario.idUsuario = :idUsuario and m.estadoMenbresiaVIP = true")
     public List<MenbresiaVIP> obtenerMenbresDeUsuario(@Param("idUsuario") int idUsuario);
-    // Eliminar todas las membresías inactivas
-    @Modifying
-    @Query("Delete from MenbresiaVIP m where m.estadoMenbresiaVIP = false")
-    public void eliminarTodaMenbresInactiva();
 }

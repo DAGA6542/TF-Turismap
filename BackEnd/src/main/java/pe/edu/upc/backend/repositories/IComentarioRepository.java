@@ -15,7 +15,7 @@ public interface IComentarioRepository extends JpaRepository<Comentario, Integer
     @Query("Select c from Comentario c where c.idNegocio.idNegocio = :idNegocio")
     public List<Comentario> buscarComentariosPorNegocio(@Param("idNegocio") int idNegocio);
     // Buscar comentarios por sitio turistico
-    @Query("Select c from Comentario c where c.idTurismo.idTurismo = :idTurismo")
+    @Query("Select c from Comentario c where c.idLugarTuristico.idLugarTuristico = :idTurismo")
     public List<Comentario> buscarComentariosPorTurismo(@Param("idTurismo") int idTurismo);
     // comentarios recientes hasta una fecha especifica
     @Query("Select c from Comentario c where c.fechaComentario <= :fecha")

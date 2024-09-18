@@ -1,6 +1,7 @@
 package pe.edu.upc.backend.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.backend.dtos.PaisDTO;
 import pe.edu.upc.backend.entities.Pais;
@@ -9,6 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/paises")
+@PreAuthorize("hasAuthority('ADMIN')")
 public class PaisController {
     @Autowired
     IPaisService pS;
@@ -58,16 +60,15 @@ public class PaisController {
     }
     @GetMapping("/obtenerporcodigoiso")
     public PaisDTO obtenerPorCodigoIso(@RequestParam String codigoIso) {
-        /*
-        return pS.obtenerPorCodigoIso(codigoIso).getCodigoIsoPais().transform(y->{
+        /* return pS.obtenerPorCodigoIso(codigoIso).getCodigoIsoPais().transform(y->{
             ModelMapper m = new ModelMapper();
             return m.map(y,PaisDTO.class);
-        });*/
+        }); */
         Pais pais = pS.obtenerPorCodigoIso(codigoIso);
-        ModelMapper modelMapper = new ModelMapper();
-        return modelMapper.map(pais, PaisDTO.class);
+        ModelMapper m = new ModelMapper();
+        return m.map(pais,PaisDTO.class);
     }
-    @GetMapping("/obtenercantidadpaiscontinente")
+    @GetMapping("/obtenercantidadpaisenuncontinente")
     public long obtenerCantidadPaisEnUnContinente(@RequestParam String continente) {
         return pS.obtenerCantidadPaisEnUnContinente(continente);
     }
@@ -95,8 +96,7 @@ public class PaisController {
     @GetMapping("/obtenerporcapital")
     public PaisDTO obtenerPorCapital(@RequestParam String capital) {
         Pais pais = pS.obtenerPorCapital(capital);
-        ModelMapper modelMapper = new ModelMapper();
-        return modelMapper.map(pais, PaisDTO.class);
+        ModelMapper m = new ModelMapper();
+        return m.map(pais,PaisDTO.class);
     }
-
 }

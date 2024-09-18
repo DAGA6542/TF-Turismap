@@ -17,6 +17,7 @@ public class NegocioImplement implements INegocioService {
     public void update(Negocio negocio) { nR.save(negocio); }
     @Override
     public void delete(int idNegocio) { nR.deleteById(idNegocio); }
+    @Override
     public List<Negocio> obtenerPorCiudad(int idCiudad) { return nR.obtenerPorCiudad(idCiudad); }
     @Override
     public long contarPorCiudad(int idCiudad) { return nR.contarPorCiudad(idCiudad); }

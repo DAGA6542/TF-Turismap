@@ -6,25 +6,44 @@ public class Negocio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idNegocio;
-    @Column(name = "nombreNegocio", nullable = false, length = 50)
+    @Column(name = "nombreNegocio", nullable = false, length = 80)
     private String nombreNegocio;
-    @Column(name = "horarioNegocio", nullable = false, length = 20)
+    @Column(name = "horarioNegocio", nullable = false, length = 60)
     private String horarioNegocio;
     @Column(name = "numeroTelefonoNegocio", nullable = false)
     private int numeroTelefonoNegocio;
     @Column(name = "calificacionNegocio", nullable = false)
     private int calificacionNegocio;
+    @Column(name = "descripcionNegocio", nullable = false, length = 250)
+    private String descripcionNegocio;
+    @Column(name = "reservaNegocio", nullable = false)
+    private Boolean reservaNegocio;
     @ManyToOne
     @JoinColumn(name = "idCiudad")
     private Ciudad idCiudad;
+    @ManyToOne
+    @JoinColumn(name = "idPromocion")
+    private Promocion idPromocion;
     public Negocio() {}
-    public Negocio(int idNegocio, String nombreNegocio, String horarioNegocio, int numeroTelefonoNegocio, int calificacionNegocio, Ciudad idCiudad) {
+    public Negocio(int idNegocio, String nombreNegocio, String horarioNegocio, int numeroTelefonoNegocio, int calificacionNegocio, String descripcionNegocio, Boolean reservaNegocio) {
+        this.idNegocio = idNegocio;
+        this.nombreNegocio = nombreNegocio;
+        this.horarioNegocio = horarioNegocio;
+        this.numeroTelefonoNegocio = numeroTelefonoNegocio;
+        this.calificacionNegocio = calificacionNegocio;
+        this.descripcionNegocio = descripcionNegocio;
+        this.reservaNegocio = reservaNegocio;
+    }
+    public Negocio(int idNegocio, String nombreNegocio, String horarioNegocio, int numeroTelefonoNegocio, int calificacionNegocio, Ciudad idCiudad, Promocion idPromocion, String descripcionNegocio, Boolean reservaNegocio) {
         this.idNegocio = idNegocio;
         this.nombreNegocio = nombreNegocio;
         this.horarioNegocio = horarioNegocio;
         this.numeroTelefonoNegocio = numeroTelefonoNegocio;
         this.calificacionNegocio = calificacionNegocio;
         this.idCiudad = idCiudad;
+        this.idPromocion = idPromocion;
+        this.descripcionNegocio = descripcionNegocio;
+        this.reservaNegocio = reservaNegocio;
     }
     public int getIdNegocio() {
         return idNegocio;
@@ -60,4 +79,10 @@ public class Negocio {
     public void setIdCiudad(Ciudad idCiudad) {
         this.idCiudad = idCiudad;
     }
+    public Promocion getIdPromocion() { return idPromocion; }
+    public void setIdPromocion(Promocion idPromocion) { this.idPromocion = idPromocion; }
+    public String getDescripcionNegocio() { return descripcionNegocio; }
+    public void setDescripcionNegocio(String descripcionNegocio) { this.descripcionNegocio = descripcionNegocio; }
+    public Boolean getReservaNegocio() { return reservaNegocio; }
+    public void setReservaNegocio(Boolean reservaNegocio) { this.reservaNegocio = reservaNegocio;     }
 }

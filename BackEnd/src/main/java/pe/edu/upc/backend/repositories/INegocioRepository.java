@@ -24,7 +24,7 @@ public interface INegocioRepository extends JpaRepository<Negocio, Integer> {
     public List<Negocio> obtenerPorHorario(@Param("horario") String horario);
     // Obtener el negocio con la mayor calificación
     @Query("Select n from Negocio n order by n.calificacionNegocio desc")
-    public List<Negocio> obtenerMayorCalificados(int calificacionNegocio);
+    public List<Negocio> obtenerMayorCalificados(@Param("calificacionNegocio") int calificacionNegocio);
     // Obtener negocios por número de teléfono
     @Query("Select n from Negocio n where n.numeroTelefonoNegocio = :telefono")
     public List<Negocio> obtenerPorTelefono(@Param("telefono") int telefono);

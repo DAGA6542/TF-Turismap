@@ -18,9 +18,9 @@ public class DepartamentoImplement implements IDepartamentoService {
     @Override
     public void delete(int idDepartamento) { dR.deleteById(idDepartamento); }
     @Override
-    public List<Departamento> listarPorPais(int idPais) { return dR.listarPorPais(idPais); }
-    @Override
     public List<Departamento> buscarPorNombre(String nombre) { return dR.buscarPorNombre(nombre); }
+    @Override
+    public List<Departamento> listarPorPais(int idPais) { return dR.listarPorPais(idPais); }
     @Override
     public List<Departamento> obtenerDepartamentPoblac(Long poblacion) { return dR.obtenerDepartamentPoblac(poblacion); }
     @Override

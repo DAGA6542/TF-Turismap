@@ -37,8 +37,7 @@ public class ComentarioController {
     public void eliminar(@PathVariable("id") int id) {
         cS.delete(id);
     }
-
-    @GetMapping("/obtenercomentusuario")
+    @GetMapping("/obtenercomentariosusuario")
     public List<ComentarioDTO> obtenerComentariosPorUsuario(@RequestParam int idUsuario) {
         return cS.obtenerComentariosPorUsuario(idUsuario).stream().map(y->{
             ModelMapper m = new ModelMapper();
@@ -46,7 +45,7 @@ public class ComentarioController {
             return m.map(y,ComentarioDTO.class);
         }).collect(Collectors.toList());
     }
-    @GetMapping("/buscarcomennegocio")
+    @GetMapping("/buscarcomentariosnegocio")
     public List<ComentarioDTO> buscarComentariosPorNegocio(@RequestParam int idNegocio) {
         return cS.buscarComentariosPorNegocio(idNegocio).stream().map(y->{
             ModelMapper m = new ModelMapper();
@@ -54,7 +53,7 @@ public class ComentarioController {
             return m.map(y,ComentarioDTO.class);
         }).collect(Collectors.toList());
     }
-    @GetMapping("/buscarcomenturismo")
+    @GetMapping("/buscarcomentariosturismo")
     public List<ComentarioDTO> buscarComentariosPorTurismo(@RequestParam int idTurismo) {
         return cS.buscarComentariosPorTurismo(idTurismo).stream().map(y->{
             ModelMapper m = new ModelMapper();
@@ -62,7 +61,7 @@ public class ComentarioController {
             return m.map(y,ComentarioDTO.class);
         }).collect(Collectors.toList());
     }
-    @GetMapping("/obtenercomenfecha")
+    @GetMapping("/obtenercomentariofecha")
     public List<ComentarioDTO> obtenerComentariosHastaFecha(@RequestParam LocalDate fecha) {
         return cS.obtenerComentariosHastaFecha(fecha).stream().map(y->{
             ModelMapper m = new ModelMapper();
@@ -70,7 +69,7 @@ public class ComentarioController {
             return m.map(y,ComentarioDTO.class);
         }).collect(Collectors.toList());
     }
-    @GetMapping("/buscarcomentario")
+    @GetMapping("/buscarcomentarios")
     public List<ComentarioDTO> buscarComentario(@RequestParam String texto) {
         return cS.buscarComentario(texto).stream().map(y->{
             ModelMapper m = new ModelMapper();

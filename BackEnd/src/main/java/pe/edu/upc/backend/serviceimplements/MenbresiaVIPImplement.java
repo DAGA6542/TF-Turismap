@@ -21,15 +21,13 @@ public class MenbresiaVIPImplement implements IMenbresiaVIPService {
     @Override
     public List<MenbresiaVIP> obtenerMenbresActiv() { return mR.obtenerMenbresActiv(); }
     @Override
-    public List<MenbresiaVIP> obtenerMenbresDeUsuar(int idUsuario) { return mR.obtenerMenbresDeUsuar(idUsuario); }
+    public List<MenbresiaVIP> obtenerMenbresDeUsuar(int idUsuario) {  return mR.obtenerMenbresDeUsuar(idUsuario); }
     @Override
     public List<MenbresiaVIP> obtenerMenbresiasTipoMayorEspecifico(String tipo) { return mR.obtenerMenbresiasTipoMayorEspecifico(tipo); }
     @Override
-    public long cantidadMenbresActivas() { return mR.cantidadMenbresActivas(); }
+    public int cantidadMenbresActivas() { return mR.cantidadMenbresActivas(); }
     @Override
     public List<MenbresiaVIP> obtenerMenbresExpiranEnFechaEspecifi(LocalDate fecha) { return mR.obtenerMenbresExpiranEnFechaEspecifi(fecha); }
     @Override
     public List<MenbresiaVIP> obtenerMenbresDeUsuario(int idUsuario) { return mR.obtenerMenbresDeUsuario(idUsuario); }
-    @Override
-    public void eliminarTodaMenbresInactiva() { mR.eliminarTodaMenbresInactiva(); }
 }

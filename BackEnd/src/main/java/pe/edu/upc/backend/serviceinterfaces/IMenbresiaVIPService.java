@@ -1,9 +1,5 @@
 package pe.edu.upc.backend.serviceinterfaces;
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import pe.edu.upc.backend.entities.MenbresiaVIP;
-
 import java.time.LocalDate;
 import java.util.List;
 public interface IMenbresiaVIPService {
@@ -14,8 +10,7 @@ public interface IMenbresiaVIPService {
     public List<MenbresiaVIP> obtenerMenbresActiv();
     public List<MenbresiaVIP> obtenerMenbresDeUsuar(int idUsuario);
     public List<MenbresiaVIP> obtenerMenbresiasTipoMayorEspecifico(String tipo);
-    public long cantidadMenbresActivas();
+    public int cantidadMenbresActivas();
     public List<MenbresiaVIP> obtenerMenbresExpiranEnFechaEspecifi(LocalDate fecha);
     public List<MenbresiaVIP> obtenerMenbresDeUsuario(int idUsuario);
-    public void eliminarTodaMenbresInactiva();
 }
