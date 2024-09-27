@@ -30,7 +30,7 @@ public interface IMenbresiaVIPRepository extends JpaRepository<MenbresiaVIP, Int
     @Query(value = "SELECT mv.* \n" +
             " FROM menbresiavip mv \n" +
             " JOIN usuario u ON mv.id_usuario = u.id_usuario \n" +
-            " WHERE mv.tipo_menbresiavip = 'Oro';", nativeQuery = true)
+            " WHERE mv.tipo_menbresiavip = :tipoMenbresiaVIP", nativeQuery = true)
     List<MenbresiaVIP> obtenerNombreUsuarioYTipoMembresia(@Param("tipoMenbresiaVIP") String tipo);
     //Obtener el nombre del usuario y su tipo de membresía
 }
