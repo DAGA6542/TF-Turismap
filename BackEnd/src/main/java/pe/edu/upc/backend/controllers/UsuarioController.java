@@ -78,4 +78,12 @@ public class UsuarioController {
             return m.map(y,UsuarioDTO.class);
         });
     }
+     @GetMapping("/obtenerComentario")
+    public List<UsuarioDTO> obtenerComentario(@RequestParam String nombreNegocio) {
+        return uS.obtenerComentario(nombreNegocio).stream().map(y->{
+            ModelMapper m = new ModelMapper();
+            return m.map(y,UsuarioDTO.class);
+        }).collect(Collectors.toList());
+
+    }
 }
