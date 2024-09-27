@@ -17,4 +17,8 @@ public class LugarTuristicoImplement implements ILugarTuristicoService {
     public void update(LugarTuristico lugarTuristico) { lR.save(lugarTuristico); }
     @Override
     public void delete(int idLugarTuristico) { lR.deleteById(idLugarTuristico); }
+    @Override
+    public List<LugarTuristico> listarPorNumero(String nombreLugarTuristico){return lR.listarPorNumero(nombreLugarTuristico);};
+    @Override
+    public List<LugarTuristico> listarlugarturisticoporciudad(String nombreCiudad){return lR.listarlugarturisticoporciudad(nombreCiudad);};
 }
