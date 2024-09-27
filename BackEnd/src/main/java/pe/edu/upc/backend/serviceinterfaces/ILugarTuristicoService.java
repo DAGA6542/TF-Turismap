@@ -6,4 +6,6 @@ public interface ILugarTuristicoService {
     public List<LugarTuristico> list();
     public void update(LugarTuristico lugarTuristico);
     public void delete(int idLugarTuristico);
+    public List<LugarTuristico> obtenerPorCiudadL(int idCiudad);
+    public long contarPorCiudadL(int idCiudad);
 }
