@@ -29,4 +29,8 @@ public class UsuarioImplement implements IUsuarioService {
     public List<Usuario> listarPorNombreAscendente() { return uR.listarPorNombreAscendente(); }
     @Override
     public Usuario findOneByUsername(String username) { return uR.findOneByUsername(username); }
+    @Override
+    public List<Usuario> obtenerComentario(String asd) { return uR.obtenerComentario(asd); }
+    @Override
+    public void registrarRolUsuario(String nombreRol, Long id_usuario) { uR.registrarRolUsuario(nombreRol, id_usuario); }
 }

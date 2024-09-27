@@ -27,4 +27,6 @@ public interface IMenbresiaVIPRepository extends JpaRepository<MenbresiaVIP, Int
     // Obtener las membresías activas de un usuario específico
     @Query("Select m from MenbresiaVIP m where m.idUsuario.idUsuario = :idUsuario and m.estadoMenbresiaVIP = true")
     public List<MenbresiaVIP> obtenerMenbresDeUsuario(@Param("idUsuario") int idUsuario);
+    @Query("UPDATE MenbresiaVIP SET estadoMenbresiaVIP = :estadoNuevo, fechaInicioMenbresiaVIP = :fechaInicio, fechaFinMenbresiaVIP = :fechaFin WHERE idUsuario = :idUsuario ")
+    void actualizarMenbresiaVIP(@Param("estadoNuevo") Boolean estadoNuevo, @Param("fechaInicio") LocalDate fechaInicio, @Param("fechaFin") LocalDate fechaFin, @Param("idUsuario") int idUsuario);
 }

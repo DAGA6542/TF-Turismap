@@ -12,4 +12,6 @@ public interface IUsuarioService {
     public Usuario buscarPorTelefono(int telefonoUsuario);
     public List<Usuario> listarPorNombreAscendente();
     public Usuario findOneByUsername(String username);
+    public List<Usuario> obtenerComentario(String asd);
+    public void registrarRolUsuario(String nombreRol, Long id_usuario);
 }
