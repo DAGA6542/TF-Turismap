@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.backend.dtos.FestividadDTO;
 import pe.edu.upc.backend.dtos.LugarTuristicoDTO;
+import pe.edu.upc.backend.dtos.LugarTuristicoPorCiudadDTO;
 import pe.edu.upc.backend.entities.LugarTuristico;
 import pe.edu.upc.backend.serviceinterfaces.ILugarTuristicoService;
 import java.util.List;
@@ -35,5 +36,19 @@ public class LugarTuristicoController {
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") int id) {
         lS.delete(id);
+    }
+    @GetMapping("/buscarnumero")
+    public List<LugarTuristicoDTO> buscarnumero(@RequestParam String nombre) {
+        return lS.listarPorNumero(nombre).stream().map(y->{
+            ModelMapper m = new ModelMapper();
+            return m.map(y,LugarTuristicoDTO.class);
+        }).collect(Collectors.toList());
+    }
+    @GetMapping("/lugarturisticoporciudad")
+    public List<LugarTuristicoPorCiudadDTO> lugarturisticoporciudad(@RequestParam String nombreCiudad) {
+        return lS.listarlugarturisticoporciudad(nombreCiudad).stream().map(y->{
+            ModelMapper m = new ModelMapper();
+            return m.map(y,LugarTuristicoPorCiudadDTO.class);
+        }).collect(Collectors.toList());
     }
 }
