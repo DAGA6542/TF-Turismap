@@ -27,4 +27,10 @@ public interface IMenbresiaVIPRepository extends JpaRepository<MenbresiaVIP, Int
     // Obtener las membresías activas de un usuario específico
     @Query("Select m from MenbresiaVIP m where m.idUsuario.idUsuario = :idUsuario and m.estadoMenbresiaVIP = true")
     public List<MenbresiaVIP> obtenerMenbresDeUsuario(@Param("idUsuario") int idUsuario);
+    @Query(value = "SELECT mv.* \n" +
+            " FROM menbresiavip mv \n" +
+            " JOIN usuario u ON mv.id_usuario = u.id_usuario \n" +
+            " WHERE mv.tipo_menbresiavip = 'Oro';", nativeQuery = true)
+    List<MenbresiaVIP> obtenerNombreUsuarioYTipoMembresia(@Param("tipoMenbresiaVIP") String tipo);
+    //Obtener el nombre del usuario y su tipo de membresía
 }
