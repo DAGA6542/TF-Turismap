@@ -81,4 +81,12 @@ public class MenbresiaVIPController {
             return m.map(y,MenbresiaVIPDTO.class);
         }).collect(Collectors.toList());
     }
+    
+    @GetMapping("/obtenerNombreUsuarioYTipoMembresia")
+    public List<MenbresiaVIPDTO> obtenerNombreUsuarioYTipoMembresia(@RequestParam String tipo) {
+        return mS.obtenerNombreUsuarioYTipoMembresia(tipo).stream().map(y->{
+            ModelMapper m = new ModelMapper();
+            return m.map(y,MenbresiaVIPDTO.class);
+        }).collect(Collectors.toList());
+    }
 }
