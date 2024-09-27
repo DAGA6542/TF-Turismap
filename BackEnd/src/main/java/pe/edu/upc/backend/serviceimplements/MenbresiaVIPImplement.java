@@ -30,4 +30,8 @@ public class MenbresiaVIPImplement implements IMenbresiaVIPService {
     public List<MenbresiaVIP> obtenerMenbresExpiranEnFechaEspecifi(LocalDate fecha) { return mR.obtenerMenbresExpiranEnFechaEspecifi(fecha); }
     @Override
     public List<MenbresiaVIP> obtenerMenbresDeUsuario(int idUsuario) { return mR.obtenerMenbresDeUsuario(idUsuario); }
+    @Override
+    public List<MenbresiaVIP> obtenerNombreUsuarioYTipoMembresia(String tipo) {
+        return mR.obtenerNombreUsuarioYTipoMembresia(tipo);
+    }
 }
