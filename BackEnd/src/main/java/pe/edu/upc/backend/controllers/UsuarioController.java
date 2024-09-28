@@ -20,12 +20,6 @@ public class UsuarioController {
         Usuario usuario = m.map(usuarioDTO, Usuario.class);
         uS.insert(usuario);
     }
-    @PostMapping("/registrarrolusuario")
-    public void registrarRolUsuario(@RequestParam String nombreRol, @RequestParam Long id_usuario) {
-        ModelMapper m = new ModelMapper();
-        Usuario usuario = m.map(nombreRol, Usuario.class);
-        uS.registrarRolUsuario(nombreRol, id_usuario);
-    }
     @PutMapping
     public void modificar(@RequestBody UsuarioDTO usuarioDTO) {
         ModelMapper m = new ModelMapper();

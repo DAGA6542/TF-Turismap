@@ -21,8 +21,8 @@ public interface ICiudadRepository extends JpaRepository<Ciudad, Integer> {
     public List<Ciudad> poblacionMayor(@Param("poblacion") Long poblacion);
     // cantidad de turismo
     @Query(value = " select c.nombre_ciudad, count(*)\n" +
-            "         from ciudad c inner join turismo tu\n" +
-            "         on c.id_ciudad=tu.id_ciudad\n" +
-            "        group by c.nombre_ciudad",nativeQuery = true)
+            " from ciudad c inner join lugar_turistico tu\n" +
+            " on c.id_ciudad=tu.id_ciudad\n" +
+            " group by c.nombre_ciudad",nativeQuery = true)
     public List<String[]>cantidadTurismo();
 }
