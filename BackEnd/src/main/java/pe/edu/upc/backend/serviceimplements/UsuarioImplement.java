@@ -30,7 +30,7 @@ public class UsuarioImplement implements IUsuarioService {
     @Override
     public Usuario findOneByUsername(String username) { return uR.findOneByUsername(username); }
     @Override
-    public List<Usuario> obtenerComentario(String asd) { return uR.obtenerComentario(asd); }
-    @Override
-    public void registrarRolUsuario(String nombreRol, Long id_usuario) { uR.registrarRolUsuario(nombreRol, id_usuario); }
+    public List<Usuario> obtenerComentario(String nombreNegocio) {
+        return uR.obtenerComentario(nombreNegocio);
+    }
 }

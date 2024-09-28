@@ -31,5 +31,7 @@ public class MenbresiaVIPImplement implements IMenbresiaVIPService {
     @Override
     public List<MenbresiaVIP> obtenerMenbresDeUsuario(int idUsuario) { return mR.obtenerMenbresDeUsuario(idUsuario); }
     @Override
-    public void actualizarMenbresiaVIP(Boolean estadoNuevo, LocalDate fechaInicio, LocalDate fechaFin, int idUsuario) { mR.actualizarMenbresiaVIP(estadoNuevo, fechaInicio, fechaFin, idUsuario); }
+    public List<MenbresiaVIP> obtenerNombreUsuarioYTipoMembresia(String tipo) {
+        return mR.obtenerNombreUsuarioYTipoMembresia(tipo);
+    }
 }
