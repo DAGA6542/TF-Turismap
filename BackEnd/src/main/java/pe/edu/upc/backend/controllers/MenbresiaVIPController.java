@@ -37,6 +37,10 @@ public class MenbresiaVIPController {
             return m.map(y,MenbresiaVIPDTO.class);
         }).collect(Collectors.toList());
     }
+    @PutMapping("/actualizarmenbersiavip")
+    public void actualizarMenbresiaVIP(@RequestParam Boolean estadoNuevo, @RequestParam LocalDate fechaInicio, @RequestParam LocalDate fechaFin, @RequestParam int idUsuario) {
+        mS.actualizarMenbresiaVIP(estadoNuevo, fechaInicio, fechaFin, idUsuario);
+    }
     @DeleteMapping({"/id"})
     @PreAuthorize("hasAuthority('VIP') or hasAuthority('ADMIN')")
     public void eliminar(@RequestParam("id") int id) {

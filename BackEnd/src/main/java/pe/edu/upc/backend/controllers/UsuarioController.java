@@ -20,6 +20,12 @@ public class UsuarioController {
         Usuario usuario = m.map(usuarioDTO, Usuario.class);
         uS.insert(usuario);
     }
+    @PostMapping("/registrarrolusuario")
+    public void registrarRolUsuario(@RequestParam String nombreRol, @RequestParam Long id_usuario) {
+        ModelMapper m = new ModelMapper();
+        Usuario usuario = m.map(nombreRol, Usuario.class);
+        uS.registrarRolUsuario(nombreRol, id_usuario);
+    }
     @PutMapping
     public void modificar(@RequestBody UsuarioDTO usuarioDTO) {
         ModelMapper m = new ModelMapper();
@@ -77,5 +83,12 @@ public class UsuarioController {
             ModelMapper m = new ModelMapper();
             return m.map(y,UsuarioDTO.class);
         });
+    }
+    @GetMapping("/obtenerComentario")
+    List<UsuarioDTO> obtenerComentario(@RequestParam String asd) {
+        return uS.obtenerComentario(asd).stream().map(y->{
+            ModelMapper m = new ModelMapper();
+            return m.map(y,UsuarioDTO.class);
+        }).collect(Collectors.toList());
     }
 }
