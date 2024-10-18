@@ -37,10 +37,6 @@ public class MenbresiaVIPController {
             return m.map(y,MenbresiaVIPDTO.class);
         }).collect(Collectors.toList());
     }
-    @PutMapping("/actualizarmenbersiavip")
-    public void actualizarMenbresiaVIP(@RequestParam Boolean estadoNuevo, @RequestParam LocalDate fechaInicio, @RequestParam LocalDate fechaFin, @RequestParam int idUsuario) {
-        mS.actualizarMenbresiaVIP(estadoNuevo, fechaInicio, fechaFin, idUsuario);
-    }
     @DeleteMapping({"/id"})
     @PreAuthorize("hasAuthority('VIP') or hasAuthority('ADMIN')")
     public void eliminar(@RequestParam("id") int id) {
@@ -81,6 +77,14 @@ public class MenbresiaVIPController {
     @GetMapping("/obtenermenbresdeusuario")
     public List<MenbresiaVIPDTO> obtenerMenbresDeUsuario(@RequestParam int idUsuario) {
         return mS.obtenerMenbresDeUsuario(idUsuario).stream().map(y->{
+            ModelMapper m = new ModelMapper();
+            return m.map(y,MenbresiaVIPDTO.class);
+        }).collect(Collectors.toList());
+    }
+    
+    @GetMapping("/obtenerNombreUsuarioYTipoMembresia")
+    public List<MenbresiaVIPDTO> obtenerNombreUsuarioYTipoMembresia(@RequestParam String tipo) {
+        return mS.obtenerNombreUsuarioYTipoMembresia(tipo).stream().map(y->{
             ModelMapper m = new ModelMapper();
             return m.map(y,MenbresiaVIPDTO.class);
         }).collect(Collectors.toList());
