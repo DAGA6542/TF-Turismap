@@ -1,0 +1,71 @@
+<div class="container" style="padding-top: 10px; padding-left: 10px; padding-right: 10px;">
+    <div class="title-container">
+        <h1 class="title" style="text-align: center;">Lista Paises</h1>
+    </div>
+  
+    <table mat-table [dataSource]="datasource" class="mat-elevation-z8 full-width-table">
+  
+        <ng-container matColumnDef="idPais">
+            <th mat-header-cell *matHeaderCellDef>ID</th>
+            <td mat-cell *matCellDef="let element">{{ element.idPais}}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef>Nombre</th>
+            <td mat-cell *matCellDef="let element">{{ element.nombre }}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="codigoIso">
+            <th mat-header-cell *matHeaderCellDef>codigoIso</th>
+            <td mat-cell *matCellDef="let element">{{ element.codigoIso }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="continente">
+            <th mat-header-cell *matHeaderCellDef>continente</th>
+            <td mat-cell *matCellDef="let element">{{ element.continente }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="capital">
+            <th mat-header-cell *matHeaderCellDef>capital</th>
+            <td mat-cell *matCellDef="let element">{{ element.capital }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="moneda">
+            <th mat-header-cell *matHeaderCellDef>moneda</th>
+            <td mat-cell *matCellDef="let element">{{ element.moneda }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="idiomaOficial">
+            <th mat-header-cell *matHeaderCellDef>idiomaOficial</th>
+            <td mat-cell *matCellDef="let element">{{ element.idiomaOficial }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="poblacion">
+            <th mat-header-cell *matHeaderCellDef>poblacion</th>
+            <td mat-cell *matCellDef="let element">{{ element.poblacion }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="superficie">
+            <th mat-header-cell *matHeaderCellDef>superficie</th>
+            <td mat-cell *matCellDef="let element">{{ element.superficie }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="accion01">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element" class="action-cell">
+                <button mat-button color="primary" [routerLink]="['editar', element.idTipoMeta]">
+                    <mat-icon>edit</mat-icon>
+                </button>
+  
+                <button mat-button color="warn" (click)="openDialog(element.idTipoMeta)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 7, 10]" showFirstLastButtons aria-label="Select page of periodic elements"></mat-paginator>
+  </div>

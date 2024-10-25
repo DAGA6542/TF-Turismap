@@ -1,0 +1,92 @@
+<div class="title-container"><h1 class="title"style="text-align: center">Registro de Pais</h1></div>
+<div class="container" style="text-align: center">
+  
+  <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+
+    <mat-form-field *ngIf="edicion">
+      <mat-label>Codigo:</mat-label>
+      <input matInput formControlName="codigo" readonly/>
+    </mat-form-field>
+    <br />
+
+    <mat-form-field>
+      <mat-label>nombre</mat-label>
+      <input matInput formControlName="nombre" />
+      <mat-error *ngIf="form.get('nombre')?.hasError('required')"
+        >El nombre es obligatorio.</mat-error
+      >
+    </mat-form-field>
+
+    <br />
+    <mat-form-field>
+        <mat-label>codigoIso</mat-label>
+        <input matInput formControlName="codigoIso" />
+        <mat-error *ngIf="form.get('codigoIso')?.hasError('required')"
+          >El codigoIso es obligatorio.</mat-error
+        >
+      </mat-form-field>
+
+    <br />
+    
+    <mat-form-field>
+        <mat-label>continente</mat-label>
+        <input matInput formControlName="continente" />
+        <mat-error *ngIf="form.get('continente')?.hasError('required')"
+          >El continente es obligatorio.</mat-error
+        >
+      </mat-form-field>
+
+    <br />
+    <mat-form-field>
+        <mat-label>capital</mat-label>
+        <input matInput formControlName="capital" />
+        <mat-error *ngIf="form.get('capital')?.hasError('required')"
+          >El capital es obligatorio.</mat-error
+        >
+      </mat-form-field>
+
+    <br />
+    <mat-form-field>
+        <mat-label>moneda</mat-label>
+        <input matInput formControlName="moneda" />
+        <mat-error *ngIf="form.get('moneda')?.hasError('required')"
+          >El moneda es obligatorio.</mat-error
+        >
+      </mat-form-field>
+
+    <br />
+    <mat-form-field>
+        <mat-label>idiomaOficial</mat-label>
+        <input matInput formControlName="idiomaOficial" />
+        <mat-error *ngIf="form.get('idiomaOficial')?.hasError('required')"
+          >El idiomaOficial es obligatorio.</mat-error
+        >
+      </mat-form-field>
+
+    <br />
+    <mat-form-field>
+        <mat-label>poblacion</mat-label>
+        <input matInput formControlName="poblacion" />
+        <mat-error *ngIf="form.get('poblacion')?.hasError('required')"
+          >El poblacion es obligatorio.</mat-error
+        >
+      </mat-form-field>
+
+    <br />
+    <mat-form-field>
+        <mat-label>superficie</mat-label>
+        <input matInput formControlName="superficie" />
+        <mat-error *ngIf="form.get('superficie')?.hasError('required')"
+          >El superficie es obligatorio.</mat-error
+        >
+      </mat-form-field>
+
+    <br />
+
+
+    <br />
+    <button class="primaryButton" *ngIf="!edicion">Registrar</button>
+    <button class="primaryButton" *ngIf="edicion">Editar</button>
+    <button class="secondaryButton"  routerLink="/pais"> Cancelar </button>
+  </form>
+</div>
