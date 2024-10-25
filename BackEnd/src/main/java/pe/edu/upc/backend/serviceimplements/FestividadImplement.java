@@ -18,5 +18,7 @@ public class FestividadImplement implements IFestividadService {
     @Override
     public void delete(int idFestividadId) { fR.deleteById(idFestividadId); }
     @Override
-    public Festividad listById(int idFestividad) { return fR.findById(idFestividad).orElse(new Festividad()); }
+    public List<Festividad> obtenerPorLugarTuristico(int idLugarTuristico) { return fR.obtenerPorLugarTuristico(idLugarTuristico); }
+    @Override
+    public long contarPorLugarTuristico(int idLugarTuristico) { return fR.contarPorLugarTuristico(idLugarTuristico); }
 }
