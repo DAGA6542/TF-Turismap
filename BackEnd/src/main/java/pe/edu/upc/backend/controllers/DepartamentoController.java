@@ -37,6 +37,12 @@ public class DepartamentoController {
     public void eliminar(@PathVariable("id") Integer id) {
         dS.delete(id);
     }
+    @GetMapping("/{id}")
+    public DepartamentoDTO listarPorId(@PathVariable("id") Integer id) {
+        ModelMapper m = new ModelMapper();
+        DepartamentoDTO d = m.map(dS.findById(id), DepartamentoDTO.class);
+        return d;
+    }
     @GetMapping("/buscarpornombre")
     public List<DepartamentoDTO> buscarPorNombre(String nombre) {
         return dS.buscarPorNombre(nombre).stream().map(y->{

@@ -20,6 +20,8 @@ public class NegocioImplement implements INegocioService {
     @Override
     public List<Negocio> obtenerPorCiudad(int idCiudad) { return nR.obtenerPorCiudad(idCiudad); }
     @Override
+    public Negocio listById(int idNegocio) { return nR.findById(idNegocio).orElse(new Negocio()); }
+    @Override
     public long contarPorCiudad(int idCiudad) { return nR.contarPorCiudad(idCiudad); }
     @Override
     public List<Negocio> obtenerPorCalificacion(int calificacion) { return nR.obtenerPorCalificacion(calificacion); }

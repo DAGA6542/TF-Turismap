@@ -7,6 +7,7 @@ public interface IComentarioService {
     public List<Comentario> list();
     public void update(Comentario comentario);
     public void delete(int idComentario);
+    public Comentario listId(int idComentario);
     public List<Comentario> obtenerComentariosPorUsuario(int idUsuario);
     public List<Comentario> buscarComentariosPorNegocio(int idNegocio);
     public List<Comentario> buscarComentariosPorTurismo(int idTurismo);

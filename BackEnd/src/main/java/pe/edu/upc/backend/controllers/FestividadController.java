@@ -35,4 +35,10 @@ public class FestividadController {
     public void eliminar(@PathVariable("id") int id) {
         fS.delete(id);
     }
+    @GetMapping("/{id}")
+    public FestividadDTO listarPorId(@PathVariable("id") int id) {
+        ModelMapper m = new ModelMapper();
+        FestividadDTO f = m.map(fS.listById(id), FestividadDTO.class);
+        return f;
+    }
 }

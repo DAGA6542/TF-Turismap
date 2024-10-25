@@ -37,6 +37,11 @@ public class PaisController {
     public void eliminar(@PathVariable("id") Integer id) {
         pS.delete(id);
     }
+    @GetMapping("/{id}")
+    public PaisDTO buscarPorId(@PathVariable("id") Integer id) {
+        ModelMapper m = new ModelMapper();
+        return m.map(pS.listById(id), PaisDTO.class);
+    }
     @GetMapping("/obtenerporcontinente")
     public List<PaisDTO> obtenerPorContinente(@RequestParam String continente) {
         return pS.obtenerPorContinente(continente).stream().map(y->{

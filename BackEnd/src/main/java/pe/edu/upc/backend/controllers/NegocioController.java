@@ -36,6 +36,11 @@ public class NegocioController {
     }
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") int id) { nS.delete(id); }
+    @GetMapping("/{id}")
+    public NegocioDTO listarPorId(@PathVariable("id") int id) {
+        ModelMapper m = new ModelMapper();
+        return m.map(nS.listById(id), NegocioDTO.class);
+    }
     @GetMapping("/obtenerporciudad")
     public List<NegocioDTO> obtenerPorCiudad(@RequestParam int idCiudad) {
         return nS.obtenerPorCiudad(idCiudad).stream().map(y->{

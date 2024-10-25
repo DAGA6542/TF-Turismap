@@ -39,6 +39,12 @@ public class CiudadController {
     public void eliminar(@PathVariable("id") Integer id) {
         cS.delete(id);
     }
+    @GetMapping("/{id}")
+    public CiudadDTO listarPorId(@PathVariable("id") Integer id) {
+        ModelMapper m = new ModelMapper();
+        CiudadDTO dto = m.map(cS.listId(id), CiudadDTO.class);
+        return dto;
+    }
     @GetMapping("/busquedanombre")
     public List<CiudadDTO> buscarNombre(@RequestParam String nombre) {
         return cS.buscarNombreCiudad(nombre).stream().map(y->{

@@ -19,6 +19,8 @@ public class FavoritoImplement implements IFavoritoService {
     @Override
     public void delete(int idFavorito) { fR.deleteById(idFavorito); }
     @Override
+    public Favorito findById(int idFavorito) { return fR.findById(idFavorito).orElse(new Favorito()); }
+    @Override
     public List<Favorito> obtenerFavPorUsuario(int idUsuario) { return fR.obtenerFavPorUsuario(idUsuario); }
     @Override
     public List<Favorito> obtenerFavPorFechaAgregado(LocalDate fecha) { return fR.obtenerFavPorFechaAgregado(fecha); }

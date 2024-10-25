@@ -17,4 +17,6 @@ public class FestividadImplement implements IFestividadService {
     public void update(Festividad festividad) { fR.save(festividad); }
     @Override
     public void delete(int idFestividadId) { fR.deleteById(idFestividadId); }
+    @Override
+    public Festividad listById(int idFestividad) { return fR.findById(idFestividad).orElse(new Festividad()); }
 }

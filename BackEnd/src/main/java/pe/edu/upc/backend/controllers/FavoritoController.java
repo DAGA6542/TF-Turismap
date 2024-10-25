@@ -44,6 +44,12 @@ public class FavoritoController {
             return m.map(y,FavoritoDTO.class);
         }).collect(Collectors.toList());
     }
+    @GetMapping("/{id}")
+    public FavoritoDTO listarPorId(@PathVariable("id") int idFavorito) {
+        ModelMapper m = new ModelMapper();
+        FavoritoDTO f = m.map(fS.findById(idFavorito), FavoritoDTO.class);
+        return f;
+    }
     @GetMapping("/obtenerfavporfechaagregado")
     public List<FavoritoDTO> obtenerFavPorFechaAgregado(@RequestParam LocalDate fecha) {
         return fS.obtenerFavPorFechaAgregado(fecha).stream().map(y->{

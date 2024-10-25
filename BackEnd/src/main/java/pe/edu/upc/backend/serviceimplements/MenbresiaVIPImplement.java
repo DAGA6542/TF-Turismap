@@ -19,6 +19,8 @@ public class MenbresiaVIPImplement implements IMenbresiaVIPService {
     @Override
     public void delete(int idMenbresiaVIP) { mR.deleteById(idMenbresiaVIP); }
     @Override
+    public MenbresiaVIP listById(int idMenbreidMenbresiaVIP) { return mR.findById(idMenbreidMenbresiaVIP).orElse(new MenbresiaVIP()); }
+    @Override
     public List<MenbresiaVIP> obtenerMenbresActiv() { return mR.obtenerMenbresActiv(); }
     @Override
     public List<MenbresiaVIP> obtenerMenbresDeUsuar(int idUsuario) {  return mR.obtenerMenbresDeUsuar(idUsuario); }
@@ -31,7 +33,5 @@ public class MenbresiaVIPImplement implements IMenbresiaVIPService {
     @Override
     public List<MenbresiaVIP> obtenerMenbresDeUsuario(int idUsuario) { return mR.obtenerMenbresDeUsuario(idUsuario); }
     @Override
-    public List<MenbresiaVIP> obtenerNombreUsuarioYTipoMembresia(String tipo) {
-        return mR.obtenerNombreUsuarioYTipoMembresia(tipo);
-    }
+    public List<MenbresiaVIP> obtenerNombreUsuarioYTipoMembresia(String tipo) { return mR.obtenerNombreUsuarioYTipoMembresia(tipo); }
 }

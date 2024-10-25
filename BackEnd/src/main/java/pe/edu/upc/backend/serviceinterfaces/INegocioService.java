@@ -7,6 +7,7 @@ public interface INegocioService {
     public void update(Negocio negocio);
     public void delete(int idNegocio);
     public List<Negocio> obtenerPorCiudad(int idCiudad);
+    public Negocio listById(int idNegocio);
     public long contarPorCiudad(int idCiudad);
     public List<Negocio> obtenerPorCalificacion(int calificacion);
     public List<Negocio> buscarPorNombre(String nombre);

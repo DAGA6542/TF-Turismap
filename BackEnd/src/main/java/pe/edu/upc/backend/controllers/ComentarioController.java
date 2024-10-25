@@ -29,13 +29,19 @@ public class ComentarioController {
     public List<ComentarioDTO> listar() {
         return cS.list().stream().map(y->{
             ModelMapper m = new ModelMapper();
-            m.map(y,ComentarioDTO.class);
+            m.map(y, ComentarioDTO.class);
             return m.map(y,ComentarioDTO.class);
         }).collect(Collectors.toList());
     }
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") int id) {
         cS.delete(id);
+    }
+    @GetMapping("/{id}")
+    public ComentarioDTO listarPorId(@PathVariable("id") int id) {
+        ModelMapper m = new ModelMapper();
+        ComentarioDTO c = m.map(cS.listId(id), ComentarioDTO.class);
+        return c;
     }
     @GetMapping("/obtenercomentariosusuario")
     public List<ComentarioDTO> obtenerComentariosPorUsuario(@RequestParam int idUsuario) {

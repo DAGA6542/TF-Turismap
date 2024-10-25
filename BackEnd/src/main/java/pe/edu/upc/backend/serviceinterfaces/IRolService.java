@@ -6,5 +6,6 @@ public interface IRolService {
     public List<Rol> list();
     public void update(Rol rol);
     public void delete(int idRol);
+    public Rol listById(int idRol);
     public List<String[]>contarRol();
 }

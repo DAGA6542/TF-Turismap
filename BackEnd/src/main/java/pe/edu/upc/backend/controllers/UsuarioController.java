@@ -37,6 +37,11 @@ public class UsuarioController {
     public void eliminar(@PathVariable("id") Integer id) {
         uS.delete(id);
     }
+    @GetMapping("/{id}")
+    public UsuarioDTO buscarPorId(@PathVariable("id") Integer id) {
+        ModelMapper m = new ModelMapper();
+        return m.map(uS.listById(id),UsuarioDTO.class);
+    }
     @GetMapping("/buscarpornombre")
     public List<UsuarioDTO> buscarPorNombre(@RequestParam String partialName) {
         return uS.buscarPorNombre(partialName).stream().map(y->{

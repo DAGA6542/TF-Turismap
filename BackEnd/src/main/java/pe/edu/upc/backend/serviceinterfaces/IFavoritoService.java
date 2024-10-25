@@ -7,6 +7,7 @@ public interface IFavoritoService {
     public List<Favorito> list();
     public void update(Favorito favorito);
     public void delete(int idFavorito);
+    public Favorito findById(int idFavorito);
     public List<Favorito> obtenerFavPorUsuario(int idUsuario);
     public List<Favorito> obtenerFavPorFechaAgregado(LocalDate fecha);
     public long cantidadFavoritosDeUsuario(int idUsuario);

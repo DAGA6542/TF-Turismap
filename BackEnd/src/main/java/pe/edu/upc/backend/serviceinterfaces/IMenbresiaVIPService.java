@@ -7,6 +7,7 @@ public interface IMenbresiaVIPService {
     public List<MenbresiaVIP> list();
     public void update(MenbresiaVIP menbresiaVIP);
     public void delete(int idMenbresiaVIP);
+    public MenbresiaVIP listById(int idMenbreidMenbresiaVIP);
     public List<MenbresiaVIP> obtenerMenbresActiv();
     public List<MenbresiaVIP> obtenerMenbresDeUsuar(int idUsuario);
     public List<MenbresiaVIP> obtenerMenbresiasTipoMayorEspecifico(String tipo);

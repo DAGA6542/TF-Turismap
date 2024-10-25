@@ -6,6 +6,7 @@ public interface IUsuarioService {
     public List<Usuario> list();
     public void update(Usuario usuario);
     public void delete(int idUsuario);
+    public Usuario listById(int idUsuario);
     public List<Usuario> buscarPorNombre(String partialName);
     public Usuario buscarPorEmail(String emailUsuario);
     public List<Usuario> buscarPorRol(int idRol);

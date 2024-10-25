@@ -18,6 +18,8 @@ public class LugarTuristicoImplement implements ILugarTuristicoService {
     @Override
     public void delete(int idLugarTuristico) { lR.deleteById(idLugarTuristico); }
     @Override
+    public LugarTuristico listById(int idLugarTuristico) { return lR.findById(idLugarTuristico).orElse(new LugarTuristico()); }
+    @Override
     public List<LugarTuristico> listarPorNumero(String nombreLugarTuristico) { return lR.listarPorNumero(nombreLugarTuristico); }
     @Override
     public List<LugarTuristico> listarlugarturisticoporciudad(String nombreCiudad) { return lR.listarlugarturisticoporciudad(nombreCiudad); }

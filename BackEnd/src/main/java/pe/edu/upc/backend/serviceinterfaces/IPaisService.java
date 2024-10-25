@@ -6,6 +6,7 @@ public interface IPaisService {
     public List<Pais> list();
     public void update(Pais pais);
     public void delete(int idPais);
+    public Pais listById(int idPais);
     public List<Pais> obtenerPorContinente(String continente);
     public List<Pais> obtenerPorNombre(String nombre);
     public List<Pais> obtenerPorPoblacionMayor(Long poblacion);

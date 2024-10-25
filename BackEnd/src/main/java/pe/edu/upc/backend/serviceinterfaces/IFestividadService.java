@@ -6,4 +6,5 @@ public interface IFestividadService {
     public List<Festividad> list();
     public void update(Festividad festividad);
     public void delete(int idFestividadId);
+    public Festividad listById(int idFestividad);
 }

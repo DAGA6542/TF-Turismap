@@ -39,8 +39,12 @@ public class MenbresiaVIPController {
     }
     @DeleteMapping({"/id"})
     @PreAuthorize("hasAuthority('VIP') or hasAuthority('ADMIN')")
-    public void eliminar(@RequestParam("id") int id) {
-        mS.delete(id);
+    public void eliminar(@RequestParam("id") int id) { mS.delete(id); }
+    @GetMapping("/{id}")
+    public MenbresiaVIPDTO listPorId(@PathVariable int id) {
+        ModelMapper m = new ModelMapper();
+        MenbresiaVIPDTO chupetin = m.map(listPorId(id),MenbresiaVIPDTO.class);
+        return chupetin;
     }
     @GetMapping("/obtenermenbresactiv")
     public List<MenbresiaVIPDTO> obtenerMenbresActiv() {

@@ -39,7 +39,11 @@ public class RolController {
     public void eliminar(@PathVariable("id") int id) {
         rS.delete(id);
     }
-
+    @GetMapping("/{id}")
+    public RolDTO listById(@PathVariable("id") int id) {
+        ModelMapper m = new ModelMapper();
+        return m.map(rS.listById(id),RolDTO.class);
+    }
     @GetMapping("/cantidades")
     public List<CantidadUsuarioxRol> obtenerCantidad() {
         List<String[]> lista = rS.contarRol();

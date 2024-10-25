@@ -19,6 +19,8 @@ public class PromocionImplement implements IPromocionService {
     @Override
     public void delete(int idPromocion) { pR.deleteById(idPromocion); }
     @Override
+    public Promocion listById(int idPromocion) { return pR.findById(idPromocion).orElse(new Promocion()); }
+    @Override
     public List<Promocion> listarPorDescuentoMayor(double descuento) { return pR.listarPorDescuentoMayor(descuento); }
     @Override
     public List<Promocion> listarPorFechaInicio(LocalDate fechaInicio) { return pR.listarPorFechaInicio(fechaInicio); }

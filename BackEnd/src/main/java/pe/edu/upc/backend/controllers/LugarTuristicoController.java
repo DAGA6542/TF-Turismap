@@ -36,6 +36,12 @@ public class LugarTuristicoController {
     public void eliminar(@PathVariable("id") int id) {
         lS.delete(id);
     }
+    @GetMapping("/{id}")
+    public LugarTuristicoDTO listPorId(@PathVariable("id") int id) {
+        ModelMapper m = new ModelMapper();
+        LugarTuristicoDTO list = m.map(lS.listById(id), LugarTuristicoDTO.class);
+        return list;
+    }
     @GetMapping("/listarPorNumero")
     public List<LugarTuristicoDTO> listarPorNumero(@RequestParam String nombreLugarTuristico) {
         return lS.listarPorNumero(nombreLugarTuristico).stream().map(y->{

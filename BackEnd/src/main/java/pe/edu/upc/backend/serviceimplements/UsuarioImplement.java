@@ -18,6 +18,8 @@ public class UsuarioImplement implements IUsuarioService {
     @Override
     public void delete(int idUsuario) { uR.deleteById(idUsuario); }
     @Override
+    public Usuario listById(int idUsuario) { return uR.findById(idUsuario).orElse(new Usuario()); }
+    @Override
     public List<Usuario> buscarPorNombre(String partialName) { return uR.buscarPorNombre(partialName); }
     @Override
     public Usuario buscarPorEmail(String emailUsuario) { return uR.buscarPorEmail(emailUsuario); }

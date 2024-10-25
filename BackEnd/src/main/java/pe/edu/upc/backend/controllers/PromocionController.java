@@ -36,6 +36,11 @@ public class PromocionController {
     public void eliminar(@PathVariable("id") Integer id) {
         pS.delete(id);
     }
+    @GetMapping("/{id}")
+    public PromocionDTO buscarPorId(@PathVariable("id") Integer id) {
+        ModelMapper m = new ModelMapper();
+        return m.map(pS.listById(id), PromocionDTO.class);
+    }
     @GetMapping("/listarpordescuentomayor")
     public List<PromocionDTO> listarPorDescuentoMayor(@RequestParam double descuento) {
         return pS.listarPorDescuentoMayor(descuento).stream().map(y->{

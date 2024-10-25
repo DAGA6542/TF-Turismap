@@ -18,6 +18,8 @@ public class PaisImplement implements IPaisService {
     @Override
     public void delete(int idPais) { pR.deleteById(idPais); }
     @Override
+    public Pais listById(int id) { return pR.findById(id).orElse(new Pais()); }
+    @Override
     public List<Pais> obtenerPorContinente(String continente) { return pR.obtenerPorContinente(continente); }
     @Override
     public List<Pais> obtenerPorNombre(String nombre) { return pR.obtenerPorNombre(nombre); }
