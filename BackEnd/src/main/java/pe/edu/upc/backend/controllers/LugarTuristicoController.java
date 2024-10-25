@@ -36,6 +36,11 @@ public class LugarTuristicoController {
     public void eliminar(@PathVariable("id") int id) {
         lS.delete(id);
     }
+    @GetMapping("/{id}")
+    public LugarTuristicoDTO listPorId(@PathVariable("id") int id) {
+        ModelMapper m = new ModelMapper();
+        return m.map(lS.listById(id), LugarTuristicoDTO.class);
+    }
     @GetMapping("/lugarturisticoporciudad")
     public List<LugarTuristicoDTO> obtenerPorCiudadL(@RequestParam int idCiudad) {
         return lS.obtenerPorCiudadL(idCiudad).stream().map(y->{
@@ -46,5 +51,19 @@ public class LugarTuristicoController {
     @GetMapping("/cantidadlugaresturisticosporciudad")
     public long contarPorCiudadL(@RequestParam int idCiudad) {
         return lS.contarPorCiudadL(idCiudad);
+    }
+    @GetMapping("/listarPorNumero")
+    public List<LugarTuristicoDTO> listarPorNumero(@RequestParam String nombreLugarTuristico) { // By Diego
+        return lS.listarPorNumero(nombreLugarTuristico).stream().map(y->{
+            ModelMapper m = new ModelMapper();
+            return m.map(y,LugarTuristicoDTO.class);
+        }).collect(Collectors.toList());
+    }
+    @GetMapping("/listarlugarturisticoporciudad")
+    public List<LugarTuristicoDTO> listarlugarturisticoporciudad(@RequestParam String nombreCiudad) { // By Diego
+        return lS.listarlugarturisticoporciudad(nombreCiudad).stream().map(y -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(y, LugarTuristicoDTO.class);
+        }).collect(Collectors.toList());
     }
 }
