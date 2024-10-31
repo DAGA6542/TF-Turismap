@@ -67,26 +67,13 @@ public class Pais {
     public String getMonedaPais() {
         return monedaPais;
     }
-    public void setMonedaPais(String monedaPais) {
-        this.monedaPais = monedaPais;
-    }
-    public String getIdiomaOficialPais() {
-        return idiomaOficialPais;
-    }
-<<<<<<< HEAD
+    public void setMonedaPais(String monedaPais) { this.monedaPais = monedaPais; }
+    public String getIdiomaOficialPais() { return idiomaOficialPais; }
     public void setIdiomaOficialPais(String idiomaOficialPais) { this.idiomaOficialPais = idiomaOficialPais; }
     public Long getPoblacionPais() {
         return poblacionPais;
     }
-=======
-    public void setIdiomaOficialPais(String idiomaOficialPais) {
-        this.idiomaOficialPais = idiomaOficialPais;
-    }
-    public Long getPoblacionPais() { return poblacionPais; }
->>>>>>> origin/josephgag
-    public void setPoblacionPais(Long poblacionPais) {
-        this.poblacionPais = poblacionPais;
-    }
+    public void setPoblacionPais(Long poblacionPais) { this.poblacionPais = poblacionPais; }
     public Long getSuperficiePais() {
         return superficiePais;
     }

@@ -1,0 +1,34 @@
+<mat-toolbar class="custom-toolbar">
+  <mat-icon>menu</mat-icon>
+  <div>
+    <button mat-button routerLink="/" style="color: white">
+      <mat-icon>home</mat-icon> Inicio
+    </button>
+    <button mat-button [matMenuTriggerFor]="menuPais" style="color: white">
+      Pais
+    </button>
+    <button mat-button [matMenuTriggerFor]="menuPromocion" style="color: white">
+      Promocion
+    </button>
+    <button mat-button [matMenuTriggerFor]="menuUsuario" style="color: white">
+      Usuario
+    </button>
+  </div>
+</mat-toolbar>
+
+<mat-menu #menuPais="matMenu">
+  <button mat-menu-item routerLink="/pais">Listar</button>
+  <button mat-menu-item routerLink="/pais/insertar">Registrar</button>
+</mat-menu>
+
+<mat-menu #menuPromocion="matMenu">
+  <button mat-menu-item routerLink="/promocion">Listar</button>
+  <button mat-menu-item routerLink="/promocion/insertar">Registrar</button>
+</mat-menu>
+
+<mat-menu #menuUsuario="matMenu">
+  <button mat-menu-item routerLink="/usuario">Listar</button>
+  <button mat-menu-item routerLink="/usuario/insertar">Registrar</button>
+</mat-menu>
+
+<router-outlet></router-outlet>

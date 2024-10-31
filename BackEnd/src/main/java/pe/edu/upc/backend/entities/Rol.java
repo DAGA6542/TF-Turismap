@@ -6,28 +6,26 @@ import java.io.Serializable;
 public class Rol implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idRol;
+    private Long idRol;
     @Column(name = "rol", nullable = false, length = 30)
     private String nombreRol;
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private Usuario user;
-    public int getIdRol() {
+    public Long getIdRol() {
         return idRol;
     }
-    public void setIdRol(int idRol) {
+    public void setIdRol(Long idRol) {
         this.idRol = idRol;
     }
-    public String getNombreRol() {
-        return nombreRol;
-    }
+    public String getNombreRol() { return nombreRol; }
     public void setNombreRol(String nombreRol) {
         this.nombreRol = nombreRol;
     }
     public Usuario getUser() {
         return user;
     }
-    public void setUser(Usuario user) {
-        this.user = user;
+    public void setUser(Usuario idUsuario) {
+        this.user = idUsuario;
     }
 }

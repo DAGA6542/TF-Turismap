@@ -1,7 +1,6 @@
 package pe.edu.upc.backend.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.backend.dtos.CantidadUsuarioxRol;
 import pe.edu.upc.backend.dtos.RolDTO;
@@ -12,7 +11,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/roles")
-@PreAuthorize("hasAuthority('ADMIN')")
 public class RolController {
     @Autowired
     private IRolService rS;
@@ -20,6 +18,7 @@ public class RolController {
     public void agregar(@RequestBody RolDTO rolDTO) {
         ModelMapper m = new ModelMapper();
         Rol ciudad = m.map(rolDTO, Rol.class);
+
         rS.insert(ciudad);
     }
     @PutMapping
@@ -36,10 +35,14 @@ public class RolController {
         }).collect(Collectors.toList());
     }
     @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable("id") int id) {
+    public void eliminar(@PathVariable("id") Long id) {
         rS.delete(id);
     }
-
+    @GetMapping("/{id}")
+    public RolDTO listById(@PathVariable("id") Long id) {
+        ModelMapper m = new ModelMapper();
+        return m.map(rS.listById(id),RolDTO.class);
+    }
     @GetMapping("/cantidades")
     public List<CantidadUsuarioxRol> obtenerCantidad() {
         List<String[]> lista = rS.contarRol();

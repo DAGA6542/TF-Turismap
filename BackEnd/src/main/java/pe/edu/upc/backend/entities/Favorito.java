@@ -15,8 +15,8 @@ public class Favorito {
     @JoinColumn(name = "idUsuario")
     private Usuario idUsuario;
     @ManyToOne
-    @JoinColumn(name = "idTuristico")
-    private LugarTuristico idTuristico;
+    @JoinColumn(name = "idLugarTuristico")
+    private LugarTuristico idLugarTuristico;
     @ManyToOne
     @JoinColumn(name = "idNegocio")
     private Negocio idNegocio;
@@ -26,12 +26,12 @@ public class Favorito {
         this.fechaAgregadoFavorito = fechaAgregadoFavorito;
         this.fechaModificacionFavorito = fechaModificacionFavorito;
     }
-    public Favorito(int idFavorito, LocalDate fechaAgregadoFavorito, LocalDate fechaModificacionFavorito, Usuario idUsuario, LugarTuristico idTuristico, Negocio idNegocio) {
+    public Favorito(int idFavorito, LocalDate fechaAgregadoFavorito, LocalDate fechaModificacionFavorito, Usuario idUsuario, LugarTuristico idLugarTuristico, Negocio idNegocio) {
         this.idFavorito = idFavorito;
         this.fechaAgregadoFavorito = fechaAgregadoFavorito;
         this.fechaModificacionFavorito = fechaModificacionFavorito;
         this.idUsuario = idUsuario;
-        this.idTuristico = idTuristico;
+        this.idLugarTuristico = idLugarTuristico;
         this.idNegocio = idNegocio;
     }
     public int getIdFavorito() {
@@ -48,17 +48,15 @@ public class Favorito {
         return fechaModificacionFavorito;
     }
     public void setFechaModificacionFavorito(LocalDate fechaModificacionFavorito) { this.fechaModificacionFavorito = fechaModificacionFavorito; }
-    public Usuario getIdUsuario() {
-        return idUsuario;
-    }
+    public Usuario getIdUsuario() { return idUsuario; }
     public void setIdUsuario(Usuario idUsuario) {
         this.idUsuario = idUsuario;
     }
-    public LugarTuristico getIdTuristico() {
-        return idTuristico;
+    public LugarTuristico getIdLugarTuristico() {
+        return idLugarTuristico;
     }
-    public void setIdTurismo(LugarTuristico idTuristico) {
-        this.idTuristico = idTuristico;
+    public void setIdLugarTuristico(LugarTuristico idLugarTuristico) {
+        this.idLugarTuristico = idLugarTuristico;
     }
     public Negocio getIdNegocio() {
         return idNegocio;

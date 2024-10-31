@@ -25,6 +25,15 @@ public class Negocio {
     @JoinColumn(name = "idPromocion")
     private Promocion idPromocion;
     public Negocio() {}
+    public Negocio(int idNegocio, String nombreNegocio, String horarioNegocio, int numeroTelefonoNegocio, int calificacionNegocio, String descripcionNegocio, Boolean reservaNegocio) {
+        this.idNegocio = idNegocio;
+        this.nombreNegocio = nombreNegocio;
+        this.horarioNegocio = horarioNegocio;
+        this.numeroTelefonoNegocio = numeroTelefonoNegocio;
+        this.calificacionNegocio = calificacionNegocio;
+        this.descripcionNegocio = descripcionNegocio;
+        this.reservaNegocio = reservaNegocio;
+    }
     public Negocio(int idNegocio, String nombreNegocio, String horarioNegocio, int numeroTelefonoNegocio, int calificacionNegocio, Ciudad idCiudad, Promocion idPromocion, String descripcionNegocio, Boolean reservaNegocio) {
         this.idNegocio = idNegocio;
         this.nombreNegocio = nombreNegocio;

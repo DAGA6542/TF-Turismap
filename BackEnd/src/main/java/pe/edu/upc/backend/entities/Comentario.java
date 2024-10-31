@@ -7,7 +7,7 @@ public class Comentario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idComentario;
-    @Column(name = "textoComentario", nullable = false, length = 150)
+    @Column(name = "textoComentario", nullable = false, length = 250)
     private String textoComentario;
     @Column(name = "fechaComentario", nullable = false)
     private LocalDate fechaComentario;
@@ -15,8 +15,8 @@ public class Comentario {
     @JoinColumn(name = "idUsuario")
     private Usuario idUsuario;
     @ManyToOne
-    @JoinColumn(name = "idTuristico")
-    private LugarTuristico idTuristico;
+    @JoinColumn(name = "idLugarTuristico")
+    private LugarTuristico idLugarTuristico;
     @ManyToOne
     @JoinColumn(name = "idNegocio")
     private Negocio idNegocio;
@@ -26,12 +26,12 @@ public class Comentario {
         this.textoComentario = textoComentario;
         this.fechaComentario = fechaComentario;
     }
-    public Comentario(int idComentario, String textoComentario, LocalDate fechaComentario, Usuario idUsuario, LugarTuristico idTuristico, Negocio idNegocio) {
+    public Comentario(int idComentario, String textoComentario, LocalDate fechaComentario, Usuario idUsuario, LugarTuristico idLugarTuristico, Negocio idNegocio) {
         this.idComentario = idComentario;
         this.textoComentario = textoComentario;
         this.fechaComentario = fechaComentario;
         this.idUsuario = idUsuario;
-        this.idTuristico = idTuristico;
+        this.idLugarTuristico = idLugarTuristico;
         this.idNegocio = idNegocio;
     }
     public int getIdComentario() {
@@ -40,9 +40,7 @@ public class Comentario {
     public void setIdComentario(int idComentario) {
         this.idComentario = idComentario;
     }
-    public String getTextoComentario() {
-        return textoComentario;
-    }
+    public String getTextoComentario() { return textoComentario; }
     public void setTextoComentario(String textoComentario) {
         this.textoComentario = textoComentario;
     }
@@ -58,11 +56,11 @@ public class Comentario {
     public void setIdUsuario(Usuario idUsuario) {
         this.idUsuario = idUsuario;
     }
-    public LugarTuristico getIdTuristico() {
-        return idTuristico;
+    public LugarTuristico getIdLugarTuristico() {
+        return idLugarTuristico;
     }
-    public void setIdTuristico(LugarTuristico idTurismo) {
-        this.idTuristico = idTurismo;
+    public void setIdLugarTuristico(LugarTuristico idLugarTuristico) {
+        this.idLugarTuristico = idLugarTuristico;
     }
     public Negocio getIdNegocio() {
         return idNegocio;

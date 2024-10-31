@@ -1,10 +1,12 @@
 package pe.edu.upc.backend.dtos;
+import pe.edu.upc.backend.entities.Pais;
 public class DepartamentoDTO {
     private int idDepartamento;
     private String nombreDepartamento;
     private String capitalDepartamento;
     private Long poblacionDepartamento;
     private int superficieDepartamento;
+    private Pais idPais;
     public int getIdDepartamento() {
         return idDepartamento;
     }
@@ -31,4 +33,6 @@ public class DepartamentoDTO {
         return superficieDepartamento;
     }
     public void setSuperficieDepartamento(int superficieDepartamento) { this.superficieDepartamento = superficieDepartamento; }
+    public Pais getIdPais() { return idPais; }
+    public void setIdPais(Pais idPais) { this.idPais = idPais; }
 }

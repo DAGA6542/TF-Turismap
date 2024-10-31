@@ -6,4 +6,11 @@ public interface IDepartamentoService {
     public List<Departamento> list();
     public void update(Departamento departamento);
     public void delete(int idDepartamento);
+    public Departamento findById(int idDepartamento);
+    public List<Departamento> buscarPorNombre(String nombre);
+    public List<Departamento> listarPorPais(int idPais);
+    public List<Departamento> obtenerDepartamentPoblac(Long poblacion);
+    public List<Departamento> buscarDepartamentoConSuperficie(int minSuperficie, int maxSuperficie);
+    public List<Departamento> obtenerPorPoblacionDesc();
+    public List<Departamento> buscarPorCapital(String capital);
 }
