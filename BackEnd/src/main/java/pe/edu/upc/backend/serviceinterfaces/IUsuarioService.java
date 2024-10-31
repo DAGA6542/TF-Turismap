@@ -5,11 +5,11 @@ public interface IUsuarioService {
     public void insert(Usuario usuario);
     public List<Usuario> list();
     public void update(Usuario usuario);
-    public void delete(int idUsuario);
-    public Usuario listById(int idUsuario);
+    public void delete(Long idUsuario);
+    public Usuario listById(Long idUsuario);
     public List<Usuario> buscarPorNombre(String partialName);
     public Usuario buscarPorEmail(String emailUsuario);
-    public List<Usuario> buscarPorRol(int idRol);
+    public List<Usuario> buscarPorRol(Long idRol);
     public Usuario buscarPorTelefono(int telefonoUsuario);
     public List<Usuario> listarPorNombreAscendente();
     public Usuario findOneByUsername(String username);

@@ -2,7 +2,7 @@ package pe.edu.upc.backend.dtos;
 import pe.edu.upc.backend.entities.Rol;
 import java.util.List;
 public class UsuarioDTO {
-    private int idUsuario;
+    private Long idUsuario;
     private String username;
     private String emailUsuario;
     private String nombreUsuario;
@@ -10,10 +10,10 @@ public class UsuarioDTO {
     private int telefonoUsuario;
     private Boolean enabled;
     private List<Rol> roles;
-    public int getIdUsuario() {
+    public Long getIdUsuario() {
         return idUsuario;
     }
-    public void setIdUsuario(int idUsuario) {
+    public void setIdUsuario(Long idUsuario) {
         this.idUsuario = idUsuario;
     }
     public String getUsername() {

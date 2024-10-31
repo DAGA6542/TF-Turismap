@@ -34,11 +34,11 @@ public class UsuarioController {
         }).collect(Collectors.toList());
     }
     @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable("id") Integer id) {
+    public void eliminar(@PathVariable("id") Long id) {
         uS.delete(id);
     }
     @GetMapping("/{id}")
-    public UsuarioDTO buscarPorId(@PathVariable("id") Integer id) {
+    public UsuarioDTO buscarPorId(@PathVariable("id") Long id) {
         ModelMapper m = new ModelMapper();
         return m.map(uS.listById(id),UsuarioDTO.class);
     }
@@ -57,7 +57,7 @@ public class UsuarioController {
         });
     }
     @GetMapping("/buscarporrol")
-    public List<UsuarioDTO> buscarPorRol(@RequestParam int idRol) {
+    public List<UsuarioDTO> buscarPorRol(@RequestParam Long idRol) {
         return uS.buscarPorRol(idRol).stream().map(y->{
             ModelMapper m = new ModelMapper();
             return m.map(y,UsuarioDTO.class);
@@ -83,7 +83,7 @@ public class UsuarioController {
             return m.map(y,UsuarioDTO.class);
         });
     }
-     @GetMapping("/obtenerComentario")
+    @GetMapping("/obtenerComentario")
     public List<UsuarioDTO> obtenerComentario(@RequestParam String nombreNegocio) {
         return uS.obtenerComentario(nombreNegocio).stream().map(y->{
             ModelMapper m = new ModelMapper();

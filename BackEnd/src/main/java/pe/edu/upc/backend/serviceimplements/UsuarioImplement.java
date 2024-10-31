@@ -16,15 +16,15 @@ public class UsuarioImplement implements IUsuarioService {
     @Override
     public void update(Usuario usuario) { uR.save(usuario); }
     @Override
-    public void delete(int idUsuario) { uR.deleteById(idUsuario); }
+    public void delete(Long idUsuario) { uR.deleteById(idUsuario); }
     @Override
-    public Usuario listById(int idUsuario) { return uR.findById(idUsuario).orElse(new Usuario()); }
+    public Usuario listById(Long idUsuario) { return uR.findById(idUsuario).orElse(new Usuario()); }
     @Override
     public List<Usuario> buscarPorNombre(String partialName) { return uR.buscarPorNombre(partialName); }
     @Override
     public Usuario buscarPorEmail(String emailUsuario) { return uR.buscarPorEmail(emailUsuario); }
     @Override
-    public List<Usuario> buscarPorRol(int idRol) { return uR.buscarPorRol(idRol); }
+    public List<Usuario> buscarPorRol(Long idRol) { return uR.buscarPorRol(idRol); }
     @Override
     public Usuario buscarPorTelefono(int telefonoUsuario) { return uR.buscarPorTelefono(telefonoUsuario); }
     @Override

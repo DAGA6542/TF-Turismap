@@ -5,7 +5,7 @@ public interface IRolService {
     public void insert(Rol rol);
     public List<Rol> list();
     public void update(Rol rol);
-    public void delete(int idRol);
-    public Rol listById(int idRol);
+    public void delete(Long idRol);
+    public Rol listById(Long idRol);
     public List<String[]>contarRol();
 }

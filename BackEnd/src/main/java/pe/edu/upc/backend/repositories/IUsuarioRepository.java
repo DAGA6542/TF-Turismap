@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import pe.edu.upc.backend.entities.Usuario;
 import java.util.List;
 @Repository
-public interface IUsuarioRepository extends JpaRepository<Usuario, Integer> {
+public interface IUsuarioRepository extends JpaRepository<Usuario, Long> {
     // Buscar usuarios por nombre
     @Query(value = "Select * from Usuario where nombre_usuario like %:partialName%", nativeQuery = true)
     List<Usuario> buscarPorNombre(String partialName);
@@ -15,7 +15,7 @@ public interface IUsuarioRepository extends JpaRepository<Usuario, Integer> {
     Usuario buscarPorEmail(String emailUsuario);
     // Listar usuarios por rol
     @Query(value = "Select * from Usuario where id_rol = %:idRol%", nativeQuery = true)
-    List<Usuario> buscarPorRol(@Param("idRol") int idRol);
+    List<Usuario> buscarPorRol(@Param("idRol") Long idRol);
     // Buscar usuarios por número de teléfono
     @Query(value = "Select * from Usuario where telefono_usuario = %:telefonoUsuario%", nativeQuery = true)
     Usuario buscarPorTelefono(int telefonoUsuario);
@@ -24,9 +24,9 @@ public interface IUsuarioRepository extends JpaRepository<Usuario, Integer> {
     List<Usuario> listarPorNombreAscendente();
     public Usuario findOneByUsername(String username);
     @Query(value = " SELECT u.*" +
-            " FROM Usuario u" +
-            " JOIN Comentario c ON u.id_usuario = c.id_usuario" +
-            " JOIN Negocio n ON c.id_negocio = n.id_negocio" +
+            " FROM usuario u" +
+            " JOIN comentario c ON u.id_usuario = c.id_usuario" +
+            " JOIN negocio n ON c.id_negocio = n.id_negocio" +
             " WHERE n.nombre_negocio LIKE CONCAT('%', :nombre_negocio, '%')", nativeQuery = true)
     public List<Usuario> obtenerComentario(@Param("nombre_negocio") String nombre_negocio);
     //  Buscar usuarios que han dejado comentarios sobre un negocio específico
