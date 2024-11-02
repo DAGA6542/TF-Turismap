@@ -4,6 +4,6 @@ export class Promocion {
     descripcionPromocion: String = "";
     precioPromocion: number = 0;
     descuentoPromocion: number = 0;
-    fechaInicioPromocion: Date = new Date();
-    fechaFinPromocion: Date = new Date();
+    fechaInicioPromocion: Date = new Date(Date.now());
+    fechaFinPromocion: Date = new Date(Date.now());
 }
