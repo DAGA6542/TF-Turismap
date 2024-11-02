@@ -32,11 +32,10 @@ export class UsuarioService {
     return this.http.delete(`${this.url}/${id}`);
   }
   listId(id:number){
-    return this.http.get<Usuario>(`${this.url}/${id}`)
+    return this.http.get<Usuario>(`${this.url}/${id}`);
   }
 
   update(tm: Usuario) {
     return this.http.put(this.url, tm);
   }
-  
 }

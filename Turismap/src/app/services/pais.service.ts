@@ -38,8 +38,4 @@ export class PaisService {
   update(tm: Pais) {
     return this.http.put(this.url, tm);
   }
-  
-  eliminar(id:number){
-    return this.http.delete(`${this.url}/${id}`);
-  }
 }

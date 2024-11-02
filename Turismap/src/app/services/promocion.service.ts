@@ -28,4 +28,13 @@ export class PromocionService {
   setList(listaNueva: Promocion[]) {
     this.listaCambio.next(listaNueva);
   }
+  delete(id: number) {
+    return this.http.delete(`${this.url}/${id}`);
+  }
+  listId(id: number) {
+    return this.http.get<Promocion>(`${this.url}/${id}`);
+  }
+  update(tm: Promocion) {
+    return this.http.put(this.url, tm);
+  }
 }
