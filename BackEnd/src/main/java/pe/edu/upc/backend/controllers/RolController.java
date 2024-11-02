@@ -18,7 +18,6 @@ public class RolController {
     public void agregar(@RequestBody RolDTO rolDTO) {
         ModelMapper m = new ModelMapper();
         Rol ciudad = m.map(rolDTO, Rol.class);
-
         rS.insert(ciudad);
     }
     @PutMapping

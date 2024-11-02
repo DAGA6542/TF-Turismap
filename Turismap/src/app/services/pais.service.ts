@@ -28,11 +28,14 @@ export class PaisService {
   setList(listaNueva: Pais[]) {
     this.listaCambio.next(listaNueva);
   }
+  delete(id: number) {
+    return this.http.delete(`${this.url}/${id}`);
+  }
   listId(id:number){
     return this.http.get<Pais>(`${this.url}/${id}`)
   }
 
-  modificar(tm: Pais) {
+  update(tm: Pais) {
     return this.http.put(this.url, tm);
   }
   

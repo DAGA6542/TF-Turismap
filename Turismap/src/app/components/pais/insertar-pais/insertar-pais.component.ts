@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup,Validators,FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup,Validators,FormControl, ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { ActivatedRoute, Params, Router, RouterLink } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { CommonModule, NgIf } from '@angular/common';
+import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { PaisService } from '../../../services/pais.service';
@@ -12,27 +13,54 @@ import { Pais } from '../../../models/pais';
   selector: 'app-insertar-pais',
   standalone: true,
   imports: [MatFormFieldModule,CommonModule,NgIf, MatButtonModule,MatInputModule,ReactiveFormsModule,
-    RouterLink],
+    RouterLink, MatSelectModule, FormsModule],
   templateUrl: './insertar-pais.component.html',
   styleUrl: './insertar-pais.component.css'
 })
 export class InsertarPaisComponent {
   form:FormGroup = new FormGroup({});
-  tipometa: Pais = new Pais()
-  mensaje: string = '';
+  pais: Pais = new Pais()
   edicion: boolean = false;
   id:number = 0;
-  //
-  codigoIsoPais: String = "";
-    continentePais: String = "";
-    capitalPais: String = "";
-    monedaPais: String = "";
-    idiomaOficialPais: String = "";
-    poblacionPais: number = 0;
-    superficiePais: number = 0;
+  // 
+  mensaje: string = '';
+  listaContinente: { value: string; viewValue: string }[] = [
+    { value: 'Asia', viewValue: 'Asia' },
+    { value: 'África', viewValue: 'África' },
+    { value: 'América del Norte', viewValue: 'América del Norte' },
+    { value: 'América del Sur', viewValue: 'América del Sur' },
+    { value: 'Antártida', viewValue: 'Antártida' },
+    { value: 'Europa', viewValue: 'Europa' },
+    { value: 'Oceanía', viewValue: 'Oceanía' },
+  ];
+  listaMoneda: { value: string; viewValue: string }[] = [
+    { value: 'Dólar americano', viewValue: 'Dólar americano' },
+    { value: 'Euro', viewValue: 'Euro' },
+    { value: 'Libra esterlina', viewValue: 'Libra esterlina' },
+    { value: 'Franco suizo', viewValue: 'Franco suizo' },
+    { value: 'Yen japonés', viewValue: 'Yen japonés' },
+    { value: 'Dólar hongkonés', viewValue: 'Dólar hongkonés' },
+    { value: 'Yuan chino', viewValue: 'Yuan chino' },
+    { value: 'Real brasileño', viewValue: 'Real brasileño' },
+    { value: 'Rublo ruso', viewValue: 'Rublo ruso' },
+    { value: 'Peso mexicano', viewValue: 'Peso mexicano' },
+    { value: 'Sol', viewValue: 'Sol' },
+  ];
+  listaIdioma: { value: string; viewValue: string }[] = [
+    { value: 'Inglés', viewValue: 'Inglés' },
+    { value: 'Chino mandarín', viewValue: 'Chino mandarín' },
+    { value: 'Hindi', viewValue: 'Hindi' },
+    { value: 'Español', viewValue: 'Español' },
+    { value: 'Francés', viewValue: 'Francés' },
+    { value: 'Árabe', viewValue: 'Árabe' },
+    { value: 'Bengalí', viewValue: 'Bengalí' },
+    { value: 'Portugués', viewValue: 'Portugués' },
+    { value: 'Ruso', viewValue: 'Ruso' },
+    { value: 'Aleman', viewValue: 'Aleman' },
+  ];
 
   constructor(
-    private tmS:PaisService,
+    private pS:PaisService,
     private router:Router,
     private formbuilder: FormBuilder,
     private route: ActivatedRoute
@@ -40,50 +68,64 @@ export class InsertarPaisComponent {
   ngOnInit(): void {
     this.route.params.subscribe((data:Params)=> {
       this.id = data['id'];
-      this.edicion = data['id'] !=null;
-      
+      this.edicion = data['id']  > 0;
+      this.init()
     });
 
     this.form = this.formbuilder.group({
-      codigo: [''],
-      nombre: ['', Validators.required],
-      codigoIso: ['', Validators.required],
-      continente: ['', Validators.required],
-      capital: ['', Validators.required],
-      moneda: ['', Validators.required],
-      idiomaOficial: ['', Validators.required],
-      poblacion: ['', Validators.required],
-      superficie: ['', Validators.required],
+      hidPais: [''],
+      hnombrePais: ['', Validators.required],
+      hcodigoIsoPais: ['', Validators.required],
+      hcontinentePais: ['', Validators.required],
+      hcapitalPais: ['', Validators.required],
+      hmonedaPais: ['', Validators.required],
+      hidiomaOficialPais: ['', Validators.required],
+      hpoblacionPais: ['', Validators.required],
+      hsuperficiePais: ['', Validators.required],
     });
   }
 
-  aceptar(): void {
+  insertar(): void {
     if (this.form.valid) {
-      this.tipometa.idPais = this.form.value.codigo;
-      this.tipometa.nombrePais= this.form.value.nombre
+      this.pais.idPais = this.form.value.hidPais;
+      this.pais.nombrePais= this.form.value.hnombrePais;
+      this.pais.codigoIsoPais=this.form.value.hcodigoIsoPais;
+      this.pais.continentePais=this.form.value.hcontinentePais;
+      this.pais.capitalPais=this.form.value.hcapitalPais;
+      this.pais.monedaPais=this.form.value.hmonedaPais;
+      this.pais.idiomaOficialPais=this.form.value.hidiomaOficialPais;
+      this.pais.poblacionPais=this.form.value.hpoblacionPais;
+      this.pais.superficiePais=this.form.value.hsuperficiePais;
     
-    if (this.edicion) {
-      this.tmS.modificar(this.tipometa).subscribe((data)=>{
-        this.tmS.list().subscribe((data)=>{
-          this.tmS.setList(data);
+      if (this.edicion) {
+        this.pS.update(this.pais).subscribe((data)=>{
+          this.pS.list().subscribe((data)=>{
+            this.pS.setList(data);
+          });
         });
-      });
-    } else {
-      this.tmS.insert(this.tipometa).subscribe((data) => {
-        this.tmS.list().subscribe((data) => {
-          this.tmS.setList(data);
+      } else {
+        this.pS.insert(this.pais).subscribe((data) => {
+          this.pS.list().subscribe((data) => {
+            this.pS.setList(data);
+          });
         });
-      });
+      }
+      this.router.navigate(['pais']);
     }
-    this.router.navigate(['tipometa']);
-  }
   }
   init() {
     if (this.edicion) {
-      this.tmS.listId(this.id).subscribe((data) => {
+      this.pS.listId(this.id).subscribe((data) => {
         this.form = new FormGroup({
-          codigo: new FormControl(data.idPais),
-          nombre: new FormControl(data.nombrePais),
+          hidPais: new FormControl(data.idPais),
+          hnombrePais: new FormControl(data.nombrePais),
+          hcodigoIsoPais: new FormControl(data.codigoIsoPais),
+          hcontinentePais: new FormControl(data.continentePais),
+          hcapitalPais: new FormControl(data.capitalPais),
+          hmonedaPais: new FormControl(data.monedaPais),
+          hidiomaOficialPais: new FormControl(data.idiomaOficialPais),
+          hpoblacionPais: new FormControl(data.poblacionPais),
+          hsuperficiePais: new FormControl(data.superficiePais),
         });
       });
     }

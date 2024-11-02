@@ -1,92 +1,95 @@
-<div class="title-container"><h1 class="title"style="text-align: center">Registro de Pais</h1></div>
-<div class="container" style="text-align: center">
+<div class="title-container"><h1 class="title"style="text-align: center">Registro de Pais</h1>
+  <div class="container" style="text-align: center">
+    <form [formGroup]="form" (submit)="insertar()" class="example-form">
+
+      <mat-form-field class="example-full-width" *ngIf="edicion">
+        <mat-label>Codigo</mat-label>
+        <input matInput formControlName="hidPais" readonly/>
+      </mat-form-field>
+      <br />
   
-  <form [formGroup]="form" (submit)="aceptar()" class="example-form">
-
-    <mat-form-field *ngIf="edicion">
-      <mat-label>Codigo:</mat-label>
-      <input matInput formControlName="codigo" readonly/>
-    </mat-form-field>
-    <br />
-
-    <mat-form-field>
-      <mat-label>nombre</mat-label>
-      <input matInput formControlName="nombre" />
-      <mat-error *ngIf="form.get('nombre')?.hasError('required')"
-        >El nombre es obligatorio.</mat-error
-      >
-    </mat-form-field>
-
-    <br />
-    <mat-form-field>
-        <mat-label>codigoIso</mat-label>
-        <input matInput formControlName="codigoIso" />
-        <mat-error *ngIf="form.get('codigoIso')?.hasError('required')"
-          >El codigoIso es obligatorio.</mat-error
+      <mat-form-field class="example-full-width" >
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="hnombrePais" />
+        <mat-error *ngIf="form.get('hnombrePais')?.hasError('required')"
+          >El nombre es obligatorio.</mat-error
         >
       </mat-form-field>
-
-    <br />
-    
-    <mat-form-field>
-        <mat-label>continente</mat-label>
-        <input matInput formControlName="continente" />
-        <mat-error *ngIf="form.get('continente')?.hasError('required')"
-          >El continente es obligatorio.</mat-error
-        >
-      </mat-form-field>
-
-    <br />
-    <mat-form-field>
-        <mat-label>capital</mat-label>
-        <input matInput formControlName="capital" />
-        <mat-error *ngIf="form.get('capital')?.hasError('required')"
-          >El capital es obligatorio.</mat-error
-        >
-      </mat-form-field>
-
-    <br />
-    <mat-form-field>
-        <mat-label>moneda</mat-label>
-        <input matInput formControlName="moneda" />
-        <mat-error *ngIf="form.get('moneda')?.hasError('required')"
-          >El moneda es obligatorio.</mat-error
-        >
-      </mat-form-field>
-
-    <br />
-    <mat-form-field>
-        <mat-label>idiomaOficial</mat-label>
-        <input matInput formControlName="idiomaOficial" />
-        <mat-error *ngIf="form.get('idiomaOficial')?.hasError('required')"
-          >El idiomaOficial es obligatorio.</mat-error
-        >
-      </mat-form-field>
-
-    <br />
-    <mat-form-field>
-        <mat-label>poblacion</mat-label>
-        <input matInput formControlName="poblacion" />
-        <mat-error *ngIf="form.get('poblacion')?.hasError('required')"
-          >El poblacion es obligatorio.</mat-error
-        >
-      </mat-form-field>
-
-    <br />
-    <mat-form-field>
-        <mat-label>superficie</mat-label>
-        <input matInput formControlName="superficie" />
-        <mat-error *ngIf="form.get('superficie')?.hasError('required')"
-          >El superficie es obligatorio.</mat-error
-        >
-      </mat-form-field>
-
-    <br />
-
-
-    <br />
-    <button class="primaryButton" *ngIf="!edicion">Registrar</button>
-    <button class="primaryButton" *ngIf="edicion">Editar</button>
-    <button class="secondaryButton"  routerLink="/pais"> Cancelar </button>
-  </form>
+  
+      <br />
+      <mat-form-field class="example-full-width" >
+          <mat-label>Código ISO</mat-label>
+          <input matInput formControlName="hcodigoIsoPais" />
+          <mat-error *ngIf="form.get('hcodigoIsoPais')?.hasError('required')"
+            >El codigoIso es obligatorio.</mat-error
+          >
+        </mat-form-field>
+  
+      <br />
+      
+      <mat-form-field>
+          <mat-label>Continente</mat-label>
+          <mat-select formControlName="hcontinentePais">
+            @for (food of listaContinente; track food) {
+            <mat-option [value]="food.value">{{ food.viewValue }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+  
+      <br />
+      <mat-form-field>
+          <mat-label>Capital</mat-label>
+          <input matInput formControlName="hcapitalPais" />
+          <mat-error *ngIf="form.get('hcapitalPais')?.hasError('required')"
+            >La capital es obligatorio.</mat-error
+          >
+        </mat-form-field>
+  
+      <br />
+      <mat-form-field>
+          <mat-label>Moneda</mat-label>
+          <mat-select formControlName="hmonedaPais">
+            @for (food of listaMoneda; track food) {
+            <mat-option [value]="food.value">{{ food.viewValue }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+  
+      <br />
+      <mat-form-field>
+          <mat-label>Idioma Oficial</mat-label>
+          <mat-select formControlName="hidiomaOficialPais">
+            @for (food of listaIdioma; track food) {
+            <mat-option [value]="food.value">{{ food.viewValue }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+  
+      <br />
+      <mat-form-field>
+          <mat-label>Población</mat-label>
+          <input matInput formControlName="hpoblacionPais" />
+          <mat-error *ngIf="form.get('hpoblacionPais')?.hasError('required')"
+            >La población es obligatorio.</mat-error>
+        </mat-form-field>
+  
+      <br />
+      <mat-form-field>
+          <mat-label>Superficie</mat-label>
+          <input matInput formControlName="hsuperficiePais" />
+          <mat-error *ngIf="form.get('hsuperficiePais')?.hasError('required')"
+            >La superficie es obligatorio.</mat-error>
+        </mat-form-field>
+      <br />
+  
+      <br />
+      
+      <div style="text-align: center;">
+        <button mat-flat-button  color="warn">Registrar</button>
+      </div>
+      <div style="text-align: center;">
+        <button class="secondaryButton"  routerLink="/pais"> Cancelar </button>
+      </div>
+    </form>
+  </div>
 </div>

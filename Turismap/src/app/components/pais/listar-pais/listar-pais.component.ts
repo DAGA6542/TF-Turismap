@@ -12,30 +12,35 @@ import { PaisService } from '../../../services/pais.service';
   standalone: true,
   imports: [
     MatPaginatorModule, MatTableModule,
-    MatIconModule, RouterLink,
+    MatIconModule, RouterLink, MatTableModule,
     MatButtonModule, MatDialogModule],
   templateUrl: './listar-pais.component.html',
   styleUrl: './listar-pais.component.css'
 })
 export class ListarPaisComponent {
   displayedColumns: string[] = ['idPais', 'nombre', 'codigoIso', 'continente', 
-    'capital', 'moneda', 'idiomaOficial', 'poblacion', 'superficie'];
+    'capital', 'moneda', 'idiomaOficial', 'poblacion', 'superficie', 'accion1', 'accion2'];
 
   datasource: MatTableDataSource<Pais> = new MatTableDataSource();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private tmS: PaisService, private dialog: MatDialog) {}
+  constructor(private pS: PaisService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
-    this.tmS.list().subscribe((data) => {
-      this.datasource.data = data;
-      this.datasource.paginator = this.paginator;
+    this.pS.list().subscribe((data) => {
+      this.datasource = new MatTableDataSource(data);
     });
-    this.tmS.getList().subscribe((data) => {
-      this.datasource.data = data;
-      this.datasource.paginator = this.paginator;
+    this.pS.getList().subscribe((data) => {
+      this.datasource = new MatTableDataSource(data);
     });
   }
   openDialog(id: number): void {}
+  delete(id: number) {
+    this.pS.delete(id).subscribe((data) => {
+      this.pS.list().subscribe((data) => {
+        this.pS.setList(data);
+      });
+    });
+  }
 }

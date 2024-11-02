@@ -1,10 +1,6 @@
 <div class="container" style="padding-top: 10px; padding-left: 10px; padding-right: 10px;">
-    <div class="title-container">
-        <h1 class="title" style="text-align: center;">Lista Paises</h1>
-    </div>
-  
+    <div class="title-container"><h1 class="title" style="text-align: center;">Lista Paises</h1></div>
     <table mat-table [dataSource]="datasource" class="mat-elevation-z8 full-width-table">
-  
         <ng-container matColumnDef="idPais">
             <th mat-header-cell *matHeaderCellDef>ID</th>
             <td mat-cell *matCellDef="let element">{{ element.idPais}}</td>
@@ -50,22 +46,20 @@
             <td mat-cell *matCellDef="let element">{{ element.superficiePais }}</td>
         </ng-container>
 
-        <ng-container matColumnDef="accion01">
-            <th mat-header-cell *matHeaderCellDef></th>
-            <td mat-cell *matCellDef="let element" class="action-cell">
-                <button mat-button color="primary" [routerLink]="['editar', element.idTipoMeta]">
-                    <mat-icon>edit</mat-icon>
-                </button>
-  
-                <button mat-button color="warn" (click)="openDialog(element.idTipoMeta)">
-                    <mat-icon>delete</mat-icon>
-                </button>
-            </td>
+        <ng-container matColumnDef="accion1">
+            <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+            <td mat-cell *matCellDef="let element" (click)="delete(element.idPais)">
+              <mat-icon style="color:#1100ff ;">delete</mat-icon>
+            </td> 
+          </ng-container>
+        <ng-container matColumnDef="accion2">
+            <th mat-header-cell *matHeaderCellDef>Actualizar</th>
+            <td mat-cell *matCellDef="let element" [routerLink]="['editar',element.idPais]" >
+                <mat-icon style="color:#1100ff ;">edit</mat-icon>
+            </td> 
         </ng-container>
   
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
-  
-    <mat-paginator [pageSizeOptions]="[5, 7, 10]" showFirstLastButtons aria-label="Select page of periodic elements"></mat-paginator>
   </div>

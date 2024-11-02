@@ -14,7 +14,8 @@ export const routes: Routes = [
         path: 'pais', component: PaisComponent,
         children: [
             { path: 'insertar', component: InsertarPaisComponent },
-            { path: 'listar', component: ListarPaisComponent }
+            { path: 'listar', component: ListarPaisComponent },
+            { path: 'editar/:id', component: InsertarPaisComponent }
         ],
         
     },
@@ -29,7 +30,8 @@ export const routes: Routes = [
         path: 'usuario', component: UsuarioComponent,
         children: [
             { path: 'insertar', component: InsertarUsuarioComponent },
-            { path: 'listar', component: ListarUsuarioComponent }
+            { path: 'listar', component: ListarUsuarioComponent },
+            { path: 'editar/:id', component: InsertarUsuarioComponent }
         ],
     },
 ];
