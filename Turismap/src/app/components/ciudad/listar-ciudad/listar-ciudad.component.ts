@@ -17,14 +17,24 @@ import { CiudadService } from '../../../services/ciudad.service';
   styleUrl: './listar-ciudad.component.css'
 })
 export class ListarCiudadComponent {
-  displayedColumns: string[] = ['idCiudad', 'nombreCiudad', 'poblacionCiudad', 'superficieCiudad', 
-    'latitudCiudad', 'longitudCiudad', 'codigoPostalCiudad', 'idDepartamento', 'idDepartamento1', 'accion1', 'accion2'];
+  displayedColumns: string[] = [
+    'idCiudad',
+    'nombreCiudad',
+    'poblacionCiudad',
+    'superficieCiudad',
+    'latitudCiudad',
+    'longitudCiudad',
+    'codigoPostalCiudad',
+    'idDepartamento',
+    'idDepartamento1',
+    'accion1',
+    'accion2'];
 
   datasource: MatTableDataSource<Ciudad> = new MatTableDataSource();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private cS: CiudadService, private dialog: MatDialog) {}
+  constructor(private cS: CiudadService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.cS.list().subscribe((data) => {
@@ -34,7 +44,7 @@ export class ListarCiudadComponent {
       this.datasource = new MatTableDataSource(data);
     });
   }
-  openDialog(id: number): void {}
+  openDialog(id: number): void { }
   delete(id: number) {
     this.cS.delete(id).subscribe((data) => {
       this.cS.list().subscribe((data) => {
