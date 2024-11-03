@@ -1,6 +1,6 @@
 <div class="container" style="padding-top: 10px; padding-left: 10px; padding-right: 10px;">
     <div class="title-container">
-        <h1 class="title" style="text-align: center;">Lista Ciudades</h1>
+        <h1 class="title" style="text-align: center;">Lista Comentarios</h1>
     </div>
     <table mat-table [dataSource]="datasource" class="mat-elevation-z8 full-width-table">
         <ng-container matColumnDef="idComentario">
@@ -54,5 +54,4 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
-    <mat-paginator [pageSizeOptions]="[5,10,25]" showFirstLastButtons></mat-paginator>
 </div>
