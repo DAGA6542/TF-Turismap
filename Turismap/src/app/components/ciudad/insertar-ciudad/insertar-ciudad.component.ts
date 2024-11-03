@@ -81,14 +81,14 @@ export class InsertarCiudadComponent {
     if (this.edicion) {
       this.cS.listId(this.id).subscribe((data) => {
         this.form = new FormGroup({
-          hhidCiudad: new FormControl(data.idCiudad),
-          hhnombreCiudad: new FormControl(data.nombreCiudad),
-          hhpoblacionCiudad: new FormControl(data.poblacionCiudad),
-          hhsuperficieCiudad: new FormControl(data.superficieCiudad),
-          hhlatitudCiudad: new FormControl(data.latitudCiudad),
-          hhlongitudCiudad: new FormControl(data.longitudCiudad),
-          hhcodigoPostalCiudad: new FormControl(data.codigoPostalCiudad),
-          hhidDepartamento: new FormControl(data.idDepartamento)
+          hidCiudad: new FormControl(data.idCiudad),
+          hnombreCiudad: new FormControl(data.nombreCiudad),
+          hpoblacionCiudad: new FormControl(data.poblacionCiudad),
+          hsuperficieCiudad: new FormControl(data.superficieCiudad),
+          hlatitudCiudad: new FormControl(data.latitudCiudad),
+          hlongitudCiudad: new FormControl(data.longitudCiudad),
+          hcodigoPostalCiudad: new FormControl(data.codigoPostalCiudad),
+          hidDepartamento: new FormControl(data.idDepartamento)
         });
       });
     }
