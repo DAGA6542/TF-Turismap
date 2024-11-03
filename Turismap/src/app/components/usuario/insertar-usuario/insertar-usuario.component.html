@@ -1,72 +1,86 @@
-<div class="title-container"><h1 class="title"style="text-align: center">Registro de Usuario</h1>
-    <div class="container" style="text-align: center">
-      <form [formGroup]="form" (submit)="insertar()" class="example-form">
-  
-        <mat-form-field class="example-full-width" *ngIf="edicion">
-          <mat-label>Codigo</mat-label>
-          <input matInput formControlName="idUsuario" readonly/>
-        </mat-form-field>
-        <br />
-    
-        <mat-form-field class="example-full-width" >
-          <mat-label>Usuario</mat-label>
-          <input matInput formControlName="username" />
-          <mat-error *ngIf="form.get('username')?.hasError('required')"
-            >El usuario es obligatorio.</mat-error>
-        </mat-form-field>
-    
-        <br />
-        <mat-form-field class="example-full-width" >
-            <mat-label>Nombre</mat-label>
-            <input matInput formControlName="nombreUsuario" />
-            <mat-error *ngIf="form.get('nombreUsuario')?.hasError('required')"
-              >El nombre es obligatorio.</mat-error>
-          </mat-form-field>
-    
-        <br />
-        
-        <mat-form-field>
-            <mat-label>Correo</mat-label>
-            <input matInput formControlName="emailUsuario" />
-            <mat-error *ngIf="form.get('emailUsuario')?.hasError('required')"
-              >El correo es obligatorio.</mat-error>
-          </mat-form-field>
-    
-        <br />
-        <mat-form-field>
-            <mat-label>Contraseña</mat-label>
-            <input matInput formControlName="contraseniaUsuario" />
-            <mat-error *ngIf="form.get('contraseniaUsuario')?.hasError('required')"
-              >La contraseña es obligatorio.</mat-error>
-          </mat-form-field>
-    
-        <br />
-        <mat-form-field>
-            <mat-label>Telefono</mat-label>
-            <input matInput formControlName="telefonoUsuario" />
-            <mat-error *ngIf="form.get('telefonoUsuario')?.hasError('required')"
-              >El telefono es obligatorio.</mat-error>
-          </mat-form-field>
-    
-        <br />
-        <mat-form-field>
-            <mat-label>Valido</mat-label>
-            <input matInput formControlName="enabled" />
-            <mat-error *ngIf="form.get('enabled')?.hasError('required')"
-              >El valor es obligatorio.</mat-error>
-          </mat-form-field>
-    
-        <br />
-        
-    
-        <br />
-        
-        <div style="text-align: center;">
-          <button mat-flat-button  color="warn">Registrar</button>
-        </div>
-        <div style="text-align: center;">
-          <button class="secondaryButton"  routerLink="/usuario"> Cancelar </button>
-        </div>
-      </form>
-    </div>
+<div class="title-container">
+  <h1 class="title" style="text-align: center">Registro de Usuario</h1>
+  <div class="container" style="text-align: center">
+    <form [formGroup]="form" (ngSubmit)="insertar()" class="example-form">
+      <mat-form-field class="example-full-width" *ngIf="edicion">
+        <mat-label>Código</mat-label>
+        <input matInput formControlName="idUsuario" readonly />
+      </mat-form-field>
+      <br />
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Usuario</mat-label>
+        <input matInput formControlName="username" />
+        <mat-error *ngIf="form.get('username')?.hasError('required')">
+          El usuario es obligatorio.
+        </mat-error>
+      </mat-form-field>
+      <br />
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="nombreUsuario" />
+        <mat-error *ngIf="form.get('nombreUsuario')?.hasError('required')">
+          El nombre es obligatorio.
+        </mat-error>
+      </mat-form-field>
+      <br />
+
+      <mat-form-field>
+        <mat-label>Correo</mat-label>
+        <input matInput formControlName="emailUsuario" />
+        <mat-error *ngIf="form.get('emailUsuario')?.hasError('required')">
+          El correo es obligatorio.
+        </mat-error>
+        <mat-error *ngIf="form.get('emailUsuario')?.hasError('email')">
+          El correo no tiene un formato válido.
+        </mat-error>
+      </mat-form-field>
+      <br />
+
+      <mat-form-field>
+        <mat-label>Contraseña</mat-label>
+        <input matInput formControlName="contraseniaUsuario" type="password" />
+        <mat-error *ngIf="form.get('contraseniaUsuario')?.hasError('required')">
+          La contraseña es obligatoria.
+        </mat-error>
+      </mat-form-field>
+      <br />
+
+      <mat-form-field>
+        <mat-label>Teléfono</mat-label>
+        <input matInput formControlName="telefonoUsuario" />
+        <mat-error *ngIf="form.get('telefonoUsuario')?.hasError('required')">
+          El teléfono es obligatorio.
+        </mat-error>
+        <mat-error *ngIf="form.get('telefonoUsuario')?.hasError('minlength')">
+          El teléfono debe tener al menos 9 dígitos.
+        </mat-error>
+        <mat-error *ngIf="form.get('telefonoUsuario')?.hasError('pattern')">
+          El teléfono solo puede contener números.
+        </mat-error>
+      </mat-form-field>
+      <br />
+
+      <mat-form-field>
+        <mat-label>Válido</mat-label>
+        <mat-select formControlName="enabled">
+          <mat-option *ngFor="let foot of listaValidos" [value]="foot.value">
+            {{ foot.viewValue }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('enabled')?.hasError('required')">
+          El valor es obligatorio.
+        </mat-error>
+      </mat-form-field>
+      <br />
+
+      <div style="text-align: center;">
+        <button mat-flat-button color="warn">Registrar</button>
+      </div>
+      <div style="text-align: center;">
+        <button class="secondaryButton" routerLink="/usuario">Cancelar</button>
+      </div>
+    </form>
   </div>
+</div>
