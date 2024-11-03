@@ -1,1 +1,84 @@
-<p>insertar-ciudad works!</p>
+<div class="title-container"><h1 class="title"style="text-align: center">Registro de Pais</h1>
+    <div class="container" style="text-align: center">
+      <form [formGroup]="form" (submit)="insertar()" class="example-form">
+  
+        <mat-form-field class="example-full-width" *ngIf="edicion">
+          <mat-label>Codigo</mat-label>
+          <input matInput formControlName="hidCiudad" readonly/>
+        </mat-form-field>
+        <br />
+    
+        <mat-form-field class="example-full-width" >
+          <mat-label>Nombre</mat-label>
+          <input matInput formControlName="hnombreCiudad" />
+          <mat-error *ngIf="form.get('hnombreCiudad')?.hasError('required')"
+            >El nombre es obligatorio.</mat-error
+          >
+        </mat-form-field>
+    
+        <br />
+        <mat-form-field class="example-full-width" >
+            <mat-label>Población</mat-label>
+            <input matInput formControlName="hpoblacionCiudad" />
+            <mat-error *ngIf="form.get('hpoblacionCiudad')?.hasError('required')"
+              >La población es obligatorio.</mat-error
+            >
+          </mat-form-field>
+    
+        <br />
+        
+        <mat-form-field>
+            <mat-label>Superficie</mat-label>
+            <input matInput formControlName="hsuperficieCiudad" />
+            <mat-error *ngIf="form.get('hsuperficieCiudad')?.hasError('required')"
+              >La superficie es obligatorio.</mat-error
+            >
+          </mat-form-field>
+    
+        <br />
+        <mat-form-field>
+            <mat-label>Latitud</mat-label>
+            <input matInput formControlName="hlatitudCiudad" />
+            <mat-error *ngIf="form.get('hlatitudCiudad')?.hasError('required')"
+              >La latitud es obligatorio.</mat-error
+            >
+          </mat-form-field>
+    
+        <br />
+
+        <mat-form-field>
+            <mat-label>Longitud</mat-label>
+            <input matInput formControlName="hlongitudCiudad" />
+            <mat-error *ngIf="form.get('hlongitudCiudad')?.hasError('required')"
+              >La longitud es obligatorio.</mat-error
+            >
+          </mat-form-field>
+    
+        <br />
+        <mat-form-field>
+            <mat-label>Codigo Postal</mat-label>
+            <input matInput formControlName="hcodigoPostalCiudad" />
+            <mat-error *ngIf="form.get('hcodigoPostalCiudad')?.hasError('required')"
+              >El codigo postal es obligatorio.</mat-error>
+          </mat-form-field>
+    
+        <br />
+        <mat-form-field>
+            <mat-label>Codigo Departamento</mat-label>
+            <input matInput formControlName="hidDepartamento" />
+            <mat-error *ngIf="form.get('hidDepartamento')?.hasError('required')"
+              >El codigo departamento es obligatorio.</mat-error>
+          </mat-form-field>
+        <br />
+    
+        <br />
+        
+        <div style="text-align: center;">
+          <button mat-flat-button  color="warn">Registrar</button>
+        </div>
+        <div style="text-align: center;">
+          <button class="secondaryButton"  routerLink="/ciudad"> Cancelar </button>
+        </div>
+      </form>
+    </div>
+  </div>
