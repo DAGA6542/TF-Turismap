@@ -1,1 +1,87 @@
-<p>insertar-menbresiavip works!</p>
+<div class="title-container">
+  <h1 class="title" style="text-align: center">Registro de Membresias VIP </h1>
+  <div class="container" style="text-align: center">
+    <form [formGroup]="form" (submit)="insertar()" class="example-form">
+
+      <mat-form-field class="example-full-width" *ngIf="edicion">
+        <mat-label>Codigo</mat-label>
+        <input matInput formControlName="hidMenbresiaVIP" readonly />
+      </mat-form-field>
+      <br />
+
+      <mat-form-field>
+        <mat-label>Tipo de Membresía</mat-label>
+        <mat-select formControlName="htipoMenbresiaVIP">
+          <mat-option value="Free">Free</mat-option>
+          <mat-option value="VIP">VIP</mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('htipoMenbresiaVIP')?.hasError('required')">
+          El Tipo de Membresía es obligatorio.
+        </mat-error>
+      </mat-form-field>
+
+
+      <br />
+
+      <mat-form-field>
+        <mat-label>Fecha Inicio</mat-label>
+        <input matInput [matDatepicker]="picker1" formControlName="hfechaInicioMenbresiaVIP" />
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+        <mat-error *ngIf="form.get('hfechaInicioMenbresiaVIP')?.hasError('required')">
+          >La Fecha Inicio es obligatorio.
+        </mat-error>
+      </mat-form-field>
+
+      <br />
+
+      <mat-form-field>
+        <mat-label>Fecha Fin</mat-label>
+        <input matInput [matDatepicker]="picker1" formControlName="hfechaFinMenbresiaVIP" />
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+        <mat-error *ngIf="form.get('hfechaFinMenbresiaVIP')?.hasError('required')">
+          La Fecha Fin es obligatorio.
+        </mat-error>
+      </mat-form-field>
+
+      <br />
+      <mat-form-field>
+        <mat-label>Estado</mat-label>
+        <mat-select formControlName="hestadoMenbresiaVIP" required>
+          <mat-option value="true">Activo</mat-option>
+          <mat-option value="false">Inactivo</mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('hestadoMenbresiaVIP')?.hasError('required')">
+          El Estado de la Membresia es obligatorio.
+        </mat-error>
+      </mat-form-field>
+
+      <br />
+
+      <mat-form-field>
+        <mat-label>Beneficio</mat-label>
+        <input matInput formControlName="hbeneficioMenbresiaVIP" />
+        <mat-error *ngIf="form.get('hbeneficioMenbresiaVIP')?.hasError('required')">Los Beneficio son
+          obligatorio.</mat-error>
+      </mat-form-field>
+
+      <br />
+
+      <mat-form-field>
+        <mat-label>IdUsuario</mat-label>
+        <input matInput formControlName="hidUsuario" />
+        <mat-error *ngIf="form.get('hidUsuario')?.hasError('required')">El IdUsuario es obligatorio.</mat-error>
+      </mat-form-field>
+
+      <br />
+
+      <div style="text-align: center;">
+        <button mat-flat-button color="warn">Registrar</button>
+      </div>
+      <div style="text-align: center;">
+        <button class="secondaryButton" routerLink="/pais"> Cancelar </button>
+      </div>
+    </form>
+  </div>
+</div>

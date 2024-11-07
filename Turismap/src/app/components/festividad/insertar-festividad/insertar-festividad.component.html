@@ -1,1 +1,57 @@
-<p>insertar-festividad works!</p>
+<div class="title-container">
+  <h1 class="title" style="text-align: center">Registro de Festividades</h1>
+  <div class="container" style="text-align: center">
+    <form [formGroup]="form" (submit)="insertar()" class="example-form">
+
+      <mat-form-field class="example-full-width" *ngIf="edicion">
+        <mat-label>Codigo</mat-label>
+        <input matInput formControlName="hidFestividad" readonly />
+      </mat-form-field>
+      <br />
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="hnombreFestividad" />
+        <mat-error *ngIf="form.get('hnombreFestividad')?.hasError('required')">El nombre de la Festividad es
+          obligatorio.</mat-error>
+      </mat-form-field>
+
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Descripcion</mat-label>
+        <input matInput formControlName="hdescripcionFestividad" />
+        <mat-error *ngIf="form.get('hdescripcionFestividad')?.hasError('required')">La Descripcion de la Festividad es
+          obligatorio.</mat-error>
+      </mat-form-field>
+
+      <br />
+
+      <mat-form-field>
+        <mat-label>Fecha Festividad</mat-label>
+        <input matInput [matDatepicker]="picker1" formControlName="hfechaFestividad" />
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+        <mat-error *ngIf="form.get('hfechaFestividad')?.hasError('required')">
+          La fecha es obligatoria.
+        </mat-error>
+      </mat-form-field>
+
+      <br />
+      <mat-form-field>
+        <mat-label>IdLugarTuristico</mat-label>
+        <input matInput formControlName="hidLugarTuristico" />
+        <mat-error *ngIf="form.get('hidLugarTuristico')?.hasError('required')">El IdLugarTuristico es
+          obligatorio.</mat-error>
+      </mat-form-field>
+
+      <br />
+
+      <div style="text-align: center;">
+        <button mat-flat-button color="warn">Registrar</button>
+      </div>
+      <div style="text-align: center;">
+        <button class="secondaryButton" routerLink="/pais"> Cancelar </button>
+      </div>
+    </form>
+  </div>
+</div>
