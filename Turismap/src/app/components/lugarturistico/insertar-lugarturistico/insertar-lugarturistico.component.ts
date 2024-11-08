@@ -50,9 +50,9 @@ export class InsertarLugarturisticoComponent implements OnInit{
 
   insertar(): void {
     if (this.form.valid) {
-      this.lugarturistico.nombreLugar= this.form.value.hnombreLugarTuristico;
-      this.lugarturistico.descripcionLugar=this.form.value.hdescripcionLugarTuristico;
-      this.lugarturistico.numeroTelefonoLugar=this.form.value.hnumeroLugarTuristico;
+      this.lugarturistico.nombreLugarTuristico= this.form.value.hnombreLugarTuristico;
+      this.lugarturistico.descripcionLugarTuristico=this.form.value.hdescripcionLugarTuristico;
+      this.lugarturistico.numeroLugarTuristico=this.form.value.hnumeroLugarTuristico;
       this.lugarturistico.idCiudad.idCiudad=this.form.value.hCiudad;
 
       this.LT.insert(this.lugarturistico).subscribe((data) => {
