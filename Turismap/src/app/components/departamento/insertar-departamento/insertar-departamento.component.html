@@ -1,60 +1,52 @@
-<div class="title-container"><h1 class="title"style="text-align: center">Registro de Departamento</h1>
-    <div class="container" style="text-align: center">
-      <form [formGroup]="form" (submit)="insertar()" class="example-form">
-  
-        <mat-form-field class="example-full-width" *ngIf="edicion">
-          <mat-label>Codigo</mat-label>
-          <input matInput formControlName="hidDepartamento" readonly/>
-        </mat-form-field>
-        <br />
-    
-        <mat-form-field class="example-full-width" >
-          <mat-label>Nombre</mat-label>
-          <input matInput formControlName="hnombreDepartamento" />
-          <mat-error *ngIf="form.get('hnombreDepartamento')?.hasError('required')"
-            >El nombre es obligatorio.</mat-error
-          >
-        </mat-form-field>
-    
-        <br />
-        <mat-form-field class="example-full-width" >
-            <mat-label>Capital</mat-label>
-            <input matInput formControlName="hcapitalDepartamento" />
-            <mat-error *ngIf="form.get('hcapitalDepartamento')?.hasError('required')"
-              >La Capital es obligatorio.</mat-error>
-          </mat-form-field>
-    
-        <br />
-        <mat-form-field>
-            <mat-label>Población</mat-label>
-            <input matInput formControlName="hpoblacionDepartamento" />
-            <mat-error *ngIf="form.get('hpoblacionDepartamento')?.hasError('required')"
-              >La población es obligatorio.</mat-error>
-          </mat-form-field>
-    
-        <br />
-        <mat-form-field>
-            <mat-label>Superficie</mat-label>
-            <input matInput formControlName="hsuperficieDepartamento" />
-            <mat-error *ngIf="form.get('hsuperficieDepartamento')?.hasError('required')"
-              >La superficie es obligatorio.</mat-error>
-          </mat-form-field>
-        <br />
+<div class="title-container">
+  <h1 class="title" style="text-align: center">Registro de Departamento</h1>
+  <div class="container" style="text-align: center">
+    <form [formGroup]="form" (submit)="insertar()" class="example-form">
 
-        <mat-form-field>
-            <mat-label>IdPais</mat-label>
-            <input matInput formControlName="hidPais" />
-            <mat-error *ngIf="form.get('hidPais')?.hasError('required')"
-              >La IdPais es obligatorio.</mat-error>
-          </mat-form-field>
-        <br />
-    
-        <div style="text-align: center;">
-          <button mat-flat-button  color="warn">Registrar</button>
-        </div>
-        <div style="text-align: center;">
-          <button class="secondaryButton"  routerLink="/pais"> Cancelar </button>
-        </div>
-      </form>
-    </div>
+      <mat-form-field class="example-full-width">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="hnombreDepartamento" />
+        <mat-error *ngIf="form.get('hnombreDepartamento')?.hasError('required')">El nombre es obligatorio.</mat-error>
+      </mat-form-field>
+
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Capital</mat-label>
+        <input matInput formControlName="hcapitalDepartamento" />
+        <mat-error *ngIf="form.get('hcapitalDepartamento')?.hasError('required')">La Capital es obligatoria.</mat-error>
+      </mat-form-field>
+
+      <br />
+      <mat-form-field>
+        <mat-label>Población</mat-label>
+        <input matInput formControlName="hpoblacionDepartamento" />
+        <mat-error *ngIf="form.get('hpoblacionDepartamento')?.hasError('required')">La población es
+          obligatorio.</mat-error>
+      </mat-form-field>
+
+      <br />
+      <mat-form-field>
+        <mat-label>Superficie</mat-label>
+        <input matInput formControlName="hsuperficieDepartamento" />
+        <mat-error *ngIf="form.get('hsuperficieDepartamento')?.hasError('required')">La superficie es
+          obligatorio.</mat-error>
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>Pais</mat-label>
+        <mat-select formControlName="hPais">
+          @for (pa of listaPaises; track pa) {
+          <mat-option [value]="pa.idPais">{{ pa.nombrePais }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <div style="text-align: center;">
+        <button mat-flat-button color="warn">Registrar</button>
+      </div>
+      <div style="text-align: center;">
+        <button class="secondaryButton" routerLink="/pais"> Cancelar </button>
+      </div>
+    </form>
   </div>
+</div>
