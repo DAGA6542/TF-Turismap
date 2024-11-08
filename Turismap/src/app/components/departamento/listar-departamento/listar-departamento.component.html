@@ -1,1 +1,39 @@
-<p>listar-departamento works!</p>
+<div class="container">
+    <div style="text-align: center; margin: 5%"><h1>Lista de Departamento</h1></div>
+    <div>
+      <table mat-table [dataSource]="datasource" class="mat-elevation-z8">
+        <ng-container matColumnDef="ctt1">
+          <th mat-header-cell *matHeaderCellDef>Código.</th>
+          <td mat-cell *matCellDef="let element">{{ element.idDepartamento }}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="ctt2">
+          <th mat-header-cell *matHeaderCellDef>Nombre</th>
+          <td mat-cell *matCellDef="let element">{{ element.nombreDepartamento }}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="ctt3">
+          <th mat-header-cell *matHeaderCellDef>Capital</th>
+          <td mat-cell *matCellDef="let element">{{ element.capitalDepartamento }}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="ctt4">
+          <th mat-header-cell *matHeaderCellDef>Población</th>
+          <td mat-cell *matCellDef="let element">{{ element.poblacionDepartamento }}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="ctt5">
+          <th mat-header-cell *matHeaderCellDef>Superficie</th>
+          <td mat-cell *matCellDef="let element">{{ element.superficieDepartamento }}</td>
+        </ng-container>
+        <ng-container matColumnDef="ctt6">
+            <th mat-header-cell *matHeaderCellDef>idPais</th>
+            <td mat-cell *matCellDef="let element">{{ element.idPais.nombrePais }}</td>
+          </ng-container>        
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+  </div>
+  
