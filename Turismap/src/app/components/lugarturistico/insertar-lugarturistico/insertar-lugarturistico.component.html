@@ -1,56 +1,51 @@
-<div class="title-container"><h1 class="title"style="text-align: center">Registro de Lugares Turisticos</h1>
-    <div class="container" style="text-align: center">
-      <form [formGroup]="form" (submit)="insertar()" class="example-form">
+<div class="title-container"><h1 class="title"style="text-align: center">Registro de Lugar Turistico</h1>
+  <div class="container" style="text-align: center">
+    <form [formGroup]="form" (submit)="insertar()" class="example-form">
   
-        <mat-form-field class="example-full-width" *ngIf="edicion">
-            <mat-label>Codigo</mat-label>
-            <input matInput formControlName="hidLugarTuristico" readonly/>
-          </mat-form-field>
-          <br/>
-    
-        <mat-form-field class="example-full-width" >
-          <mat-label>Nombre</mat-label>
-          <input matInput formControlName="hnombreLugarTuristico" />
-          <mat-error *ngIf="form.get('hnombreLugarTuristico')?.hasError('required')"
-            >El nombre del Lugar Turistico es obligatorio.</mat-error
+      <mat-form-field class="example-full-width" >
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="hnombreLugarTuristico" />
+        <mat-error *ngIf="form.get('hnombreLugarTuristico')?.hasError('required')"
+          >El nombre es obligatorio.</mat-error
+        >
+      </mat-form-field>
+  
+      <br />
+      <mat-form-field class="example-full-width" >
+          <mat-label>Descripcion</mat-label>
+          <input matInput formControlName="hdescripcionLugarTuristico" />
+          <mat-error *ngIf="form.get('hdescripcionLugarTuristico')?.hasError('required')"
+            >La Descripcion es obligatorio.</mat-error
           >
         </mat-form-field>
-    
-        <br />
-        <mat-form-field class="example-full-width" >
-            <mat-label>Descripcion</mat-label>
-            <input matInput formControlName="hdescripcionLugarTuristico" />
-            <mat-error *ngIf="form.get('hdescripcionLugarTuristico')?.hasError('required')"
-              >La Descripcion del Lugar Turistico es obligatorio.</mat-error
-            >
-          </mat-form-field>
-    
-        <br />
-        
-        <mat-form-field>
-            <mat-label>Numero del Lugar Turistico</mat-label>
-            <input matInput formControlName="hnumeroLugarTuristico" />
-            <mat-error *ngIf="form.get('hnumeroLugarTuristico')?.hasError('required')"
-              >El numero del Lugar Turistico es obligatorio.</mat-error
-            >
-          </mat-form-field>
-    
+  
+      <br />
+      
+      <mat-form-field>
+          <mat-label>Numero</mat-label>
+          <input matInput formControlName="hnumeroLugarTuristico" />
+          <mat-error *ngIf="form.get('hnumeroLugarTuristico')?.hasError('required')"
+            >El Numero es obligatorio.</mat-error
+          >
+        </mat-form-field>
         <br />
         <mat-form-field>
-            <mat-label>IdCiudad</mat-label>
-            <input matInput formControlName="hidCiudad" />
-            <mat-error *ngIf="form.get('hidCiudad')?.hasError('required')"
-              >El IdCiudad es obligatorio.</mat-error>
-          </mat-form-field>
-    
+          <mat-label>Ciudad</mat-label>
+          <mat-select formControlName="hCiudad">
+            @for (ciu of listaciudad; track ciu) {
+            <mat-option [value]="ciu.idCiudad">{{ ciu.nombreCiudad }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
         <br />
-        
-        <div style="text-align: center;">
-          <button mat-flat-button  color="warn">Registrar</button>
-        </div>
-        <div style="text-align: center;">
-          <button class="secondaryButton"  routerLink="/pais"> Cancelar </button>
-        </div>
-      </form>
-    </div>
+
+      
+      <div style="text-align: center;">
+        <button mat-flat-button  color="warn">Registrar</button>
+      </div>
+      <div style="text-align: center;">
+        <button class="secondaryButton"  routerLink="/ciudad"> Cancelar </button>
+      </div>
+    </form>
   </div>
+</div>
