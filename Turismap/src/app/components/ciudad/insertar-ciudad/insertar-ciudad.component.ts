@@ -50,6 +50,7 @@ export class InsertarCiudadComponent implements OnInit{
     this.Dep.list().subscribe((data) => {
       this.listarDepartamento = data;
     });
+    // xd
   }
   insertar(): void {
     if (this.form.valid) {
@@ -67,6 +68,6 @@ export class InsertarCiudadComponent implements OnInit{
         });
       });
       this.router.navigate(['ciudad']);
-    }
+    } 
   }
 }
