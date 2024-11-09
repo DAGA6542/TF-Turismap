@@ -40,7 +40,7 @@ export class InsertarUsuarioComponent {
   ) {}
   ngOnInit(): void {
     this.route.params.subscribe((data:Params)=> {
-      this.id = data['id'];
+      this.id  = data['id'];
       this.edicion = data['id']  > 0;
       this.init()
     });
