@@ -4,5 +4,5 @@ export class LugarTuristico {
     nombreLugarTuristico: string = "";
     descripcionLugarTuristico: string = "";
     numeroTelefonoLugar: number = 0;
-    idCiudad: number = 0;
+    idCiudad: Ciudad=new Ciudad()
 }

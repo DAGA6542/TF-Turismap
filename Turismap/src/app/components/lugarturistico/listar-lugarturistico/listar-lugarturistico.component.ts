@@ -21,6 +21,7 @@ import { LugarturisticoService } from '../../../services/lugarturistico.service'
   styleUrl: './listar-lugarturistico.component.css'
 })
 export class ListarLugarturisticoComponent {
+  datasource: MatTableDataSource<LugarTuristico> = new MatTableDataSource();
   displayedColumns: string[] = [
     'idLugarTuristico',
     'nombreLugarTuristico',
@@ -30,10 +31,9 @@ export class ListarLugarturisticoComponent {
     'accion1',
     'accion2'];
 
-  datasource: MatTableDataSource<LugarTuristico> = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private ltS: LugarturisticoService, private dialog: MatDialog) { }
+  constructor(private ltS: LugarturisticoService) { }
 
   ngOnInit(): void {
     this.ltS.list().subscribe((data) => {
@@ -42,6 +42,7 @@ export class ListarLugarturisticoComponent {
     });
     this.ltS.getList().subscribe((data) => {
       this.datasource = new MatTableDataSource(data);
+      this.datasource.paginator = this.paginator;
     });
   }
   openDialog(id: number): void { }
