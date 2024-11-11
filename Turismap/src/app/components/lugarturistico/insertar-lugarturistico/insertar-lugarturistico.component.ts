@@ -35,8 +35,16 @@ export class InsertarLugarturisticoComponent implements OnInit{
     private ciu: CiudadService,
     private router:Router,
     private formbuilder: FormBuilder,
+    private route: ActivatedRoute
+
   ) {}
   ngOnInit(): void {
+    this.route.params.subscribe((data:Params)=> {
+      this.id = data['id'];
+      this.edicion = data['id']  > 0;
+      this.init()
+    });
+
     this.form = this.formbuilder.group({
       hnombreLugarTuristico: ['', Validators.required],
       hdescripcionLugarTuristico: ['', Validators.required],
@@ -50,19 +58,39 @@ export class InsertarLugarturisticoComponent implements OnInit{
 
   insertar(): void {
     if (this.form.valid) {
+      this.lugarturistico.idLugarTuristico= this.form.value.hidLugarTuristico;
       this.lugarturistico.nombreLugarTuristico= this.form.value.hnombreLugarTuristico;
       this.lugarturistico.descripcionLugarTuristico=this.form.value.hdescripcionLugarTuristico;
       this.lugarturistico.numeroLugarTuristico=this.form.value.hnumeroLugarTuristico;
       this.lugarturistico.idCiudad.idCiudad=this.form.value.hCiudad;
 
-      this.LT.insert(this.lugarturistico).subscribe((data) => {
-        this.LT.list().subscribe((data) => {
-          this.LT.setList(data);
-
-          console.log(data.at)
+      if (this.edicion) {
+        this.LT.update(this.lugarturistico).subscribe((data)=>{
+          this.LT.list().subscribe((data)=>{
+            this.LT.setList(data);
+          });
+        });
+      } else {
+        this.LT.insert(this.lugarturistico).subscribe((data) => {
+          this.LT.list().subscribe((data) => {
+            this.LT.setList(data);
+          });
+        });
+      }
+      this.router.navigate(['lugarturistico']);
+    }
+  }
+  init() {
+    if (this.edicion) {
+      this.LT.listId(this.id).subscribe((data) => {
+        this.form = new FormGroup({
+          hidLugarTuristico: new FormControl(data.idLugarTuristico),
+          hnombreLugarTuristico: new FormControl(data.nombreLugarTuristico),
+          hdescripcionLugarTuristico: new FormControl(data.descripcionLugarTuristico),
+          hnumeroLugarTuristico: new FormControl(data.numeroLugarTuristico),
+          hidCiudad: new FormControl(data.idCiudad),
         });
       });
-      this.router.navigate(['lugarturistico']);
     }
   }
 }

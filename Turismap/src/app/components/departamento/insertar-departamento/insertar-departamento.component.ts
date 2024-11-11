@@ -19,7 +19,6 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
   providers: [provideNativeDateAdapter()],
   imports: [MatFormFieldModule, CommonModule, NgIf, MatButtonModule, MatInputModule, ReactiveFormsModule,
     RouterLink, MatSelectModule, FormsModule, MatDatepickerModule],
-
   templateUrl: './insertar-departamento.component.html',
   styleUrl: './insertar-departamento.component.css'
 })
@@ -56,11 +55,19 @@ export class InsertarDepartamentoComponent implements OnInit {
       this.departamento.superficieDepartamento = this.form.value.hsuperficieDepartamento;
       this.departamento.idPais.idPais = this.form.value.hPais;
       
+      if(this.edicion){
+      this.Dep.update(this.departamento).subscribe((data) => {
+        this.Dep.list().subscribe((data) => {
+          this.Dep.setList(data);
+        });
+      });
+    } else{
       this.Dep.insert(this.departamento).subscribe((data) => {
         this.Dep.list().subscribe((data) => {
           this.Dep.setList(data);
         });
       });
+    }
       this.router.navigate(['departamento']);
     }
   }
