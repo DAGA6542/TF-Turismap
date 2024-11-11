@@ -20,12 +20,13 @@
 
         <ng-container matColumnDef="numeroTelefonoLugar">
             <th mat-header-cell *matHeaderCellDef>Número</th>
-            <td mat-cell *matCellDef="let element">{{ element.numeroTelefonoLugar}}</td>
+            <td mat-cell *matCellDef="let element">{{ element.numeroTelefonoLugar || 'No disponible' }}</td>
         </ng-container>
+
 
         <ng-container matColumnDef="nombreCiudad">
             <th mat-header-cell *matHeaderCellDef>Ciudad</th>
-            <td mat-cell *matCellDef="let element">{{ element.idCiudad?.nombreCiudad || 'No especificado' }}</td>
+            <td mat-cell *matCellDef="let element">{{ element.idCiudad?.nombreCiudad }}</td>
         </ng-container>
 
         <ng-container matColumnDef="accion1">

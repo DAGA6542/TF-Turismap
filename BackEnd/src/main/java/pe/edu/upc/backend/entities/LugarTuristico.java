@@ -20,13 +20,13 @@ public class LugarTuristico {
         this.idLugarTuristico = idLugarTuristico;
         this.nombreLugarTuristico = nombreLugarTuristico;
         this.descripcionLugarTuristico = descripcionLugarTuristico;
-        this.numeroTelefonoLugar = numeroLugarTuristico;
+        this.numeroTelefonoLugar = numeroTelefonoLugar;
     }
-    public LugarTuristico(int idLugarTuristico, String nombreLugarTuristico, String descripcionLugarTuristico, int numeroLugarTuristico, Ciudad idCiudad) {
+    public LugarTuristico(int idLugarTuristico, String nombreLugarTuristico, String descripcionLugarTuristico, int numeroTelefonoLugar, Ciudad idCiudad) {
         this.idLugarTuristico = idLugarTuristico;
         this.nombreLugarTuristico = nombreLugarTuristico;
         this.descripcionLugarTuristico = descripcionLugarTuristico;
-        this.numeroTelefonoLugar = numeroLugarTuristico;
+        this.numeroTelefonoLugar = numeroTelefonoLugar;
         this.idCiudad = idCiudad;
     }
     public int getIdLugarTuristico() { return idLugarTuristico; }
@@ -35,8 +35,8 @@ public class LugarTuristico {
     public void setNombreLugarTuristico(String nombreLugarTuristico) { this.nombreLugarTuristico = nombreLugarTuristico; }
     public String getDescripcionLugarTuristico() { return descripcionLugarTuristico; }
     public void setDescripcionLugarTuristico(String descripcionLugarTuristico) { this.descripcionLugarTuristico = descripcionLugarTuristico; }
-    public int getNumeroLugarTuristico() { return numeroTelefonoLugar; }
-    public void setNumeroLugarTuristico(int numeroLugarTuristico) { this.numeroTelefonoLugar = numeroLugarTuristico; }
+    public int getnumeroTelefonoLugar() { return numeroTelefonoLugar; }
+    public void setnumeroTelefonoLugar(int numeroTelefonoLugar) { this.numeroTelefonoLugar = numeroTelefonoLugar; }
     public Ciudad getIdCiudad() { return idCiudad; }
     public void setIdCiudad(Ciudad idCiudad) { this.idCiudad = idCiudad; }
 }
