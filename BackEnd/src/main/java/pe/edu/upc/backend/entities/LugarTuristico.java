@@ -11,7 +11,7 @@ public class LugarTuristico {
     @Column(name = "descripcionLugarTuristico", nullable = false, length = 250)
     private String descripcionLugarTuristico;
     @Column(name = "numeroTelefonoLugar", nullable = false)
-    private int numeroLugarTuristico;
+    private int numeroTelefonoLugar;
     @ManyToOne
     @JoinColumn(name = "idCiudad")
     private Ciudad idCiudad;
@@ -20,13 +20,13 @@ public class LugarTuristico {
         this.idLugarTuristico = idLugarTuristico;
         this.nombreLugarTuristico = nombreLugarTuristico;
         this.descripcionLugarTuristico = descripcionLugarTuristico;
-        this.numeroLugarTuristico = numeroLugarTuristico;
+        this.numeroTelefonoLugar = numeroLugarTuristico;
     }
     public LugarTuristico(int idLugarTuristico, String nombreLugarTuristico, String descripcionLugarTuristico, int numeroLugarTuristico, Ciudad idCiudad) {
         this.idLugarTuristico = idLugarTuristico;
         this.nombreLugarTuristico = nombreLugarTuristico;
         this.descripcionLugarTuristico = descripcionLugarTuristico;
-        this.numeroLugarTuristico = numeroLugarTuristico;
+        this.numeroTelefonoLugar = numeroLugarTuristico;
         this.idCiudad = idCiudad;
     }
     public int getIdLugarTuristico() { return idLugarTuristico; }
@@ -35,8 +35,8 @@ public class LugarTuristico {
     public void setNombreLugarTuristico(String nombreLugarTuristico) { this.nombreLugarTuristico = nombreLugarTuristico; }
     public String getDescripcionLugarTuristico() { return descripcionLugarTuristico; }
     public void setDescripcionLugarTuristico(String descripcionLugarTuristico) { this.descripcionLugarTuristico = descripcionLugarTuristico; }
-    public int getNumeroLugarTuristico() { return numeroLugarTuristico; }
-    public void setNumeroLugarTuristico(int numeroLugarTuristico) { this.numeroLugarTuristico = numeroLugarTuristico; }
+    public int getNumeroLugarTuristico() { return numeroTelefonoLugar; }
+    public void setNumeroLugarTuristico(int numeroLugarTuristico) { this.numeroTelefonoLugar = numeroLugarTuristico; }
     public Ciudad getIdCiudad() { return idCiudad; }
     public void setIdCiudad(Ciudad idCiudad) { this.idCiudad = idCiudad; }
 }

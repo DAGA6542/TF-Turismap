@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
@@ -20,12 +20,12 @@ import { LugarturisticoService } from '../../../services/lugarturistico.service'
   templateUrl: './listar-lugarturistico.component.html',
   styleUrl: './listar-lugarturistico.component.css'
 })
-export class ListarLugarturisticoComponent {
+export class ListarLugarturisticoComponent implements OnInit {
   datasource: MatTableDataSource<LugarTuristico> = new MatTableDataSource();
   displayedColumns: string[] = [
-    'idLugarTuristico',
-    'nombreLugarTuristico',
-    'descripcionLugarTuristico',
+    'idLugar',
+    'nombreLugar',
+    'descripcionLugar',
     'numeroTelefonoLugar',
     'nombreCiudad',
     'accion1',

@@ -43,9 +43,9 @@ export class InsertarLugarturisticoComponent {
     private router: Router
   ) { 
     this.form = this.formBuilder.group({
-      nombreLugarTuristico: ['', Validators.required],
-      descripcionLugarTuristico: ['', Validators.required],
-      numeroLugarTuristico: ['', [Validators.required, Validators.minLength(9), Validators.pattern('^[0-9]+$')]],
+      nombreLugar: ['', Validators.required],
+      descripcionLugar: ['', Validators.required],
+      numeroTelefonoLugar: ['', [Validators.required, Validators.minLength(9), Validators.pattern('^[0-9]+$')]],
       idCiudad: ['', Validators.required]
     });
   }
@@ -58,9 +58,9 @@ export class InsertarLugarturisticoComponent {
   insertar(): void {
     if (this.form.valid) {
       const lugar: LugarTuristico = {
-        idLugarTuristico: 0,
-        nombreLugarTuristico: this.form.value.nombreLugarTuristico,
-        descripcionLugarTuristico: this.form.value.descripcionLugarTuristico,
+        idLugar: 0,
+        nombreLugar: this.form.value.nombreLugarTuristico,
+        descripcionLugar: this.form.value.descripcionLugarTuristico,
         numeroTelefonoLugar: this.form.value.numeroTelefonoLugar,
         idCiudad: this.form.value.idCiudad // Ahora es solo el ID
       };
