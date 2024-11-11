@@ -17,8 +17,8 @@ import { CiudadService } from '../../../services/ciudad.service';
   selector: 'app-insertar-lugarturistico',
   standalone: true,
   providers: [provideNativeDateAdapter()],
-  imports: [MatFormFieldModule,CommonModule,NgIf, MatButtonModule,MatInputModule,ReactiveFormsModule,
-    RouterLink, MatSelectModule, FormsModule,MatDatepickerModule],
+  imports: [MatFormFieldModule, CommonModule, NgIf, MatButtonModule, MatInputModule, ReactiveFormsModule,
+    RouterLink, MatSelectModule, FormsModule, MatDatepickerModule],
   templateUrl: './insertar-lugarturistico.component.html',
   styleUrl: './insertar-lugarturistico.component.css'
 })
@@ -31,8 +31,8 @@ export class InsertarLugarturisticoComponent implements OnInit{
   //
 
   constructor(
-    private LT:LugarturisticoService,
-    private ciu: CiudadService,
+    private ltS: LugarturisticoService,
+    private ciuS: CiudadService,
     private router:Router,
     private formbuilder: FormBuilder,
     private route: ActivatedRoute
@@ -51,29 +51,29 @@ export class InsertarLugarturisticoComponent implements OnInit{
       hnumeroLugarTuristico: ['', Validators.required],
       hCiudad: ['', Validators.required],
     });
-    this.ciu.list().subscribe((data)=> {
+    this.ciuS.list().subscribe((data)=> {
       this.listaciudad = data;
     });
   }
 
   insertar(): void {
     if (this.form.valid) {
-      this.lugarturistico.idLugarTuristico= this.form.value.hidLugarTuristico;
-      this.lugarturistico.nombreLugarTuristico= this.form.value.hnombreLugarTuristico;
-      this.lugarturistico.descripcionLugarTuristico=this.form.value.hdescripcionLugarTuristico;
-      this.lugarturistico.numeroLugarTuristico=this.form.value.hnumeroLugarTuristico;
+      this.lugarturistico.idLugar= this.form.value.hidLugarTuristico;
+      this.lugarturistico.nombreLugar= this.form.value.hnombreLugarTuristico;
+      this.lugarturistico.descripcionLugar=this.form.value.hdescripcionLugarTuristico;
+      this.lugarturistico.numeroTelefonoLugar=this.form.value.hnumeroLugarTuristico;
       this.lugarturistico.idCiudad.idCiudad=this.form.value.hCiudad;
 
       if (this.edicion) {
-        this.LT.update(this.lugarturistico).subscribe((data)=>{
-          this.LT.list().subscribe((data)=>{
-            this.LT.setList(data);
+        this.ltS.update(this.lugarturistico).subscribe((data)=>{
+          this.ltS.list().subscribe((data)=>{
+            this.ltS.setList(data);
           });
         });
       } else {
-        this.LT.insert(this.lugarturistico).subscribe((data) => {
-          this.LT.list().subscribe((data) => {
-            this.LT.setList(data);
+        this.ltS.insert(this.lugarturistico).subscribe((data) => {
+          this.ltS.list().subscribe((data) => {
+            this.ltS.setList(data);
           });
         });
       }
@@ -82,12 +82,12 @@ export class InsertarLugarturisticoComponent implements OnInit{
   }
   init() {
     if (this.edicion) {
-      this.LT.listId(this.id).subscribe((data) => {
+      this.ltS.listId(this.id).subscribe((data) => {
         this.form = new FormGroup({
-          hidLugarTuristico: new FormControl(data.idLugarTuristico),
-          hnombreLugarTuristico: new FormControl(data.nombreLugarTuristico),
-          hdescripcionLugarTuristico: new FormControl(data.descripcionLugarTuristico),
-          hnumeroLugarTuristico: new FormControl(data.numeroLugarTuristico),
+          hidLugarTuristico: new FormControl(data.idLugar),
+          hnombreLugarTuristico: new FormControl(data.nombreLugar),
+          hdescripcionLugarTuristico: new FormControl(data.descripcionLugar),
+          hnumeroLugarTuristico: new FormControl(data.numeroTelefonoLugar),
           hidCiudad: new FormControl(data.idCiudad),
         });
       });

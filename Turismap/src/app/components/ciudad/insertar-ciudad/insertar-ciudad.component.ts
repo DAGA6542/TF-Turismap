@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup,Validators,FormControl, ReactiveFormsModule,FormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ActivatedRoute, Params, Router, RouterLink } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { CommonModule, NgIf } from '@angular/common';
@@ -22,22 +22,28 @@ import { DepartamentoService } from '../../../services/departamento.service';
   templateUrl: './insertar-ciudad.component.html',
   styleUrl: './insertar-ciudad.component.css'
 })
-export class InsertarCiudadComponent implements OnInit{
-  form:FormGroup = new FormGroup({});
-  listarDepartamento: Departamento[]=[];
+export class InsertarCiudadComponent implements OnInit {
+  form: FormGroup = new FormGroup({});
+  listarDepartamento: Departamento[] = [];
   ciudad: Ciudad = new Ciudad()
   edicion: boolean = false;
-  id:number = 0;
+  id: number = 0;
   //
 
   constructor(
     private formbuilder: FormBuilder,
-    private Dep: DepartamentoService,
+    private depS: DepartamentoService,
     private ciuS: CiudadService,
-    private router:Router,
-  ) {}
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
+    this.route.params.subscribe((data: Params) => {
+      this.id = data['id'];
+      this.edicion = data['id'] > 0;
+      this.init()
+    });
     this.form = this.formbuilder.group({
       hnombreCiudad: ['', Validators.required],
       hpoblacionCiudad: ['', Validators.required],
@@ -47,27 +53,51 @@ export class InsertarCiudadComponent implements OnInit{
       hcodigoPostalCiudad: ['', Validators.required],
       hDepartamento: ['', Validators.required],
     });
-    this.Dep.list().subscribe((data) => {
+    this.depS.list().subscribe((data) => {
       this.listarDepartamento = data;
     });
     // xd
   }
   insertar(): void {
     if (this.form.valid) {
-      this.ciudad.nombreCiudad= this.form.value.hnombreCiudad;
-      this.ciudad.poblacionCiudad=this.form.value.hpoblacionCiudad;
-      this.ciudad.superficieCiudad=this.form.value.hsuperficieCiudad;
-      this.ciudad.latitudCiudad=this.form.value.hlatitudCiudad;
-      this.ciudad.longitudCiudad=this.form.value.hlongitudCiudad;
-      this.ciudad.codigoPostalCiudad=this.form.value.hcodigoPostalCiudad;
-      this.ciudad.idDepartamento.idDepartamento=this.form.value.hDepartamento;
-      
-      this.ciuS.insert(this.ciudad).subscribe((data) => {
-        this.ciuS.list().subscribe((data) => {
-          this.ciuS.setList(data);
+      this.ciudad.nombreCiudad = this.form.value.hnombreCiudad;
+      this.ciudad.poblacionCiudad = this.form.value.hpoblacionCiudad;
+      this.ciudad.superficieCiudad = this.form.value.hsuperficieCiudad;
+      this.ciudad.latitudCiudad = this.form.value.hlatitudCiudad;
+      this.ciudad.longitudCiudad = this.form.value.hlongitudCiudad;
+      this.ciudad.codigoPostalCiudad = this.form.value.hcodigoPostalCiudad;
+      this.ciudad.idDepartamento.idDepartamento = this.form.value.hDepartamento;
+
+      if (this.edicion) {
+        this.ciuS.update(this.ciudad).subscribe((data) => {
+          this.ciuS.list().subscribe((data) => {
+            this.ciuS.setList(data);
+          });
+        });
+      } else {
+        this.ciuS.insert(this.ciudad).subscribe((data) => {
+          this.ciuS.list().subscribe((data) => {
+            this.ciuS.setList(data);
+          });
+        });
+      }
+
+      this.router.navigate(['ciudad']);
+    }
+  }
+  init() {
+    if (this.edicion) {
+      this.ciuS.listId(this.id).subscribe((data) => {
+        this.form = new FormGroup({
+          hnombreCiudad: new FormControl(data.nombreCiudad),
+          hpoblacionCiudad: new FormControl(data.poblacionCiudad),
+          hsuperficieCiudad: new FormControl(data.superficieCiudad),
+          hlatitudCiudad: new FormControl(data.latitudCiudad),
+          hlongitudCiudad: new FormControl(data.longitudCiudad),
+          hcodigoPostalCiudad: new FormControl(data.codigoPostalCiudad),
+          hDepartamento: new FormControl(data.idDepartamento),
         });
       });
-      this.router.navigate(['ciudad']);
-    } 
+    }
   }
 }

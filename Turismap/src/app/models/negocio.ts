@@ -7,7 +7,7 @@ export class Negocio {
     numeroTelefonoNegocio: number = 0;
     calificacionNegocio: number = 0;
     descripcionNegocio: string = ""; 
-    reservaNegocio: boolean = false;
+    reservadoNegocio: boolean = true;
     idCiudad: Ciudad = new Ciudad();
     idPromocion: Promocion = new Promocion();
 }

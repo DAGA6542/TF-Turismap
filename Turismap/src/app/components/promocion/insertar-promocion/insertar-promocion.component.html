@@ -42,8 +42,8 @@
       <br />
 
       <mat-form-field>
-        <mat-label>Fecha Registrada</mat-label>
-        <input matInput [matDatepicker]="picker1" formControlName="hfechaAgregadoFavorito" />
+        <mat-label>Fecha Inico</mat-label>
+        <input matInput [matDatepicker]="picker1" formControlName="hfechaInicioPromocion" />
         <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
         <mat-datepicker #picker1></mat-datepicker>
         <mat-error *ngIf="form.get('hfechaInicioPromocion')?.hasError('required')">
@@ -53,10 +53,10 @@
       <br />
 
       <mat-form-field>
-        <mat-label>Fecha Registrada</mat-label>
-        <input matInput [matDatepicker]="picker1" formControlName="hfechaAgregadoFavorito" />
-        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-        <mat-datepicker #picker1></mat-datepicker>
+        <mat-label>Fecha Fin</mat-label>
+        <input matInput [matDatepicker]="picker2" formControlName="hfechaFinPromocion" />
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
         <mat-error *ngIf="form.get('hfechaFinPromocion')?.hasError('required')">
           La fecha fin es obligatoria.
         </mat-error>

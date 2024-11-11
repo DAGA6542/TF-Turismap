@@ -10,32 +10,36 @@ import { ActivatedRoute, Params, Router, RouterLink } from '@angular/router';
 import { MenbresiavipService } from '../../../services/menbresiavip.service';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
+import { Usuario } from '../../../models/usuario';
+import { UsuarioService } from '../../../services/usuario.service';
 
 @Component({
   selector: 'app-insertar-menbresiavip',
   standalone: true,
   providers: [provideNativeDateAdapter()],
-  imports: [MatFormFieldModule,CommonModule,NgIf, MatButtonModule,MatInputModule,ReactiveFormsModule,
-    RouterLink, MatSelectModule, FormsModule,MatDatepickerModule],
+  imports: [MatFormFieldModule, CommonModule, NgIf, MatButtonModule, MatInputModule, ReactiveFormsModule,
+    RouterLink, MatSelectModule, FormsModule, MatDatepickerModule],
   templateUrl: './insertar-menbresiavip.component.html',
   styleUrl: './insertar-menbresiavip.component.css'
 })
 export class InsertarMenbresiavipComponent {
-  form:FormGroup = new FormGroup({});
+  form: FormGroup = new FormGroup({});
+  listausuarios: Usuario[] = [];
   membresiavip: MenbresiaVIP = new MenbresiaVIP()
   edicion: boolean = false;
-  id:number = 0;
+  id: number = 0;
   //
   constructor(
-    private Memvip:MenbresiavipService,
-    private router:Router,
+    private membreS: MenbresiavipService,
+    private usuS: UsuarioService,
+    private router: Router,
     private formbuilder: FormBuilder,
-    private route: ActivatedRoute 
-  ) {}
+    private route: ActivatedRoute
+  ) { }
   ngOnInit(): void {
-    this.route.params.subscribe((data:Params)=> {
+    this.route.params.subscribe((data: Params) => {
       this.id = data['id'];
-      this.edicion = data['id']  > 0;
+      this.edicion = data['id'] > 0;
       this.init()
     });
     this.form = this.formbuilder.group({
@@ -46,39 +50,42 @@ export class InsertarMenbresiavipComponent {
       hestadoMenbresiaVIP: ['', Validators.required],
       hbeneficioMenbresiaVIP: ['', Validators.required],
       hidUsuario: ['', Validators.required],
-      
     });
+    this.usuS.list().subscribe((data)=>{
+      this.listausuarios = data;
+    })
   }
+
   insertar(): void {
     if (this.form.valid) {
       this.membresiavip.idMenbresiaVIP = this.form.value.hidMenbresiaVIP;
-      this.membresiavip.tipoMenbresiaVIP= this.form.value.htipoMenbresiaVIP;
-      this.membresiavip.fechaInicioMenbresiaVIP=this.form.value.hfechaInicioMenbresiaVIP;
-      this.membresiavip.fechaFinMenbresiaVIP=this.form.value.hfechaFinMenbresiaVIP;
-      this.membresiavip.estadoMenbresiaVIP=this.form.value.hestadoMenbresiaVIP;
-      this.membresiavip.beneficioMenbresiaVIP=this.form.value.hbeneficioMenbresiaVIP;
-      this.membresiavip.idUsuario=this.form.value.hidUsuario;
+      this.membresiavip.tipoMenbresiaVIP = this.form.value.htipoMenbresiaVIP;
+      this.membresiavip.fechaInicioMenbresiaVIP = this.form.value.hfechaInicioMenbresiaVIP;
+      this.membresiavip.fechaFinMenbresiaVIP = this.form.value.hfechaFinMenbresiaVIP;
+      this.membresiavip.estadoMenbresiaVIP = this.form.value.hestadoMenbresiaVIP;
+      this.membresiavip.beneficioMenbresiaVIP = this.form.value.hbeneficioMenbresiaVIP;
+      this.membresiavip.idUsuario.idUsuario = this.form.value.hidUsuario;
 
-    
+
       if (this.edicion) {
-        this.Memvip.update(this.membresiavip).subscribe((data)=>{
-          this.Memvip.list().subscribe((data)=>{
-            this.Memvip.setList(data);
+        this .membreS.update(this.membresiavip).subscribe((data) => {
+          this .membreS.list().subscribe((data) => {
+            this .membreS.setList(data);
           });
         });
       } else {
-        this.Memvip.insert(this.membresiavip).subscribe((data) => {
-          this.Memvip.list().subscribe((data) => {
-            this.Memvip.setList(data);
+        this .membreS.insert(this.membresiavip).subscribe((data) => {
+          this .membreS.list().subscribe((data) => {
+            this .membreS.setList(data);
           });
         });
       }
-      this.router.navigate(['membresiavip']);
+      this.router.navigate(['menbresiavip']);
     }
   }
   init() {
     if (this.edicion) {
-      this.Memvip.listId(this.id).subscribe((data) => {
+      this .membreS.listId(this.id).subscribe((data) => {
         this.form = new FormGroup({
           hidMenbresiaVIP: new FormControl(data.idMenbresiaVIP),
           htipoMenbresiaVIP: new FormControl(data.tipoMenbresiaVIP),

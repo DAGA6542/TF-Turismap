@@ -18,8 +18,8 @@ import { LugarturisticoService } from '../../../services/lugarturistico.service'
   styleUrl: './listar-lugarturistico.component.css'
 })
 export class ListarLugarturisticoComponent {
-  displayedColumns: string[] = ['idLugarTuristico', 'nombreLugarTuristico', 'descripcionLugarTuristico',
- 'numeroTelefonoLugar','accion1', 'accion2'];
+  displayedColumns: string[] = ['idLugarTuristico', 'nombre', 'descripcion',
+ 'numeroTelefono','idCiudad','accion1', 'accion2'];
 
   datasource: MatTableDataSource<LugarTuristico> = new MatTableDataSource();
 

@@ -38,12 +38,13 @@
 
       <br />
       <mat-form-field>
-        <mat-label>IdLugarTuristico</mat-label>
-        <input matInput formControlName="hidLugarTuristico" />
-        <mat-error *ngIf="form.get('hidLugarTuristico')?.hasError('required')">El IdLugarTuristico es
-          obligatorio.</mat-error>
+        <mat-label>Ciudad</mat-label>
+        <mat-select formControlName="hidLugarTuristico">
+          @for (lt of listalugarturistico; track lt) {
+          <mat-option [value]="lt.idLugar">{{ lt.nombreLugar }}</mat-option>
+          }
+        </mat-select>
       </mat-form-field>
-
       <br />
 
       <div style="text-align: center;">

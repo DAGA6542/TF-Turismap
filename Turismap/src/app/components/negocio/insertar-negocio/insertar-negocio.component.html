@@ -50,12 +50,12 @@
         <br />
         <mat-form-field>
             <mat-label>Reserva</mat-label>
-            <mat-select formControlName="hreservaNegocio">
+            <mat-select formControlName="hreservadoNegocio">
               <mat-option *ngFor="let foot of listaValidos" [value]="foot.value">
                 {{ foot.viewValue }}
               </mat-option>
             </mat-select>
-            <mat-error *ngIf="form.get('hreservaNegocio')?.hasError('required')"
+            <mat-error *ngIf="form.get('hreservadoNegocio')?.hasError('required')"
               >La reserva es obligatoria.</mat-error>
           </mat-form-field>
     
@@ -75,7 +75,8 @@
               >El código promocional es obligatorio.</mat-error>
           </mat-form-field>
         <br />
-    
+
+        
         <br />
         
         <div style="text-align: center;">

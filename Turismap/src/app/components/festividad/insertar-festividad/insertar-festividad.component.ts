@@ -17,29 +17,30 @@ import { LugarturisticoService } from '../../../services/lugarturistico.service'
   selector: 'app-insertar-festividad',
   standalone: true,
   providers: [provideNativeDateAdapter()],
-  imports: [MatFormFieldModule,CommonModule,NgIf, MatButtonModule,MatInputModule,ReactiveFormsModule,
-    RouterLink, MatSelectModule, FormsModule,MatDatepickerModule],
+  imports: [MatFormFieldModule, CommonModule, NgIf, MatButtonModule, MatInputModule, ReactiveFormsModule,
+    RouterLink, MatSelectModule, FormsModule, MatDatepickerModule],
   templateUrl: './insertar-festividad.component.html',
   styleUrl: './insertar-festividad.component.css'
 })
-export class InsertarFestividadComponent implements OnInit{
-  form:FormGroup = new FormGroup({});
+export class InsertarFestividadComponent implements OnInit {
+  form: FormGroup = new FormGroup({});
   listalugarturistico: LugarTuristico[] = [];
   festividad: Festividad = new Festividad()
   edicion: boolean = false;
-  id:number = 0;
+  id: number = 0;
   //
   constructor(
-    private festS:FestividadService,
+    private festS: FestividadService,
     private ltS: LugarturisticoService,
-    private router:Router,
+    private router: Router,
     private formbuilder: FormBuilder,
-    private route: ActivatedRoute 
-  ) {}
+    private route: ActivatedRoute
+
+  ) { }
   ngOnInit(): void {
-    this.route.params.subscribe((data:Params)=> {
+    this.route.params.subscribe((data: Params) => {
       this.id = data['id'];
-      this.edicion = data['id']  > 0;
+      this.edicion = data['id'] > 0;
       this.init()
     });
     this.form = this.formbuilder.group({
@@ -49,22 +50,22 @@ export class InsertarFestividadComponent implements OnInit{
       hfechaFestividad: ['', Validators.required],
       hidLugarTuristico: ['', Validators.required],
     });
-    this.ltS.list().subscribe((data)=>{
+    this.ltS.list().subscribe((data) => {
       this.listalugarturistico = data;
     });
   }
 
   insertar(): void {
     if (this.form.valid) {
-      this.festividad.idFestividad = this.form.value.hidFestividad;
-      this.festividad.nombreFestividad= this.form.value.hnombreFestividad;
-      this.festividad.descripcionFestividad=this.form.value.hdescripcionFestividad;
-      this.festividad.fechaFestividad=this.form.value.hfechaFestividad;
-      this.festividad.idLugarTuristico.idLugarTuristico=this.form.value.hidLugarTuristico;
-      
+      this.festividad.idFestividades = this.form.value.hidFestividad;
+      this.festividad.nombreFestividad = this.form.value.hnombreFestividad;
+      this.festividad.descripcionFestividad = this.form.value.hdescripcionFestividad;
+      this.festividad.fechaFestividad = this.form.value.hfechaFestividad;
+      this.festividad.idLugar.idLugar = this.form.value.hidLugarTuristico;
+
       if (this.edicion) {
-        this.festS.update(this.festividad).subscribe((data)=>{
-          this.festS.list().subscribe((data)=>{
+        this.festS.update(this.festividad).subscribe((data) => {
+          this.festS.list().subscribe((data) => {
             this.festS.setList(data);
           });
         });
@@ -75,18 +76,18 @@ export class InsertarFestividadComponent implements OnInit{
           });
         });
       }
-      this.router.navigate(['lugarturistico']);
+      this.router.navigate(['festividad']);
     }
   }
-  init() {  
+  init() {
     if (this.edicion) {
       this.festS.listId(this.id).subscribe((data) => {
         this.form = new FormGroup({
-          hidFestividad: new FormControl(data.idFestividad),
+          hidFestividad: new FormControl(data.idFestividades),
           hnombreFestividad: new FormControl(data.nombreFestividad),
           hdescripcionFestividad: new FormControl(data.descripcionFestividad),
           hfechaFestividad: new FormControl(data.fechaFestividad),
-          hidLugarTuristico: new FormControl(data.idLugarTuristico),
+          hidLugarTuristico: new FormControl(data.idLugar),
         });
       });
     }

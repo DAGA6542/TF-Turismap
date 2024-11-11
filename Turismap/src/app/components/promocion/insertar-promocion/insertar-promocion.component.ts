@@ -47,6 +47,7 @@ export class InsertarPromocionComponent {
       hdescuentoPromocion: ['', Validators.required],
       hfechaInicioPromocion: ['', Validators.required],
       hfechaFinPromocion: ['', Validators.required],
+
     });
   }
 

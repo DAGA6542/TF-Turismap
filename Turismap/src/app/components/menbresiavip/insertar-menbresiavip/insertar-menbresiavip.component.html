@@ -37,9 +37,9 @@
 
       <mat-form-field>
         <mat-label>Fecha Fin</mat-label>
-        <input matInput [matDatepicker]="picker1" formControlName="hfechaFinMenbresiaVIP" />
-        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-        <mat-datepicker #picker1></mat-datepicker>
+        <input matInput [matDatepicker]="picker2" formControlName="hfechaFinMenbresiaVIP" />
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
         <mat-error *ngIf="form.get('hfechaFinMenbresiaVIP')?.hasError('required')">
           La Fecha Fin es obligatorio.
         </mat-error>
@@ -67,11 +67,13 @@
       </mat-form-field>
 
       <br />
-
       <mat-form-field>
-        <mat-label>IdUsuario</mat-label>
-        <input matInput formControlName="hidUsuario" />
-        <mat-error *ngIf="form.get('hidUsuario')?.hasError('required')">El IdUsuario es obligatorio.</mat-error>
+        <mat-label>Usuario</mat-label>
+        <mat-select formControlName="hidUsuario">
+          @for (lu of listausuarios; track lu) {
+          <mat-option [value]="lu.idUsuario">{{ lu.nombreUsuario }}</mat-option>
+          }
+        </mat-select>
       </mat-form-field>
 
       <br />
