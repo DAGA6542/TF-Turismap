@@ -14,7 +14,7 @@ import { UsuarioService } from '../../../services/usuario.service';
   imports: [
     MatPaginatorModule, MatTableModule,
     MatIconModule, RouterLink, MatTableModule,
-    MatButtonModule, MatDialogModule],
+    MatButtonModule, MatDialogModule, MatPaginator],
   templateUrl: './listar-usuario.component.html',
   styleUrl: './listar-usuario.component.css'
 })
@@ -30,9 +30,11 @@ export class ListarUsuarioComponent {
   ngOnInit(): void {
     this.uS.list().subscribe((data) => {
       this.datasource = new MatTableDataSource(data);
+      this.datasource.paginator = this.paginator;
     });
     this.uS.getList().subscribe((data) => {
       this.datasource = new MatTableDataSource(data);
+      this.datasource.paginator = this.paginator;
     });
   }
   openDialog(id: number): void {}
