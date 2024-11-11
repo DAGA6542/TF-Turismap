@@ -14,8 +14,8 @@ public class Festividad {
     @Column(name = "fechaFestividad", nullable = false)
     private LocalDate fechaFestividad;
     @ManyToOne
-    @JoinColumn(name = "idLugarTuristico")
-    private LugarTuristico idLugarTuristico;
+    @JoinColumn(name = "idLugar")
+    private LugarTuristico idLugar;
     public Festividad() {}
     public Festividad(int idFestividad, String nombreFestividad, String descripcionFestividad, LocalDate fechaFestividad) {
         this.idFestividad = idFestividad;
@@ -23,21 +23,21 @@ public class Festividad {
         this.descripcionFestividad = descripcionFestividad;
         this.fechaFestividad = fechaFestividad;
     }
-    public Festividad(int idFestividad, String nombreFestividad, String descripcionFestividad, LocalDate fechaFestividad, LugarTuristico idLugarTuristico) {
+    public Festividad(int idFestividad, String nombreFestividad, String descripcionFestividad, LocalDate fechaFestividad, LugarTuristico idLugar) {
         this.idFestividad = idFestividad;
         this.nombreFestividad = nombreFestividad;
         this.descripcionFestividad = descripcionFestividad;
         this.fechaFestividad = fechaFestividad;
-        this.idLugarTuristico = idLugarTuristico;
+        this.idLugar = idLugar;
     }
-    public int getIdFestividades() { return idFestividad; }
-    public void setIdFestividades(int idFestividad) { this.idFestividad = idFestividad; }
+    public int getIdFestividad() { return idFestividad; }
+    public void setIdFestividad(int idFestividad) { this.idFestividad = idFestividad; }
     public String getNombreFestividad() { return nombreFestividad; }
     public void setNombreFestividad(String nombreFestividad) { this.nombreFestividad = nombreFestividad; }
     public String getDescripcionFestividad() { return descripcionFestividad; }
     public void setDescripcionFestividad(String descripcionFestividad) { this.descripcionFestividad = descripcionFestividad; }
     public LocalDate getFechaFestividad() { return fechaFestividad; }
     public void setFechaFestividad(LocalDate fechaFestividad) { this.fechaFestividad = fechaFestividad; }
-    public LugarTuristico getIdLugarTuristico() { return idLugarTuristico; }
-    public void setIdLugarTuristico(LugarTuristico idLugarTuristico) { this.idLugarTuristico = idLugarTuristico; }
+    public LugarTuristico getIdLugar() { return idLugar; }
+    public void setIdLugar(LugarTuristico idLugarTuristico) { this.idLugar = idLugarTuristico; }
 }
