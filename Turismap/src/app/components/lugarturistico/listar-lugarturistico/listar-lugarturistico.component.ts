@@ -13,9 +13,9 @@ import { LugarturisticoService } from '../../../services/lugarturistico.service'
   selector: 'app-listar-lugarturistico',
   standalone: true,
   imports: [
-    MatPaginatorModule, MatTableModule,
-    MatIconModule, RouterLink, MatTableModule,
+    MatTableModule,
     MatButtonModule, MatDialogModule, CommonModule,
+    MatIconModule, RouterLink,
   ],
   templateUrl: './listar-lugarturistico.component.html',
   styleUrl: './listar-lugarturistico.component.css'
@@ -26,31 +26,28 @@ export class ListarLugarturisticoComponent {
     'idLugarTuristico',
     'nombreLugarTuristico',
     'descripcionLugarTuristico',
-    'numeroLugarTuristico',
+    'numeroTelefonoLugar',
     'nombreCiudad',
     'accion1',
-    'accion2'];
+    'accion2'
+  ];
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private ltS: LugarturisticoService) { }
 
   ngOnInit(): void {
     this.ltS.list().subscribe((data) => {
       this.datasource = new MatTableDataSource(data);
-      this.datasource.paginator = this.paginator;
     });
     this.ltS.getList().subscribe((data) => {
       this.datasource = new MatTableDataSource(data);
-      this.datasource.paginator = this.paginator;
     });
   }
-  openDialog(id: number): void { }
-  delete(id: number) {
-    this.ltS.delete(id).subscribe((data) => {
-      this.ltS.list().subscribe((data) => {
-        this.ltS.setList(data);
+    delete (id: number): void {
+      this.ltS.delete(id).subscribe(() => {
+        alert('Lugar Turístico eliminado');
+        this.ngOnInit();
       });
-    });
+    }
   }
-}
+  
