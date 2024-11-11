@@ -56,7 +56,7 @@ export class InsertarNegocioComponent {
       hnumeroTelefonoNegocio: ['', Validators.required],
       hcalificacionNegocio: ['', Validators.required],
       hdescripcionNegocio: ['', Validators.required],
-      hreservadoNegocio: ['', Validators.required],
+      hreservaNegocio: ['', Validators.required],
       hidCiudad: ['', Validators.required],
       hidPromocion: ['', Validators.required],
     });
@@ -69,7 +69,7 @@ export class InsertarNegocioComponent {
       this.negocio.numeroTelefonoNegocio=this.form.value.hnumeroTelefonoNegocio;
       this.negocio.calificacionNegocio=this.form.value.hcalificacionNegocio;
       this.negocio.descripcionNegocio=this.form.value.hdescripcionNegocio;
-      this.negocio.reservadoNegocio=this.form.value.hreservadoNegocio;
+      this.negocio.reservaNegocio=this.form.value.hreservaNegocio;
       this.negocio.idCiudad.idCiudad=this.form.value.hidCiudad;
       this.negocio.idPromocion.idPromocion=this.form.value.hidPromocion;
 
@@ -102,7 +102,7 @@ export class InsertarNegocioComponent {
           hnumeroTelefonoNegocio: new FormControl(data.numeroTelefonoNegocio),
           hcalificacionNegocio: new FormControl(data.calificacionNegocio),
           hdescripcionNegocio: new FormControl(data.descripcionNegocio),
-          hreservadoNegocio: new FormControl(data.reservadoNegocio),
+          hreservaNegocio: new FormControl(data.reservaNegocio),
           hidCiudad: new FormControl(data.idCiudad),
           hidPromocion: new FormControl(data.idPromocion),
         });

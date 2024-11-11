@@ -6,6 +6,6 @@ export class Favorito {
     fechaAgregadoFavorito: Date = new Date(Date.now());
     fechaModificacionFavorito: Date = new Date(Date.now());
     idUsuario: Usuario = new Usuario();
-    idLugarTuristico: LugarTuristico = new LugarTuristico();
+    idLugar: LugarTuristico = new LugarTuristico();
     idNegocio: Negocio = new Negocio;
 }

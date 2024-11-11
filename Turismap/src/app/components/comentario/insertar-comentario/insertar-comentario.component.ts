@@ -53,9 +53,9 @@ export class InsertarComentarioComponent {
       this.comentario.idComentario = this.form.value.hidComentario;
       this.comentario.textoComentario= this.form.value.htextoComentario;
       this.comentario.fechaComentario=this.form.value.hfechaComentario;
-      this.comentario.idUsuario=this.form.value.hidUsuario;
-      this.comentario.idLugarTuristico=this.form.value.hidLugarTuristico;
-      this.comentario.idNegocio=this.form.value.hidNegocio;
+      this.comentario.idUsuario.idUsuario=this.form.value.hidUsuario;
+      this.comentario.idLugar.idLugar=this.form.value.hidLugarTuristico;
+      this.comentario.idNegocio.idNegocio=this.form.value.hidNegocio;
 
 
       if (this.edicion) {
@@ -82,7 +82,7 @@ export class InsertarComentarioComponent {
           htextoComentario: new FormControl(data.textoComentario),
           hfechaComentario: new FormControl(data.fechaComentario),
           hidUsuario: new FormControl(data.idUsuario),
-          hidLugarTuristico: new FormControl(data.idLugarTuristico),
+          hidLugarTuristico: new FormControl(data.idLugar),
           hidNegocio: new FormControl(data.idNegocio),
         });
       });

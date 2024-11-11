@@ -8,7 +8,7 @@ public class NegocioDTO {
     private int numeroTelefonoNegocio;
     private int calificacionNegocio;
     private String descripcionNegocio;
-    private Boolean reservadoNegocio;
+    private Boolean reservaNegocio;
     private Ciudad idCiudad;
     private Promocion idPromocion;
     public int getIdNegocio() {
@@ -47,8 +47,8 @@ public class NegocioDTO {
     }
     public String getDescripcionNegocio() { return descripcionNegocio; }
     public void setDescripcionNegocio(String descripcionNegocio) { this.descripcionNegocio = descripcionNegocio; }
-    public Boolean getReservadoNegocio() { return reservadoNegocio; }
-    public void setReservadoNegocio(Boolean reservadoNegocio) { this.reservadoNegocio = reservadoNegocio; }
+    public Boolean getReservaNegocio() { return reservaNegocio; }
+    public void setReservaNegocio(Boolean reservadoNegocio) { this.reservaNegocio = reservadoNegocio; }
     public Promocion getIdPromocion() { return idPromocion; }
     public void setIdPromocion(Promocion idPromocion) { this.idPromocion = idPromocion; }
 }

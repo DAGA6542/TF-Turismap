@@ -60,6 +60,15 @@ export class InsertarFavoritoComponent {
       hidLugarTuristico: ['', Validators.required],
       hidNegocio: ['', Validators.required]
     });
+    this.uS.list().subscribe((data)=>{
+      this.listarUsuario = data;
+    })
+    this.ltS.list().subscribe((data)=>{
+      this.listarLugarTuristico = data;
+    })
+    this.nS.list().subscribe((data)=>{
+      this.listarNegocio = data;
+    })
   }
 
   insertar(): void {
@@ -67,9 +76,9 @@ export class InsertarFavoritoComponent {
       this.favorito.idFavorito = this.form.value.hidFavorito;
       this.favorito.fechaAgregadoFavorito = this.form.value.hfechaAgregadoFavorito;
       this.favorito.fechaModificacionFavorito = this.form.value.hfechaModificacionFavorito;
-      this.favorito.idUsuario = this.form.value.hidUsuario;
-      this.favorito.idLugarTuristico = this.form.value.hidLugarTuristico;
-      this.favorito.idNegocio = this.form.value.hidNegocio;
+      this.favorito.idUsuario.idUsuario = this.form.value.hidUsuario;
+      this.favorito.idLugar.idLugar = this.form.value.hidLugarTuristico;
+      this.favorito.idNegocio.idNegocio = this.form.value.hidNegocio;
 
       if (this.edicion) {
         this.fS.update(this.favorito).subscribe((data) => {
@@ -95,7 +104,7 @@ export class InsertarFavoritoComponent {
           hfechaAgregadoFavorito: new FormControl(data.fechaAgregadoFavorito),
           hfechaModificacionFavorito: new FormControl(data.fechaModificacionFavorito),
           hidUsuario: new FormControl(data.idUsuario),
-          hidLugarTuristico: new FormControl(data.idLugarTuristico),
+          hidLugarTuristico: new FormControl(data.idLugar),
           hidNegocio: new FormControl(data.idNegocio)
         });
       });
