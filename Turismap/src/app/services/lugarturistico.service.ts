@@ -18,8 +18,8 @@ export class LugarturisticoService {
   list() {
     return this.http.get<LugarTuristico[]>(this.url);
   }
-  insert(c: LugarTuristico) {
-    return this.http.post(this.url, c);
+  insert(t: LugarTuristico) {
+    return this.http.post(this.url, t);
   }
   getList() {
     return this.listaCambio.asObservable();
