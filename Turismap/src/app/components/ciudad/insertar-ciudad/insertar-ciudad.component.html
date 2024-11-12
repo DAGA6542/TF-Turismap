@@ -1,12 +1,6 @@
-<div class="title-container"><h1 class="title"style="text-align: center">Registro de Pais</h1>
+<div class="title-container"><h1 class="title"style="text-align: center">Registro de Ciudad</h1>
     <div class="container" style="text-align: center">
       <form [formGroup]="form" (submit)="insertar()" class="example-form">
-  
-        <mat-form-field class="example-full-width" *ngIf="edicion">
-          <mat-label>Codigo</mat-label>
-          <input matInput formControlName="hidCiudad" readonly/>
-        </mat-form-field>
-        <br />
     
         <mat-form-field class="example-full-width" >
           <mat-label>Nombre</mat-label>
@@ -63,14 +57,14 @@
           </mat-form-field>
     
         <br />
-        <mat-form-field>
-            <mat-label>Codigo Departamento</mat-label>
-            <input matInput formControlName="hidDepartamento" />
-            <mat-error *ngIf="form.get('hidDepartamento')?.hasError('required')"
-              >El codigo departamento es obligatorio.</mat-error>
+          <mat-form-field>
+            <mat-label>Departamento</mat-label>
+            <mat-select formControlName="hDepartamento">
+              @for (dep of listarDepartamento; track dep) {
+              <mat-option [value]="dep.idDepartamento">{{ dep.nombreDepartamento }}</mat-option>
+              }
+            </mat-select>
           </mat-form-field>
-        <br />
-    
         <br />
         
         <div style="text-align: center;">

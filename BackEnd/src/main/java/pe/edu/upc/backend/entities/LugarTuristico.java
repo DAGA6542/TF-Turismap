@@ -16,12 +16,6 @@ public class LugarTuristico {
     @JoinColumn(name = "idCiudad")
     private Ciudad idCiudad;
     public LugarTuristico() {}
-    public LugarTuristico(int idLugarTuristico, String nombreLugarTuristico, String descripcionLugarTuristico, int numeroLugarTuristico) {
-        this.idLugarTuristico = idLugarTuristico;
-        this.nombreLugarTuristico = nombreLugarTuristico;
-        this.descripcionLugarTuristico = descripcionLugarTuristico;
-        this.numeroLugarTuristico = numeroLugarTuristico;
-    }
     public LugarTuristico(int idLugarTuristico, String nombreLugarTuristico, String descripcionLugarTuristico, int numeroLugarTuristico, Ciudad idCiudad) {
         this.idLugarTuristico = idLugarTuristico;
         this.nombreLugarTuristico = nombreLugarTuristico;

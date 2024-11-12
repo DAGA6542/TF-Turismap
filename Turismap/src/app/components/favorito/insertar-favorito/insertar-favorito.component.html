@@ -33,29 +33,36 @@
         <br />
         
         <mat-form-field>
+          <mat-form-field>
             <mat-label>Usuario</mat-label>
-            <input matInput formControlName="hidUsuario" />
-            <mat-error *ngIf="form.get('hidUsuario')?.hasError('required')"
-              >El usuario es obligatorio.</mat-error
-            >
+            <mat-select formControlName="hidUsuario">
+              @for (lu of listarUsuario; track lu) {
+              <mat-option [value]="listarUsuario">{{ lu.nombreUsuario }}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
           </mat-form-field>
     
         <br />
         <mat-form-field>
-            <mat-label>Lugar Turistico</mat-label>
-            <input matInput formControlName="hidLugarTuristico" />
-            <mat-error *ngIf="form.get('hidLugarTuristico')?.hasError('required')"
-              >El lugar turistico es obligatorio.</mat-error>
-          </mat-form-field>
+          <mat-label>Lugar Turistico</mat-label>
+          <mat-select formControlName="hidLugarTuristico">
+            @for (lt of listarLugarTuristico; track lt) {
+            <mat-option [value]="lt.idLugar">{{ lt.nombreLugar }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
     
         <br />
 
         <mat-form-field>
-            <mat-label>Negocio</mat-label>
-            <input matInput formControlName="hidNegocio" />
-            <mat-error *ngIf="form.get('hidNegocio')?.hasError('required')"
-              >El negocio es obligatorio.</mat-error>
-          </mat-form-field>
+          <mat-label>Negocio</mat-label>
+          <mat-select formControlName="hidNegocio">
+            @for (neg of listarNegocio; track neg) {
+            <mat-option [value]="neg.idNegocio">{{ neg.nombreNegocio }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
     
         <br />
         

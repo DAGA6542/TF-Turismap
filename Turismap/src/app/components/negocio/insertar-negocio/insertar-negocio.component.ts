@@ -8,10 +8,15 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { Negocio } from '../../../models/negocio';
 import { NegocioService } from '../../../services/negocio.service';
+import { provideNativeDateAdapter } from '@angular/material/core';
+import { Ciudad } from '../../../models/ciudad';
+import { Promocion } from '../../../models/promocion';
+
 
 @Component({
   selector: 'app-insertar-negocio',
   standalone: true,
+  providers: [provideNativeDateAdapter()],
   imports: [MatFormFieldModule,CommonModule,NgIf, MatButtonModule,MatInputModule,ReactiveFormsModule,
     RouterLink, MatSelectModule, FormsModule],
   templateUrl: './insertar-negocio.component.html',
@@ -19,6 +24,8 @@ import { NegocioService } from '../../../services/negocio.service';
 })
 export class InsertarNegocioComponent {
   form: FormGroup = new FormGroup({});
+  listaciudad: Ciudad[]=[];
+  listapromocion: Promocion[]=[];
   negocio: Negocio = new Negocio();
   edicion: boolean = false;
   id: number = 0;
@@ -65,6 +72,8 @@ export class InsertarNegocioComponent {
       this.negocio.reservaNegocio=this.form.value.hreservaNegocio;
       this.negocio.idCiudad.idCiudad=this.form.value.hidCiudad;
       this.negocio.idPromocion.idPromocion=this.form.value.hidPromocion;
+
+      console.log(this.negocio);
     
       if (this.edicion) {
         this.nS.update(this.negocio).subscribe((data)=>{
@@ -78,6 +87,7 @@ export class InsertarNegocioComponent {
             this.nS.setList(data);
           });
         });
+
       }
       this.router.navigate(['negocio']);
     }
