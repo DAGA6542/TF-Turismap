@@ -20,9 +20,9 @@ public class LugarTuristicoController {
         lS.insert(lugarTuristico);
     }
     @PutMapping
-    public void modificar(@RequestBody FestividadDTO festividadDTO) {
+    public void modificar(@RequestBody LugarTuristicoDTO lugarTuristicoDTO) {
         ModelMapper m = new ModelMapper();
-        LugarTuristico lugarTuristico = m.map(festividadDTO, LugarTuristico.class);
+        LugarTuristico lugarTuristico = m.map(lugarTuristicoDTO, LugarTuristico.class);
         lS.update(lugarTuristico);
     }
     @GetMapping

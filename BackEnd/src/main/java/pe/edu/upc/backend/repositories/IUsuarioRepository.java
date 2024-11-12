@@ -23,12 +23,11 @@ public interface IUsuarioRepository extends JpaRepository<Usuario, Long> {
     @Query(value = "Select * from Usuario order by nombre_usuario asc", nativeQuery = true)
     List<Usuario> listarPorNombreAscendente();
     public Usuario findOneByUsername(String username);
+    //  Buscar usuarios que han dejado comentarios sobre un negocio específico
     @Query(value = " SELECT u.*" +
             " FROM usuario u" +
             " JOIN comentario c ON u.id_usuario = c.id_usuario" +
             " JOIN negocio n ON c.id_negocio = n.id_negocio" +
             " WHERE n.nombre_negocio LIKE CONCAT('%', :nombre_negocio, '%')", nativeQuery = true)
     public List<Usuario> obtenerComentario(@Param("nombre_negocio") String nombre_negocio);
-    //  Buscar usuarios que han dejado comentarios sobre un negocio específico
-
 }

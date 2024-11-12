@@ -20,7 +20,7 @@ public class PromocionController {
         pS.insert(promocion);
     }
     @PutMapping
-    public void actualizar(PromocionDTO promocionDTO) {
+    public void actualizar(@RequestBody PromocionDTO promocionDTO) {
         ModelMapper m = new ModelMapper();
         Promocion promocion = m.map(promocionDTO, Promocion.class);
         pS.update(promocion);
