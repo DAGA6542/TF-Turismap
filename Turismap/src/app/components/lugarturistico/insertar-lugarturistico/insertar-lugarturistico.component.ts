@@ -1,96 +1,80 @@
 import { CommonModule, NgIf } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { ActivatedRoute, Params, Router, RouterLink } from '@angular/router';
-import { LugarTuristico } from '../../../models/lugarturistico';
-import { LugarturisticoService } from '../../../services/lugarturistico.service';
-import { provideNativeDateAdapter } from '@angular/material/core';
-import { MatDatepickerModule } from '@angular/material/datepicker';
+import { RouterLink, RouterModule } from '@angular/router';
 import { Ciudad } from '../../../models/ciudad';
 import { CiudadService } from '../../../services/ciudad.service';
+import { LugarturisticoService } from '../../../services/lugarturistico.service';
+import { Router } from '@angular/router';
+import { provideNativeDateAdapter } from '@angular/material/core';
+import { LugarTuristico } from '../../../models/lugarturistico';
 
 @Component({
   selector: 'app-insertar-lugarturistico',
   standalone: true,
   providers: [provideNativeDateAdapter()],
-  imports: [MatFormFieldModule, CommonModule, NgIf, MatButtonModule, MatInputModule, ReactiveFormsModule,
-    RouterLink, MatSelectModule, FormsModule, MatDatepickerModule],
+  imports: [
+    MatFormFieldModule,
+    CommonModule,
+    NgIf,
+    MatButtonModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    RouterLink,
+    MatSelectModule,
+    FormsModule,
+    RouterModule],
   templateUrl: './insertar-lugarturistico.component.html',
   styleUrl: './insertar-lugarturistico.component.css'
 })
-export class InsertarLugarturisticoComponent implements OnInit{
-  form:FormGroup = new FormGroup({});
-  listaciudad: Ciudad [] = [];
-  lugarturistico: LugarTuristico = new LugarTuristico()
-  edicion: boolean = false;
-  id:number = 0;
-  //
+export class InsertarLugarturisticoComponent {
+  form: FormGroup = new FormGroup({});
+  listaCiudades: Ciudad[] = [];
+  idCiudad: Ciudad = new Ciudad();
 
   constructor(
+    private formBuilder: FormBuilder,
+    private cS: CiudadService,
     private ltS: LugarturisticoService,
-    private ciuS: CiudadService,
-    private router:Router,
-    private formbuilder: FormBuilder,
-    private route: ActivatedRoute
-
-  ) {}
-  ngOnInit(): void {
-    this.route.params.subscribe((data:Params)=> {
-      this.id = data['id'];
-      this.edicion = data['id']  > 0;
-      this.init()
-    });
-
-    this.form = this.formbuilder.group({
-      hnombreLugarTuristico: ['', Validators.required],
-      hdescripcionLugarTuristico: ['', Validators.required],
-      hnumeroLugarTuristico: ['', Validators.required],
-      hCiudad: ['', Validators.required],
-    });
-    this.ciuS.list().subscribe((data)=> {
-      this.listaciudad = data;
+    private router: Router
+  ) {
+    this.form = this.formBuilder.group({
+      nombreLugar: ['', Validators.required],
+      descripcionLugar: ['', Validators.required],
+      numeroTelefonoLugar: ['', [Validators.required, Validators.minLength(9), Validators.pattern('^[0-9]+$')]],
+      idCiudad: ['', Validators.required]
     });
   }
 
+  ngOnInit(): void {
+    this.cS.list().subscribe((data) => {
+      this.listaCiudades = data;
+    });
+  }
   insertar(): void {
     if (this.form.valid) {
-      this.lugarturistico.idLugar= this.form.value.hidLugarTuristico;
-      this.lugarturistico.nombreLugar= this.form.value.hnombreLugarTuristico;
-      this.lugarturistico.descripcionLugar=this.form.value.hdescripcionLugarTuristico;
-      this.lugarturistico.numeroTelefonoLugar=this.form.value.hnumeroLugarTuristico;
-      this.lugarturistico.idCiudad.idCiudad=this.form.value.hCiudad;
+      const lugar: LugarTuristico = {
+        idLugar: 0,
+        nombreLugar: this.form.value.nombreLugarTuristico,
+        descripcionLugar: this.form.value.descripcionLugarTuristico,
+        numeroTelefonoLugar: this.form.value.numeroTelefonoLugar,
+        idCiudad: this.form.value.idCiudad // Ahora es solo el ID
+      };
 
-      if (this.edicion) {
-        this.ltS.update(this.lugarturistico).subscribe((data)=>{
-          this.ltS.list().subscribe((data)=>{
-            this.ltS.setList(data);
-          });
-        });
-      } else {
-        this.ltS.insert(this.lugarturistico).subscribe((data) => {
-          this.ltS.list().subscribe((data) => {
-            this.ltS.setList(data);
-          });
-        });
-      }
-      this.router.navigate(['lugarturistico']);
+      this.ltS.insert(lugar).subscribe(
+        (response) => {
+          console.log('Lugar Turístico registrado con éxito:', response);
+          this.router.navigate(['/lugarturistico']);
+        },
+        (error) => {
+          console.error('Error al registrar el lugar turístico:', error);
+        }
+      );
     }
   }
-  init() {
-    if (this.edicion) {
-      this.ltS.listId(this.id).subscribe((data) => {
-        this.form = new FormGroup({
-          hidLugarTuristico: new FormControl(data.idLugar),
-          hnombreLugarTuristico: new FormControl(data.nombreLugar),
-          hdescripcionLugarTuristico: new FormControl(data.descripcionLugar),
-          hnumeroLugarTuristico: new FormControl(data.numeroTelefonoLugar),
-          hidCiudad: new FormControl(data.idCiudad),
-        });
-      });
-    }
-  }
+
 }

@@ -1,4 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
@@ -11,21 +12,28 @@ import { LugarturisticoService } from '../../../services/lugarturistico.service'
 @Component({
   selector: 'app-listar-lugarturistico',
   standalone: true,
-  imports: [MatPaginatorModule, MatTableModule,
-    MatIconModule, RouterLink, MatTableModule,
-    MatButtonModule, MatDialogModule],
+  imports: [
+    MatTableModule,
+    MatButtonModule, MatDialogModule, CommonModule,
+    MatIconModule, RouterLink,
+  ],
   templateUrl: './listar-lugarturistico.component.html',
   styleUrl: './listar-lugarturistico.component.css'
 })
-export class ListarLugarturisticoComponent {
-  displayedColumns: string[] = ['idLugarTuristico', 'nombre', 'descripcion',
- 'numeroTelefono','idCiudad','accion1', 'accion2'];
-
+export class ListarLugarturisticoComponent implements OnInit {
   datasource: MatTableDataSource<LugarTuristico> = new MatTableDataSource();
+  displayedColumns: string[] = [
+    'idLugar',
+    'nombreLugar',
+    'descripcionLugar',
+    'numeroTelefonoLugar',
+    'nombreCiudad',
+    'accion1',
+    'accion2'
+  ];
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private ltS: LugarturisticoService, private dialog: MatDialog) {}
+  constructor(private ltS: LugarturisticoService) { }
 
   ngOnInit(): void {
     this.ltS.list().subscribe((data) => {
@@ -35,12 +43,11 @@ export class ListarLugarturisticoComponent {
       this.datasource = new MatTableDataSource(data);
     });
   }
-  openDialog(id: number): void {}
-  delete(id: number) {
-    this.ltS.delete(id).subscribe((data) => {
-      this.ltS.list().subscribe((data) => {
-        this.ltS.setList(data);
+    delete (id: number): void {
+      this.ltS.delete(id).subscribe(() => {
+        alert('Lugar Turístico eliminado');
+        this.ngOnInit();
       });
-    });
+    }
   }
-}
+

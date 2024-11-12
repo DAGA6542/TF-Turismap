@@ -39,12 +39,12 @@ export class InsertarUsuarioComponent {
     private snackBar: MatSnackBar
   ) {}
   ngOnInit(): void {
-    this.route.params.subscribe((data: Params) => {
-      this.id = data['id'];
-      this.edicion = this.id != null && this.id > 0;
-      this.init();
+    this.route.params.subscribe((data:Params)=> {
+      this.id  = data['id'];
+      this.edicion = data['id']  > 0;
+      this.init()
     });
-  
+
     this.form = this.formbuilder.group({
       idUsuario: [''],
       username: ['', Validators.required],
@@ -54,8 +54,8 @@ export class InsertarUsuarioComponent {
       telefonoUsuario: ['', [Validators.required, Validators.minLength(9), Validators.pattern('^[0-9]+$')]],
       enabled: ['', Validators.required],
     });
+
   }
-  
 
   insertar(): void {
     if (this.form.valid) {
@@ -66,7 +66,7 @@ export class InsertarUsuarioComponent {
       this.usuario.contraseniaUsuario = this.form.value.contraseniaUsuario;
       this.usuario.telefonoUsuario = this.form.value.telefonoUsuario;
       this.usuario.enabled = this.form.value.enabled;
-  
+
       if (this.edicion) {
         this.uS.update(this.usuario).subscribe(() => {
           this.uS.list().subscribe((data) => {
@@ -92,23 +92,21 @@ export class InsertarUsuarioComponent {
       this.form.markAllAsTouched();
     }
   }
-  
+
   init() {
     if (this.edicion) {
       this.uS.listId(this.id).subscribe((data) => {
-        this.form.patchValue({
-          idUsuario: data.idUsuario,
-          username: data.username,
-          nombreUsuario: data.nombreUsuario,
-          emailUsuario: data.emailUsuario,
-          contraseniaUsuario: data.contraseniaUsuario,
-          telefonoUsuario: data.telefonoUsuario,
-          enabled: data.enabled,
+        this.form = new FormGroup({
+          hidUsuario: new FormControl(data.idUsuario),
+          husername: new FormControl(data.username),
+          hnombreUsuario: new FormControl(data.nombreUsuario),
+          hemailUsuario: new FormControl(data.emailUsuario),
+          hcontraseniaUsuario: new FormControl(data.contraseniaUsuario),
+          htelefonoUsuario: new FormControl(data.telefonoUsuario),
+          henabled: new FormControl(data.enabled),
         });
       });
     }
   }
-  
-  
-  
+
 }
