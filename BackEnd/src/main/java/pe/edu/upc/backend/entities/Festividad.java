@@ -38,6 +38,6 @@ public class Festividad {
     public void setDescripcionFestividad(String descripcionFestividad) { this.descripcionFestividad = descripcionFestividad; }
     public LocalDate getFechaFestividad() { return fechaFestividad; }
     public void setFechaFestividad(LocalDate fechaFestividad) { this.fechaFestividad = fechaFestividad; }
-    public LugarTuristico getIdLugar() { return idLugar; }
-    public void setIdLugar(LugarTuristico idLugarTuristico) { this.idLugar = idLugarTuristico; }
+    public LugarTuristico getIdLugarTuristico() { return idLugarTuristico; }
+    public void setIdLugarTuristico(LugarTuristico idLugarTuristico) { this.idLugarTuristico  = idLugarTuristico; }
 }
