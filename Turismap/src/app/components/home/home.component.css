@@ -1,0 +1,26 @@
+.container {
+    position: relative; /* Permite posicionar elementos dentro del contenedor */
+    width: 80%;
+    height: 80%;
+    overflow: hidden; /* Esconde cualquier desbordamiento */
+}
+.image {
+    position: absolute; /* Permite que la imagen ocupe toda la pantalla */
+    top: 50%;
+    left: 50%;
+    width: 100%; /* Ancho completo */
+    height: auto; /* Mantiene la proporción */
+    min-height: 100%; /* Asegura que cubra toda la altura */
+    transform: translate(-50%, -50%); /* Centra la imagen */
+}
+.text {
+    position: absolute;
+    bottom: 20px; /* Distancia desde el fondo */
+    left: 50%;
+    transform: translateX(-50%); /* Centra horizontalmente el texto */
+    color: white; /* Color del texto */
+    text-align: center; /* Centra el texto */
+    background-color: rgba(46, 37, 178, 0.5); /* Fondo semi-transparente */
+    padding: 10px; /* Espaciado interno */
+    border-radius: 5px; /* Esquinas redondeadas */
+}
