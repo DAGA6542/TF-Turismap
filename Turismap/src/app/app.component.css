@@ -1,3 +1,4 @@
+
 :host {
   --bright-blue: oklch(51.01% 0.274 263.83);
   --electric-violet: oklch(53.18% 0.28 296.97);
@@ -146,6 +147,19 @@ main {
 }
 
 .custom-toolbar {
-    background-color: #1100ff;
-    color: white;
+  background-color: #1100ff;
+  color: white;
+}
+.custom-menu-item {   
+  color: white; 
+  &:hover {
+    color: white; 
+  }
+}
+.left-menu {
+  display: flex; /* Permite alinear los botones horizontalmente */
+}
+
+.right-menu {
+  margin-left: auto; /* Empuja el menú de usuarios a la derecha */
 }
