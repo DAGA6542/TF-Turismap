@@ -16,16 +16,35 @@ import { LugarturisticoComponent } from './components/lugarturistico/lugarturist
 import { MenbresiavipComponent } from './components/menbresiavip/menbresiavip.component';
 import { NegocioComponent } from './components/negocio/negocio.component';
 import { RolComponent } from './components/rol/rol.component';
+import { LoginService } from './services/login.service';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, UsuarioComponent, PromocionComponent, PaisComponent,
     CiudadComponnent, ComentarioComponent, DepartamentoComponent, FavoritoComponent, FestividadComponent,
     LugarturisticoComponent, MenbresiavipComponent, NegocioComponent, MatToolbarModule, RouterLink,
-    RolComponent, MatMenuModule, MatIconModule, MatButtonModule],
+    RolComponent, MatMenuModule, MatIconModule, MatButtonModule, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'Turismap';
+  role: string = '';
+  constructor(private loginService: LoginService) {}
+  cerrar() {
+    sessionStorage.clear();
+  }
+
+  verificar() {
+    this.role = this.loginService.showRole();
+    return this.loginService.verificar();
+  }
+  isAdmin() {
+    return this.role === 'ADMIN';
+  }
+
+  isViajero() {
+    return this.role === 'VIAJERO';
+  }
 }
