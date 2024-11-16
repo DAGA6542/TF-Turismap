@@ -2,37 +2,56 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { LugarturisticoService } from '../../../services/lugarturistico.service';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { LugarTuristico } from '../../../models/lugarturistico';
-import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { RouterLink } from '@angular/router';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-
+import { MatInputModule } from '@angular/material/input'; // Necesario para matInput
+import { MatFormFieldModule } from '@angular/material/form-field'; // Necesario para mat-form-field
+import { FormsModule } from '@angular/forms'; // Necesario para ngModel
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-listar-numero-de-lugar-turistico',
   standalone: true,
-  imports: [MatPaginatorModule, MatTableModule,
-    MatIconModule, RouterLink, MatTableModule,
-    MatButtonModule, MatDialogModule],
+  imports: [
+    MatPaginator, 
+    MatTableModule, 
+    MatButtonModule, 
+    MatIconModule, 
+    MatInputModule, 
+    MatFormFieldModule, 
+    FormsModule,  
+    RouterLink
+  ],
   templateUrl: './listar-numero-de-lugar-turistico.component.html',
-  styleUrl: './listar-numero-de-lugar-turistico.component.css'
+  styleUrls: ['./listar-numero-de-lugar-turistico.component.css']
 })
 export class ListarNumeroDeLugarTuristicoComponent implements OnInit {
   displayedColumns: string[] = ['nombre', 'numeroTelefono'];
 
-  datasource: MatTableDataSource<LugarTuristico> = new MatTableDataSource();
+  datasource: MatTableDataSource<LugarTuristico> = new MatTableDataSource<LugarTuristico>();
+  nombreLugar: string = '';
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private ltS: LugarturisticoService, private dialog: MatDialog) { }
+  constructor(
+    private ltS: LugarturisticoService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
-    this.ltS.getNumeroxLugarTuristico().subscribe((data) => {
-      this.datasource = new MatTableDataSource(data);
-    });
-    this.ltS.getList().subscribe((data) => {
-      this.datasource = new MatTableDataSource(data);
-    });
+    this.datasource = new MatTableDataSource<LugarTuristico>([]);
+    this.datasource.paginator = this.paginator;
+  }
+
+  searchByNombre(): void {
+    if (this.nombreLugar.trim() !== '') {
+      this.ltS.getNumeroxLugarTuristicoPorNombre(this.nombreLugar).subscribe((data) => {
+        this.datasource = new MatTableDataSource<LugarTuristico>(data);
+        this.datasource.paginator = this.paginator;
+      });
+    } else {
+      this.datasource = new MatTableDataSource<LugarTuristico>([]); // Limpiar la tabla si el input está vacío
+    }
   }
 }

@@ -1,18 +1,25 @@
-<div class="container" style="padding-top: 10px; padding-left: 10px; padding-right: 10px;">
-    <div class="title-container"><h1 class="title" style="text-align: center;">Lista Lugar Turistico</h1></div>
-    <table mat-table [dataSource]="datasource" class="mat-elevation-z8 full-width-table">
-  
-        <ng-container matColumnDef="nombre">
-            <th mat-header-cell *matHeaderCellDef>Nombre</th>
-            <td mat-cell *matCellDef="let element">{{ element.nombreLugar }}</td>
-        </ng-container>
-
-        <ng-container matColumnDef="numeroTelefono">
-            <th mat-header-cell *matHeaderCellDef>numero</th>
-            <td mat-cell *matCellDef="let element">{{ element.numeroTelefonoLugar }}</td>
-        </ng-container>
-  
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-    </table>
+<div>
+    <mat-form-field appearance="fill">
+      <mat-label>Buscar por nombre</mat-label>
+      <input matInput [(ngModel)]="nombreLugar" placeholder="Ingrese el nombre del lugar turístico">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="searchByNombre()">Buscar</button>
   </div>
+  
+  <mat-table [dataSource]="datasource" matSort>
+    <ng-container matColumnDef="nombre">
+      <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+      <mat-cell *matCellDef="let row">{{ row.nombre }}</mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="numeroTelefono">
+      <mat-header-cell *matHeaderCellDef> Número de teléfono </mat-header-cell>
+      <mat-cell *matCellDef="let row">{{ row.numeroTelefono }}</mat-cell>
+    </ng-container>
+  
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  
+  <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons></mat-paginator>
+  

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environments';
 import { Observable, Subject } from 'rxjs';
 import { LugarTuristico } from '../models/lugarturistico';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { LugarTuristicoPorCiudadDTO } from '../models/LugarTuristicoPorCiudadDTO';
 
 const base_url = environment.base;
@@ -44,8 +44,10 @@ export class LugarturisticoService {
       `${this.url}/listarlugarturisticoporciudad`
     );
   }
-  getNumeroxLugarTuristico(): Observable<LugarTuristico[]> {
-    return this.http.get<LugarTuristico[]>(`${this.url}/listarPorNumero`);
+  getNumeroxLugarTuristicoPorNombre(nombreLugar: string): Observable<LugarTuristico[]> {
+    // Asegurémonos de que el parámetro sea 'nombreLugarTuristico'
+    const params = new HttpParams().set('nombreLugarTuristico', nombreLugar); 
+    return this.http.get<LugarTuristico[]>(`${this.url}/listarPorNumero`, { params });
   }
-
+  
 }
