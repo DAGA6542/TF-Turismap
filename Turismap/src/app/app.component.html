@@ -1,99 +1,173 @@
-<mat-toolbar class="custom-toolbar">
-  <mat-icon>menu</mat-icon>
-  <div>
-    <button mat-button routerLink="/" style="color: white">
-      <mat-icon>home</mat-icon> Inicio
-    </button>
-    <button mat-button [matMenuTriggerFor]="menuCiudad" style="color: white">
-      Ciudad
-    </button>
-    <button mat-button [matMenuTriggerFor]="menuComentario" style="color: white">
-      Comentario
-    </button>
-    <button mat-button [matMenuTriggerFor]="menuDepartamento" style="color: white">
-      Departamento
-    </button>
-    <button mat-button [matMenuTriggerFor]="menuFavorito" style="color: white">
-      Favorito
-    </button>
-    <button mat-button [matMenuTriggerFor]="menuFestividad" style="color: white">
-      Festividad
-    </button>
-    <button mat-button [matMenuTriggerFor]="menuLugarTuristico" style="color: white">
-      Lugar Turistico
-    </button>
-    <button mat-button [matMenuTriggerFor]="menuMenbresiaVIP" style="color: white">
-      Menbresia VIP
-    </button>
-    <button mat-button [matMenuTriggerFor]="menuNegocio" style="color: white">
-      Negocio
-    </button>
-    <button mat-button [matMenuTriggerFor]="menuPais" style="color: white">
-      Pais
-    </button>
-    <button mat-button [matMenuTriggerFor]="menuPromocion" style="color: white">
-      Promoción
-    </button>
-    <button mat-button [matMenuTriggerFor]="menuRol" style="color: white">
-      Rol
-    </button>
-    <button mat-button [matMenuTriggerFor]="menuUsuario" style="color: white">
-      Usuario
-    </button>
-  </div>
-</mat-toolbar>
-<mat-menu #menuCiudad="matMenu">
-  <button mat-menu-item routerLink="/ciudad">Listar</button>
-  <button mat-menu-item routerLink="/ciudad/insertar">Registrar</button>
-</mat-menu>
-<mat-menu #menuComentario="matMenu">
-  <button mat-menu-item routerLink="/comentario">Listar</button>
-  <button mat-menu-item routerLink="/comentario/insertar">Registrar</button>
-</mat-menu>
+<mat-sidenav-container>
+  <!-- Sidebar -->
+  <mat-sidenav #sidenav mode="over" class="custom-sidenav">
+    <mat-nav-list>
+      <!-- Inicio -->
+      <mat-list-item>
+        <button mat-button routerLink="/" (click)="sidenav.toggle()">
+          <mat-icon>home</mat-icon> Inicio
+        </button>
+      </mat-list-item>
 
-<mat-menu #menuDepartamento="matMenu">
-  <button mat-menu-item routerLink="/departamento">Listar</button>
-  <button mat-menu-item routerLink="/departamento/insertar">Registrar</button>
-</mat-menu>
-<mat-menu #menuFavorito="matMenu">
-  <button mat-menu-item routerLink="/favorito">Listar</button>
-  <button mat-menu-item routerLink="/favorito/insertar">Registrar</button>
-</mat-menu>
+      <!-- Administración -->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>Administración</mat-panel-title>
+        </mat-expansion-panel-header>
+        <button mat-button [matMenuTriggerFor]="menuUsuario">
+          <mat-icon>person</mat-icon> Usuario
+        </button>
+        <button mat-button [matMenuTriggerFor]="menuRol">
+          <mat-icon>security</mat-icon> Rol
+        </button>
+      </mat-expansion-panel>
 
-<mat-menu #menuFestividad="matMenu">
-  <button mat-menu-item routerLink="/festividad">Listar</button>
-  <button mat-menu-item routerLink="/festividad/insertar">Registrar</button>
-</mat-menu>
-<mat-menu #menuLugarTuristico="matMenu">
-  <button mat-menu-item routerLink="/lugarturistico">Listar</button>
-  <button mat-menu-item routerLink="/lugarturistico/insertar">Registrar</button>
-</mat-menu>
-<mat-menu #menuMenbresiaVIP="matMenu">
-  <button mat-menu-item routerLink="/menbresiavip">Listar</button>
-  <button mat-menu-item routerLink="/menbresiavip/insertar">Registrar</button>
-</mat-menu>
+      <!-- Geografía -->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>Geografía</mat-panel-title>
+        </mat-expansion-panel-header>
+        <button mat-button [matMenuTriggerFor]="menuCiudad">
+          <mat-icon>location_city</mat-icon> Ciudad
+        </button>
+        <button mat-button [matMenuTriggerFor]="menuDepartamento">
+          <mat-icon>map</mat-icon> Departamento
+        </button>
+        <button mat-button [matMenuTriggerFor]="menuPais">
+          <mat-icon>public</mat-icon> País
+        </button>
+      </mat-expansion-panel>
 
-<mat-menu #menuNegocio="matMenu">
-  <button mat-menu-item routerLink="/negocio">Listar</button>
-  <button mat-menu-item routerLink="/negocio/insertar">Registrar</button>
-</mat-menu>
+      <!-- Negocio -->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>Negocio</mat-panel-title>
+        </mat-expansion-panel-header>
+        <button mat-button [matMenuTriggerFor]="menuNegocio">
+          <mat-icon>store</mat-icon> Negocio
+        </button>
+        <button mat-button [matMenuTriggerFor]="menuPromocion">
+          <mat-icon>local_offer</mat-icon> Promoción
+        </button>
+        <button mat-button [matMenuTriggerFor]="menuLugarTuristico">
+          <mat-icon>landscape</mat-icon> Lugar Turístico
+        </button>
+      </mat-expansion-panel>
 
-<mat-menu #menuPais="matMenu">
-  <button mat-menu-item routerLink="/pais">Listar</button>
-  <button mat-menu-item routerLink="/pais/insertar">Registrar</button>
-</mat-menu>
-<mat-menu #menuPromocion="matMenu">
-  <button mat-menu-item routerLink="/promocion">Listar</button>
-  <button mat-menu-item routerLink="/promocion/insertar">Registrar</button>
-</mat-menu>
+      <!-- Extras -->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>Extras</mat-panel-title>
+        </mat-expansion-panel-header>
+        <button mat-button [matMenuTriggerFor]="menuComentario">
+          <mat-icon>comment</mat-icon> Comentario
+        </button>
+        <button mat-button [matMenuTriggerFor]="menuFavorito">
+          <mat-icon>favorite</mat-icon> Favorito
+        </button>
+        <button mat-button [matMenuTriggerFor]="menuFestividad">
+          <mat-icon>celebration</mat-icon> Festividad
+        </button>
+        <button mat-button [matMenuTriggerFor]="menuMenbresiaVIP">
+          <mat-icon>star</mat-icon> Membresía VIP
+        </button>
+      </mat-expansion-panel>
 
+      <!-- Reportes -->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>Reportes</mat-panel-title>
+        </mat-expansion-panel-header>
+        <button mat-button routerLink="/reportes/listadolugarturisticoporciudad" (click)="sidenav.toggle()">
+          <mat-icon>pie_chart</mat-icon> Listar Lugar por Ciudad
+        </button>
+        <button mat-button routerLink="/reportes/listadonumerolugarturistico" (click)="sidenav.toggle()">
+          <mat-icon>bar_chart</mat-icon> Listar Numero por Lugar
+        </button>
+      </mat-expansion-panel>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Toolbar -->
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>TF-Turismap</span>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- Menú de Usuario -->
 <mat-menu #menuUsuario="matMenu">
   <button mat-menu-item routerLink="/usuario">Listar</button>
   <button mat-menu-item routerLink="/usuario/insertar">Registrar</button>
 </mat-menu>
 
+<!-- Menú de Rol -->
 <mat-menu #menuRol="matMenu">
   <button mat-menu-item routerLink="/rol">Listar</button>
   <button mat-menu-item routerLink="/rol/insertar">Registrar</button>
 </mat-menu>
-<router-outlet></router-outlet>
+
+<!-- Menú de Ciudad -->
+<mat-menu #menuCiudad="matMenu">
+  <button mat-menu-item routerLink="/ciudad">Listar</button>
+  <button mat-menu-item routerLink="/ciudad/insertar">Registrar</button>
+</mat-menu>
+
+<!-- Menú de Departamento -->
+<mat-menu #menuDepartamento="matMenu">
+  <button mat-menu-item routerLink="/departamento">Listar</button>
+  <button mat-menu-item routerLink="/departamento/insertar">Registrar</button>
+</mat-menu>
+
+<!-- Menú de País -->
+<mat-menu #menuPais="matMenu">
+  <button mat-menu-item routerLink="/pais">Listar</button>
+  <button mat-menu-item routerLink="/pais/insertar">Registrar</button>
+</mat-menu>
+
+<!-- Menú de Negocio -->
+<mat-menu #menuNegocio="matMenu">
+  <button mat-menu-item routerLink="/negocio">Listar</button>
+  <button mat-menu-item routerLink="/negocio/insertar">Registrar</button>
+</mat-menu>
+
+<!-- Menú de Promoción -->
+<mat-menu #menuPromocion="matMenu">
+  <button mat-menu-item routerLink="/promocion">Listar</button>
+  <button mat-menu-item routerLink="/promocion/insertar">Registrar</button>
+</mat-menu>
+
+<!-- Menú de Lugar Turístico -->
+<mat-menu #menuLugarTuristico="matMenu">
+  <button mat-menu-item routerLink="/lugarturistico">Listar</button>
+  <button mat-menu-item routerLink="/lugarturistico/insertar">Registrar</button>
+</mat-menu>
+
+<!-- Menú de Comentario -->
+<mat-menu #menuComentario="matMenu">
+  <button mat-menu-item routerLink="/comentario">Listar</button>
+  <button mat-menu-item routerLink="/comentario/insertar">Registrar</button>
+</mat-menu>
+
+<!-- Menú de Favorito -->
+<mat-menu #menuFavorito="matMenu">
+  <button mat-menu-item routerLink="/favorito">Listar</button>
+  <button mat-menu-item routerLink="/favorito/insertar">Registrar</button>
+</mat-menu>
+
+<!-- Menú de Festividad -->
+<mat-menu #menuFestividad="matMenu">
+  <button mat-menu-item routerLink="/festividad">Listar</button>
+  <button mat-menu-item routerLink="/festividad/insertar">Registrar</button>
+</mat-menu>
+
+<!-- Menú de Membresía VIP -->
+<mat-menu #menuMenbresiaVIP="matMenu">
+  <button mat-menu-item routerLink="/menbresiavip">Listar</button>
+  <button mat-menu-item routerLink="/menbresiavip/insertar">Registrar</button>
+</mat-menu>

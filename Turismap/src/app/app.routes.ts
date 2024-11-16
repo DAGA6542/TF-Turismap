@@ -35,6 +35,9 @@ import { InsertarNegocioComponent } from './components/negocio/insertar-negocio/
 import { ListarNegocioComponent } from './components/negocio/listar-negocio/listar-negocio.component';
 import { InsertarRolComponent } from './components/rol/insertar-rol/insertar-rol.component';
 import { ListarRolComponent } from './components/rol/listar-rol/listar-rol.component';
+import { ReportesComponent } from './components/reportes/reportes.component';
+import { ListarLugarTuristicoPorCiudadComponent } from './components/reportes/listar-lugar-turistico-por-ciudad/listar-lugar-turistico-por-ciudad.component';
+import { ListarNumeroDeLugarTuristicoComponent } from './components/reportes/listar-numero-de-lugar-turistico/listar-numero-de-lugar-turistico.component';
 export const routes: Routes = [
     {
         path: 'ciudad', component: CiudadComponnent,
@@ -133,4 +136,18 @@ export const routes: Routes = [
             { path: 'editar/:id', component: InsertarRolComponent }
         ],  
     },
+    {
+        path: 'reportes',
+        component: ReportesComponent,
+        children: [
+          {
+            path: 'listadolugarturisticoporciudad',
+            component: ListarLugarTuristicoPorCiudadComponent,
+          },
+          {
+            path: 'listadonumerolugarturistico',
+            component: ListarNumeroDeLugarTuristicoComponent,
+          },
+        ],
+      },
 ];

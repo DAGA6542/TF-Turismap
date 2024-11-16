@@ -3,27 +3,27 @@
     <table mat-table [dataSource]="datasource" class="mat-elevation-z8 full-width-table">
         <ng-container matColumnDef="idLugarTuristico">
             <th mat-header-cell *matHeaderCellDef>ID</th>
-            <td mat-cell *matCellDef="let element">{{ element.idLugarTuristico}}</td>
+            <td mat-cell *matCellDef="let element">{{ element.idLugar}}</td>
         </ng-container>
   
         <ng-container matColumnDef="nombre">
             <th mat-header-cell *matHeaderCellDef>Nombre</th>
-            <td mat-cell *matCellDef="let element">{{ element.nombreLugarTuristico }}</td>
+            <td mat-cell *matCellDef="let element">{{ element.nombreLugar }}</td>
         </ng-container>
   
         <ng-container matColumnDef="descripcion">
             <th mat-header-cell *matHeaderCellDef>descripcion</th>
-            <td mat-cell *matCellDef="let element">{{ element.descripcionLugarTuristico }}</td>
+            <td mat-cell *matCellDef="let element">{{ element.descripcionLugar }}</td>
         </ng-container>
 
         <ng-container matColumnDef="numeroTelefono">
             <th mat-header-cell *matHeaderCellDef>numero</th>
-            <td mat-cell *matCellDef="let element">{{ element.numeroLugarTuristico }}</td>
+            <td mat-cell *matCellDef="let element">{{ element.numeroTelefonoLugar }}</td>
         </ng-container>
 
         <ng-container matColumnDef="idCiudad">
             <th mat-header-cell *matHeaderCellDef>Ciudad</th>
-            <td mat-cell *matCellDef="let element">{{ element.idCiudad }}</td>
+            <td mat-cell *matCellDef="let element">{{ element.idCiudad.nombreCiudad }}</td>
         </ng-container>
 
         <ng-container matColumnDef="accion1">
