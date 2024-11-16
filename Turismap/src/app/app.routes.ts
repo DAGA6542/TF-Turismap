@@ -35,7 +35,19 @@ import { InsertarNegocioComponent } from './components/negocio/insertar-negocio/
 import { ListarNegocioComponent } from './components/negocio/listar-negocio/listar-negocio.component';
 import { InsertarRolComponent } from './components/rol/insertar-rol/insertar-rol.component';
 import { ListarRolComponent } from './components/rol/listar-rol/listar-rol.component';
+import { LoginComponent } from './components/login/login.component';
+import { seguridadGuard } from './guard/seguridad.guard';
+import { HomeComponent } from './components/home/home.component';
 export const routes: Routes = [
+    {
+        path: '',
+        redirectTo: 'login',
+        pathMatch: 'full',
+    },
+    {
+        path: 'login',
+        component: LoginComponent,
+    },
     {
         path: 'ciudad', component: CiudadComponnent,
         children: [
@@ -43,6 +55,7 @@ export const routes: Routes = [
             { path: 'listar', component: ListarCiudadComponent },
             { path: 'editar/:id', component: InsertarCiudadComponent }
         ],
+        canActivate: [seguridadGuard],
     },
     {
         path: 'comentario', component: ComentarioComponent,
@@ -51,6 +64,7 @@ export const routes: Routes = [
             { path: 'listar', component: ListarComentarioComponent },
             { path: 'editar/:id', component: InsertarComentarioComponent }
         ],
+        canActivate: [seguridadGuard],
     },
     {
         path: 'departamento', component: DepartamentoComponent,
@@ -59,6 +73,7 @@ export const routes: Routes = [
             { path: 'listar', component: ListarDepartamentoComponent },
             { path: 'editar/:id', component: InsertarDepartamentoComponent }
         ],
+        canActivate: [seguridadGuard],
     },
     {
         path: 'favorito', component: FavoritoComponent,
@@ -67,6 +82,7 @@ export const routes: Routes = [
             { path: 'listar', component: ListarFavoritoComponent },
             { path: 'editar/:id', component: InsertarFavoritoComponent }
         ],
+        canActivate: [seguridadGuard],
     },
     {
         path: 'festividad', component: FestividadComponent,
@@ -75,6 +91,7 @@ export const routes: Routes = [
             { path: 'listar', component: ListarFestividadComponent },
             { path: 'editar/:id', component: InsertarFestividadComponent }
         ],
+        canActivate: [seguridadGuard],
     },
     {
         path: 'lugarturistico', component: LugarturisticoComponent,
@@ -83,6 +100,7 @@ export const routes: Routes = [
             { path: 'listar', component: ListarLugarturisticoComponent },
             { path: 'editar/:id', component: InsertarLugarturisticoComponent }
         ],
+        canActivate: [seguridadGuard],
     },
     {
         path: 'menbresiavip', component: MenbresiavipComponent,
@@ -91,6 +109,7 @@ export const routes: Routes = [
             { path: 'listar', component: ListarMenbresiavipComponent },
             { path: 'editar/:id', component: InsertarMenbresiavipComponent }
         ],
+        canActivate: [seguridadGuard],
     },
     {
         path: 'negocio', component: NegocioComponent,
@@ -99,6 +118,7 @@ export const routes: Routes = [
             { path: 'listar', component: ListarNegocioComponent },
             { path: 'editar/:id', component: InsertarNegocioComponent }
         ],
+        canActivate: [seguridadGuard],
     },
     {
         path: 'pais', component: PaisComponent,
@@ -107,6 +127,7 @@ export const routes: Routes = [
             { path: 'listar', component: ListarPaisComponent },
             { path: 'editar/:id', component: InsertarPaisComponent }
         ],
+        canActivate: [seguridadGuard],
         
     },
     {
@@ -116,6 +137,7 @@ export const routes: Routes = [
             { path: 'listar', component: ListarPromocionComponent },
             { path: 'editar/:id', component: InsertarPromocionComponent }
         ],
+        canActivate: [seguridadGuard],
     },
     {
         path: 'usuario', component: UsuarioComponent,
@@ -124,6 +146,7 @@ export const routes: Routes = [
             { path: 'listar', component: ListarUsuarioComponent },
             { path: 'editar/:id', component: InsertarUsuarioComponent }
         ],
+        canActivate: [seguridadGuard],
     },
     {
         path: 'rol', component: RolComponent,
@@ -131,6 +154,12 @@ export const routes: Routes = [
             { path: 'insertar', component: InsertarRolComponent },
             { path: 'listar', component: ListarRolComponent },
             { path: 'editar/:id', component: InsertarRolComponent }
-        ],  
+        ],
+        canActivate: [seguridadGuard],
+    },
+    {
+        path: 'homes',
+        component: HomeComponent,
+        canActivate: [seguridadGuard],  
     },
 ];

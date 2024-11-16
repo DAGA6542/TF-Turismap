@@ -1,44 +1,48 @@
-<mat-toolbar class="custom-toolbar">
-  <mat-icon>menu</mat-icon>
-  <div>
-    <button mat-button routerLink="/" style="color: white">
-      <mat-icon>home</mat-icon> Inicio
+<mat-toolbar class="custom-toolbar" *ngIf="verificar()">  
+  <div class="left-menu">
+    <button mat-button [routerLink]="['/homes']" style="color: white">
+      <mat-icon>home</mat-icon>Home
     </button>
-    <button mat-button [matMenuTriggerFor]="menuCiudad" style="color: white">
+    <button mat-button [matMenuTriggerFor]="menuCiudad" style="color: white" *ngIf="isAdmin()">
       Ciudad
     </button>
-    <button mat-button [matMenuTriggerFor]="menuComentario" style="color: white">
+    <button mat-button [matMenuTriggerFor]="menuComentario" style="color: white" *ngIf="isAdmin()">
       Comentario
     </button>
-    <button mat-button [matMenuTriggerFor]="menuDepartamento" style="color: white">
+    <button mat-button [matMenuTriggerFor]="menuDepartamento" style="color: white" *ngIf="isAdmin()">
       Departamento
     </button>
-    <button mat-button [matMenuTriggerFor]="menuFavorito" style="color: white">
+    <button mat-button [matMenuTriggerFor]="menuFavorito" style="color: white" *ngIf="isAdmin()">
       Favorito
     </button>
-    <button mat-button [matMenuTriggerFor]="menuFestividad" style="color: white">
+    <button mat-button [matMenuTriggerFor]="menuFestividad" style="color: white" *ngIf="isAdmin()">
       Festividad
     </button>
-    <button mat-button [matMenuTriggerFor]="menuLugarTuristico" style="color: white">
+    <button mat-button [matMenuTriggerFor]="menuLugarTuristico" style="color: white" *ngIf="isAdmin()">
       Lugar Turistico
     </button>
-    <button mat-button [matMenuTriggerFor]="menuMenbresiaVIP" style="color: white">
+    <button mat-button [matMenuTriggerFor]="menuMenbresiaVIP" style="color: white" *ngIf="isAdmin()">
       Menbresia VIP
     </button>
-    <button mat-button [matMenuTriggerFor]="menuNegocio" style="color: white">
+    <button mat-button [matMenuTriggerFor]="menuNegocio" style="color: white" *ngIf="isAdmin()">
       Negocio
     </button>
-    <button mat-button [matMenuTriggerFor]="menuPais" style="color: white">
+    <button mat-button [matMenuTriggerFor]="menuPais" style="color: white" *ngIf="isAdmin()">
       Pais
     </button>
-    <button mat-button [matMenuTriggerFor]="menuPromocion" style="color: white">
+    <button mat-button [matMenuTriggerFor]="menuPromocion" style="color: white" *ngIf="isAdmin()">
       Promoción
     </button>
-    <button mat-button [matMenuTriggerFor]="menuRol" style="color: white">
+    <button mat-button [matMenuTriggerFor]="menuRol" style="color: white" *ngIf="isAdmin()">
       Rol
     </button>
-    <button mat-button [matMenuTriggerFor]="menuUsuario" style="color: white">
+    <button mat-button [matMenuTriggerFor]="menuUsuario" style="color: white" *ngIf="isAdmin()">
       Usuario
+    </button>
+  </div>
+  <div class="right-menu">
+    <button mat-button [matMenuTriggerFor]="menuSalir" style="color: white">
+      <mat-icon>person</mat-icon>Usuario
     </button>
   </div>
 </mat-toolbar>
@@ -95,5 +99,16 @@
 <mat-menu #menuRol="matMenu">
   <button mat-menu-item routerLink="/rol">Listar</button>
   <button mat-menu-item routerLink="/rol/insertar">Registrar</button>
+</mat-menu>
+
+<mat-menu #menuSalir="matMenu">
+  <button mat-menu-item routerLink="/login" (click)="cerrar()">
+    <mat-icon>logout</mat-icon>
+    <span>Cerrar sesión</span>
+  </button>
+  <button mat-menu-item>
+    Rol:
+    <span>{{ role }}</span>
+  </button>
 </mat-menu>
 <router-outlet></router-outlet>
