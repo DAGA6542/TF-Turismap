@@ -39,15 +39,12 @@ export class LugarturisticoService {
   update(tm: LugarTuristico) {
     return this.http.put(this.url, tm);
   }
-  getLugarTuristicoXCiudad(): Observable<LugarTuristicoPorCiudadDTO[]> {
-    return this.http.get<LugarTuristicoPorCiudadDTO[]>(
-      `${this.url}/listarlugarturisticoporciudad`
-    );
+  getLugarTuristicoXCiudad(nombreCiudad: string): Observable<LugarTuristicoPorCiudadDTO[]> {
+    const params = new HttpParams().set('nombreCiudad', nombreCiudad);
+    return this.http.get<LugarTuristicoPorCiudadDTO[]>(`${this.url}/listarlugarturisticoporciudad`, { params });
   }
   getNumeroxLugarTuristicoPorNombre(nombreLugar: string): Observable<LugarTuristico[]> {
-    // Asegurémonos de que el parámetro sea 'nombreLugarTuristico'
     const params = new HttpParams().set('nombreLugarTuristico', nombreLugar); 
     return this.http.get<LugarTuristico[]>(`${this.url}/listarPorNumero`, { params });
   }
-  
 }

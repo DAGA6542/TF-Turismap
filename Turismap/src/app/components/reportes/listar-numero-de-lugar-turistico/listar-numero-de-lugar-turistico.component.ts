@@ -5,9 +5,9 @@ import { LugarTuristico } from '../../../models/lugarturistico';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input'; // Necesario para matInput
-import { MatFormFieldModule } from '@angular/material/form-field'; // Necesario para mat-form-field
-import { FormsModule } from '@angular/forms'; // Necesario para ngModel
+import { MatInputModule } from '@angular/material/input'; 
+import { MatFormFieldModule } from '@angular/material/form-field'; 
+import { FormsModule } from '@angular/forms'; 
 import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
@@ -36,7 +36,6 @@ export class ListarNumeroDeLugarTuristicoComponent implements OnInit {
 
   constructor(
     private ltS: LugarturisticoService,
-    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
@@ -51,7 +50,7 @@ export class ListarNumeroDeLugarTuristicoComponent implements OnInit {
         this.datasource.paginator = this.paginator;
       });
     } else {
-      this.datasource = new MatTableDataSource<LugarTuristico>([]); // Limpiar la tabla si el input está vacío
+      this.datasource = new MatTableDataSource<LugarTuristico>([]); 
     }
   }
 }

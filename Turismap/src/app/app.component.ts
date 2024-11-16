@@ -44,7 +44,7 @@ import { RolComponent } from './components/rol/rol.component';
     MatButtonModule,
     MatExpansionModule,
     MatSidenavModule,
-    MatListModule // Añadido aquí
+    MatListModule 
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']

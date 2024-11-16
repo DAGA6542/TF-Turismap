@@ -1,16 +1,25 @@
-.mat-table {
-    width: 100%;
-  }
-  
-  .mat-elevation-z8 {
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    margin: 20px 0;
-  }
-  
-  .mat-paginator {
-    margin-top: 20px;
-    display: flex;
-    justify-content: flex-end;
-  }
-  
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 16px; /* Espacio entre el campo de búsqueda y el botón */
+  margin-bottom: 16px; /* Espacio entre el cuadro de búsqueda y la tabla */
+  padding: 16px;
+  background-color: #f9f9f9; /* Fondo suave para la sección de búsqueda */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil para darle un poco de profundidad */
+  max-width: 600px; /* Limitar el ancho para que no sea demasiado grande */
+  margin-top: 20px; /* Separación desde el top de la página */
+}
+
+.search-field {
+  flex: 1; /* El campo de entrada ocupa el máximo espacio disponible */
+}
+
+button {
+  margin-top: 8px;
+}
+
+mat-table {
+  margin-top: 20px;
+  width: 100%;
+}

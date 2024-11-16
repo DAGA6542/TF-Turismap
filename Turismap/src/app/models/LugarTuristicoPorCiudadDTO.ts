@@ -1,4 +1,4 @@
 export class LugarTuristicoPorCiudadDTO{
     nombreCiudad: string = "";
-    nombreTurismo: string = ""
+    nombreLugar: string = ""
 }
