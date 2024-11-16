@@ -17,4 +17,18 @@ public class DepartamentoImplement implements IDepartamentoService {
     public void update(Departamento departamento) { dR.save(departamento); }
     @Override
     public void delete(int idDepartamento) { dR.deleteById(idDepartamento); }
+    @Override
+    public Departamento findById(int idDepartamento) { return dR.findById(idDepartamento).orElse(new Departamento()); }
+    @Override
+    public List<Departamento> buscarPorNombre(String nombre) { return dR.buscarPorNombre(nombre); }
+    @Override
+    public List<Departamento> listarPorPais(int idPais) { return dR.listarPorPais(idPais); }
+    @Override
+    public List<Departamento> obtenerDepartamentPoblac(Long poblacion) { return dR.obtenerDepartamentPoblac(poblacion); }
+    @Override
+    public List<Departamento> buscarDepartamentoConSuperficie(int minSuperficie, int maxSuperficie) { return dR.buscarDepartamentoConSuperficie(minSuperficie, maxSuperficie); }
+    @Override
+    public List<Departamento> obtenerPorPoblacionDesc() { return dR.obtenerPorPoblacionDesc(); }
+    @Override
+    public List<Departamento> buscarPorCapital(String capital) { return dR.buscarPorCapital(capital); }
 }

@@ -6,9 +6,10 @@ public interface ICiudadService {
     public List<Ciudad> list();
     public void update(Ciudad ciudad);
     public void delete(int idCiudad);
+    public Ciudad listId(int idCiudad);
     public List<Ciudad> buscarNombreCiudad(String nombreCiudad);
-    List<Ciudad> latitudMayor(double latitud);
-    List<Ciudad> longitudMenor(double longitud);
-    List<Ciudad> poblacionMayor(Long poblacion);
+    public List<Ciudad> latitudMayor(double latitud);
+    public List<Ciudad> longitudMenor(double longitud);
+    public List<Ciudad> poblacionMayor(Long poblacion);
     public List<String[]>cantidadTurismo();
 }

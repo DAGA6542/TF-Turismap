@@ -1,0 +1,65 @@
+<div class="container" style="padding-top: 10px; padding-left: 10px; padding-right: 10px;">
+    <div class="title-container"><h1 class="title" style="text-align: center;">Lista Ciudades</h1></div>
+    <table mat-table [dataSource]="datasource" class="mat-elevation-z8 full-width-table">
+        <ng-container matColumnDef="idCiudad">
+            <th mat-header-cell *matHeaderCellDef>Código</th>
+            <td mat-cell *matCellDef="let element">{{ element.idCiudad}}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="nombreCiudad">
+            <th mat-header-cell *matHeaderCellDef>Nombre</th>
+            <td mat-cell *matCellDef="let element">{{ element.nombreCiudad }}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="poblacionCiudad">
+            <th mat-header-cell *matHeaderCellDef>Población</th>
+            <td mat-cell *matCellDef="let element">{{ element.poblacionCiudad }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="superficieCiudad">
+            <th mat-header-cell *matHeaderCellDef>Superficie</th>
+            <td mat-cell *matCellDef="let element">{{ element.superficieCiudad }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="latitudCiudad">
+            <th mat-header-cell *matHeaderCellDef>Latitud</th>
+            <td mat-cell *matCellDef="let element">{{ element.latitudCiudad }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="longitudCiudad">
+            <th mat-header-cell *matHeaderCellDef>Longitud</th>
+            <td mat-cell *matCellDef="let element">{{ element.longitudCiudad }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="codigoPostalCiudad">
+            <th mat-header-cell *matHeaderCellDef>Codigo Postal</th>
+            <td mat-cell *matCellDef="let element">{{ element.codigoPostalCiudad }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="idDepartamento">
+            <th mat-header-cell *matHeaderCellDef>Codigo Departamento</th>
+            <td mat-cell *matCellDef="let element">{{ element.idDepartamento.idDepartamento }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="idDepartamento1">
+            <th mat-header-cell *matHeaderCellDef>Nombre Departamento</th>
+            <td mat-cell *matCellDef="let element">{{ element.idDepartamento.nombreDepartamento }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="accion1">
+            <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+            <td mat-cell *matCellDef="let element" (click)="delete(element.idPais)">
+              <mat-icon style="color:#1100ff ;">delete</mat-icon>
+            </td> 
+          </ng-container>
+        <ng-container matColumnDef="accion2">
+            <th mat-header-cell *matHeaderCellDef>Actualizar</th>
+            <td mat-cell *matCellDef="let element" [routerLink]="['editar',element.idPais]" >
+                <mat-icon style="color:#1100ff ;">edit</mat-icon>
+            </td> 
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>

@@ -1,0 +1,40 @@
+<div class="title-container"><h1 class="title"style="text-align: center">Registro Rol</h1>
+    <div class="container" style="text-align: center">
+      <form [formGroup]="form" (submit)="insertar()" class="example-form">
+  
+        <mat-form-field class="example-full-width" *ngIf="edicion">
+          <mat-label>Codigo</mat-label>
+          <input matInput formControlName="hidRol" readonly/>
+        </mat-form-field>
+        <br />
+    
+        <mat-form-field class="example-full-width" >
+          <mat-label>Nombre</mat-label>
+          <mat-select formControlName="hnombreRol">
+            @for (food of listaRoles; track food) {
+            <mat-option [value]="food.value">{{ food.viewValue }}</mat-option>
+            }
+          </mat-select>
+          <mat-error *ngIf="form.get('hnombreRol')?.hasError('required')"
+            >El nombre es obligatorio.</mat-error
+          >
+        </mat-form-field>
+    
+        <br />
+        <mat-form-field class="example-full-width" >
+            <mat-label>Código Usuario</mat-label>
+            <input matInput formControlName="huser" />
+          </mat-form-field>
+          <mat-error *ngIf="form.get('huser')?.hasError('required')"
+          >El codigo usuario es obligatorio.</mat-error>
+        <br />
+        
+        <div style="text-align: center;">
+          <button mat-flat-button  color="warn">Registrar</button>
+        </div>
+        <div style="text-align: center;">
+          <button class="secondaryButton"  routerLink="/rol"> Cancelar </button>
+        </div>
+      </form>
+    </div>
+  </div>

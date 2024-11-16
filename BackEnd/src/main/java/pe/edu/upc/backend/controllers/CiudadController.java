@@ -1,20 +1,16 @@
 package pe.edu.upc.backend.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.backend.dtos.CantidadTurismoxCiudadDTO;
-import pe.edu.upc.backend.dtos.CantidadUsuarioxRol;
 import pe.edu.upc.backend.dtos.CiudadDTO;
 import pe.edu.upc.backend.entities.Ciudad;
 import pe.edu.upc.backend.serviceinterfaces.ICiudadService;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/ciudades")
-@PreAuthorize("hasAuthority('ADMIN')")
 public class CiudadController {
     @Autowired
     private ICiudadService cS;
@@ -40,6 +36,12 @@ public class CiudadController {
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id) {
         cS.delete(id);
+    }
+    @GetMapping("/{id}")
+    public CiudadDTO listarPorId(@PathVariable("id") Integer id) {
+        ModelMapper m = new ModelMapper();
+        CiudadDTO dto = m.map(cS.listId(id), CiudadDTO.class);
+        return dto;
     }
     @GetMapping("/busquedanombre")
     public List<CiudadDTO> buscarNombre(@RequestParam String nombre) {
@@ -80,7 +82,6 @@ public class CiudadController {
             listaDTO.add(dto);
         }
         return listaDTO;
-
     }
 
 }

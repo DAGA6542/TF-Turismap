@@ -18,6 +18,8 @@ public class CiudadImplement implements ICiudadService {
     @Override
     public void delete(int idCiudad) { cR.deleteById(idCiudad); }
     @Override
+    public Ciudad listId(int idCiudad) { return cR.findById(idCiudad).orElse(new Ciudad()); }
+    @Override
     public List<Ciudad> buscarNombreCiudad(String nombreCiudad) { return cR.buscarNombreCiudad(nombreCiudad); }
     @Override
     public List<Ciudad> latitudMayor(double latitud) { return cR.latitudMayor(latitud); }
@@ -25,7 +27,6 @@ public class CiudadImplement implements ICiudadService {
     public List<Ciudad> longitudMenor(double longitud) { return cR.longitudMenor(longitud); }
     @Override
     public List<Ciudad> poblacionMayor(Long poblacion) { return cR.poblacionMayor(poblacion); }
-
     @Override
     public List<String[]> cantidadTurismo() {return cR.cantidadTurismo();}
 }

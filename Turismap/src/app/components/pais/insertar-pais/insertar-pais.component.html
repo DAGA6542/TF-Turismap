@@ -1,0 +1,95 @@
+<div class="title-container"><h1 class="title"style="text-align: center">Registro de Pais</h1>
+  <div class="container" style="text-align: center">
+    <form [formGroup]="form" (submit)="insertar()" class="example-form">
+
+      <mat-form-field class="example-full-width" *ngIf="edicion">
+        <mat-label>Codigo</mat-label>
+        <input matInput formControlName="hidPais" readonly/>
+      </mat-form-field>
+      <br />
+  
+      <mat-form-field class="example-full-width" >
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="hnombrePais" />
+        <mat-error *ngIf="form.get('hnombrePais')?.hasError('required')"
+          >El nombre es obligatorio.</mat-error
+        >
+      </mat-form-field>
+  
+      <br />
+      <mat-form-field class="example-full-width" >
+          <mat-label>Código ISO</mat-label>
+          <input matInput formControlName="hcodigoIsoPais" />
+          <mat-error *ngIf="form.get('hcodigoIsoPais')?.hasError('required')"
+            >El codigoIso es obligatorio.</mat-error
+          >
+        </mat-form-field>
+  
+      <br />
+      
+      <mat-form-field>
+          <mat-label>Continente</mat-label>
+          <mat-select formControlName="hcontinentePais">
+            @for (food of listaContinente; track food) {
+            <mat-option [value]="food.value">{{ food.viewValue }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+  
+      <br />
+      <mat-form-field>
+          <mat-label>Capital</mat-label>
+          <input matInput formControlName="hcapitalPais" />
+          <mat-error *ngIf="form.get('hcapitalPais')?.hasError('required')"
+            >La capital es obligatorio.</mat-error
+          >
+        </mat-form-field>
+  
+      <br />
+      <mat-form-field>
+          <mat-label>Moneda</mat-label>
+          <mat-select formControlName="hmonedaPais">
+            @for (food of listaMoneda; track food) {
+            <mat-option [value]="food.value">{{ food.viewValue }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+  
+      <br />
+      <mat-form-field>
+          <mat-label>Idioma Oficial</mat-label>
+          <mat-select formControlName="hidiomaOficialPais">
+            @for (food of listaIdioma; track food) {
+            <mat-option [value]="food.value">{{ food.viewValue }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+  
+      <br />
+      <mat-form-field>
+          <mat-label>Población</mat-label>
+          <input matInput formControlName="hpoblacionPais" />
+          <mat-error *ngIf="form.get('hpoblacionPais')?.hasError('required')"
+            >La población es obligatorio.</mat-error>
+        </mat-form-field>
+  
+      <br />
+      <mat-form-field>
+          <mat-label>Superficie</mat-label>
+          <input matInput formControlName="hsuperficiePais" />
+          <mat-error *ngIf="form.get('hsuperficiePais')?.hasError('required')"
+            >La superficie es obligatorio.</mat-error>
+        </mat-form-field>
+      <br />
+  
+      <br />
+      
+      <div style="text-align: center;">
+        <button mat-flat-button  color="warn">Registrar</button>
+      </div>
+      <div style="text-align: center;">
+        <button class="secondaryButton"  routerLink="/pais"> Cancelar </button>
+      </div>
+    </form>
+  </div>
+</div>
