@@ -6,12 +6,12 @@
 mat-expansion-panel {
   background: white;
   margin: 5px 0;
-  border-radius: 8px; /* Bordes redondeados */
-  overflow: hidden; /* Asegura que los bordes sean consistentes */
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 mat-expansion-panel-header {
-  align-items: center; /* Alinea el texto y los iconos del header */
+  align-items: center;
 }
 
 mat-toolbar {
@@ -21,34 +21,37 @@ mat-toolbar {
 }
 
 mat-sidenav-container {
-  height: 100vh; /* Altura completa de la ventana */
-  width: 100vw; /* Ancho completo de la ventana */
+  height: 100vh;
+  width: 100vw;
 }
 
 mat-sidenav {
-  width: 250px; /* Ajusta el ancho del menú lateral */
+  width: 250px;
 }
 
 mat-nav-list {
   display: flex;
   flex-direction: column;
-  padding: 0; /* Elimina el padding predeterminado */
+  padding: 0;
+}
+.spacer {
+  flex: 1 1 auto;
 }
 
 a.mat-list-item {
   display: flex;
-  align-items: center; /* Centra verticalmente los iconos y el texto */
-  justify-content: flex-start; /* Alinea los elementos hacia la izquierda */
-  padding: 10px 16px; /* Ajusta el espacio interno */
-  font-size: 16px; /* Tamaño del texto */
-  text-decoration: none; /* Elimina el subrayado */
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px 16px;
+  font-size: 16px;
+  text-decoration: none;
 }
 
 a.mat-list-item mat-icon {
-  margin-right: 8px; /* Espacio entre el icono y el texto */
-  font-size: 20px; /* Ajusta el tamaño del icono */
+  margin-right: 8px;
+  font-size: 20px;
 }
 
 .mat-expansion-panel-content {
-  padding: 0; /* Elimina padding adicional dentro del panel */
+  padding: 0;
 }

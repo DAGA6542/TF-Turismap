@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     request.password = this.password;
     this.loginService.login(request).subscribe(
       (data: any) => {
-        sessionStorage.setItem('token', data.jwttoken);
+        this.loginService.setToken(data.jwttoken);
         this.router.navigate(['homes']);
       },
       (error) => {
