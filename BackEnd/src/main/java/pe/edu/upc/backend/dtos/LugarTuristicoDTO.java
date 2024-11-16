@@ -4,7 +4,7 @@ public class LugarTuristicoDTO {
     private Long idLugar;
     private String nombreLugar;
     private String descripcionLugar;
-    private int numeroTelefonoLugar;
+    private int numeroLugar;
     private Ciudad idCiudad;
     public Long getIdLugar() { return idLugar; }
     public void setIdLugar(Long idLugar) { this.idLugar = idLugar; }
@@ -12,8 +12,8 @@ public class LugarTuristicoDTO {
     public void setNombreLugar(String nombreLugar) { this.nombreLugar = nombreLugar; }
     public String getDescripcionLugar() { return descripcionLugar; }
     public void setDescripcionLugar(String descripcionLugar) { this.descripcionLugar = descripcionLugar; }
-    public int getNumeroTelefonoLugar() { return numeroTelefonoLugar; }
-    public void setNumeroTelefonoLugar(int numeroTelefonoLugar) { this.numeroTelefonoLugar = numeroTelefonoLugar; }
+    public int getNumeroLugar() { return numeroLugar; }
+    public void setNumeroLugar(int numeroLugar) { this.numeroLugar = numeroLugar; }
     public Ciudad getIdCiudad() { return idCiudad; }
     public void setIdCiudad(Ciudad idCiudad) { this.idCiudad = idCiudad; }
 }
