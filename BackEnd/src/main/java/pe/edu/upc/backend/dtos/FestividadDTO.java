@@ -2,13 +2,13 @@ package pe.edu.upc.backend.dtos;
 import pe.edu.upc.backend.entities.LugarTuristico;
 import java.time.LocalDate;
 public class FestividadDTO {
-    private int idFestividad;
+    private Long idFestividad;
     private String nombreFestividad;
     private String descripcionFestividad;
     private LocalDate fechaFestividad;
     private LugarTuristico idLugarTuristico;
-    public int getIdFestividades() { return idFestividad; }
-    public void setIdFestividades(int idFestividad) { this.idFestividad = idFestividad; }
+    public Long getIdFestividades() { return idFestividad; }
+    public void setIdFestividades(Long idFestividad) { this.idFestividad = idFestividad; }
     public String getNombreFestividad() { return nombreFestividad; }
     public void setNombreFestividad(String nombreFestividad) { this.nombreFestividad = nombreFestividad; }
     public String getDescripcionFestividad() { return descripcionFestividad; }

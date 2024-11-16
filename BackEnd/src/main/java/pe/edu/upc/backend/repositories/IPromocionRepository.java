@@ -7,7 +7,7 @@ import pe.edu.upc.backend.entities.Promocion;
 import java.time.LocalDate;
 import java.util.List;
 @Repository
-public interface IPromocionRepository extends JpaRepository<Promocion, Integer> {
+public interface IPromocionRepository extends JpaRepository<Promocion, Long> {
     // Obtener promociones que tienen un descuento mayor a un valor específico
     @Query("Select p from Promocion p where p.descuentoPromocion > :descuento")
     public List<Promocion> listarPorDescuentoMayor(@Param("descuento") double descuento);

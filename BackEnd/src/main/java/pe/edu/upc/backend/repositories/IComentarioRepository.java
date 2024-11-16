@@ -7,7 +7,7 @@ import pe.edu.upc.backend.entities.Comentario;
 import java.time.LocalDate;
 import java.util.List;
 @Repository
-public interface IComentarioRepository extends JpaRepository<Comentario, Integer> {
+public interface IComentarioRepository extends JpaRepository<Comentario, Long> {
     // Buscar todos los comentarios por usuario
     @Query("Select c from Comentario c where c.idUsuario.idUsuario = :idUsuario")
     public List<Comentario> obtenerComentariosPorUsuario(@Param("idUsuario") int idUsuario);

@@ -6,7 +6,7 @@ import java.time.LocalDate;
 public class Favorito {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idFavorito;
+    private Long idFavorito;
     @Column(name = "fechaAgregadoFavorito", nullable = false)
     private LocalDate fechaAgregadoFavorito;
     @Column(name = "fechaModificacionFavorito", nullable = false)
@@ -21,12 +21,12 @@ public class Favorito {
     @JoinColumn(name = "idNegocio")
     private Negocio idNegocio;
     public Favorito() {}
-    public Favorito(int idFavorito, LocalDate fechaAgregadoFavorito, LocalDate fechaModificacionFavorito) {
+    public Favorito(Long idFavorito, LocalDate fechaAgregadoFavorito, LocalDate fechaModificacionFavorito) {
         this.idFavorito = idFavorito;
         this.fechaAgregadoFavorito = fechaAgregadoFavorito;
         this.fechaModificacionFavorito = fechaModificacionFavorito;
     }
-    public Favorito(int idFavorito, LocalDate fechaAgregadoFavorito, LocalDate fechaModificacionFavorito, Usuario idUsuario, LugarTuristico idLugarTuristico, Negocio idNegocio) {
+    public Favorito(Long idFavorito, LocalDate fechaAgregadoFavorito, LocalDate fechaModificacionFavorito, Usuario idUsuario, LugarTuristico idLugarTuristico, Negocio idNegocio) {
         this.idFavorito = idFavorito;
         this.fechaAgregadoFavorito = fechaAgregadoFavorito;
         this.fechaModificacionFavorito = fechaModificacionFavorito;
@@ -34,10 +34,10 @@ public class Favorito {
         this.idLugarTuristico = idLugarTuristico;
         this.idNegocio = idNegocio;
     }
-    public int getIdFavorito() {
+    public Long getIdFavorito() {
         return idFavorito;
     }
-    public void setIdFavorito(int idFavorito) {
+    public void setIdFavorito(Long idFavorito) {
         this.idFavorito = idFavorito;
     }
     public LocalDate getFechaAgregadoFavorito() {

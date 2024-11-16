@@ -34,18 +34,18 @@ public class FavoritoController {
         fS.update(f);
     }
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable("id") int idFavorito) {
+    public void delete(@PathVariable("id") Long idFavorito) {
         fS.delete(idFavorito);
     }
     @GetMapping("/obtenerfavporusuario")
-    public List<FavoritoDTO> obtenerFavPorUsuario(@RequestParam int idUsuario) {
+    public List<FavoritoDTO> obtenerFavPorUsuario(@RequestParam Long idUsuario) {
         return fS.obtenerFavPorUsuario(idUsuario).stream().map(y->{
             ModelMapper m = new ModelMapper();
             return m.map(y,FavoritoDTO.class);
         }).collect(Collectors.toList());
     }
     @GetMapping("/{id}")
-    public FavoritoDTO listarPorId(@PathVariable("id") int idFavorito) {
+    public FavoritoDTO listarPorId(@PathVariable("id") Long idFavorito) {
         ModelMapper m = new ModelMapper();
         FavoritoDTO f = m.map(fS.findById(idFavorito), FavoritoDTO.class);
         return f;
@@ -58,11 +58,11 @@ public class FavoritoController {
         }).collect(Collectors.toList());
     }
     @GetMapping("/cantidadfavoritosdeusuario")
-    public long cantidadFavoritosDeUsuario(@RequestParam int idUsuario) {
+    public long cantidadFavoritosDeUsuario(@RequestParam Long idUsuario) {
         return fS.cantidadFavoritosDeUsuario(idUsuario);
     }
     @GetMapping("/obtenerfavorrelacionanegocio")
-    public List<FavoritoDTO> obtenerFavoRelacionANegocio(@RequestParam int idNegocio) {
+    public List<FavoritoDTO> obtenerFavoRelacionANegocio(@RequestParam Long idNegocio) {
         return fS.obtenerFavoRelacionANegocio(idNegocio).stream().map(y->{
             ModelMapper m = new ModelMapper();
             return m.map(y,FavoritoDTO.class);
@@ -76,14 +76,14 @@ public class FavoritoController {
         }).collect(Collectors.toList());
     }
     @GetMapping("/obtenerfavodeturismo")
-    public List<FavoritoDTO> obtenerFavoDeTurismo(@RequestParam int idTuristico) {
+    public List<FavoritoDTO> obtenerFavoDeTurismo(@RequestParam Long idTuristico) {
         return fS.obtenerFavoDeTurismo(idTuristico).stream().map(y->{
             ModelMapper m = new ModelMapper();
             return m.map(y,FavoritoDTO.class);
         }).collect(Collectors.toList());
     }
     @DeleteMapping("/elimfavusuariotodo/{id}")
-    public void eliminarFavoDeUsuario(@PathVariable("id") int idUsuario) {
+    public void eliminarFavoDeUsuario(@PathVariable("id") Long idUsuario) {
         fS.eliminarFavoDeUsuario(idUsuario);
     }
 }

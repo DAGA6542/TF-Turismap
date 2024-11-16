@@ -17,9 +17,9 @@ public class ComentarioImplement implements IComentarioService {
     @Override
     public void update(Comentario comentario) { cR.save(comentario); }
     @Override
-    public void delete(int idComentario) { cR.deleteById(idComentario); }
+    public void delete(Long idComentario) { cR.deleteById(idComentario); }
     @Override
-    public Comentario listId(int idComentario) { return cR.findById(idComentario).orElse(new Comentario()); }
+    public Comentario listId(Long idComentario) { return cR.findById(idComentario).orElse(new Comentario()); }
     @Override
     public List<Comentario> obtenerComentariosPorUsuario(int idUsuario) { return cR.obtenerComentariosPorUsuario(idUsuario); }
     @Override

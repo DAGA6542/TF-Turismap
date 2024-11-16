@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.backend.dtos.MenbresiaVIPDTO;
 import pe.edu.upc.backend.entities.MenbresiaVIP;
 import pe.edu.upc.backend.serviceinterfaces.IMenbresiaVIPService;
-
 import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -34,9 +33,9 @@ public class MenbresiaVIPController {
         }).collect(Collectors.toList());
     }
     @DeleteMapping({"/id"})
-    public void eliminar(@RequestParam("id") int id) { mS.delete(id); }
+    public void eliminar(@RequestParam("id") Long id) { mS.delete(id); }
     @GetMapping("/{id}")
-    public MenbresiaVIPDTO listPorId(@PathVariable int id) {
+    public MenbresiaVIPDTO listPorId(@PathVariable Long id) {
         ModelMapper m = new ModelMapper();
         MenbresiaVIPDTO chupetin = m.map(listPorId(id),MenbresiaVIPDTO.class);
         return chupetin;
@@ -49,7 +48,7 @@ public class MenbresiaVIPController {
         }).collect(Collectors.toList());
     }
     @GetMapping("/obtenermenbresdeusuar")
-    public List<MenbresiaVIPDTO> obtenerMenbresDeUsuar(@RequestParam int idUsuario) {
+    public List<MenbresiaVIPDTO> obtenerMenbresDeUsuar(@RequestParam Long idUsuario) {
         return mS.obtenerMenbresDeUsuar(idUsuario).stream().map(y->{
             ModelMapper m = new ModelMapper();
             return m.map(y,MenbresiaVIPDTO.class);
@@ -74,7 +73,7 @@ public class MenbresiaVIPController {
         }).collect(Collectors.toList());
     }
     @GetMapping("/obtenermenbresdeusuario")
-    public List<MenbresiaVIPDTO> obtenerMenbresDeUsuario(@RequestParam int idUsuario) {
+    public List<MenbresiaVIPDTO> obtenerMenbresDeUsuario(@RequestParam Long idUsuario) {
         return mS.obtenerMenbresDeUsuario(idUsuario).stream().map(y->{
             ModelMapper m = new ModelMapper();
             return m.map(y,MenbresiaVIPDTO.class);

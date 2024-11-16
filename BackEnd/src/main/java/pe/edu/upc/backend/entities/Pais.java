@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 public class Pais {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idPais;
+    private Long idPais;
     @Column(name = "nombrePais", nullable = false, length = 60)
     private String nombrePais;
     @Column(name = "codigoIsoPais", nullable = false, length = 5)
@@ -23,7 +23,7 @@ public class Pais {
     @Column(name = "superficiePais", nullable = false)
     private Long superficiePais;
     public Pais() {}
-    public Pais(int idPais, String nombrePais, String codigoIsoPais, String continentePais, String capitalPais, String monedaPais, String idiomaOficialPais, Long poblacionPais, Long superficiePais) {
+    public Pais(Long idPais, String nombrePais, String codigoIsoPais, String continentePais, String capitalPais, String monedaPais, String idiomaOficialPais, Long poblacionPais, Long superficiePais) {
         this.idPais = idPais;
         this.nombrePais = nombrePais;
         this.codigoIsoPais = codigoIsoPais;
@@ -34,10 +34,10 @@ public class Pais {
         this.poblacionPais = poblacionPais;
         this.superficiePais = superficiePais;
     }
-    public int getIdPais() {
+    public Long getIdPais() {
         return idPais;
     }
-    public void setIdPais(int idPais) {
+    public void setIdPais(Long idPais) {
         this.idPais = idPais;
     }
     public String getNombrePais() {
