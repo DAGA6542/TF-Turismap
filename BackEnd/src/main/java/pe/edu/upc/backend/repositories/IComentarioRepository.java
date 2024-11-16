@@ -10,13 +10,13 @@ import java.util.List;
 public interface IComentarioRepository extends JpaRepository<Comentario, Long> {
     // Buscar todos los comentarios por usuario
     @Query("Select c from Comentario c where c.idUsuario.idUsuario = :idUsuario")
-    public List<Comentario> obtenerComentariosPorUsuario(@Param("idUsuario") int idUsuario);
+    public List<Comentario> obtenerComentariosPorUsuario(@Param("idUsuario") Long idUsuario);
     // Buscar todos los comentarios por negocio
     @Query("Select c from Comentario c where c.idNegocio.idNegocio = :idNegocio")
-    public List<Comentario> buscarComentariosPorNegocio(@Param("idNegocio") int idNegocio);
+    public List<Comentario> buscarComentariosPorNegocio(@Param("idNegocio") Long idNegocio);
     // Buscar comentarios por sitio turistico
-    @Query("Select c from Comentario c where c.idLugarTuristico.idLugarTuristico = :idTurismo")
-    public List<Comentario> buscarComentariosPorTurismo(@Param("idTurismo") int idTurismo);
+    @Query("Select c from Comentario c where c.idLugarTuristico.idLugar = :idLugar")
+    public List<Comentario> buscarComentariosPorTurismo(@Param("idLugar") Long idLugar);
     // comentarios recientes hasta una fecha especifica
     @Query("Select c from Comentario c where c.fechaComentario <= :fecha")
     public List<Comentario> obtenerComentariosHastaFecha(@Param("fecha") LocalDate fecha);

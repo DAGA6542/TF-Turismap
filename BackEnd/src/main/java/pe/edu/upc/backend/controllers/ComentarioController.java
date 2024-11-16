@@ -46,7 +46,7 @@ public class ComentarioController {
         return c;
     }
     @GetMapping("/obtenercomentariosusuario")
-    public List<ComentarioDTO> obtenerComentariosPorUsuario(@RequestParam int idUsuario) {
+    public List<ComentarioDTO> obtenerComentariosPorUsuario(@RequestParam Long idUsuario) {
         return cS.obtenerComentariosPorUsuario(idUsuario).stream().map(y->{
             ModelMapper m = new ModelMapper();
             m.map(y,ComentarioDTO.class);
@@ -54,7 +54,7 @@ public class ComentarioController {
         }).collect(Collectors.toList());
     }
     @GetMapping("/buscarcomentariosnegocio")
-    public List<ComentarioDTO> buscarComentariosPorNegocio(@RequestParam int idNegocio) {
+    public List<ComentarioDTO> buscarComentariosPorNegocio(@RequestParam Long idNegocio) {
         return cS.buscarComentariosPorNegocio(idNegocio).stream().map(y->{
             ModelMapper m = new ModelMapper();
             m.map(y,ComentarioDTO.class);
@@ -62,8 +62,8 @@ public class ComentarioController {
         }).collect(Collectors.toList());
     }
     @GetMapping("/buscarcomentariosturismo")
-    public List<ComentarioDTO> buscarComentariosPorTurismo(@RequestParam int idTurismo) {
-        return cS.buscarComentariosPorTurismo(idTurismo).stream().map(y->{
+    public List<ComentarioDTO> buscarComentariosPorTurismo(@RequestParam Long idLugar) {
+        return cS.buscarComentariosPorTurismo(idLugar).stream().map(y->{
             ModelMapper m = new ModelMapper();
             m.map(y,ComentarioDTO.class);
             return m.map(y,ComentarioDTO.class);

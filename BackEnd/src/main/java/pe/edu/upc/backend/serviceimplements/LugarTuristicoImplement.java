@@ -24,7 +24,7 @@ public class LugarTuristicoImplement implements ILugarTuristicoService {
     @Override
     public long contarPorCiudadL(Long idCiudad) { return lR.contarPorCiudadL(idCiudad); }
     @Override
-    public List<LugarTuristico> listarPorNumero(String nombreLugarTuristico) { return lR.listarPorNumero(nombreLugarTuristico); }
+    public List<LugarTuristico> listarPorNumero(String nombreLugar) { return lR.listarPorNumero(nombreLugar); }
     @Override
     public List<LugarTuristico> listarlugarturisticoporciudad(String nombreCiudad) { return lR.listarlugarturisticoporciudad(nombreCiudad); }
 }

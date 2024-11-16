@@ -25,8 +25,8 @@ public interface IFavoritoRepository extends JpaRepository<Favorito, Long> {
     @Query("Select f from Favorito f where f.fechaModificacionFavorito > :fecha")
     public List<Favorito> obtenerFavoritosPorFechaModificacion(@Param("fecha") LocalDate fecha);
     // Obtener los favoritos relacionados con un destino turístico específico
-    @Query("Select f from Favorito f where f.idLugarTuristico = :idTuristico")
-    public List<Favorito> obtenerFavoDeTurismo(@Param("idTuristico") Long idTuristico);
+    @Query("Select f from Favorito f where f.idLugar = :idLugar")
+    public List<Favorito> obtenerFavoDeTurismo(@Param("idLugar") Long idLugar);
     // Eliminar todos los favoritos de un usuario específico
     @Modifying
     @Query("Delete from Favorito f where f.idUsuario = :idUsuario")

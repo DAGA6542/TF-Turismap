@@ -20,7 +20,7 @@ public class FestividadImplement implements IFestividadService {
     @Override
     public Festividad listById(Long idFestividad) { return fR.findById(idFestividad).orElse(new Festividad()); }
     @Override
-    public List<Festividad> obtenerPorLugarTuristico(Long idLugarTuristico) { return fR.obtenerPorLugarTuristico(idLugarTuristico); }
+    public List<Festividad> obtenerPorLugarTuristico(Long idLugar) { return fR.obtenerPorLugarTuristico(idLugar); }
     @Override
-    public long contarPorLugarTuristico(Long idLugarTuristico) { return fR.contarPorLugarTuristico(idLugarTuristico); }
+    public long contarPorLugarTuristico(Long idLugar) { return fR.contarPorLugarTuristico(idLugar); }
 }

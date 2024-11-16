@@ -53,8 +53,8 @@ public class LugarTuristicoController {
         return lS.contarPorCiudadL(idCiudad);
     }
     @GetMapping("/listarPorNumero")
-    public List<LugarTuristicoDTO> listarPorNumero(@RequestParam String nombreLugarTuristico) { // By Diego
-        return lS.listarPorNumero(nombreLugarTuristico).stream().map(y->{
+    public List<LugarTuristicoDTO> listarPorNumero(@RequestParam String nombreLugar) { // By Diego
+        return lS.listarPorNumero(nombreLugar).stream().map(y->{
             ModelMapper m = new ModelMapper();
             return m.map(y,LugarTuristicoDTO.class);
         }).collect(Collectors.toList());

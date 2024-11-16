@@ -76,8 +76,8 @@ public class FavoritoController {
         }).collect(Collectors.toList());
     }
     @GetMapping("/obtenerfavodeturismo")
-    public List<FavoritoDTO> obtenerFavoDeTurismo(@RequestParam Long idTuristico) {
-        return fS.obtenerFavoDeTurismo(idTuristico).stream().map(y->{
+    public List<FavoritoDTO> obtenerFavoDeTurismo(@RequestParam Long idLugar) {
+        return fS.obtenerFavoDeTurismo(idLugar).stream().map(y->{
             ModelMapper m = new ModelMapper();
             return m.map(y,FavoritoDTO.class);
         }).collect(Collectors.toList());

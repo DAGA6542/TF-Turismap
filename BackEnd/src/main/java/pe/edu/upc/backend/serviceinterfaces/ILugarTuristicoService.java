@@ -9,6 +9,6 @@ public interface ILugarTuristicoService {
     public LugarTuristico listById(Long listById);
     public List<LugarTuristico> obtenerPorCiudadL(Long idCiudad);
     public long contarPorCiudadL(Long idCiudad);
-    public List<LugarTuristico> listarPorNumero(String nombreLugarTuristico);
+    public List<LugarTuristico> listarPorNumero(String nombreLugar);
     public List<LugarTuristico> listarlugarturisticoporciudad(String nombreCiudad);
 }

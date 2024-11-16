@@ -6,7 +6,7 @@ public class FestividadDTO {
     private String nombreFestividad;
     private String descripcionFestividad;
     private LocalDate fechaFestividad;
-    private LugarTuristico idLugarTuristico;
+    private LugarTuristico idLugar;
     public Long getIdFestividades() { return idFestividad; }
     public void setIdFestividades(Long idFestividad) { this.idFestividad = idFestividad; }
     public String getNombreFestividad() { return nombreFestividad; }
@@ -15,6 +15,6 @@ public class FestividadDTO {
     public void setDescripcionFestividad(String descripcionFestividad) { this.descripcionFestividad = descripcionFestividad; }
     public LocalDate getFechaFestividad() { return fechaFestividad; }
     public void setFechaFestividad(LocalDate fechaFestividad) { this.fechaFestividad = fechaFestividad; }
-    public LugarTuristico getIdLugarTuristico() { return idLugarTuristico; }
-    public void setIdLugarTuristico(LugarTuristico idLugarTuristico) { this.idLugarTuristico = idLugarTuristico; }
+    public LugarTuristico getIdLugar() { return idLugar; }
+    public void setIdLugar(LugarTuristico idLugar) { this.idLugar = idLugar; }
 }

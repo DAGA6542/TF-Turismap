@@ -4,5 +4,5 @@ export class Festividad {
     nombreFestividad: string = "";
     descripcionFestividad: string = "";
     fechaFestividad: Date = new Date(Date.now());
-    idLugarTuristico: LugarTuristico = new LugarTuristico();
+    idLugar: LugarTuristico = new LugarTuristico();
 }

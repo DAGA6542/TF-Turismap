@@ -19,7 +19,7 @@ import { FavoritoService } from '../../../services/favorito.service';
 })
 export class ListarFavoritoComponent {
   displayedColumns: string[] = ['idFavorito', 'fechaAgregadoFavorito', 'fechaModificacionFavorito', 
-    'idUsuario', 'idLugarTuristico', 'idNegocio', 'accion1', 'accion2'];
+    'idUsuario', 'idLugar', 'idNegocio', 'accion1', 'accion2'];
 
   datasource: MatTableDataSource<Favorito> = new MatTableDataSource();
 
