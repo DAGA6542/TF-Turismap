@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 public class Negocio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idNegocio;
+    private Long idNegocio;
     @Column(name = "nombreNegocio", nullable = false, length = 80)
     private String nombreNegocio;
     @Column(name = "horarioNegocio", nullable = false, length = 60)
@@ -25,16 +25,7 @@ public class Negocio {
     @JoinColumn(name = "idPromocion")
     private Promocion idPromocion;
     public Negocio() {}
-    public Negocio(int idNegocio, String nombreNegocio, String horarioNegocio, int numeroTelefonoNegocio, int calificacionNegocio, String descripcionNegocio, Boolean reservaNegocio) {
-        this.idNegocio = idNegocio;
-        this.nombreNegocio = nombreNegocio;
-        this.horarioNegocio = horarioNegocio;
-        this.numeroTelefonoNegocio = numeroTelefonoNegocio;
-        this.calificacionNegocio = calificacionNegocio;
-        this.descripcionNegocio = descripcionNegocio;
-        this.reservaNegocio = reservaNegocio;
-    }
-    public Negocio(int idNegocio, String nombreNegocio, String horarioNegocio, int numeroTelefonoNegocio, int calificacionNegocio, Ciudad idCiudad, Promocion idPromocion, String descripcionNegocio, Boolean reservaNegocio) {
+    public Negocio(Long idNegocio, String nombreNegocio, String horarioNegocio, int numeroTelefonoNegocio, int calificacionNegocio, Ciudad idCiudad, Promocion idPromocion, String descripcionNegocio, Boolean reservaNegocio) {
         this.idNegocio = idNegocio;
         this.nombreNegocio = nombreNegocio;
         this.horarioNegocio = horarioNegocio;
@@ -45,10 +36,10 @@ public class Negocio {
         this.descripcionNegocio = descripcionNegocio;
         this.reservaNegocio = reservaNegocio;
     }
-    public int getIdNegocio() {
+    public Long getIdNegocio() {
         return idNegocio;
     }
-    public void setIdNegocio(int idNegocio) {
+    public void setIdNegocio(Long idNegocio) {
         this.idNegocio = idNegocio;
     }
     public String getNombreNegocio() {

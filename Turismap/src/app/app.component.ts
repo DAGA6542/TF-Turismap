@@ -42,10 +42,10 @@ export class AppComponent {
     return this.loginService.verificar();
   }
   isDeveloper() {
-    return this.role === 'DEVELOPER';
+    return this.role === 'ADMIN';
   }
 
   isTester() {
-    return this.role === 'TESTER';
+    return this.role === 'ADMIN';
   }
 }

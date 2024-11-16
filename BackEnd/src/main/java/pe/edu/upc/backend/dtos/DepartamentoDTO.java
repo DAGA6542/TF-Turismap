@@ -1,16 +1,16 @@
 package pe.edu.upc.backend.dtos;
 import pe.edu.upc.backend.entities.Pais;
 public class DepartamentoDTO {
-    private int idDepartamento;
+    private Long idDepartamento;
     private String nombreDepartamento;
     private String capitalDepartamento;
     private Long poblacionDepartamento;
     private int superficieDepartamento;
     private Pais idPais;
-    public int getIdDepartamento() {
+    public Long getIdDepartamento() {
         return idDepartamento;
     }
-    public void setIdDepartamento(int idDepartamento) {
+    public void setIdDepartamento(Long idDepartamento) {
         this.idDepartamento = idDepartamento;
     }
     public String getNombreDepartamento() {

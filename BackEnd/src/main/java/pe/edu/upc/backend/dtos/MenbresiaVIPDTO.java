@@ -2,17 +2,17 @@ package pe.edu.upc.backend.dtos;
 import pe.edu.upc.backend.entities.Usuario;
 import java.time.LocalDate;
 public class MenbresiaVIPDTO {
-    private int idMenbresiaVIP;
+    private Long idMenbresiaVIP;
     private String tipoMenbresiaVIP;
     private LocalDate fechaInicioMenbresiaVIP;
     private LocalDate fechaFinMenbresiaVIP;
     private Boolean estadoMenbresiaVIP;
     private String beneficioMenbresiaVIP;
     private Usuario idUsuario;
-    public int getIdMenbresiaVIP() {
+    public Long getIdMenbresiaVIP() {
         return idMenbresiaVIP;
     }
-    public void setIdMenbresiaVIP(int idMenbresiaVIP) {
+    public void setIdMenbresiaVIP(Long idMenbresiaVIP) {
         this.idMenbresiaVIP = idMenbresiaVIP;
     }
     public String getTipoMenbresiaVIP() {

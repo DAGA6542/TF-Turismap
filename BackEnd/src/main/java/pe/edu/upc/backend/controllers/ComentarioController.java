@@ -36,11 +36,11 @@ public class ComentarioController {
         }).collect(Collectors.toList());
     }
     @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable("id") int id) {
+    public void eliminar(@PathVariable("id") Long id) {
         cS.delete(id);
     }
     @GetMapping("/{id}")
-    public ComentarioDTO listarPorId(@PathVariable("id") int id) {
+    public ComentarioDTO listarPorId(@PathVariable("id") Long id) {
         ModelMapper m = new ModelMapper();
         ComentarioDTO c = m.map(cS.listId(id), ComentarioDTO.class);
         return c;

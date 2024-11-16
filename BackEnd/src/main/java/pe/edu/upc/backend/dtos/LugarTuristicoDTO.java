@@ -1,13 +1,13 @@
 package pe.edu.upc.backend.dtos;
 import pe.edu.upc.backend.entities.Ciudad;
 public class LugarTuristicoDTO {
-    private int idLugar;
+    private Long idLugar;
     private String nombreLugar;
     private String descripcionLugar;
     private int numeroTelefonoLugar;
     private Ciudad idCiudad;
-    public int getIdLugar() { return idLugar; }
-    public void setIdLugar(int idLugar) { this.idLugar = idLugar; }
+    public Long getIdLugar() { return idLugar; }
+    public void setIdLugar(Long idLugar) { this.idLugar = idLugar; }
     public String getNombreLugar() { return nombreLugar; }
     public void setNombreLugar(String nombreLugar) { this.nombreLugar = nombreLugar; }
     public String getDescripcionLugar() { return descripcionLugar; }

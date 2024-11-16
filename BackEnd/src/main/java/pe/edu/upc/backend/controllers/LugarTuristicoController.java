@@ -2,7 +2,6 @@ package pe.edu.upc.backend.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import pe.edu.upc.backend.dtos.FestividadDTO;
 import pe.edu.upc.backend.dtos.LugarTuristicoDTO;
 import pe.edu.upc.backend.entities.LugarTuristico;
 import pe.edu.upc.backend.serviceinterfaces.ILugarTuristicoService;
@@ -33,23 +32,23 @@ public class LugarTuristicoController {
         }).collect(Collectors.toList());
     }
     @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable("id") int id) {
+    public void eliminar(@PathVariable("id") Long id) {
         lS.delete(id);
     }
     @GetMapping("/{id}")
-    public LugarTuristicoDTO listPorId(@PathVariable("id") int id) {
+    public LugarTuristicoDTO listPorId(@PathVariable("id") Long id) {
         ModelMapper m = new ModelMapper();
         return m.map(lS.listById(id), LugarTuristicoDTO.class);
     }
     @GetMapping("/lugarturisticoporciudad")
-    public List<LugarTuristicoDTO> obtenerPorCiudadL(@RequestParam int idCiudad) {
+    public List<LugarTuristicoDTO> obtenerPorCiudadL(@RequestParam Long idCiudad) {
         return lS.obtenerPorCiudadL(idCiudad).stream().map(y->{
             ModelMapper m = new ModelMapper();
             return m.map(y,LugarTuristicoDTO.class);
         }).collect(Collectors.toList());
     }
     @GetMapping("/cantidadlugaresturisticosporciudad")
-    public long contarPorCiudadL(@RequestParam int idCiudad) {
+    public long contarPorCiudadL(@RequestParam Long idCiudad) {
         return lS.contarPorCiudadL(idCiudad);
     }
     @GetMapping("/listarPorNumero")

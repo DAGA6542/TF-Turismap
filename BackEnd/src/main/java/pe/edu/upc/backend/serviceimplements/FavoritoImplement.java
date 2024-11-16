@@ -17,21 +17,21 @@ public class FavoritoImplement implements IFavoritoService {
     @Override
     public void update(Favorito favorito) { fR.save(favorito); }
     @Override
-    public void delete(int idFavorito) { fR.deleteById(idFavorito); }
+    public void delete(Long idFavorito) { fR.deleteById(idFavorito); }
     @Override
-    public Favorito findById(int idFavorito) { return fR.findById(idFavorito).orElse(new Favorito()); }
+    public Favorito findById(Long idFavorito) { return fR.findById(idFavorito).orElse(new Favorito()); }
     @Override
-    public List<Favorito> obtenerFavPorUsuario(int idUsuario) { return fR.obtenerFavPorUsuario(idUsuario); }
+    public List<Favorito> obtenerFavPorUsuario(Long idUsuario) { return fR.obtenerFavPorUsuario(idUsuario); }
     @Override
     public List<Favorito> obtenerFavPorFechaAgregado(LocalDate fecha) { return fR.obtenerFavPorFechaAgregado(fecha); }
     @Override
-    public long cantidadFavoritosDeUsuario(int idUsuario) { return cantidadFavoritosDeUsuario(idUsuario); }
+    public long cantidadFavoritosDeUsuario(Long idUsuario) { return cantidadFavoritosDeUsuario(idUsuario); }
     @Override
-    public List<Favorito> obtenerFavoRelacionANegocio(int idNegocio) { return fR.obtenerFavoRelacionANegocio(idNegocio); }
+    public List<Favorito> obtenerFavoRelacionANegocio(Long idNegocio) { return fR.obtenerFavoRelacionANegocio(idNegocio); }
     @Override
     public List<Favorito> obtenerFavoritosPorFechaModificacion(LocalDate fecha) { return fR.obtenerFavoritosPorFechaModificacion(fecha); }
     @Override
-    public List<Favorito> obtenerFavoDeTurismo(int idTuristico) { return fR.obtenerFavoDeTurismo(idTuristico); }
+    public List<Favorito> obtenerFavoDeTurismo(Long idTuristico) { return fR.obtenerFavoDeTurismo(idTuristico); }
     @Override
-    public void eliminarFavoDeUsuario(int idUsuario) { fR.eliminarFavoDeUsuario(idUsuario); }
+    public void eliminarFavoDeUsuario(Long idUsuario) { fR.eliminarFavoDeUsuario(idUsuario); }
 }

@@ -1,7 +1,7 @@
 package pe.edu.upc.backend.dtos;
 import pe.edu.upc.backend.entities.Departamento;
 public class CiudadDTO {
-    private int idCiudad;
+    private Long idCiudad;
     private String nombreCiudad;
     private Long poblacionCiudad;
     private int superficieCiudad;
@@ -9,8 +9,8 @@ public class CiudadDTO {
     private double longitudCiudad;
     private int codigoPostalCiudad;
     private Departamento idDepartamento;
-    public int getIdCiudad() { return idCiudad; }
-    public void setIdCiudad(int idCiudad) { this.idCiudad = idCiudad; }
+    public Long getIdCiudad() { return idCiudad; }
+    public void setIdCiudad(Long idCiudad) { this.idCiudad = idCiudad; }
     public String getNombreCiudad() { return nombreCiudad; }
     public void setNombreCiudad(String nombreCiudad) { this.nombreCiudad = nombreCiudad; }
     public Long getPoblacionCiudad() { return poblacionCiudad; }

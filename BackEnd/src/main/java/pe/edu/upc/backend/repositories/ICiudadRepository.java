@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import pe.edu.upc.backend.entities.Ciudad;
 import java.util.List;
 @Repository
-public interface ICiudadRepository extends JpaRepository<Ciudad, Integer> {
+public interface ICiudadRepository extends JpaRepository<Ciudad, Long> {
     // buscar ciudad por nombre
     @Query("Select c from Ciudad c where c.nombreCiudad like %:nombre%")
     public List<Ciudad> buscarNombreCiudad(@Param("nombre") String nombreCiudad);

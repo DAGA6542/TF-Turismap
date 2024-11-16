@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 public class Departamento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idDepartamento;
+    private Long idDepartamento;
     @Column(name = "nombreDepartamento", nullable = false, length = 50)
     private String nombreDepartamento;
     @Column(name = "capitalDepartamento", nullable = false, length = 40)
@@ -18,7 +18,7 @@ public class Departamento {
     @JoinColumn(name = "idPais")
     private Pais idPais;
     public Departamento() {}
-    public Departamento(int idDepartamento, String nombreDepartamento, String capitalDepartamento, Long poblacionDepartamento, int superficieDepartamento, Pais idPais) {
+    public Departamento(Long idDepartamento, String nombreDepartamento, String capitalDepartamento, Long poblacionDepartamento, int superficieDepartamento, Pais idPais) {
         this.idDepartamento = idDepartamento;
         this.nombreDepartamento = nombreDepartamento;
         this.capitalDepartamento = capitalDepartamento;
@@ -26,10 +26,10 @@ public class Departamento {
         this.superficieDepartamento = superficieDepartamento;
         this.idPais = idPais;
     }
-    public int getIdDepartamento() {
+    public Long getIdDepartamento() {
         return idDepartamento;
     }
-    public void setIdDepartamento(int idDepartamento) {
+    public void setIdDepartamento(Long idDepartamento) {
         this.idDepartamento = idDepartamento;
     }
     public String getNombreDepartamento() {

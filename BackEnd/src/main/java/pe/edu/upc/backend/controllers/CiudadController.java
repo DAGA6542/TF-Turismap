@@ -34,11 +34,11 @@ public class CiudadController {
         }).collect(Collectors.toList());
     }
     @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable("id") Integer id) {
+    public void eliminar(@PathVariable("id") Long id) {
         cS.delete(id);
     }
     @GetMapping("/{id}")
-    public CiudadDTO listarPorId(@PathVariable("id") Integer id) {
+    public CiudadDTO listarPorId(@PathVariable("id") Long id) {
         ModelMapper m = new ModelMapper();
         CiudadDTO dto = m.map(cS.listId(id), CiudadDTO.class);
         return dto;

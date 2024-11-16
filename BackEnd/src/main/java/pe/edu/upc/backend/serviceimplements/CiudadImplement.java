@@ -16,9 +16,9 @@ public class CiudadImplement implements ICiudadService {
     @Override
     public void update(Ciudad ciudad) { cR.save(ciudad); }
     @Override
-    public void delete(int idCiudad) { cR.deleteById(idCiudad); }
+    public void delete(Long idCiudad) { cR.deleteById(idCiudad); }
     @Override
-    public Ciudad listId(int idCiudad) { return cR.findById(idCiudad).orElse(new Ciudad()); }
+    public Ciudad listId(Long idCiudad) { return cR.findById(idCiudad).orElse(new Ciudad()); }
     @Override
     public List<Ciudad> buscarNombreCiudad(String nombreCiudad) { return cR.buscarNombreCiudad(nombreCiudad); }
     @Override

@@ -5,10 +5,10 @@ public interface INegocioService {
     public void insert(Negocio negocio);
     public List<Negocio> list();
     public void update(Negocio negocio);
-    public void delete(int idNegocio);
-    public List<Negocio> obtenerPorCiudad(int idCiudad);
-    public Negocio listById(int idNegocio);
-    public long contarPorCiudad(int idCiudad);
+    public void delete(Long idNegocio);
+    public List<Negocio> obtenerPorCiudad(Long idCiudad);
+    public Negocio listById(Long idNegocio);
+    public long contarPorCiudad(Long idCiudad);
     public List<Negocio> obtenerPorCalificacion(int calificacion);
     public List<Negocio> buscarPorNombre(String nombre);
     public List<Negocio> obtenerPorHorario(String horario);

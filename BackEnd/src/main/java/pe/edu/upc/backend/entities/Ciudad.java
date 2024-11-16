@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 public class Ciudad {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idCiudad;
+    private Long idCiudad;
     @Column(name = "nombreCiudad", nullable = false, length = 70)
     private String nombreCiudad;
     @Column(name = "poblacionCiudad", nullable = false)
@@ -22,7 +22,7 @@ public class Ciudad {
     @JoinColumn(name = "idDepartamento")
     private Departamento idDepartamento;
     public Ciudad() {}
-    public Ciudad(int idCiudad, String nombreCiudad, Long poblacionCiudad, int superficieCiudad, double latitudCiudad, double longitudCiudad, int codigoPostalCiudad, Departamento idDepartamento) {
+    public Ciudad(Long idCiudad, String nombreCiudad, Long poblacionCiudad, int superficieCiudad, double latitudCiudad, double longitudCiudad, int codigoPostalCiudad, Departamento idDepartamento) {
         this.idCiudad = idCiudad;
         this.nombreCiudad = nombreCiudad;
         this.poblacionCiudad = poblacionCiudad;
@@ -32,8 +32,8 @@ public class Ciudad {
         this.codigoPostalCiudad = codigoPostalCiudad;
         this.idDepartamento = idDepartamento;
     }
-    public int getIdCiudad() { return idCiudad; }
-    public void setIdCiudad(int idCiudad) { this.idCiudad = idCiudad; }
+    public Long getIdCiudad() { return idCiudad; }
+    public void setIdCiudad(Long idCiudad) { this.idCiudad = idCiudad; }
     public String getNombreCiudad() { return nombreCiudad; }
     public void setNombreCiudad(String nombreCiudad) { this.nombreCiudad = nombreCiudad; }
     public Long getPoblacionCiudad() { return poblacionCiudad; }

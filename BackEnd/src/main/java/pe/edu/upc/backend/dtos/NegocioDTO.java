@@ -2,7 +2,7 @@ package pe.edu.upc.backend.dtos;
 import pe.edu.upc.backend.entities.Ciudad;
 import pe.edu.upc.backend.entities.Promocion;
 public class NegocioDTO {
-    private int idNegocio;
+    private Long idNegocio;
     private String nombreNegocio;
     private String horarioNegocio;
     private int numeroTelefonoNegocio;
@@ -11,10 +11,10 @@ public class NegocioDTO {
     private Boolean reservadoNegocio;
     private Ciudad idCiudad;
     private Promocion idPromocion;
-    public int getIdNegocio() {
+    public Long getIdNegocio() {
         return idNegocio;
     }
-    public void setIdNegocio(int idNegocio) {
+    public void setIdNegocio(Long idNegocio) {
         this.idNegocio = idNegocio;
     }
     public String getNombreNegocio() {

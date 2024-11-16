@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import pe.edu.upc.backend.entities.Pais;
 import java.util.List;
 @Repository
-public interface IPaisRepository extends JpaRepository<Pais, Integer> {
+public interface IPaisRepository extends JpaRepository<Pais, Long> {
     // Obtener países por continente
     @Query("Select p from Pais p where p.continentePais = :continente")
     public List<Pais> obtenerPorContinente(@Param("continente") String continente);
@@ -34,5 +34,4 @@ public interface IPaisRepository extends JpaRepository<Pais, Integer> {
     // Obtener países cuya capital es igual a un valor dado
     @Query("Select p from Pais p where p.capitalPais = :capital")
     public Pais obtenerPorCapital(@Param("capital") String capital);
-
 }

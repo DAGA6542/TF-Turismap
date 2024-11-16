@@ -32,21 +32,21 @@ public class NegocioController {
         }).collect(Collectors.toList());
     }
     @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable("id") int id) { nS.delete(id); }
+    public void eliminar(@PathVariable("id") Long id) { nS.delete(id); }
     @GetMapping("/{id}")
-    public NegocioDTO listarPorId(@PathVariable("id") int id) {
+    public NegocioDTO listarPorId(@PathVariable("id") Long id) {
         ModelMapper m = new ModelMapper();
         return m.map(nS.listById(id), NegocioDTO.class);
     }
     @GetMapping("/obtenerporciudad")
-    public List<NegocioDTO> obtenerPorCiudad(@RequestParam int idCiudad) {
+    public List<NegocioDTO> obtenerPorCiudad(@RequestParam Long idCiudad) {
         return nS.obtenerPorCiudad(idCiudad).stream().map(y->{
             ModelMapper m = new ModelMapper();
             return m.map(y,NegocioDTO.class);
         }).collect(Collectors.toList());
     }
     @GetMapping("/contarporciudad")
-    public long contarPorCiudad(@RequestParam int idCiudad) {
+    public long contarPorCiudad(@RequestParam Long idCiudad) {
         return nS.contarPorCiudad(idCiudad);
     }
     @GetMapping("/obtenerporcalificacion")

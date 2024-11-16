@@ -4,16 +4,16 @@ import pe.edu.upc.backend.entities.Negocio;
 import pe.edu.upc.backend.entities.Usuario;
 import java.time.LocalDate;
 public class FavoritoDTO {
-    private int idFavorito;
+    private Long idFavorito;
     private LocalDate fechaAgregadoFavorito;
     private LocalDate fechaModificacionFavorito;
     private Usuario idUsuario;
     private Negocio idNegocio;
     private LugarTuristico idLugar;
-    public int getIdFavorito() {
+    public Long getIdFavorito() {
         return idFavorito;
     }
-    public void setIdFavorito(int idFavorito) {
+    public void setIdFavorito(Long idFavorito) {
         this.idFavorito = idFavorito;
     }
     public LocalDate getFechaAgregadoFavorito() {

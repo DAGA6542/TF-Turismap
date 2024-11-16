@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public class MenbresiaVIP {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idMenbresiaVIP;
+    private Long idMenbresiaVIP;
     @Column(name = "tipoMenbresiaVIP", nullable = false, length = 50)
     private String tipoMenbresiaVIP;
     @Column(name = "fechaInicioMenbresiaVIP", nullable = false)
@@ -20,7 +20,7 @@ public class MenbresiaVIP {
     @JoinColumn(name = "idUsuario")
     private Usuario idUsuario;
     public MenbresiaVIP() {}
-    public MenbresiaVIP(int idMenbresiaVIP, String tipoMenbresiaVIP, LocalDate fechaInicioMenbresiaVIP, LocalDate fechaFinMenbresiaVIP, Boolean estadoMenbresiaVIP, String beneficioMenbresiaVIP, Usuario idUsuario) {
+    public MenbresiaVIP(Long idMenbresiaVIP, String tipoMenbresiaVIP, LocalDate fechaInicioMenbresiaVIP, LocalDate fechaFinMenbresiaVIP, Boolean estadoMenbresiaVIP, String beneficioMenbresiaVIP, Usuario idUsuario) {
         this.idMenbresiaVIP = idMenbresiaVIP;
         this.tipoMenbresiaVIP = tipoMenbresiaVIP;
         this.fechaInicioMenbresiaVIP = fechaInicioMenbresiaVIP;
@@ -29,8 +29,8 @@ public class MenbresiaVIP {
         this.beneficioMenbresiaVIP = beneficioMenbresiaVIP;
         this.idUsuario = idUsuario;
     }
-    public int getIdMenbresiaVIP() { return idMenbresiaVIP; }
-    public void setIdMenbresiaVIP(int idMenbresiaVIP) { this.idMenbresiaVIP = idMenbresiaVIP; }
+    public Long getIdMenbresiaVIP() { return idMenbresiaVIP; }
+    public void setIdMenbresiaVIP(Long idMenbresiaVIP) { this.idMenbresiaVIP = idMenbresiaVIP; }
     public String getTipoMenbresiaVIP() { return tipoMenbresiaVIP; }
     public void setTipoMenbresiaVIP(String tipoMenbresiaVIP) { this.tipoMenbresiaVIP = tipoMenbresiaVIP; }
     public LocalDate getFechaInicioMenbresiaVIP() { return fechaInicioMenbresiaVIP; }

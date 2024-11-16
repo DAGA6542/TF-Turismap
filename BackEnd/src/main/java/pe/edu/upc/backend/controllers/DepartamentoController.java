@@ -32,11 +32,11 @@ public class DepartamentoController {
         }).collect(Collectors.toList());
     }
     @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable("id") Integer id) {
+    public void eliminar(@PathVariable("id") Long id) {
         dS.delete(id);
     }
     @GetMapping("/{id}")
-    public DepartamentoDTO listarPorId(@PathVariable("id") Integer id) {
+    public DepartamentoDTO listarPorId(@PathVariable("id") Long id) {
         ModelMapper m = new ModelMapper();
         DepartamentoDTO d = m.map(dS.findById(id), DepartamentoDTO.class);
         return d;
