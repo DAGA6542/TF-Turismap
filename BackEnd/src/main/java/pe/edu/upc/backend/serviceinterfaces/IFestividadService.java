@@ -6,7 +6,7 @@ public interface IFestividadService {
     public List<Festividad> list();
     public void update(Festividad festividad);
     public void delete(Long idFestividadId);
-    public List<Festividad> obtenerPorLugarTuristico(Long idLugarTuristico);
-    public long contarPorLugarTuristico(Long idLugarTuristico);
+    public List<Festividad> obtenerPorLugarTuristico(Long idLugar);
+    public long contarPorLugarTuristico(Long idLugar);
     public Festividad listById(Long idFestividad);
 }

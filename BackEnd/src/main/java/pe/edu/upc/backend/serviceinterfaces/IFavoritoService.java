@@ -13,6 +13,6 @@ public interface IFavoritoService {
     public long cantidadFavoritosDeUsuario(Long idUsuario);
     public List<Favorito> obtenerFavoRelacionANegocio(Long idNegocio);
     public List<Favorito> obtenerFavoritosPorFechaModificacion(LocalDate fecha);
-    public List<Favorito> obtenerFavoDeTurismo(Long idTuristico);
+    public List<Favorito> obtenerFavoDeTurismo(Long idLugar);
     public void eliminarFavoDeUsuario(Long idUsuario);
 }

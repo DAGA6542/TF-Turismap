@@ -16,7 +16,7 @@ public class Favorito {
     private Usuario idUsuario;
     @ManyToOne
     @JoinColumn(name = "idLugarTuristico")
-    private LugarTuristico idLugarTuristico;
+    private LugarTuristico idLugar;
     @ManyToOne
     @JoinColumn(name = "idNegocio")
     private Negocio idNegocio;
@@ -26,12 +26,12 @@ public class Favorito {
         this.fechaAgregadoFavorito = fechaAgregadoFavorito;
         this.fechaModificacionFavorito = fechaModificacionFavorito;
     }
-    public Favorito(Long idFavorito, LocalDate fechaAgregadoFavorito, LocalDate fechaModificacionFavorito, Usuario idUsuario, LugarTuristico idLugarTuristico, Negocio idNegocio) {
+    public Favorito(Long idFavorito, LocalDate fechaAgregadoFavorito, LocalDate fechaModificacionFavorito, Usuario idUsuario, LugarTuristico idLugar, Negocio idNegocio) {
         this.idFavorito = idFavorito;
         this.fechaAgregadoFavorito = fechaAgregadoFavorito;
         this.fechaModificacionFavorito = fechaModificacionFavorito;
         this.idUsuario = idUsuario;
-        this.idLugarTuristico = idLugarTuristico;
+        this.idLugar = idLugar;
         this.idNegocio = idNegocio;
     }
     public Long getIdFavorito() {
@@ -52,11 +52,11 @@ public class Favorito {
     public void setIdUsuario(Usuario idUsuario) {
         this.idUsuario = idUsuario;
     }
-    public LugarTuristico getIdLugarTuristico() {
-        return idLugarTuristico;
+    public LugarTuristico getIdLugar() {
+        return idLugar;
     }
-    public void setIdLugarTuristico(LugarTuristico idLugarTuristico) {
-        this.idLugarTuristico = idLugarTuristico;
+    public void setIdLugar(LugarTuristico idLugar) {
+        this.idLugar = idLugar;
     }
     public Negocio getIdNegocio() {
         return idNegocio;

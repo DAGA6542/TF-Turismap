@@ -31,7 +31,7 @@ public class FavoritoImplement implements IFavoritoService {
     @Override
     public List<Favorito> obtenerFavoritosPorFechaModificacion(LocalDate fecha) { return fR.obtenerFavoritosPorFechaModificacion(fecha); }
     @Override
-    public List<Favorito> obtenerFavoDeTurismo(Long idTuristico) { return fR.obtenerFavoDeTurismo(idTuristico); }
+    public List<Favorito> obtenerFavoDeTurismo(Long idLugar) { return fR.obtenerFavoDeTurismo(idLugar); }
     @Override
     public void eliminarFavoDeUsuario(Long idUsuario) { fR.eliminarFavoDeUsuario(idUsuario); }
 }

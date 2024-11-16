@@ -21,11 +21,11 @@ public class ComentarioImplement implements IComentarioService {
     @Override
     public Comentario listId(Long idComentario) { return cR.findById(idComentario).orElse(new Comentario()); }
     @Override
-    public List<Comentario> obtenerComentariosPorUsuario(int idUsuario) { return cR.obtenerComentariosPorUsuario(idUsuario); }
+    public List<Comentario> obtenerComentariosPorUsuario(Long idUsuario) { return cR.obtenerComentariosPorUsuario(idUsuario); }
     @Override
-    public List<Comentario> buscarComentariosPorNegocio(int idNegocio) { return cR.buscarComentariosPorNegocio(idNegocio); }
+    public List<Comentario> buscarComentariosPorNegocio(Long idNegocio) { return cR.buscarComentariosPorNegocio(idNegocio); }
     @Override
-    public List<Comentario> buscarComentariosPorTurismo(int idTurismo) { return cR.buscarComentariosPorTurismo(idTurismo); }
+    public List<Comentario> buscarComentariosPorTurismo(Long idLugar) { return cR.buscarComentariosPorTurismo(idLugar); }
     @Override
     public List<Comentario> obtenerComentariosHastaFecha(LocalDate fecha) { return cR.obtenerComentariosHastaFecha(fecha); }
     @Override
