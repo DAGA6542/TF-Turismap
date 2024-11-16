@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.backend.dtos.LugarTuristicoDTO;
 import pe.edu.upc.backend.entities.LugarTuristico;
 import pe.edu.upc.backend.serviceinterfaces.ILugarTuristicoService;
+import pe.edu.upc.backend.dtos.LugarTuristicoPorCiudadDTO;
 import java.util.List;
 import java.util.stream.Collectors;
 @RestController
@@ -59,10 +60,10 @@ public class LugarTuristicoController {
         }).collect(Collectors.toList());
     }
     @GetMapping("/listarlugarturisticoporciudad")
-    public List<LugarTuristicoDTO> listarlugarturisticoporciudad(@RequestParam String nombreCiudad) { // By Diego
+    public List<LugarTuristicoPorCiudadDTO> listarlugarturisticoporciudad(@RequestParam String nombreCiudad) { // By Diego
         return lS.listarlugarturisticoporciudad(nombreCiudad).stream().map(y -> {
             ModelMapper m = new ModelMapper();
-            return m.map(y, LugarTuristicoDTO.class);
+            return m.map(y, LugarTuristicoPorCiudadDTO.class);
         }).collect(Collectors.toList());
     }
 }
