@@ -2,7 +2,7 @@ package pe.edu.upc.backend.dtos;
 
 public class LugarTuristicoPorCiudadDTO {
     private String nombreCiudad;
-    private String nombreTurismo;
+    private String nombreLugar;
 
     public String getNombreCiudad() {
         return nombreCiudad;
@@ -12,11 +12,11 @@ public class LugarTuristicoPorCiudadDTO {
         this.nombreCiudad = nombreCiudad;
     }
 
-    public String getNombreTurismo() {
-        return nombreTurismo;
+    public String getnombreLugar() {
+        return nombreLugar;
     }
 
-    public void setNombreTurismo(String nombreTurismo) {
-        this.nombreTurismo = nombreTurismo;
+    public void setnombreLugar(String nombreLugar) {
+        this.nombreLugar = nombreLugar;
     }
 }

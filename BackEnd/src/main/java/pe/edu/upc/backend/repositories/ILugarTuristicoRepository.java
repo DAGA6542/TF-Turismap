@@ -15,7 +15,8 @@ public interface ILugarTuristicoRepository extends JpaRepository<LugarTuristico,
     // Contar cuántos lugares turisticos hay por id en una ciudad
     @Query("Select count(l) from LugarTuristico l where l.idCiudad.idCiudad = :idCiudad")
     public long contarPorCiudadL(@Param("idCiudad") int idCiudad);
-    //Buscar numero por id
+
+    //Buscar numero por nombre
     @Query("Select lt from LugarTuristico lt where lt.nombreLugarTuristico = :nombreLugarTuristico")
     public List<LugarTuristico> listarPorNumero(@Param("nombreLugarTuristico") String nombreLugarTuristico);
     //Buscar lugar turistico por ciudad
