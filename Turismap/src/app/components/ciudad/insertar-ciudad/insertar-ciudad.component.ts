@@ -48,8 +48,6 @@ export class InsertarCiudadComponent implements OnInit {
       hnombreCiudad: ['', Validators.required],
       hpoblacionCiudad: ['', Validators.required],
       hsuperficieCiudad: ['', Validators.required],
-      hlatitudCiudad: ['', Validators.required],
-      hlongitudCiudad: ['', Validators.required],
       hcodigoPostalCiudad: ['', Validators.required],
       hDepartamento: ['', Validators.required],
     });
@@ -63,8 +61,6 @@ export class InsertarCiudadComponent implements OnInit {
       this.ciudad.nombreCiudad = this.form.value.hnombreCiudad;
       this.ciudad.poblacionCiudad = this.form.value.hpoblacionCiudad;
       this.ciudad.superficieCiudad = this.form.value.hsuperficieCiudad;
-      this.ciudad.latitudCiudad = this.form.value.hlatitudCiudad;
-      this.ciudad.longitudCiudad = this.form.value.hlongitudCiudad;
       this.ciudad.codigoPostalCiudad = this.form.value.hcodigoPostalCiudad;
       this.ciudad.idDepartamento.idDepartamento = this.form.value.hDepartamento;
 
@@ -92,8 +88,7 @@ export class InsertarCiudadComponent implements OnInit {
           hnombreCiudad: new FormControl(data.nombreCiudad),
           hpoblacionCiudad: new FormControl(data.poblacionCiudad),
           hsuperficieCiudad: new FormControl(data.superficieCiudad),
-          hlatitudCiudad: new FormControl(data.latitudCiudad),
-          hlongitudCiudad: new FormControl(data.longitudCiudad),
+
           hcodigoPostalCiudad: new FormControl(data.codigoPostalCiudad),
           hDepartamento: new FormControl(data.idDepartamento),
         });

@@ -22,8 +22,6 @@ export class ListarCiudadComponent {
     'nombreCiudad',
     'poblacionCiudad',
     'superficieCiudad',
-    'latitudCiudad',
-    'longitudCiudad',
     'codigoPostalCiudad',
     'idDepartamento',
     'idDepartamento1',
