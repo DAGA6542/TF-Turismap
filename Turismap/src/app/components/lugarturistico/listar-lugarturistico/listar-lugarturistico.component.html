@@ -1,48 +1,60 @@
 <div class="container" style="padding-top: 10px; padding-left: 10px; padding-right: 10px;">
-    <div class="title-container">
-        <h1 class="title" style="text-align: center;">Lista de Lugares Turísticos</h1>
-    </div>
+    <div class="title-container"><h1 class="title" style="text-align: center;">Lista Lugar Turistico</h1></div>
+   <div class="divide-y h-full overflow-auto pr-4">
     <table mat-table [dataSource]="datasource" class="mat-elevation-z8 full-width-table">
-        <ng-container matColumnDef="idLugar">
-            <th mat-header-cell *matHeaderCellDef>Código</th>
+        <ng-container matColumnDef="idLugarTuristico">
+            <th mat-header-cell *matHeaderCellDef>ID</th>
             <td mat-cell *matCellDef="let element">{{ element.idLugar}}</td>
         </ng-container>
-
-        <ng-container matColumnDef="nombreLugar">
+  
+        <ng-container matColumnDef="nombre">
             <th mat-header-cell *matHeaderCellDef>Nombre</th>
-            <td mat-cell *matCellDef="let element">{{ element.nombreLugar}}</td>
+            <td mat-cell *matCellDef="let element">{{ element.nombreLugar }}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="descripcion">
+            <th mat-header-cell *matHeaderCellDef>descripcion</th>
+            <td mat-cell *matCellDef="let element">{{ element.descripcionLugar }}</td>
         </ng-container>
 
-        <ng-container matColumnDef="descripcionLugar">
-            <th mat-header-cell *matHeaderCellDef>Descripción</th>
-            <td mat-cell *matCellDef="let element">{{ element.descripcionLugar}}</td>
+        <ng-container matColumnDef="numeroTelefono">
+            <th mat-header-cell *matHeaderCellDef>numero</th>
+            <td mat-cell *matCellDef="let element">{{ element.numeroLugar }}</td>
         </ng-container>
 
-        <ng-container matColumnDef="numeroTelefonoLugar">
-            <th mat-header-cell *matHeaderCellDef>Número</th>
-            <td mat-cell *matCellDef="let element">{{ element.numeroTelefonoLugar || 'No disponible' }}</td>
-        </ng-container>
-
-
-        <ng-container matColumnDef="nombreCiudad">
+        <ng-container matColumnDef="idCiudad">
             <th mat-header-cell *matHeaderCellDef>Ciudad</th>
-            <td mat-cell *matCellDef="let element">{{ element.idCiudad?.nombreCiudad }}</td>
+            <td mat-cell *matCellDef="let element">{{ element.idCiudad.nombreCiudad }}</td>
         </ng-container>
 
         <ng-container matColumnDef="accion1">
             <th mat-header-cell *matHeaderCellDef>Eliminar</th>
             <td mat-cell *matCellDef="let element" (click)="delete(element.idLugar)">
-                <mat-icon style="color:#1100ff ;">delete</mat-icon>
-            </td>
-        </ng-container>
+              <mat-icon style="color:#1100ff ;">delete</mat-icon>
+            </td> 
+          </ng-container>
         <ng-container matColumnDef="accion2">
             <th mat-header-cell *matHeaderCellDef>Actualizar</th>
-            <td mat-cell *matCellDef="let element" [routerLink]="['editar',element.idLugar]">
+            <td mat-cell *matCellDef="let element" [routerLink]="['editar',element.idLugar]" >
                 <mat-icon style="color:#1100ff ;">edit</mat-icon>
-            </td>
+            </td> 
         </ng-container>
-
+  
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
 </div>
+
+<div>
+    <google-map
+  mapId="f404a59fc2fcb5b5"
+    [center]="center">
+      @for (lugarturistico of $lugarturistico(); track lugarturistico) {
+        <map-advanced-marker [position]= " { lat: lugarturistico.latitudLugar,lng: lugarturistico.longitudLugar}"/>
+      }
+    </google-map>
+    
+</div>
+
+  </div>
+  
