@@ -2,8 +2,10 @@ package pe.edu.upc.backend.dtos;
 import pe.edu.upc.backend.entities.Ciudad;
 import pe.edu.upc.backend.entities.Promocion;
 public class NegocioDTO {
-    private int idNegocio;
+    private Long idNegocio;
     private String nombreNegocio;
+    private double latitudNegocio;
+    private double longitudNegocio;
     private String horarioNegocio;
     private int numeroTelefonoNegocio;
     private int calificacionNegocio;
@@ -11,10 +13,10 @@ public class NegocioDTO {
     private Boolean reservaNegocio;
     private Ciudad idCiudad;
     private Promocion idPromocion;
-    public int getIdNegocio() {
+    public Long getIdNegocio() {
         return idNegocio;
     }
-    public void setIdNegocio(int idNegocio) {
+    public void setIdNegocio(Long idNegocio) {
         this.idNegocio = idNegocio;
     }
     public String getNombreNegocio() {
@@ -23,6 +25,23 @@ public class NegocioDTO {
     public void setNombreNegocio(String nombreNegocio) {
         this.nombreNegocio = nombreNegocio;
     }
+
+    public double getLatitudNegocio() {
+        return latitudNegocio;
+    }
+
+    public void setLatitudNegocio(double latitudNegocio) {
+        this.latitudNegocio = latitudNegocio;
+    }
+
+    public double getLongitudNegocio() {
+        return longitudNegocio;
+    }
+
+    public void setLongitudNegocio(double longitudNegocio) {
+        this.longitudNegocio = longitudNegocio;
+    }
+
     public String getHorarioNegocio() {
         return horarioNegocio;
     }
@@ -48,7 +67,7 @@ public class NegocioDTO {
     public String getDescripcionNegocio() { return descripcionNegocio; }
     public void setDescripcionNegocio(String descripcionNegocio) { this.descripcionNegocio = descripcionNegocio; }
     public Boolean getReservaNegocio() { return reservaNegocio; }
-    public void setReservaNegocio(Boolean reservadoNegocio) { this.reservaNegocio = reservadoNegocio; }
+    public void setReservaNegocio(Boolean reservaNegocio) { this.reservaNegocio = reservaNegocio; }
     public Promocion getIdPromocion() { return idPromocion; }
     public void setIdPromocion(Promocion idPromocion) { this.idPromocion = idPromocion; }
 }
