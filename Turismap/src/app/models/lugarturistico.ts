@@ -2,7 +2,9 @@ import { Ciudad } from "./ciudad";
 export class LugarTuristico {
     idLugar: number = 0;
     nombreLugar: string = "";
+    latitudLugar: number = 0;
+    longitudLugar: number = 0;
     descripcionLugar: string = "";
-    numeroTelefonoLugar: number = 0;
-    idCiudad: Ciudad=new Ciudad();
+    numeroLugar: number = 0;
+    idCiudad: Ciudad = new Ciudad();
 }
