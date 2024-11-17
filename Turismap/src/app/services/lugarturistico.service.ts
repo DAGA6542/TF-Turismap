@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environments';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { LugarTuristico } from '../models/lugarturistico';
-import { HttpClient } from '@angular/common/http';
-
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { LugarTuristicoPorCiudadDTO } from '../models/LugarTuristicoPorCiudadDTO';
 const base_url = environment.base;
 
 @Injectable({
@@ -18,12 +18,13 @@ export class LugarturisticoService {
   list() {
     return this.http.get<LugarTuristico[]>(this.url);
   }
-  insert(t: LugarTuristico) {
-    return this.http.post(this.url, t);
+  insert(c: LugarTuristico) {
+    return this.http.post(this.url, c);
   }
   getList() {
     return this.listaCambio.asObservable();
   }
+ 
 
   setList(listaNueva: LugarTuristico[]) {
     this.listaCambio.next(listaNueva);
@@ -38,4 +39,19 @@ export class LugarturisticoService {
   update(tm: LugarTuristico) {
     return this.http.put(this.url, tm);
   }
+  getLugarTuristicoXCiudad(nombreCiudad: string): Observable<LugarTuristicoPorCiudadDTO[]> {
+    const params = new HttpParams().set('nombreCiudad', nombreCiudad);
+    return this.http.get<LugarTuristicoPorCiudadDTO[]>(`${this.url}/listarlugarturisticoporciudad`, { params });
+  }
+  getNumeroxLugarTuristicoPorNombre(nombreLugar: string): Observable<LugarTuristico[]> {
+    const params = new HttpParams().set('nombreLugarTuristico', nombreLugar); 
+    return this.http.get<LugarTuristico[]>(`${this.url}/listarPorNumero`, { params });
+  }
+  getCoordenadas(center:{latitud: number, longitud: number}) {
+  
+    return this.http.get<LugarTuristico[]>(`${this.url}/listarPorCoordenadas`, { params:{
+      origin:`${center.latitud},${center.longitud}`
+    } });
+  }
+  
 }
