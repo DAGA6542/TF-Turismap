@@ -5,38 +5,85 @@ import jakarta.persistence.*;
 public class LugarTuristico {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idLugarTuristico;
-    @Column(name = "nombreLugarTuristico", nullable = false, length = 70)
-    private String nombreLugarTuristico;
-    @Column(name = "descripcionLugarTuristico", nullable = false, length = 250)
-    private String descripcionLugarTuristico;
-    @Column(name = "numeroTelefonoLugar", nullable = false)
-    private int numeroTelefonoLugar;
+    private Long idLugar;
+    @Column(name = "nombreLugar", nullable = false, length = 70)
+    private String nombreLugar;
+    @Column(name = "descripcionLugar", nullable = false, length = 250)
+    private String descripcionLugar;
+    @Column(name = "numeroLugar", nullable = false)
+    private int numeroLugar;
+    @Column(name = "latitudLugar", nullable = false)
+    private double latitudLugar;
+    @Column(name = "longitudLugar", nullable = false)
+    private double longitudLugar;
     @ManyToOne
     @JoinColumn(name = "idCiudad")
     private Ciudad idCiudad;
     public LugarTuristico() {}
-    public LugarTuristico(int idLugarTuristico, String nombreLugarTuristico, String descripcionLugarTuristico, int numeroLugarTuristico) {
-        this.idLugarTuristico = idLugarTuristico;
-        this.nombreLugarTuristico = nombreLugarTuristico;
-        this.descripcionLugarTuristico = descripcionLugarTuristico;
-        this.numeroTelefonoLugar = numeroTelefonoLugar;
-    }
-    public LugarTuristico(int idLugarTuristico, String nombreLugarTuristico, String descripcionLugarTuristico, int numeroTelefonoLugar, Ciudad idCiudad) {
-        this.idLugarTuristico = idLugarTuristico;
-        this.nombreLugarTuristico = nombreLugarTuristico;
-        this.descripcionLugarTuristico = descripcionLugarTuristico;
-        this.numeroTelefonoLugar = numeroTelefonoLugar;
+
+    public LugarTuristico(Long idLugar, String nombreLugar, String descripcionLugar, int numeroLugar, double latitudLugar, double longitudLugar, Ciudad idCiudad) {
+        this.idLugar = idLugar;
+        this.nombreLugar = nombreLugar;
+        this.descripcionLugar = descripcionLugar;
+        this.numeroLugar = numeroLugar;
+        this.latitudLugar = latitudLugar;
+        this.longitudLugar = longitudLugar;
         this.idCiudad = idCiudad;
     }
-    public int getIdLugarTuristico() { return idLugarTuristico; }
-    public void setIdLugarTuristico(int idLugarTuristico) { this.idLugarTuristico = idLugarTuristico; }
-    public String getNombreLugarTuristico() { return nombreLugarTuristico; }
-    public void setNombreLugarTuristico(String nombreLugarTuristico) { this.nombreLugarTuristico = nombreLugarTuristico; }
-    public String getDescripcionLugarTuristico() { return descripcionLugarTuristico; }
-    public void setDescripcionLugarTuristico(String descripcionLugarTuristico) { this.descripcionLugarTuristico = descripcionLugarTuristico; }
-    public int getnumeroTelefonoLugar() { return numeroTelefonoLugar; }
-    public void setnumeroTelefonoLugar(int numeroTelefonoLugar) { this.numeroTelefonoLugar = numeroTelefonoLugar; }
-    public Ciudad getIdCiudad() { return idCiudad; }
-    public void setIdCiudad(Ciudad idCiudad) { this.idCiudad = idCiudad; }
+
+    public Long getIdLugar() {
+        return idLugar;
+    }
+
+    public void setIdLugar(Long idLugar) {
+        this.idLugar = idLugar;
+    }
+
+    public String getNombreLugar() {
+        return nombreLugar;
+    }
+
+    public void setNombreLugar(String nombreLugar) {
+        this.nombreLugar = nombreLugar;
+    }
+
+    public String getDescripcionLugar() {
+        return descripcionLugar;
+    }
+
+    public void setDescripcionLugar(String descripcionLugar) {
+        this.descripcionLugar = descripcionLugar;
+    }
+
+    public int getNumeroLugar() {
+        return numeroLugar;
+    }
+
+    public void setNumeroLugar(int numeroLugar) {
+        this.numeroLugar = numeroLugar;
+    }
+
+    public double getLatitudLugar() {
+        return latitudLugar;
+    }
+
+    public void setLatitudLugar(double latitudCiudad) {
+        this.latitudLugar = latitudCiudad;
+    }
+
+    public double getLongitudLugar() {
+        return longitudLugar;
+    }
+
+    public void setLongitudLugar(double longitudLugar) {
+        this.longitudLugar = longitudLugar;
+    }
+
+    public Ciudad getIdCiudad() {
+        return idCiudad;
+    }
+
+    public void setIdCiudad(Ciudad idCiudad) {
+        this.idCiudad = idCiudad;
+    }
 }
