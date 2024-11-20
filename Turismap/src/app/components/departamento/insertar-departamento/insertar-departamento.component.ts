@@ -54,7 +54,7 @@ export class InsertarDepartamentoComponent implements OnInit {
       this.departamento.poblacionDepartamento = this.form.value.hpoblacionDepartamento;
       this.departamento.superficieDepartamento = this.form.value.hsuperficieDepartamento;
       this.departamento.idPais.idPais = this.form.value.hPais;
-      
+
       if(this.edicion){
       this.Dep.update(this.departamento).subscribe((data) => {
         this.Dep.list().subscribe((data) => {

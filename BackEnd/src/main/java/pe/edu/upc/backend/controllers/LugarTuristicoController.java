@@ -2,6 +2,7 @@ package pe.edu.upc.backend.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.backend.dtos.CiudadDTO;
 import pe.edu.upc.backend.dtos.LugarTuristicoDTO;
 import pe.edu.upc.backend.entities.LugarTuristico;
 import pe.edu.upc.backend.serviceinterfaces.ILugarTuristicoService;
@@ -32,6 +33,7 @@ public class LugarTuristicoController {
             return m.map(y,LugarTuristicoDTO.class);
         }).collect(Collectors.toList());
     }
+
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Long id) {
         lS.delete(id);
@@ -48,6 +50,22 @@ public class LugarTuristicoController {
             return m.map(y,LugarTuristicoDTO.class);
         }).collect(Collectors.toList());
     }
+
+    @GetMapping("/latitud")
+    public List<LugarTuristicoDTO> latitudMayor(@RequestParam double latitud) {
+        return lS.latitudMayor(latitud).stream().map(y->{
+            ModelMapper m = new ModelMapper();
+            return m.map(y, LugarTuristicoDTO.class);
+        }).collect(Collectors.toList());
+    }
+    @GetMapping("/longitud")
+    public List<LugarTuristicoDTO> longitudMenor(@RequestParam double longitud) {
+        return lS.longitudMenor(longitud).stream().map(y->{
+            ModelMapper m = new ModelMapper();
+            return m.map(y, LugarTuristicoDTO.class);
+        }).collect(Collectors.toList());
+    }
+
     @GetMapping("/cantidadlugaresturisticosporciudad")
     public long contarPorCiudadL(@RequestParam Long idCiudad) {
         return lS.contarPorCiudadL(idCiudad);
@@ -66,4 +84,12 @@ public class LugarTuristicoController {
             return m.map(y, LugarTuristicoPorCiudadDTO.class);
         }).collect(Collectors.toList());
     }
+    @GetMapping("/listarPorCoordenadas")
+    public List<LugarTuristicoDTO> findByLatitudAndLongitud(@RequestParam double latitud, @RequestParam double longitud){
+        return lS.findByLatitudAndLongitud(latitud,longitud).stream().map(y -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(y, LugarTuristicoDTO.class);
+        }).collect(Collectors.toList());
+    }
+
 }

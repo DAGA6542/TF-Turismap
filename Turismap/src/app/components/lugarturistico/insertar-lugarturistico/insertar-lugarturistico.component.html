@@ -1,51 +1,66 @@
-<div class="title-container"><h1 class="title"style="text-align: center">Registro de Lugar Turistico</h1>
-    <div class="container" style="text-align: center">
-      <form [formGroup]="form" (submit)="insertar()" class="example-form">
-    
-        <mat-form-field class="example-full-width" >
-          <mat-label>Nombre</mat-label>
-          <input matInput formControlName="hnombreLugarTuristico" />
-          <mat-error *ngIf="form.get('hnombreLugarTuristico')?.hasError('required')"
-            >El nombre es obligatorio.</mat-error
-          >
-        </mat-form-field>
-    
-        <br />
-        <mat-form-field class="example-full-width" >
-            <mat-label>Descripcion</mat-label>
-            <input matInput formControlName="hdescripcionLugarTuristico" />
-            <mat-error *ngIf="form.get('hdescripcionLugarTuristico')?.hasError('required')"
-              >La Descripcion es obligatorio.</mat-error
-            >
-          </mat-form-field>
-    
-        <br />
-        
-        <mat-form-field>
-            <mat-label>Numero</mat-label>
-            <input matInput formControlName="hnumeroLugarTuristico" />
-            <mat-error *ngIf="form.get('hnumeroLugarTuristico')?.hasError('required')"
-              >El Numero es obligatorio.</mat-error
-            >
-          </mat-form-field>
-          <br />
-          <mat-form-field>
-            <mat-label>Ciudad</mat-label>
-            <mat-select formControlName="hCiudad">
-              @for (ciu of listaciudad; track ciu) {
-              <mat-option [value]="ciu.idCiudad">{{ ciu.nombreCiudad }}</mat-option>
-              }
-            </mat-select>
-          </mat-form-field>
-          <br />
-  
-        
-        <div style="text-align: center;">
-          <button mat-flat-button  color="warn">Registrar</button>
-        </div>
-        <div style="text-align: center;">
-          <button class="secondaryButton"  routerLink="/ciudad"> Cancelar </button>
-        </div>
-      </form>
+<div class="title-container">
+    <div class="container" style="text-align: center; margin: 2%">
+        <h1>Registro de Lugares Turísticos</h1>
     </div>
-  </div>
+    <div class="container" style="text-align: center">
+
+        <!-- Formulario de Registro -->
+        <form [formGroup]="form" (ngSubmit)="insertar()">
+
+            <!-- Nombre del Lugar Turístico -->
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Nombre del Lugar Turístico</mat-label>
+                <input matInput formControlName="nombreLugarTuristico" />
+                <mat-error *ngIf="form.get('nombreLugarTuristico')?.hasError('required')">
+                    El nombre es obligatorio.
+                </mat-error>
+            </mat-form-field>
+            <br />
+
+            <!-- Descripción -->
+               <mat-form-field class="example-full-width">
+                    <mat-label>Descripción</mat-label>
+                    <textarea matInput placeholder="descripcion Lugar Turistico" formControlName="hdescripcionLugarTuristico"></textarea>
+                </mat-form-field>
+                <br />
+
+            <!-- Número de Teléfono -->
+            <mat-form-field>
+                <mat-label>Numero de Teléfono</mat-label>
+                <input matInput formControlName="numeroLugarTuristico" />
+                <mat-error *ngIf="form.get('numeroLugarTuristico')?.hasError('required')">
+                    El teléfono es obligatorio.
+                </mat-error>
+                <mat-error *ngIf="form.get('numeroLugarTuristico')?.hasError('minlength')">
+                    El teléfono debe tener al menos 9 dígitos.
+                </mat-error>
+                <mat-error *ngIf="form.get('numeroLugarTuristico')?.hasError('pattern')">
+                    El teléfono solo puede contener números.
+                </mat-error>
+            </mat-form-field>
+            <br />
+
+
+
+            <!-- Selección de Ciudad -->
+            <mat-form-field class="example-full-width">
+                <mat-label>Ciudad</mat-label>
+                <mat-select formControlName="idCiudad">
+                    <mat-option *ngFor="let ciudad of listaCiudades" [value]="ciudad.idCiudad">
+                        {{ ciudad.nombreCiudad }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <br />
+
+            <!-- Botón de Registro -->
+            <div style="text-align: center">
+                <button mat-flat-button color="warn" type="submit" [disabled]="form.invalid">Registrar</button>
+            </div>
+            <div style="text-align: center;">
+                <button class="secondaryButton" routerLink="/pais"> Cancelar </button>
+            </div>
+        </form>
+    </div>
+</div>

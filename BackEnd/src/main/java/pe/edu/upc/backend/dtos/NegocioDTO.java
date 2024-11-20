@@ -4,6 +4,8 @@ import pe.edu.upc.backend.entities.Promocion;
 public class NegocioDTO {
     private Long idNegocio;
     private String nombreNegocio;
+    private double latitudNegocio;
+    private double longitudNegocio;
     private String horarioNegocio;
     private int numeroTelefonoNegocio;
     private int calificacionNegocio;
@@ -23,6 +25,23 @@ public class NegocioDTO {
     public void setNombreNegocio(String nombreNegocio) {
         this.nombreNegocio = nombreNegocio;
     }
+
+    public double getLatitudNegocio() {
+        return latitudNegocio;
+    }
+
+    public void setLatitudNegocio(double latitudNegocio) {
+        this.latitudNegocio = latitudNegocio;
+    }
+
+    public double getLongitudNegocio() {
+        return longitudNegocio;
+    }
+
+    public void setLongitudNegocio(double longitudNegocio) {
+        this.longitudNegocio = longitudNegocio;
+    }
+
     public String getHorarioNegocio() {
         return horarioNegocio;
     }

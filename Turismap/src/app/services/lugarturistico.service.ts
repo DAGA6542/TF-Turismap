@@ -24,6 +24,7 @@ export class LugarturisticoService {
   getList() {
     return this.listaCambio.asObservable();
   }
+ 
 
   setList(listaNueva: LugarTuristico[]) {
     this.listaCambio.next(listaNueva);
@@ -46,4 +47,11 @@ export class LugarturisticoService {
     const params = new HttpParams().set('nombreLugarTuristico', nombreLugar); 
     return this.http.get<LugarTuristico[]>(`${this.url}/listarPorNumero`, { params });
   }
+  getCoordenadas(center:{latitud: number, longitud: number}) {
+  
+    return this.http.get<LugarTuristico[]>(`${this.url}/listarPorCoordenadas`, { params:{
+      origin:`${center.latitud},${center.longitud}`
+    } });
+  }
+  
 }

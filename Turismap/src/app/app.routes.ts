@@ -177,6 +177,6 @@ export const routes: Routes = [
     {
         path: 'homes',
         component: HomeComponent,
-        canActivate: [seguridadGuard],  
+        canActivate: [seguridadGuard],
     },
 ];

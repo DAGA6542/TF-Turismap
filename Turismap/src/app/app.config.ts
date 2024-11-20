@@ -16,9 +16,9 @@ export function tokenGetter() {
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideZoneChangeDetection({ eventCoalescing: true }), 
-    provideRouter(routes), 
-    provideClientHydration(), 
+    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideRouter(routes),
+    provideClientHydration(),
     provideAnimationsAsync(),
     provideHttpClient(withInterceptorsFromDi(),withFetch()),
     importProvidersFrom(

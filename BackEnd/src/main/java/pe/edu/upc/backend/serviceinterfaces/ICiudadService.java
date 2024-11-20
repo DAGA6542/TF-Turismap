@@ -8,8 +8,7 @@ public interface ICiudadService {
     public void delete(Long idCiudad);
     public Ciudad listId(Long idCiudad);
     public List<Ciudad> buscarNombreCiudad(String nombreCiudad);
-    public List<Ciudad> latitudMayor(double latitud);
-    public List<Ciudad> longitudMenor(double longitud);
+
     public List<Ciudad> poblacionMayor(Long poblacion);
     public List<String[]>cantidadTurismo();
 }

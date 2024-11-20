@@ -5,8 +5,7 @@ public class CiudadDTO {
     private String nombreCiudad;
     private Long poblacionCiudad;
     private int superficieCiudad;
-    private double latitudCiudad;
-    private double longitudCiudad;
+
     private int codigoPostalCiudad;
     private Departamento idDepartamento;
     public Long getIdCiudad() { return idCiudad; }
@@ -17,11 +16,7 @@ public class CiudadDTO {
     public void setPoblacionCiudad(Long poblacionCiudad) { this.poblacionCiudad = poblacionCiudad; }
     public int getSuperficieCiudad() { return superficieCiudad; }
     public void setSuperficieCiudad(int superficieCiudad) { this.superficieCiudad = superficieCiudad; }
-    public double getLatitudCiudad() { return latitudCiudad; }
-    public void setLatitudCiudad(double latitudCiudad) { this.latitudCiudad = latitudCiudad; }
-    public double getLongitudCiudad() { return longitudCiudad; }
-    public void setLongitudCiudad(double longitudCiudad) { this.longitudCiudad = longitudCiudad; }
-    public int getCodigoPostalCiudad() { return codigoPostalCiudad; }
+       public int getCodigoPostalCiudad() { return codigoPostalCiudad; }
     public void setCodigoPostalCiudad(int codigoPostalCiudad) { this.codigoPostalCiudad = codigoPostalCiudad; }
     public Departamento getIdDepartamento() { return idDepartamento; }
     public void setIdDepartamento(Departamento idDepartamento) { this.idDepartamento = idDepartamento; }

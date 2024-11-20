@@ -1,76 +1,76 @@
 <div class="title-container">
-    <h1 class="title" style="text-align: center">Registro de Promocion</h1>
-    <div class="container" style="text-align: center">
-      <form [formGroup]="form" (submit)="insertar()" class="example-form">
-  
-        <mat-form-field class="example-full-width" *ngIf="edicion">
-          <mat-label>Codigo</mat-label>
-          <input matInput formControlName="hidPromocion" readonly />
-        </mat-form-field>
-        <br />
-  
-        <mat-form-field class="example-full-width">
-          <mat-label>Nombre</mat-label>
-          <input matInput formControlName="hnombrePromocion" />
-          <mat-error *ngIf="form.get('hnombrePromocion')?.hasError('required')">El nombre es obligatorio.</mat-error>
-        </mat-form-field>
-  
-        <br />
-        <mat-form-field class="example-full-width">
-          <mat-label>Descripcion</mat-label>
-          <input matInput formControlName="hdescripcionPromocion" />
-          <mat-error *ngIf="form.get('hdescripcionPromocion')?.hasError('required')">La Descripcion de la Promocion es
-            obligatorio.</mat-error>
-        </mat-form-field>
-        <br />
-  
-        <mat-form-field>
-          <mat-label>Precio Promocion</mat-label>
-          <input matInput formControlName="hprecioPromocion" />
-          <mat-error *ngIf="form.get('hprecioPromocion')?.hasError('required')">El precio de la Promocion es
-            obligatorio.</mat-error>
-        </mat-form-field>
-  
-        <br />
-        <mat-form-field>
-          <mat-label>Descuento</mat-label>
-          <input matInput formControlName="hdescuentoPromocion" />
-          <mat-error *ngIf="form.get('hdescuentoPromocion')?.hasError('required')">El descuento de la Promocion es
-            obligatorio.</mat-error>
-        </mat-form-field>
-  
-        <br />
-  
-        <mat-form-field>
-          <mat-label>Fecha Inico</mat-label>
-          <input matInput [matDatepicker]="picker1" formControlName="hfechaInicioPromocion" />
-          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-          <mat-datepicker #picker1></mat-datepicker>
-          <mat-error *ngIf="form.get('hfechaInicioPromocion')?.hasError('required')">
-            La fecha inicio es obligatoria.
-          </mat-error>
-        </mat-form-field>
-        <br />
-  
-        <mat-form-field>
-          <mat-label>Fecha Fin</mat-label>
-          <input matInput [matDatepicker]="picker2" formControlName="hfechaFinPromocion" />
-          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-          <mat-datepicker #picker2></mat-datepicker>
-          <mat-error *ngIf="form.get('hfechaFinPromocion')?.hasError('required')">
-            La fecha fin es obligatoria.
-          </mat-error>
-        </mat-form-field>
-        <br />
-  
-  
-  
-        <div style="text-align: center;">
-          <button mat-flat-button color="warn">Registrar</button>
-        </div>
-        <div style="text-align: center;">
-          <button class="secondaryButton" routerLink="/pais"> Cancelar </button>
-        </div>
-      </form>
-    </div>
+  <h1 class="title" style="text-align: center">Registro de Promocion</h1>
+  <div class="container" style="text-align: center">
+    <form [formGroup]="form" (submit)="insertar()" class="example-form">
+
+      <mat-form-field class="example-full-width" *ngIf="edicion">
+        <mat-label>Codigo</mat-label>
+        <input matInput formControlName="hidPromocion" readonly />
+      </mat-form-field>
+      <br />
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="hnombrePromocion" />
+        <mat-error *ngIf="form.get('hnombrePromocion')?.hasError('required')">El nombre es obligatorio.</mat-error>
+      </mat-form-field>
+
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Descripcion</mat-label>
+        <input matInput formControlName="hdescripcionPromocion" />
+        <mat-error *ngIf="form.get('hdescripcionPromocion')?.hasError('required')">La Descripcion de la Promocion es
+          obligatorio.</mat-error>
+      </mat-form-field>
+      <br />
+
+      <mat-form-field>
+        <mat-label>Precio Promocion</mat-label>
+        <input matInput formControlName="hprecioPromocion" />
+        <mat-error *ngIf="form.get('hprecioPromocion')?.hasError('required')">El precio de la Promocion es
+          obligatorio.</mat-error>
+      </mat-form-field>
+
+      <br />
+      <mat-form-field>
+        <mat-label>Descuento</mat-label>
+        <input matInput formControlName="hdescuentoPromocion" />
+        <mat-error *ngIf="form.get('hdescuentoPromocion')?.hasError('required')">El descuento de la Promocion es
+          obligatorio.</mat-error>
+      </mat-form-field>
+
+      <br />
+
+      <mat-form-field>
+        <mat-label>Fecha Inico</mat-label>
+        <input matInput [matDatepicker]="picker1" formControlName="hfechaInicioPromocion" />
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+        <mat-error *ngIf="form.get('hfechaInicioPromocion')?.hasError('required')">
+          La fecha inicio es obligatoria.
+        </mat-error>
+      </mat-form-field>
+      <br />
+
+      <mat-form-field>
+        <mat-label>Fecha Fin</mat-label>
+        <input matInput [matDatepicker]="picker2" formControlName="hfechaFinPromocion" />
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+        <mat-error *ngIf="form.get('hfechaFinPromocion')?.hasError('required')">
+          La fecha fin es obligatoria.
+        </mat-error>
+      </mat-form-field>
+      <br />
+
+
+
+      <div style="text-align: center;">
+        <button mat-flat-button color="warn">Registrar</button>
+      </div>
+      <div style="text-align: center;">
+        <button class="secondaryButton" routerLink="/pais"> Cancelar </button>
+      </div>
+    </form>
   </div>
+</div>

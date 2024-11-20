@@ -1,77 +1,77 @@
 <div class="title-container"><h1 class="title"style="text-align: center">Registro de Favorito</h1>
-  <div class="container" style="text-align: center">
-    <form [formGroup]="form" (submit)="insertar()" class="example-form">
+    <div class="container" style="text-align: center">
+      <form [formGroup]="form" (submit)="insertar()" class="example-form">
 
-      <mat-form-field class="example-full-width" *ngIf="edicion">
-        <mat-label>Codigo</mat-label>
-        <input matInput formControlName="hidFavorito" readonly/>
-      </mat-form-field>
-      <br />
-  
-      <mat-form-field>
-          <mat-label>Fecha Registrada</mat-label>
-          <input matInput [matDatepicker]="picker1" formControlName="hfechaAgregadoFavorito" />
-          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-          <mat-datepicker #picker1></mat-datepicker>
-          <mat-error *ngIf="form.get('hfechaAgregadoFavorito')?.hasError('required')">
-          La fecha es obligatoria.
-          </mat-error>
-      </mat-form-field>
-      <br />
+        <mat-form-field class="example-full-width" *ngIf="edicion">
+          <mat-label>Codigo</mat-label>
+          <input matInput formControlName="hidFavorito" readonly/>
+        </mat-form-field>
+        <br />
 
-      <mat-form-field>
-          <mat-label>Fecha Modificada</mat-label>
-          <input matInput [matDatepicker]="picker2" formControlName="hfechaModificacionFavorito" />
-          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-          <mat-datepicker #picker2></mat-datepicker>
-          <mat-error *ngIf="form.get('hfechaModificacionFavorito')?.hasError('required')">
-          La fecha es obligatoria.
-          </mat-error>
-      </mat-form-field>
-
-  
-      <br />
-      
-      <mat-form-field>
         <mat-form-field>
-          <mat-label>Usuario</mat-label>
-          <mat-select formControlName="hidUsuario">
-            @for (lu of listarUsuario; track lu) {
-            <mat-option [value]="lu.idUsuario">{{ lu.nombreUsuario }}</mat-option>
+            <mat-label>Fecha Registrada</mat-label>
+            <input matInput [matDatepicker]="picker1" formControlName="hfechaAgregadoFavorito" />
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+            <mat-error *ngIf="form.get('hfechaAgregadoFavorito')?.hasError('required')">
+            La fecha es obligatoria.
+            </mat-error>
+        </mat-form-field>
+        <br />
+
+        <mat-form-field>
+            <mat-label>Fecha Modificada</mat-label>
+            <input matInput [matDatepicker]="picker2" formControlName="hfechaModificacionFavorito" />
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+            <mat-error *ngIf="form.get('hfechaModificacionFavorito')?.hasError('required')">
+            La fecha es obligatoria.
+            </mat-error>
+        </mat-form-field>
+
+
+        <br />
+
+        <mat-form-field>
+          <mat-form-field>
+            <mat-label>Usuario</mat-label>
+            <mat-select formControlName="hidUsuario">
+              @for (lu of listarUsuario; track lu) {
+              <mat-option [value]="listarUsuario">{{ lu.nombreUsuario }}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+          </mat-form-field>
+
+        <br />
+        <mat-form-field>
+          <mat-label>Lugar Turistico</mat-label>
+          <mat-select formControlName="hidLugarTuristico">
+            @for (lt of listarLugarTuristico; track lt) {
+            <mat-option [value]="lt.idLugar">{{ lt.nombreLugar }}</mat-option>
             }
           </mat-select>
         </mat-form-field>
-        </mat-form-field>
-  
-      <br />
-      <mat-form-field>
-        <mat-label>Lugar Turistico</mat-label>
-        <mat-select formControlName="hidLugarTuristico">
-          @for (lt of listarLugarTuristico; track lt) {
-          <mat-option [value]="lt.idLugar">{{ lt.nombreLugar }}</mat-option>
-          }
-        </mat-select>
-      </mat-form-field>
-  
-      <br />
 
-      <mat-form-field>
-        <mat-label>Negocio</mat-label>
-        <mat-select formControlName="hidNegocio">
-          @for (neg of listarNegocio; track neg) {
-          <mat-option [value]="neg.idNegocio">{{ neg.nombreNegocio }}</mat-option>
-          }
-        </mat-select>
-      </mat-form-field>
-  
-      <br />
-      
-      <div style="text-align: center;">
-        <button mat-flat-button  color="warn">Registrar</button>
-      </div>
-      <div style="text-align: center;">
-        <button class="secondaryButton"  routerLink="/favorito"> Cancelar </button>
-      </div>
-    </form>
-  </div>
+        <br />
+
+        <mat-form-field>
+          <mat-label>Negocio</mat-label>
+          <mat-select formControlName="hidNegocio">
+            @for (neg of listarNegocio; track neg) {
+            <mat-option [value]="neg.idNegocio">{{ neg.nombreNegocio }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+
+        <br />
+
+        <div style="text-align: center;">
+          <button mat-flat-button  color="warn">Registrar</button>
+        </div>
+        <div style="text-align: center;">
+          <button class="secondaryButton"  routerLink="/favorito"> Cancelar </button>
+        </div>
+      </form>
+    </div>
 </div>

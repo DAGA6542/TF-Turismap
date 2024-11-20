@@ -12,21 +12,31 @@ import { UsuarioService } from '../../../services/usuario.service';
   selector: 'app-listar-usuario',
   standalone: true,
   imports: [
-    MatPaginatorModule, MatPaginator, MatTableModule,
+    MatPaginatorModule, MatTableModule,
     MatIconModule, RouterLink, MatTableModule,
-    MatButtonModule, MatDialogModule],
+    MatButtonModule, MatDialogModule, MatPaginator],
   templateUrl: './listar-usuario.component.html',
   styleUrl: './listar-usuario.component.css'
 })
-export class ListarUsuarioComponent implements OnInit, AfterViewInit {
+export class ListarUsuarioComponent {
   displayedColumns: string[] = [ 'idUsuario', 'username', 'nombreUsuario', 'emailUsuario',
-    'telefonoUsuario', 'enabled', 'accion1', 'accion2'];
+    'contraseniaUsuario', 'telefonoUsuario', 'enabled', 'accion1', 'accion2'];
   datasource: MatTableDataSource<Usuario> = new MatTableDataSource();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private uS: UsuarioService, private dialog: MatDialog) {}
 
+  ngOnInit(): void {
+    this.uS.list().subscribe((data) => {
+      this.datasource = new MatTableDataSource(data);
+      this.datasource.paginator = this.paginator;
+    });
+    this.uS.getList().subscribe((data) => {
+      this.datasource = new MatTableDataSource(data);
+      this.datasource.paginator = this.paginator;
+    });
+  }
   openDialog(id: number): void {}
   delete(id: number) {
     this.uS.delete(id).subscribe((data) => {
@@ -36,19 +46,9 @@ export class ListarUsuarioComponent implements OnInit, AfterViewInit {
     });
   }
 
-  ngOnInit(): void {
-    this.uS.list().subscribe((data) => {
-      this.datasource= new MatTableDataSource(data);
-      this.datasource.paginator = this.paginator;
-    });
-
-    this.uS.getList().subscribe((data) => {
-      this.datasource= new MatTableDataSource(data);
-      this.datasource.paginator = this.paginator;
-    });
+  // Para mostrar poco de contraseña
+  truncarContra(password: string): string {
+    return password.length > 8 ? password.substring(0, 8) + '...' : password;
   }
 
-  ngAfterViewInit(): void {
-    this.datasource.paginator = this.paginator;
-  }
 }
