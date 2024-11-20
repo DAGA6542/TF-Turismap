@@ -4,9 +4,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import pe.edu.upc.backend.entities.LugarTuristico;
-
 import java.util.List;
-
 @Repository
 public interface ILugarTuristicoRepository extends JpaRepository<LugarTuristico, Long> {
     // Obtener todos los lugares turisticos por id en una ciudad
@@ -24,5 +22,4 @@ public interface ILugarTuristicoRepository extends JpaRepository<LugarTuristico,
             " JOIN ciudad C ON LT.id_ciudad = C.id_ciudad\n" +
             " WHERE C.nombre_ciudad = :nombreCiudad", nativeQuery = true)
     public List<LugarTuristico> listarlugarturisticoporciudad(@Param("nombreCiudad") String nombreCiudad);
-
 }
