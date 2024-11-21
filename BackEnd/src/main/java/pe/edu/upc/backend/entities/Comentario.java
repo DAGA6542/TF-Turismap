@@ -6,7 +6,7 @@ import java.time.LocalDate;
 public class Comentario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idComentario;
+    private Long idComentario;
     @Column(name = "textoComentario", nullable = false, length = 250)
     private String textoComentario;
     @Column(name = "fechaComentario", nullable = false)
@@ -21,12 +21,12 @@ public class Comentario {
     @JoinColumn(name = "idNegocio")
     private Negocio idNegocio;
     public Comentario() {}
-    public Comentario(int idComentario, String textoComentario, LocalDate fechaComentario) {
+    public Comentario(Long idComentario, String textoComentario, LocalDate fechaComentario) {
         this.idComentario = idComentario;
         this.textoComentario = textoComentario;
         this.fechaComentario = fechaComentario;
     }
-    public Comentario(int idComentario, String textoComentario, LocalDate fechaComentario, Usuario idUsuario, LugarTuristico idLugarTuristico, Negocio idNegocio) {
+    public Comentario(Long idComentario, String textoComentario, LocalDate fechaComentario, Usuario idUsuario, LugarTuristico idLugarTuristico, Negocio idNegocio) {
         this.idComentario = idComentario;
         this.textoComentario = textoComentario;
         this.fechaComentario = fechaComentario;
@@ -34,10 +34,10 @@ public class Comentario {
         this.idLugarTuristico = idLugarTuristico;
         this.idNegocio = idNegocio;
     }
-    public int getIdComentario() {
+    public Long getIdComentario() {
         return idComentario;
     }
-    public void setIdComentario(int idComentario) {
+    public void setIdComentario(Long idComentario) {
         this.idComentario = idComentario;
     }
     public String getTextoComentario() { return textoComentario; }

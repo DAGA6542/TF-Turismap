@@ -6,11 +6,11 @@ public interface IComentarioService {
     public void insert(Comentario comentario);
     public List<Comentario> list();
     public void update(Comentario comentario);
-    public void delete(int idComentario);
-    public Comentario listId(int idComentario);
-    public List<Comentario> obtenerComentariosPorUsuario(int idUsuario);
-    public List<Comentario> buscarComentariosPorNegocio(int idNegocio);
-    public List<Comentario> buscarComentariosPorTurismo(int idTurismo);
+    public void delete(Long idComentario);
+    public Comentario listId(Long idComentario);
+    public List<Comentario> obtenerComentariosPorUsuario(Long idUsuario);
+    public List<Comentario> buscarComentariosPorNegocio(Long idNegocio);
+    public List<Comentario> buscarComentariosPorTurismo(Long idLugar);
     public List<Comentario> obtenerComentariosHastaFecha(LocalDate fecha);
     public List<Comentario> buscarComentario(String texto);
 }

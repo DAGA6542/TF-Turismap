@@ -33,11 +33,11 @@ public class PromocionController {
         }).collect(Collectors.toList());
     }
     @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable("id") Integer id) {
+    public void eliminar(@PathVariable("id") Long id) {
         pS.delete(id);
     }
     @GetMapping("/{id}")
-    public PromocionDTO buscarPorId(@PathVariable("id") Integer id) {
+    public PromocionDTO buscarPorId(@PathVariable("id") Long id) {
         ModelMapper m = new ModelMapper();
         return m.map(pS.listById(id), PromocionDTO.class);
     }

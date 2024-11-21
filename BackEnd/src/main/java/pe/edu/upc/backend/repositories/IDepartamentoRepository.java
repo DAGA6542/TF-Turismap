@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import pe.edu.upc.backend.entities.Departamento;
 import java.util.List;
 @Repository
-public interface IDepartamentoRepository extends JpaRepository<Departamento, Integer> {
+public interface IDepartamentoRepository extends JpaRepository<Departamento, Long> {
     // Buscar departamento por nombre
     @Query("Select d from Departamento d where lower(d.nombreDepartamento) = lower(:nombre)")
     public List<Departamento> buscarPorNombre(@Param("nombre") String nombre);

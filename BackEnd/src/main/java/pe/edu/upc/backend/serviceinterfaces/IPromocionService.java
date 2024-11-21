@@ -6,8 +6,8 @@ public interface IPromocionService {
     public void insert(Promocion promocion);
     public List<Promocion> list();
     public void update(Promocion promocion);
-    public void delete(int idPromocion);
-    public Promocion listById(int idPromocion);
+    public void delete(Long idPromocion);
+    public Promocion listById(Long idPromocion);
     public List<Promocion> listarPorDescuentoMayor(double descuento);
     public List<Promocion> listarPorFechaInicio(LocalDate fechaInicio);
     public List<Promocion> listarPorNombre(String nombre);

@@ -7,7 +7,11 @@ import { provideHttpClient, withFetch, withInterceptorsFromDi } from '@angular/c
 import { JwtModule } from '@auth0/angular-jwt';
 
 export function tokenGetter() {
-  return sessionStorage.getItem('token');
+  if (typeof window !== 'undefined' && window.sessionStorage) {
+    return sessionStorage.getItem('token');
+  } else {
+    return null;
+  }
 }
 export const appConfig: ApplicationConfig = {
   providers: [

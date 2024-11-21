@@ -16,11 +16,11 @@ public class FestividadImplement implements IFestividadService {
     @Override
     public void update(Festividad festividad) { fR.save(festividad); }
     @Override
-    public void delete(int idFestividadId) { fR.deleteById(idFestividadId); }
+    public void delete(Long idFestividadId) { fR.deleteById(idFestividadId); }
     @Override
-    public Festividad listById(int idFestividad) { return fR.findById(idFestividad).orElse(new Festividad()); }
+    public Festividad listById(Long idFestividad) { return fR.findById(idFestividad).orElse(new Festividad()); }
     @Override
-    public List<Festividad> obtenerPorLugarTuristico(int idLugarTuristico) { return fR.obtenerPorLugarTuristico(idLugarTuristico); }
+    public List<Festividad> obtenerPorLugarTuristico(Long idLugar) { return fR.obtenerPorLugarTuristico(idLugar); }
     @Override
-    public long contarPorLugarTuristico(int idLugarTuristico) { return fR.contarPorLugarTuristico(idLugarTuristico); }
+    public long contarPorLugarTuristico(Long idLugar) { return fR.contarPorLugarTuristico(idLugar); }
 }

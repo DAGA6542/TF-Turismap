@@ -1,6 +1,6 @@
 package pe.edu.upc.backend.dtos;
 public class PaisDTO {
-    private int idPais;
+    private Long idPais;
     private String nombrePais;
     private String codigoIsoPais;
     private String continentePais;
@@ -9,10 +9,10 @@ public class PaisDTO {
     private String idiomaOficialPais;
     private Long poblacionPais;
     private Long superficiePais;
-    public int getIdPais() {
+    public Long getIdPais() {
         return idPais;
     }
-    public void setIdPais(int idPais) {
+    public void setIdPais(Long idPais) {
         this.idPais = idPais;
     }
     public String getNombrePais() {

@@ -6,7 +6,7 @@ import java.time.LocalDate;
 public class Favorito {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idFavorito;
+    private Long idFavorito;
     @Column(name = "fechaAgregadoFavorito", nullable = false)
     private LocalDate fechaAgregadoFavorito;
     @Column(name = "fechaModificacionFavorito", nullable = false)
@@ -16,28 +16,28 @@ public class Favorito {
     private Usuario idUsuario;
     @ManyToOne
     @JoinColumn(name = "idLugarTuristico")
-    private LugarTuristico idLugarTuristico;
+    private LugarTuristico idLugar;
     @ManyToOne
     @JoinColumn(name = "idNegocio")
     private Negocio idNegocio;
     public Favorito() {}
-    public Favorito(int idFavorito, LocalDate fechaAgregadoFavorito, LocalDate fechaModificacionFavorito) {
+    public Favorito(Long idFavorito, LocalDate fechaAgregadoFavorito, LocalDate fechaModificacionFavorito) {
         this.idFavorito = idFavorito;
         this.fechaAgregadoFavorito = fechaAgregadoFavorito;
         this.fechaModificacionFavorito = fechaModificacionFavorito;
     }
-    public Favorito(int idFavorito, LocalDate fechaAgregadoFavorito, LocalDate fechaModificacionFavorito, Usuario idUsuario, LugarTuristico idLugarTuristico, Negocio idNegocio) {
+    public Favorito(Long idFavorito, LocalDate fechaAgregadoFavorito, LocalDate fechaModificacionFavorito, Usuario idUsuario, LugarTuristico idLugar, Negocio idNegocio) {
         this.idFavorito = idFavorito;
         this.fechaAgregadoFavorito = fechaAgregadoFavorito;
         this.fechaModificacionFavorito = fechaModificacionFavorito;
         this.idUsuario = idUsuario;
-        this.idLugarTuristico = idLugarTuristico;
+        this.idLugar = idLugar;
         this.idNegocio = idNegocio;
     }
-    public int getIdFavorito() {
+    public Long getIdFavorito() {
         return idFavorito;
     }
-    public void setIdFavorito(int idFavorito) {
+    public void setIdFavorito(Long idFavorito) {
         this.idFavorito = idFavorito;
     }
     public LocalDate getFechaAgregadoFavorito() {
@@ -52,11 +52,11 @@ public class Favorito {
     public void setIdUsuario(Usuario idUsuario) {
         this.idUsuario = idUsuario;
     }
-    public LugarTuristico getIdLugarTuristico() {
-        return idLugarTuristico;
+    public LugarTuristico getIdLugar() {
+        return idLugar;
     }
-    public void setIdLugarTuristico(LugarTuristico idLugarTuristico) {
-        this.idLugarTuristico = idLugarTuristico;
+    public void setIdLugar(LugarTuristico idLugar) {
+        this.idLugar = idLugar;
     }
     public Negocio getIdNegocio() {
         return idNegocio;
