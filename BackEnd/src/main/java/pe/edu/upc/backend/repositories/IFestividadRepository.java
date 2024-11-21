@@ -9,9 +9,9 @@ import java.util.List;
 @Repository
 public interface IFestividadRepository extends JpaRepository<Festividad, Integer> {
     // Obtener todos las festividades por id en un lugar turistico
-    @Query("Select f from Festividad f where f.idLugarTuristico.idLugarTuristico = :idLugarTuristico")
+    @Query("Select f from Festividad f where f.idLugarTuristico.idLugar = :idLugarTuristico")
     public List<Festividad> obtenerPorLugarTuristico(@Param("idLugarTuristico") int idLugarTuristico);
     // Contar cuántas festividades hay por id en un  lugar turistico
-    @Query("Select count(f) from Festividad f where f.idLugarTuristico.idLugarTuristico = :idLugarTuristico")
+    @Query("Select count(f) from Festividad f where f.idLugarTuristico.idLugar = :idLugarTuristico")
     public long contarPorLugarTuristico(@Param("idLugarTuristico") int idLugarTuristico);
 }
