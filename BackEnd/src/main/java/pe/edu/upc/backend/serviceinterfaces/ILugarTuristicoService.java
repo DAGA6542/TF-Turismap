@@ -14,6 +14,6 @@ public interface ILugarTuristicoService {
     public List<LugarTuristico> latitudMayor(double latitud);
     public List<LugarTuristico> longitudMenor(double longitud);
     public List<LugarTuristico> listarlugarturisticoporciudad(String nombreCiudad);
-    public List<LugarTuristico> findByLatitudAndLongitud(double latitud,double longitud);
+    public List<String[]>coordenadas();
 
 }
