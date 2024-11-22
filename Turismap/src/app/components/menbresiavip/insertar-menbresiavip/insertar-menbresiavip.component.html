@@ -46,16 +46,14 @@
       </mat-form-field>
 
       <br />
-      <mat-form-field>
-        <mat-label>Estado</mat-label>
-        <mat-select formControlName="hestadoMenbresiaVIP" required>
-          <mat-option value="true">Activo</mat-option>
-          <mat-option value="false">Inactivo</mat-option>
-        </mat-select>
+
+      <div style="text-align: center">
+        <mat-checkbox class="example-margin" formControlName="hestadoMenbresiaVIP">
+          Estado de Membresia</mat-checkbox>
         <mat-error *ngIf="form.get('hestadoMenbresiaVIP')?.hasError('required')">
           El Estado de la Membresia es obligatorio.
         </mat-error>
-      </mat-form-field>
+      </div>
 
       <br />
 

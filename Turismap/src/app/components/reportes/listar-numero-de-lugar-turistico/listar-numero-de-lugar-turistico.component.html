@@ -7,12 +7,12 @@
   </div>
   
   <mat-table [dataSource]="datasource" matSort>
-    <ng-container matColumnDef="nombre">
+    <ng-container matColumnDef="nombreLugar">
       <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
       <mat-cell *matCellDef="let row">{{ row.nombreLugar }}</mat-cell>
     </ng-container>
   
-    <ng-container matColumnDef="numeroTelefono">
+    <ng-container matColumnDef="numeroTelefonoLugar">
       <mat-header-cell *matHeaderCellDef> Número de teléfono </mat-header-cell>
       <mat-cell *matCellDef="let row">{{ row.numeroLugar }}</mat-cell>
     </ng-container>

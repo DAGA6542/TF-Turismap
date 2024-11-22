@@ -28,7 +28,7 @@ import { MatSortModule } from '@angular/material/sort';
   styleUrls: ['./listar-numero-de-lugar-turistico.component.css']
 })
 export class ListarNumeroDeLugarTuristicoComponent implements OnInit, AfterViewInit  {
-  displayedColumns: string[] = ['nombre', 'numeroTelefono'];
+  displayedColumns: string[] = ['nombreLugar', 'numeroTelefonoLugar'];
 
   datasource: MatTableDataSource<LugarTuristico> = new MatTableDataSource<LugarTuristico>();
   nombreLugar: string = '';
