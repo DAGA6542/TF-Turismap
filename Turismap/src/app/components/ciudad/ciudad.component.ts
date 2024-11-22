@@ -10,5 +10,5 @@ import { ListarCiudadComponent } from './listar-ciudad/listar-ciudad.component';
   styleUrl: './ciudad.component.css'
 })
 export class CiudadComponent {
-  constructor(public route: ActivatedRoute) {}
+  constructor(public route: ActivatedRoute){}
 }

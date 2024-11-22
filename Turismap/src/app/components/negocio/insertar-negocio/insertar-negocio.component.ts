@@ -6,8 +6,9 @@ import { CommonModule, NgIf } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { Negocio } from '../../../models/negocio';
+
 import { NegocioService } from '../../../services/negocio.service';
+import { Negocio } from '../../../models/negocio';
 
 @Component({
   selector: 'app-insertar-negocio',
@@ -44,16 +45,16 @@ export class InsertarNegocioComponent {
 
     this.form = this.formbuilder.group({
       hidNegocio: [''],
-      hnombreNegocio: ['', Validators.required],
-      hlatitudNegocio: ['', Validators.required],
-      hlongitudNegocio: ['', Validators.required],
+      hnombreNegocio: ['', [Validators.required, Validators.minLength(3), Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$')]],// Solo letras y espacios
+      hlatitudNegocio: ['', [Validators.required, Validators.pattern('^-?([1-8]?[0-9](\\.\\d+)?|90(\\.0+)?)$')]],// Latitud válida
+      hlongitudNegocio: ['', [Validators.required, Validators.pattern('^-?(1[0-7][0-9](\\.\\d+)?|180(\\.0+)?|[0-9]?[0-9](\\.\\d+)?)$')]],// Longitud válida
       hhorarioNegocio: ['', Validators.required],
-      hnumeroTelefonoNegocio: ['', Validators.required],
-      hcalificacionNegocio: ['', Validators.required],
-      hdescripcionNegocio: ['', Validators.required],
+      hnumeroTelefonoNegocio: ['', [Validators.required, Validators.minLength(9), Validators.pattern('^[0-9]+$')]],// Solo números
+      hcalificacionNegocio: ['', [Validators.required, Validators.pattern('^[0-5](\\.[0-9]+)?$')]],// Calificación de 0 a 5
+      hdescripcionNegocio: ['', [Validators.required, Validators.minLength(10)]],// Mínimo 10 caracteres
       hreservaNegocio: ['', Validators.required],
-      hidCiudad: ['', Validators.required],
-      hidPromocion: ['', Validators.required],
+      hidCiudad: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],//Solo números
+      hidPromocion: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],//Solo números
     });
   }
   insertar(): void {

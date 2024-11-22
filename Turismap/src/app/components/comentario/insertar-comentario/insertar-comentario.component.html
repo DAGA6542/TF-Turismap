@@ -1,67 +1,86 @@
-<div class="title-container"><h1 class="title"style="text-align: center">Registro de Comentario</h1>
-    <div class="container" style="text-align: center">
-      <form [formGroup]="form" (submit)="insertar()" class="example-form">
-  
-        <mat-form-field class="example-full-width" *ngIf="edicion">
-            <mat-label>Codigo</mat-label>
-            <input matInput formControlName="hidComentario" readonly/>
-          </mat-form-field>
-          <br/>
-    
-        <mat-form-field class="example-full-width" >
-          <mat-label>Comentario</mat-label>
-          <input matInput formControlName="htextoComentario" />
-          <mat-error *ngIf="form.get('htextoComentario')?.hasError('required')"
-            >El nombre del Lugar Turistico es obligatorio.</mat-error
-          >
-        </mat-form-field>
-    
-        <br />
-          <mat-form-field>
-            <mat-label>Fecha</mat-label>
-            <input matInput [matDatepicker]="picker1" formControlName="hfechaComentario" />
-            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-            <mat-datepicker #picker1></mat-datepicker>
-            <mat-error *ngIf="form.get('hfechaComentario')?.hasError('required')">
-              La fecha es obligatoria.
-            </mat-error>
-          </mat-form-field>
-    
-        <br />
-        
-        <mat-form-field>
-            <mat-label>Id Usuario</mat-label>
-            <input matInput formControlName="hidUsuario" />
-            <mat-error *ngIf="form.get('hidUsuario')?.hasError('required')"
-              >El IdUsuario es obligatorio.</mat-error
-            >
-          </mat-form-field>
-    
-        <br />
-        <mat-form-field>
-            <mat-label>Id Lugar Turistico</mat-label>
-            <input matInput formControlName="hidLugarTuristico" />
-            <mat-error *ngIf="form.get('hidLugarTuristico')?.hasError('required')"
-              >El IdLugarTuristico es obligatorio.</mat-error>
-          </mat-form-field>
-    
-        <br />
+<div class="title-container">
+  <h1 class="title" style="text-align: center">Registro de Comentario</h1>
+  <div class="container" style="text-align: center">
+    <form [formGroup]="form" (submit)="insertar()" class="example-form">
 
-        <mat-form-field>
-            <mat-label>Id Negocio</mat-label>
-            <input matInput formControlName="hidNegocio" />
-            <mat-error *ngIf="form.get('hidNegocio')?.hasError('required')"
-              >El IdNegocio es obligatorio.</mat-error>
-          </mat-form-field>
-    
-        <br />
-        
-        <div style="text-align: center;">
-          <button mat-flat-button  color="warn">Registrar</button>
-        </div>
-        <div style="text-align: center;">
-          <button class="secondaryButton"  routerLink="/pais"> Cancelar </button>
-        </div>
-      </form>
-    </div>
+      <mat-form-field class="example-full-width" *ngIf="edicion">
+        <mat-label>Codigo</mat-label>
+        <input matInput formControlName="hidComentario" readonly />
+      </mat-form-field>
+      <br />
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Comentario</mat-label>
+        <input matInput formControlName="htextoComentario" />
+        <mat-error *ngIf="form.get('htextoComentario')?.hasError('required')">
+          El comentario es obligatorio.
+        </mat-error>
+        <mat-error *ngIf="form.get('htextoComentario')?.hasError('minlength')">
+          El comentario debe tener al menos 10 caracteres.
+        </mat-error>
+        <mat-error *ngIf="form.get('htextoComentario')?.hasError('pattern')">
+          El comentario contiene caracteres inválidos.
+        </mat-error>
+
+      </mat-form-field>
+
+      <br />
+      <mat-form-field>
+        <mat-label>Fecha</mat-label>
+        <input matInput [matDatepicker]="picker1" formControlName="hfechaComentario" />
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+        <mat-error *ngIf="form.get('hfechaComentario')?.hasError('required')">
+          La fecha es obligatoria.
+        </mat-error>
+      </mat-form-field>
+
+      <br />
+
+      <mat-form-field>
+        <mat-label>Id Usuario</mat-label>
+        <input matInput formControlName="hidUsuario" />
+        <mat-error *ngIf="form.get('hidUsuario')?.hasError('required')">
+          El IdUsuario es obligatorio
+        </mat-error>
+        <mat-error *ngIf="form.get('hidUsuario')?.hasError('pattern')">
+          El ID de usuario debe ser un número positivo.
+        </mat-error>
+      </mat-form-field>
+
+      <br />
+      <mat-form-field>
+        <mat-label>Id Lugar Turistico</mat-label>
+        <input matInput formControlName="hidLugarTuristico" />
+        <mat-error *ngIf="form.get('hidLugarTuristico')?.hasError('required')">
+          El ID del lugar turístico es obligatorio.
+        </mat-error>
+        <mat-error *ngIf="form.get('hidLugarTuristico')?.hasError('pattern')">
+          El ID del lugar turístico debe ser un número positivo.
+        </mat-error>
+      </mat-form-field>
+
+      <br />
+
+      <mat-form-field>
+        <mat-label>Id Negocio</mat-label>
+        <input matInput formControlName="hidNegocio" />
+        <mat-error *ngIf="form.get('hidNegocio')?.hasError('required')">
+          El ID del Negocio es obligatorio.
+        </mat-error>
+        <mat-error *ngIf="form.get('hidNegocio')?.hasError('pattern')">
+          El ID del negocio debe ser un número positivo.
+        </mat-error>
+      </mat-form-field>
+
+      <br />
+
+      <div style="text-align: center;">
+        <button mat-flat-button color="warn">Registrar</button>
+      </div>
+      <div style="text-align: center;">
+        <button class="secondaryButton" routerLink="/pais"> Cancelar </button>
+      </div>
+    </form>
   </div>
+</div>

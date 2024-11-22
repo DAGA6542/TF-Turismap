@@ -12,31 +12,54 @@
       <mat-form-field class="example-full-width">
         <mat-label>Nombre</mat-label>
         <input matInput formControlName="hnombrePromocion" />
-        <mat-error *ngIf="form.get('hnombrePromocion')?.hasError('required')">El nombre es obligatorio.</mat-error>
+        <mat-error *ngIf="form.get('hnombrePromocion')?.hasError('required')">
+          El nombre es obligatorio.
+        </mat-error>
+        <mat-error *ngIf="form.get('hnombrePromocion')?.hasError('minlength')">
+          El nombre debe tener al menos 3 caracteres.
+        </mat-error>
+        <mat-error *ngIf="form.get('hnombrePromocion')?.hasError('pattern')">
+          El nombre solo puede contener letras y espacios.
+        </mat-error>
       </mat-form-field>
 
       <br />
       <mat-form-field class="example-full-width">
         <mat-label>Descripcion</mat-label>
         <input matInput formControlName="hdescripcionPromocion" />
-        <mat-error *ngIf="form.get('hdescripcionPromocion')?.hasError('required')">La Descripcion de la Promocion es
-          obligatorio.</mat-error>
+        <mat-error *ngIf="form.get('hdescripcionPromocion')?.hasError('required')">
+          La Descripcion de la Promocion es obligatorio.
+        </mat-error>
+        <mat-error *ngIf="form.get('hdescripcionPromocion')?.hasError('minlength')">
+          La descripción debe tener al menos 10 caracteres.
+        </mat-error>
       </mat-form-field>
       <br />
 
       <mat-form-field>
         <mat-label>Precio Promocion</mat-label>
         <input matInput formControlName="hprecioPromocion" />
-        <mat-error *ngIf="form.get('hprecioPromocion')?.hasError('required')">El precio de la Promocion es
-          obligatorio.</mat-error>
+        <mat-error *ngIf="form.get('hprecioPromocion')?.hasError('required')">
+          El precio de la Promocion es obligatorio.
+        </mat-error>
+        <mat-error *ngIf="form.get('hprecioPromocion')?.hasError('pattern')">
+          El precio debe ser un número positivo.
+        </mat-error>
       </mat-form-field>
 
       <br />
       <mat-form-field>
         <mat-label>Descuento</mat-label>
         <input matInput formControlName="hdescuentoPromocion" />
-        <mat-error *ngIf="form.get('hdescuentoPromocion')?.hasError('required')">El descuento de la Promocion es
-          obligatorio.</mat-error>
+        <mat-error *ngIf="form.get('hdescuentoPromocion')?.hasError('required')">
+          El descuento de la Promocion es obligatorio.
+        </mat-error>
+        <mat-error *ngIf="form.get('hdescuentoPromocion')?.hasError('min')">
+          El descuento no puede ser menor a 0.
+        </mat-error>
+        <mat-error *ngIf="form.get('hdescuentoPromocion')?.hasError('max')">
+          El descuento no puede ser mayor a 100.
+        </mat-error>
       </mat-form-field>
 
       <br />
