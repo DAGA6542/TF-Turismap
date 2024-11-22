@@ -30,8 +30,8 @@ public interface ILugarTuristicoRepository extends JpaRepository<LugarTuristico,
     @Query("SELECT lt FROM LugarTuristico lt WHERE lt.longitudLugar <= :longitud")
     public List<LugarTuristico> longitudMenor(@Param("longitud") double longitud);
 
-    @Query("SELECT lt FROM LugarTuristico lt WHERE lt.latitudLugar >= :latitud AND lt.longitudLugar <= :longitud")
-    public List<LugarTuristico> findByLatitudAndLongitud(@Param("latitud") double latitud, @Param("longitud") double longitud);
-
+    @Query(value="select c.nombre_lugar,  c.latitud_lugar, c.longitud_lugar  \n" +
+            "             from lugar_turistico c ", nativeQuery = true)
+    public List<String[]>coordenadas();
 
 }

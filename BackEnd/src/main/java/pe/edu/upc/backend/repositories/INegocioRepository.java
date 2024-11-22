@@ -40,4 +40,7 @@ public interface INegocioRepository extends JpaRepository<Negocio, Long> {
     // longitud menor a lo especificado
     @Query("SELECT n FROM Negocio n WHERE n.longitudNegocio <= :longitud")
     public List<Negocio> longitudMenor(@Param("longitud") double longitud);
+    @Query(value="select c.nombre_negocio,  c.latitud_negocio, c.longitud_negocio  \n" +
+            "             from Negocio c ", nativeQuery = true)
+    public List<String[]>coordenadasNeg();
 }
