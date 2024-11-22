@@ -46,13 +46,10 @@ export class AppComponent implements OnInit {
     if (this.loggedIn) {
       this.role = this.loginService.showRole();
     }
+  
     this.loginService.loggedIn$.subscribe((status) => {
       this.loggedIn = status;
-      if (status) {
-        this.role = this.loginService.showRole();
-      } else {
-        this.role = '';
-      }
+      this.role = status ? this.loginService.showRole() : '';
     });
   }
 
@@ -67,6 +64,6 @@ export class AppComponent implements OnInit {
     return this.loginService.verificar();
   }
   isAdmin() {
-    return this.role === 'ADMIN';
+    return this.role.toLowerCase() === 'ADMIN'; // Ajusta si tu rol está en mayúsculas/minúsculas
   }
 }
