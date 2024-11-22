@@ -87,6 +87,5 @@ public class UsuarioController {
             ModelMapper m = new ModelMapper();
             return m.map(y,UsuarioDTO.class);
         }).collect(Collectors.toList());
-
     }
 }

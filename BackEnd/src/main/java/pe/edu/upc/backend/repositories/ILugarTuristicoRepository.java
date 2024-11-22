@@ -4,9 +4,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import pe.edu.upc.backend.entities.LugarTuristico;
-
 import java.util.List;
-
 @Repository
 public interface ILugarTuristicoRepository extends JpaRepository<LugarTuristico, Long> {
     // Obtener todos los lugares turisticos por id en una ciudad
@@ -29,9 +27,6 @@ public interface ILugarTuristicoRepository extends JpaRepository<LugarTuristico,
     // longitud menor a lo especificado
     @Query("SELECT lt FROM LugarTuristico lt WHERE lt.longitudLugar <= :longitud")
     public List<LugarTuristico> longitudMenor(@Param("longitud") double longitud);
-
     @Query("SELECT lt FROM LugarTuristico lt WHERE lt.latitudLugar >= :latitud AND lt.longitudLugar <= :longitud")
     public List<LugarTuristico> findByLatitudAndLongitud(@Param("latitud") double latitud, @Param("longitud") double longitud);
-
-
 }

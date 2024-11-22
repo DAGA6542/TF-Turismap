@@ -2,7 +2,6 @@ package pe.edu.upc.backend.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import pe.edu.upc.backend.dtos.LugarTuristicoDTO;
 import pe.edu.upc.backend.dtos.NegocioDTO;
 import pe.edu.upc.backend.entities.Negocio;
 import pe.edu.upc.backend.serviceinterfaces.INegocioService;

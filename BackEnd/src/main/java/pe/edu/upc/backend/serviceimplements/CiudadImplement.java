@@ -21,7 +21,6 @@ public class CiudadImplement implements ICiudadService {
     public Ciudad listId(Long idCiudad) { return cR.findById(idCiudad).orElse(new Ciudad()); }
     @Override
     public List<Ciudad> buscarNombreCiudad(String nombreCiudad) { return cR.buscarNombreCiudad(nombreCiudad); }
-
     @Override
     public List<Ciudad> poblacionMayor(Long poblacion) { return cR.poblacionMayor(poblacion); }
     @Override
