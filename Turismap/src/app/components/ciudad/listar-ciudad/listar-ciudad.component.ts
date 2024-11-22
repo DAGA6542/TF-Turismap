@@ -37,9 +37,11 @@ export class ListarCiudadComponent {
   ngOnInit(): void {
     this.cS.list().subscribe((data) => {
       this.datasource = new MatTableDataSource(data);
+      this.datasource.paginator = this.paginator;
     });
     this.cS.getList().subscribe((data) => {
       this.datasource = new MatTableDataSource(data);
+      this.datasource.paginator = this.paginator;
     });
   }
   openDialog(id: number): void { }

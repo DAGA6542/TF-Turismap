@@ -40,6 +40,7 @@ datasource:MatTableDataSource<Comentario> = new MatTableDataSource();
     });
     this.cS.getList().subscribe((data) => {
       this.datasource = new MatTableDataSource(data);
+      this.datasource.paginator = this.paginator;
     });
   }
   openDialog(id: number): void { }
