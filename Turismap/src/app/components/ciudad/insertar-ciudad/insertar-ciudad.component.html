@@ -31,25 +31,6 @@
 
         <br />
         <mat-form-field>
-            <mat-label>Latitud</mat-label>
-            <input matInput formControlName="hlatitudCiudad" />
-            <mat-error *ngIf="form.get('hlatitudCiudad')?.hasError('required')"
-              >La latitud es obligatorio.</mat-error
-            >
-          </mat-form-field>
-
-        <br />
-
-        <mat-form-field>
-            <mat-label>Longitud</mat-label>
-            <input matInput formControlName="hlongitudCiudad" />
-            <mat-error *ngIf="form.get('hlongitudCiudad')?.hasError('required')"
-              >La longitud es obligatorio.</mat-error
-            >
-          </mat-form-field>
-
-        <br />
-        <mat-form-field>
             <mat-label>Codigo Postal</mat-label>
             <input matInput formControlName="hcodigoPostalCiudad" />
             <mat-error *ngIf="form.get('hcodigoPostalCiudad')?.hasError('required')"
