@@ -21,11 +21,11 @@ public class Comentario {
     @JoinColumn(name = "idNegocio")
     private Negocio idNegocio;
     public Comentario() {}
-    public Comentario(Long idComentario, String textoComentario, LocalDate fechaComentario) {
+    /*public Comentario(Long idComentario, String textoComentario, LocalDate fechaComentario) {
         this.idComentario = idComentario;
         this.textoComentario = textoComentario;
         this.fechaComentario = fechaComentario;
-    }
+    }*/
     public Comentario(Long idComentario, String textoComentario, LocalDate fechaComentario, Usuario idUsuario, LugarTuristico idLugarTuristico, Negocio idNegocio) {
         this.idComentario = idComentario;
         this.textoComentario = textoComentario;

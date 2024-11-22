@@ -2,6 +2,7 @@ package pe.edu.upc.backend.serviceimplements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.backend.entities.Festividad;
+import pe.edu.upc.backend.entities.LugarTuristico;
 import pe.edu.upc.backend.repositories.IFestividadRepository;
 import pe.edu.upc.backend.serviceinterfaces.IFestividadService;
 import java.util.List;
@@ -23,4 +24,6 @@ public class FestividadImplement implements IFestividadService {
     public List<Festividad> obtenerPorLugarTuristico(Long idLugar) { return fR.obtenerPorLugarTuristico(idLugar); }
     @Override
     public long contarPorLugarTuristico(Long idLugar) { return fR.contarPorLugarTuristico(idLugar); }
+    @Override
+    public List<Festividad> listarfestividadporlugarturistico(String nombreLugar) { return fR.listarfestividadporlugarturistico(nombreLugar); }
 }
