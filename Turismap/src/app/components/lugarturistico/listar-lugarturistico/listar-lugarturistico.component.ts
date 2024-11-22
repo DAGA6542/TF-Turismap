@@ -44,9 +44,11 @@ export class ListarLugarturisticoComponent implements OnInit {
   ngOnInit(): void {
     this.ltS.list().subscribe((data) => {
       this.datasource = new MatTableDataSource(data);
+      this.datasource.paginator = this.paginator;
     });
     this.ltS.getList().subscribe((data) => {
       this.datasource = new MatTableDataSource(data);
+
     });
   }
     delete (id: number): void {

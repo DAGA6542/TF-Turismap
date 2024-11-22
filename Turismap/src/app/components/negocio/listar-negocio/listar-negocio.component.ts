@@ -14,56 +14,58 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-listar-negocio',
   standalone: true,
-  imports: [CommonModule,MatPaginatorModule, MatTableModule,
+  imports: [CommonModule, MatPaginatorModule, MatTableModule,
     MatIconModule, RouterLink, MatTableModule,
-    MatButtonModule, MatDialogModule,MapAdvancedMarker,GoogleMap],
+    MatButtonModule, MatDialogModule, MapAdvancedMarker, GoogleMap],
   templateUrl: './listar-negocio.component.html',
   styleUrl: './listar-negocio.component.css'
 })
-export class ListarNegocioComponent implements OnInit{
-  coordenadasNeg:NegocioDTO[]=[];
-  center: google.maps.LatLngLiteral = {lat: -12.0873795, lng: -77.0500079};
+export class ListarNegocioComponent implements OnInit {
+  coordenadasNeg: NegocioDTO[] = [];
+  center: google.maps.LatLngLiteral = { lat: -12.0873795, lng: -77.0500079 };
   zoom = 18;
   markerPositions: google.maps.LatLngLiteral[] = [];
 
-  displayedColumns: string[] = ['idNegocio', 'nombreNegocio', 'horarioNegocio', 
+  displayedColumns: string[] = ['idNegocio', 'nombreNegocio', 'horarioNegocio',
     'numeroTelefonoNegocio', 'calificacionNegocio', 'descripcionNegocio', 'reservaNegocio',
     'idCiudad', 'idPromocion', 'accion1', 'accion2'];
   datasource: MatTableDataSource<Negocio> = new MatTableDataSource();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  
+
   constructor(private nS: NegocioService, private dialog: MatDialog) { }
-  
+
   ngOnInit(): void {
+    this.nS.list().subscribe((data) => {
+      this.datasource = new MatTableDataSource(data);
+      this.datasource.paginator = this.paginator;
+    });
+    this.nS.getList().subscribe((data) => {
+      this.datasource = new MatTableDataSource(data);
+      this.datasource.paginator = this.paginator;
+    });
+    this.cargarCoordenadas();
+  }
+  openDialog(id: number): void { }
+  delete(id: number) {
+    this.nS.delete(id).subscribe((data) => {
       this.nS.list().subscribe((data) => {
-        this.datasource = new MatTableDataSource(data);
+        this.nS.setList(data);
       });
-      this.nS.getList().subscribe((data) => {
-        this.datasource = new MatTableDataSource(data);
-      });
-      this.cargarCoordenadas();
-    }
-    openDialog(id: number): void { }
-    delete(id: number) {
-      this.nS.delete(id).subscribe((data) => {
-        this.nS.list().subscribe((data) => {
-          this.nS.setList(data);
-        });
-      });
-    }
-    
+    });
+  }
+
   cargarCoordenadas() {
     this.nS.obtenerCoordenadasNego().subscribe(
       (data) => {
         this.coordenadasNeg = data;
-  
+
 
         this.markerPositions = this.coordenadasNeg.map(coord => ({
           lat: coord.latitudNegocio,
           lng: coord.longitudNegocio
         }));
-  
+
         console.log('Coordenadas cargadas:', this.markerPositions);
       },
       (error) => {

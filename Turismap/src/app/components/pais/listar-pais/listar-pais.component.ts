@@ -30,9 +30,11 @@ export class ListarPaisComponent {
   ngOnInit(): void {
     this.pS.list().subscribe((data) => {
       this.datasource = new MatTableDataSource(data);
+      this.datasource.paginator = this.paginator;
     });
     this.pS.getList().subscribe((data) => {
       this.datasource = new MatTableDataSource(data);
+      this.datasource.paginator = this.paginator;
     });
   }
   openDialog(id: number): void {}
