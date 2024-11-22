@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
-import { ListarLugarTuristicoPorCiudadComponent } from './listar-lugar-turistico-por-ciudad/listar-lugar-turistico-por-ciudad.component';
-import { ListarNumeroDeLugarTuristicoComponent } from './listar-numero-de-lugar-turistico/listar-numero-de-lugar-turistico.component';
 import { ListarLugarturisticoComponent } from "../lugarturistico/listar-lugarturistico/listar-lugarturistico.component";
+import { BaseChartDirective } from 'ng2-charts';
 
+import { Chart, registerables } from 'chart.js';
+Chart.register(...registerables);
 @Component({
   selector: 'app-reportes',
   standalone: true,
-  imports: [RouterOutlet, ListarLugarturisticoComponent],
+  imports: [RouterOutlet, ListarLugarturisticoComponent, BaseChartDirective],
   templateUrl: './reportes.component.html',
   styleUrl: './reportes.component.css'
 })

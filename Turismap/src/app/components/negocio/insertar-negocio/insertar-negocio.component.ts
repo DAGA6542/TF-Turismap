@@ -6,17 +6,13 @@ import { CommonModule, NgIf } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { Negocio } from '../../../models/negocio';
-import { NegocioService } from '../../../services/negocio.service';
-import { provideNativeDateAdapter } from '@angular/material/core';
-import { Ciudad } from '../../../models/ciudad';
-import { Promocion } from '../../../models/promocion';
 
+import { NegocioService } from '../../../services/negocio.service';
+import { Negocio } from '../../../models/negocio';
 
 @Component({
   selector: 'app-insertar-negocio',
   standalone: true,
-  providers: [provideNativeDateAdapter()],
   imports: [MatFormFieldModule,CommonModule,NgIf, MatButtonModule,MatInputModule,ReactiveFormsModule,
     RouterLink, MatSelectModule, FormsModule],
   templateUrl: './insertar-negocio.component.html',
@@ -24,8 +20,6 @@ import { Promocion } from '../../../models/promocion';
 })
 export class InsertarNegocioComponent {
   form: FormGroup = new FormGroup({});
-  listaciudad: Ciudad[]=[];
-  listapromocion: Promocion[]=[];
   negocio: Negocio = new Negocio();
   edicion: boolean = false;
   id: number = 0;
@@ -51,20 +45,24 @@ export class InsertarNegocioComponent {
 
     this.form = this.formbuilder.group({
       hidNegocio: [''],
-      hnombreNegocio: ['', Validators.required],
+      hnombreNegocio: ['', [Validators.required, Validators.minLength(3), Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$')]],// Solo letras y espacios
+      hlatitudNegocio: ['', [Validators.required, Validators.pattern('^-?([1-8]?[0-9](\\.\\d+)?|90(\\.0+)?)$')]],// Latitud válida
+      hlongitudNegocio: ['', [Validators.required, Validators.pattern('^-?(1[0-7][0-9](\\.\\d+)?|180(\\.0+)?|[0-9]?[0-9](\\.\\d+)?)$')]],// Longitud válida
       hhorarioNegocio: ['', Validators.required],
-      hnumeroTelefonoNegocio: ['', Validators.required],
-      hcalificacionNegocio: ['', Validators.required],
-      hdescripcionNegocio: ['', Validators.required],
+      hnumeroTelefonoNegocio: ['', [Validators.required, Validators.minLength(9), Validators.pattern('^[0-9]+$')]],// Solo números
+      hcalificacionNegocio: ['', [Validators.required, Validators.pattern('^[0-5](\\.[0-9]+)?$')]],// Calificación de 0 a 5
+      hdescripcionNegocio: ['', [Validators.required, Validators.minLength(10)]],// Mínimo 10 caracteres
       hreservaNegocio: ['', Validators.required],
-      hidCiudad: ['', Validators.required],
-      hidPromocion: ['', Validators.required],
+      hidCiudad: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],//Solo números
+      hidPromocion: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],//Solo números
     });
   }
   insertar(): void {
     if (this.form.valid) {
       this.negocio.idNegocio = this.form.value.idNegocio;
       this.negocio.nombreNegocio= this.form.value.hnombreNegocio;
+      this.negocio.latitudNegocio = this.form.value.hlatitudNegocio;
+      this.negocio.longitudNegocio = this.form.value.hlongitudNegocio;
       this.negocio.horarioNegocio=this.form.value.hhorarioNegocio;
       this.negocio.numeroTelefonoNegocio=this.form.value.hnumeroTelefonoNegocio;
       this.negocio.calificacionNegocio=this.form.value.hcalificacionNegocio;
@@ -72,8 +70,6 @@ export class InsertarNegocioComponent {
       this.negocio.reservaNegocio=this.form.value.hreservaNegocio;
       this.negocio.idCiudad.idCiudad=this.form.value.hidCiudad;
       this.negocio.idPromocion.idPromocion=this.form.value.hidPromocion;
-
-      console.log(this.negocio);
     
       if (this.edicion) {
         this.nS.update(this.negocio).subscribe((data)=>{
@@ -87,7 +83,6 @@ export class InsertarNegocioComponent {
             this.nS.setList(data);
           });
         });
-
       }
       this.router.navigate(['negocio']);
     }
@@ -98,6 +93,8 @@ export class InsertarNegocioComponent {
         this.form = new FormGroup({
           hidNegocio: new FormControl(data.idNegocio),
           hnombreNegocio: new FormControl(data.nombreNegocio),
+          hlatitudNegocio: new FormControl(data.latitudNegocio),
+          hlongitudNegocio: new FormControl(data.longitudNegocio),
           hhorarioNegocio: new FormControl(data.horarioNegocio),
           hnumeroTelefonoNegocio: new FormControl(data.numeroTelefonoNegocio),
           hcalificacionNegocio: new FormControl(data.calificacionNegocio),

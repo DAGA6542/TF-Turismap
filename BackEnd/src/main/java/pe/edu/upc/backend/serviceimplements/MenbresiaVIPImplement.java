@@ -17,13 +17,13 @@ public class MenbresiaVIPImplement implements IMenbresiaVIPService {
     @Override
     public void update(MenbresiaVIP menbresiaVIP) { mR.save(menbresiaVIP); }
     @Override
-    public void delete(int idMenbresiaVIP) { mR.deleteById(idMenbresiaVIP); }
+    public void delete(Long idMenbresiaVIP) { mR.deleteById(idMenbresiaVIP); }
     @Override
-    public MenbresiaVIP listById(int idMenbreidMenbresiaVIP) { return mR.findById(idMenbreidMenbresiaVIP).orElse(new MenbresiaVIP()); }
+    public MenbresiaVIP listById(Long idMenbreidMenbresiaVIP) { return mR.findById(idMenbreidMenbresiaVIP).orElse(new MenbresiaVIP()); }
     @Override
     public List<MenbresiaVIP> obtenerMenbresActiv() { return mR.obtenerMenbresActiv(); }
     @Override
-    public List<MenbresiaVIP> obtenerMenbresDeUsuar(int idUsuario) {  return mR.obtenerMenbresDeUsuar(idUsuario); }
+    public List<MenbresiaVIP> obtenerMenbresDeUsuar(Long idUsuario) {  return mR.obtenerMenbresDeUsuar(idUsuario); }
     @Override
     public List<MenbresiaVIP> obtenerMenbresiasTipoMayorEspecifico(String tipo) { return mR.obtenerMenbresiasTipoMayorEspecifico(tipo); }
     @Override
@@ -31,7 +31,9 @@ public class MenbresiaVIPImplement implements IMenbresiaVIPService {
     @Override
     public List<MenbresiaVIP> obtenerMenbresExpiranEnFechaEspecifi(LocalDate fecha) { return mR.obtenerMenbresExpiranEnFechaEspecifi(fecha); }
     @Override
-    public List<MenbresiaVIP> obtenerMenbresDeUsuario(int idUsuario) { return mR.obtenerMenbresDeUsuario(idUsuario); }
+    public List<MenbresiaVIP> obtenerMenbresDeUsuario(Long idUsuario) { return mR.obtenerMenbresDeUsuario(idUsuario); }
     @Override
     public List<MenbresiaVIP> obtenerNombreUsuarioYTipoMembresia(String tipo) { return mR.obtenerNombreUsuarioYTipoMembresia(tipo); }
+    @Override
+    public List<String[]> usuariosConMasMenbresiasActivas() { return mR.usuariosConMasMenbresiasActivas(); }
 }

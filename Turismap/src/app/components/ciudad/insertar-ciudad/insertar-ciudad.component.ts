@@ -45,12 +45,10 @@ export class InsertarCiudadComponent implements OnInit {
       this.init()
     });
     this.form = this.formbuilder.group({
-      hnombreCiudad: ['', Validators.required],
-      hpoblacionCiudad: ['', Validators.required],
-      hsuperficieCiudad: ['', Validators.required],
-      hlatitudCiudad: ['', Validators.required],
-      hlongitudCiudad: ['', Validators.required],
-      hcodigoPostalCiudad: ['', Validators.required],
+      hnombreCiudad: ['', [Validators.required, Validators.minLength(3), Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$')]],// Solo letras y espacios
+      hpoblacionCiudad: ['', [Validators.required, Validators.pattern('^[0-9]+$')]], // Solo números positivos (sin decimales)
+      hsuperficieCiudad: ['', [Validators.required, Validators.pattern('^[0-9]+(\\.[0-9]+)?$')]],// Números positivos (puede tener decimales
+      hcodigoPostalCiudad: ['', [Validators.required, Validators.pattern('^[0-9]{5}$')]], //Debe ser numérico y tener exactamente 5 dígitos
       hDepartamento: ['', Validators.required],
     });
     this.depS.list().subscribe((data) => {
@@ -63,8 +61,6 @@ export class InsertarCiudadComponent implements OnInit {
       this.ciudad.nombreCiudad = this.form.value.hnombreCiudad;
       this.ciudad.poblacionCiudad = this.form.value.hpoblacionCiudad;
       this.ciudad.superficieCiudad = this.form.value.hsuperficieCiudad;
-      this.ciudad.latitudCiudad = this.form.value.hlatitudCiudad;
-      this.ciudad.longitudCiudad = this.form.value.hlongitudCiudad;
       this.ciudad.codigoPostalCiudad = this.form.value.hcodigoPostalCiudad;
       this.ciudad.idDepartamento.idDepartamento = this.form.value.hDepartamento;
 
@@ -92,8 +88,6 @@ export class InsertarCiudadComponent implements OnInit {
           hnombreCiudad: new FormControl(data.nombreCiudad),
           hpoblacionCiudad: new FormControl(data.poblacionCiudad),
           hsuperficieCiudad: new FormControl(data.superficieCiudad),
-          hlatitudCiudad: new FormControl(data.latitudCiudad),
-          hlongitudCiudad: new FormControl(data.longitudCiudad),
           hcodigoPostalCiudad: new FormControl(data.codigoPostalCiudad),
           hDepartamento: new FormControl(data.idDepartamento),
         });

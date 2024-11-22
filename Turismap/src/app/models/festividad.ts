@@ -1,6 +1,6 @@
 import { LugarTuristico } from "./lugarturistico";
 export class Festividad {
-    idFestividades: number = 0;
+    idFestividad: number = 0;
     nombreFestividad: string = "";
     descripcionFestividad: string = "";
     fechaFestividad: Date = new Date(Date.now());

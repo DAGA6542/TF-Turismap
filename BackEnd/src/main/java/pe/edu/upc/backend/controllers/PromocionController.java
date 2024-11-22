@@ -2,10 +2,12 @@ package pe.edu.upc.backend.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.backend.dtos.PromocionActivaDTO;
 import pe.edu.upc.backend.dtos.PromocionDTO;
 import pe.edu.upc.backend.entities.Promocion;
 import pe.edu.upc.backend.serviceinterfaces.IPromocionService;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 @RestController
@@ -20,7 +22,7 @@ public class PromocionController {
         pS.insert(promocion);
     }
     @PutMapping
-    public void actualizar(PromocionDTO promocionDTO) {
+    public void actualizar(@RequestBody PromocionDTO promocionDTO) {
         ModelMapper m = new ModelMapper();
         Promocion promocion = m.map(promocionDTO, Promocion.class);
         pS.update(promocion);
@@ -33,11 +35,11 @@ public class PromocionController {
         }).collect(Collectors.toList());
     }
     @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable("id") Integer id) {
+    public void eliminar(@PathVariable("id") Long id) {
         pS.delete(id);
     }
     @GetMapping("/{id}")
-    public PromocionDTO buscarPorId(@PathVariable("id") Integer id) {
+    public PromocionDTO buscarPorId(@PathVariable("id") Long id) {
         ModelMapper m = new ModelMapper();
         return m.map(pS.listById(id), PromocionDTO.class);
     }
@@ -100,5 +102,21 @@ public class PromocionController {
     @GetMapping("/contaractivosporfecha")
     public long contarActivosPorFecha(@RequestParam LocalDate fecha) {
         return pS.contarActivosPorFecha(fecha);
+    }
+    @GetMapping("/promocionesActivaConNegociosParticipantes")
+    public List<PromocionActivaDTO> promocionesActivaConNegociosParticipantes() {
+        List<String[]> resultados = pS.promocionesActivaConNegociosParticipantes();
+        List<PromocionActivaDTO> listaDTO = new ArrayList<>();
+        for (String[] fila : resultados) {
+            PromocionActivaDTO dto = new PromocionActivaDTO();
+            dto.setPromocion(fila[0]);
+            dto.setDescripcion(fila[1]);
+            dto.setNegocio(fila[2]);
+            dto.setCalificacionNegocio(Double.parseDouble(fila[3]));
+            dto.setInicioPromocion(fila[4]);
+            dto.setFinPromocion(fila[5]);
+            listaDTO.add(dto);
+        }
+        return listaDTO;
     }
 }

@@ -8,7 +8,7 @@ import { InsertarUsuarioComponent } from './components/usuario/insertar-usuario/
 import { ListarUsuarioComponent } from './components/usuario/listar-usuario/listar-usuario.component';
 import { InsertarPaisComponent } from './components/pais/insertar-pais/insertar-pais.component';
 import { ListarPaisComponent } from './components/pais/listar-pais/listar-pais.component';
-import { CiudadComponnent } from './components/ciudad/ciudad.component';
+import { CiudadComponent } from './components/ciudad/ciudad.component';
 import { ComentarioComponent } from './components/comentario/comentario.component';
 import { DepartamentoComponent } from './components/departamento/departamento.component';
 import { FavoritoComponent } from './components/favorito/favorito.component';
@@ -35,17 +35,33 @@ import { InsertarNegocioComponent } from './components/negocio/insertar-negocio/
 import { ListarNegocioComponent } from './components/negocio/listar-negocio/listar-negocio.component';
 import { InsertarRolComponent } from './components/rol/insertar-rol/insertar-rol.component';
 import { ListarRolComponent } from './components/rol/listar-rol/listar-rol.component';
+import { LoginComponent } from './components/login/login.component';
+import { seguridadGuard } from './guard/seguridad.guard';
+import { HomeComponent } from './components/home/home.component';
 import { ReportesComponent } from './components/reportes/reportes.component';
 import { ListarLugarTuristicoPorCiudadComponent } from './components/reportes/listar-lugar-turistico-por-ciudad/listar-lugar-turistico-por-ciudad.component';
 import { ListarNumeroDeLugarTuristicoComponent } from './components/reportes/listar-numero-de-lugar-turistico/listar-numero-de-lugar-turistico.component';
+import { CalcularCantidadCiudadxturismoComponent } from './components/reportes/calcular-cantidad-ciudadxturismo/calcular-cantidad-ciudadxturismo.component';
+import { CantidadRolesComponent } from './components/reportes/cantidad-roles/cantidad-roles.component';
+
 export const routes: Routes = [
     {
-        path: 'ciudad', component: CiudadComponnent,
+        path: '',
+        redirectTo: 'login',
+        pathMatch: 'full',
+    },
+    {
+        path: 'login',
+        component: LoginComponent,
+    },
+    {
+        path: 'ciudad', component: CiudadComponent,
         children: [
             { path: 'insertar', component: InsertarCiudadComponent },
             { path: 'listar', component: ListarCiudadComponent },
             { path: 'editar/:id', component: InsertarCiudadComponent }
         ],
+        canActivate: [seguridadGuard],
     },
     {
         path: 'comentario', component: ComentarioComponent,
@@ -54,6 +70,7 @@ export const routes: Routes = [
             { path: 'listar', component: ListarComentarioComponent },
             { path: 'editar/:id', component: InsertarComentarioComponent }
         ],
+        canActivate: [seguridadGuard],
     },
     {
         path: 'departamento', component: DepartamentoComponent,
@@ -62,6 +79,7 @@ export const routes: Routes = [
             { path: 'listar', component: ListarDepartamentoComponent },
             { path: 'editar/:id', component: InsertarDepartamentoComponent }
         ],
+        canActivate: [seguridadGuard],
     },
     {
         path: 'favorito', component: FavoritoComponent,
@@ -70,6 +88,7 @@ export const routes: Routes = [
             { path: 'listar', component: ListarFavoritoComponent },
             { path: 'editar/:id', component: InsertarFavoritoComponent }
         ],
+        canActivate: [seguridadGuard],
     },
     {
         path: 'festividad', component: FestividadComponent,
@@ -78,6 +97,7 @@ export const routes: Routes = [
             { path: 'listar', component: ListarFestividadComponent },
             { path: 'editar/:id', component: InsertarFestividadComponent }
         ],
+        canActivate: [seguridadGuard],
     },
     {
         path: 'lugarturistico', component: LugarturisticoComponent,
@@ -86,6 +106,7 @@ export const routes: Routes = [
             { path: 'listar', component: ListarLugarturisticoComponent },
             { path: 'editar/:id', component: InsertarLugarturisticoComponent }
         ],
+        canActivate: [seguridadGuard],
     },
     {
         path: 'menbresiavip', component: MenbresiavipComponent,
@@ -94,6 +115,7 @@ export const routes: Routes = [
             { path: 'listar', component: ListarMenbresiavipComponent },
             { path: 'editar/:id', component: InsertarMenbresiavipComponent }
         ],
+        canActivate: [seguridadGuard],
     },
     {
         path: 'negocio', component: NegocioComponent,
@@ -102,6 +124,7 @@ export const routes: Routes = [
             { path: 'listar', component: ListarNegocioComponent },
             { path: 'editar/:id', component: InsertarNegocioComponent }
         ],
+        canActivate: [seguridadGuard],
     },
     {
         path: 'pais', component: PaisComponent,
@@ -110,7 +133,7 @@ export const routes: Routes = [
             { path: 'listar', component: ListarPaisComponent },
             { path: 'editar/:id', component: InsertarPaisComponent }
         ],
-        
+        canActivate: [seguridadGuard],
     },
     {
         path: 'promocion', component: PromocionComponent,
@@ -119,6 +142,7 @@ export const routes: Routes = [
             { path: 'listar', component: ListarPromocionComponent },
             { path: 'editar/:id', component: InsertarPromocionComponent }
         ],
+        canActivate: [seguridadGuard],
     },
     {
         path: 'usuario', component: UsuarioComponent,
@@ -127,6 +151,7 @@ export const routes: Routes = [
             { path: 'listar', component: ListarUsuarioComponent },
             { path: 'editar/:id', component: InsertarUsuarioComponent }
         ],
+        canActivate: [seguridadGuard],
     },
     {
         path: 'rol', component: RolComponent,
@@ -134,7 +159,8 @@ export const routes: Routes = [
             { path: 'insertar', component: InsertarRolComponent },
             { path: 'listar', component: ListarRolComponent },
             { path: 'editar/:id', component: InsertarRolComponent }
-        ],  
+        ],
+        canActivate: [seguridadGuard],
     },
     {
         path: 'reportes',
@@ -148,6 +174,20 @@ export const routes: Routes = [
             path: 'listadonumerolugarturistico',
             component: ListarNumeroDeLugarTuristicoComponent,
           },
+          {
+            path: 'CalcularCantidadCiudadxturismoComponent',
+            component: CalcularCantidadCiudadxturismoComponent,
+          },
+          {
+            path: 'CantidadRolesComponent',
+            component: CantidadRolesComponent,
+          },
+          
         ],
       },
+    {
+        path: 'homes',
+        component: HomeComponent,
+        canActivate: [seguridadGuard],
+    },
 ];

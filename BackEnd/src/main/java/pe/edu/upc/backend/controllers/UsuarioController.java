@@ -3,8 +3,11 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.backend.dtos.UsuarioDTO;
+import pe.edu.upc.backend.dtos.UsuarioPorComentarioDTO;
 import pe.edu.upc.backend.entities.Usuario;
 import pe.edu.upc.backend.serviceinterfaces.IUsuarioService;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 @RestController
@@ -81,12 +84,24 @@ public class UsuarioController {
             return m.map(y,UsuarioDTO.class);
         });
     }
-    @GetMapping("/obtenerComentario")
-    public List<UsuarioDTO> obtenerComentario(@RequestParam String nombreNegocio) {
-        return uS.obtenerComentario(nombreNegocio).stream().map(y->{
+    @GetMapping("/buscarUsuariosPorComentariosEnNegocio")
+    public List<UsuarioDTO> buscarUsuariosPorComentariosEnNegocio(@RequestParam String nombreNegocio) {
+        return uS.buscarUsuariosPorComentariosEnNegocio(nombreNegocio).stream().map(y->{
             ModelMapper m = new ModelMapper();
             return m.map(y,UsuarioDTO.class);
         }).collect(Collectors.toList());
+    }
+    @GetMapping("/listarUsuariosConMasComentarios")
+    public List<UsuarioPorComentarioDTO> listarUsuariosConMasComentarios() {
+        List<String[]> resultados = uS.usuariosConMasComentariosRealizados();
+        List<UsuarioPorComentarioDTO> listaDTO = new ArrayList<>();
+        for (String[] columna : resultados) {
+            UsuarioPorComentarioDTO dto = new UsuarioPorComentarioDTO();
+            dto.setUsuario(columna[0]);
+            dto.setTotalComentarios(Long.parseLong(columna[1]));
+            listaDTO.add(dto);
+        }
 
+        return listaDTO;
     }
 }

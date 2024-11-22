@@ -45,7 +45,7 @@ export class InsertarRolComponent {
     this.form = this.formbuilder.group({
       hidRol: [''],
       hnombreRol: ['', Validators.required],
-      huser: ['', Validators.required]
+      huser: ['', [Validators.required, Validators.minLength(3), Validators.pattern('^[0-9]+$')]]//  Código debe ser obligatorio y numérico
     });
   }
 

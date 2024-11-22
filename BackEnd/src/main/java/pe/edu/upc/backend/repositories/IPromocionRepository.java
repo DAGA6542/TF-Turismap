@@ -7,7 +7,7 @@ import pe.edu.upc.backend.entities.Promocion;
 import java.time.LocalDate;
 import java.util.List;
 @Repository
-public interface IPromocionRepository extends JpaRepository<Promocion, Integer> {
+public interface IPromocionRepository extends JpaRepository<Promocion, Long> {
     // Obtener promociones que tienen un descuento mayor a un valor específico
     @Query("Select p from Promocion p where p.descuentoPromocion > :descuento")
     public List<Promocion> listarPorDescuentoMayor(@Param("descuento") double descuento);
@@ -35,4 +35,21 @@ public interface IPromocionRepository extends JpaRepository<Promocion, Integer> 
     // Contar cuántas promociones están activas en una fecha específica
     @Query("Select count(p) from Promocion p where :fecha between p.fechaInicioPromocion and p.fechaFinPromocion")
     public long contarActivosPorFecha(@Param("fecha") LocalDate fecha);
+    // Promociones activas con negocios participantes
+    @Query(value = " SELECT \n" +
+            " p.nombre_promocion AS promocion, \n" +
+            " p.descripcion_promocion AS descripcion, \n" +
+            " n.nombre_negocio AS negocio, \n" +
+            " n.calificacion_negocio AS calificacionNegocio, \n" +
+            " p.fecha_inicio_promocion AS inicioPromocion, \n" +
+            " p.fecha_fin_promocion AS finPromocion \n" +
+        " FROM \n" +
+            " promocion p \n" +
+        " JOIN \n" +
+            " negocio n ON p.id_promocion = n.id_promocion \n" +
+        " WHERE \n" +
+            " p.fecha_fin_promocion >= CURRENT_DATE \n" +
+        " ORDER BY \n" +
+            " p.fecha_inicio_promocion ASC ", nativeQuery = true)
+    public List<String[]> promocionesActivaConNegociosParticipantes();
 }

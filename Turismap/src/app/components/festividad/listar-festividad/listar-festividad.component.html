@@ -1,1 +1,47 @@
-<p>listar-festividad works!</p>
+<div class="container" style="padding-top: 10px; padding-left: 10px; padding-right: 10px;">
+    <div class="title-container">
+        <h1 class="title" style="text-align: center;">Lista de Festividades</h1>
+    </div>
+    <table mat-table [dataSource]="datasource" class="mat-elevation-z8 full-width-table">
+        <ng-container matColumnDef="idFestividad">
+            <th mat-header-cell *matHeaderCellDef>Código</th>
+            <td mat-cell *matCellDef="let element">{{ element?.idFestividad || 'No disponible' }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="nombreFestividad">
+            <th mat-header-cell *matHeaderCellDef>Nombre</th>
+            <td mat-cell *matCellDef="let element">{{ element?.nombreFestividad }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="descripcionFestividad">
+            <th mat-header-cell *matHeaderCellDef>Descripción</th>
+            <td mat-cell *matCellDef="let element">{{ element?.descripcionFestividad }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="fechaFestividad">
+            <th mat-header-cell *matHeaderCellDef>Fecha</th>
+            <td mat-cell *matCellDef="let element">{{ element?.fechaFestividad }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="nombreLugarTuristico">
+            <th mat-header-cell *matHeaderCellDef>Lugar Turístico</th>
+            <td mat-cell *matCellDef="let element">{{ element?.idLugarTuristico?.nombreLugar }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="accion1">
+            <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+            <td mat-cell *matCellDef="let element" (click)="delete(element.idFestividad)">
+                <mat-icon style="color:#1100ff ;">delete</mat-icon>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="accion2">
+            <th mat-header-cell *matHeaderCellDef>Actualizar</th>
+            <td mat-cell *matCellDef="let element" [routerLink]="['editar',element.idFestividad]">
+                <mat-icon style="color:#1100ff ;">edit</mat-icon>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+</div>

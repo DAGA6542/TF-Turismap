@@ -10,15 +10,17 @@ import { ActivatedRoute, Params, Router, RouterLink } from '@angular/router';
 import { MenbresiavipService } from '../../../services/menbresiavip.service';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
-import { Usuario } from '../../../models/usuario';
 import { UsuarioService } from '../../../services/usuario.service';
+import { Usuario } from '../../../models/usuario';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
 
 @Component({
   selector: 'app-insertar-menbresiavip',
   standalone: true,
   providers: [provideNativeDateAdapter()],
   imports: [MatFormFieldModule, CommonModule, NgIf, MatButtonModule, MatInputModule, ReactiveFormsModule,
-    RouterLink, MatSelectModule, FormsModule, MatDatepickerModule],
+    RouterLink, MatSelectModule, FormsModule, MatDatepickerModule,MatCheckboxModule],
   templateUrl: './insertar-menbresiavip.component.html',
   styleUrl: './insertar-menbresiavip.component.css'
 })
@@ -47,7 +49,7 @@ export class InsertarMenbresiavipComponent {
       htipoMenbresiaVIP: ['', Validators.required],
       hfechaInicioMenbresiaVIP: ['', Validators.required],
       hfechaFinMenbresiaVIP: ['', Validators.required],
-      hestadoMenbresiaVIP: ['', Validators.required],
+      hestadoMenbresiaVIP: [true, Validators.required],
       hbeneficioMenbresiaVIP: ['', Validators.required],
       hidUsuario: ['', Validators.required],
     });

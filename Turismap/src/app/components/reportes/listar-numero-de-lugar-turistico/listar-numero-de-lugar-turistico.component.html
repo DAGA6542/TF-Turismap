@@ -1,24 +1,24 @@
 <div class="search-container">
-  <mat-form-field appearance="fill" class="search-field">
-    <mat-label>Buscar por nombre</mat-label>
-    <input matInput [(ngModel)]="nombreLugar" placeholder="Ingrese el nombre del lugar turístico">
-  </mat-form-field>
-  <button mat-raised-button color="primary" (click)="searchByNombre()">Buscar</button>
-</div>
-
-<mat-table [dataSource]="datasource" matSort>
-  <ng-container matColumnDef="nombre">
-    <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
-    <mat-cell *matCellDef="let row">{{ row.nombreLugar }}</mat-cell>
-  </ng-container>
-
-  <ng-container matColumnDef="numeroTelefono">
-    <mat-header-cell *matHeaderCellDef> Número de teléfono </mat-header-cell>
-    <mat-cell *matCellDef="let row">{{ row.numeroTelefonoLugar }}</mat-cell>
-  </ng-container>
-
-  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-</mat-table>
-
-<mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons></mat-paginator>
+    <mat-form-field appearance="fill" class="search-field">
+      <mat-label>Buscar por nombre</mat-label>
+      <input matInput [(ngModel)]="nombreLugar" placeholder="Ingrese el nombre del lugar turístico">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="searchByNombre()">Buscar</button>
+  </div>
+  
+  <mat-table [dataSource]="datasource" matSort>
+    <ng-container matColumnDef="nombreLugar">
+      <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+      <mat-cell *matCellDef="let row">{{ row.nombreLugar }}</mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="numeroTelefonoLugar">
+      <mat-header-cell *matHeaderCellDef> Número de teléfono </mat-header-cell>
+      <mat-cell *matCellDef="let row">{{ row.numeroLugar }}</mat-cell>
+    </ng-container>
+  
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  
+  <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons></mat-paginator>

@@ -23,12 +23,25 @@ public interface IUsuarioRepository extends JpaRepository<Usuario, Long> {
     @Query(value = "Select * from Usuario order by nombre_usuario asc", nativeQuery = true)
     List<Usuario> listarPorNombreAscendente();
     public Usuario findOneByUsername(String username);
-    @Query(value = " SELECT u.*" +
-            " FROM usuario u" +
-            " JOIN comentario c ON u.id_usuario = c.id_usuario" +
-            " JOIN negocio n ON c.id_negocio = n.id_negocio" +
-            " WHERE n.nombre_negocio LIKE CONCAT('%', :nombre_negocio, '%')", nativeQuery = true)
-    public List<Usuario> obtenerComentario(@Param("nombre_negocio") String nombre_negocio);
-    //  Buscar usuarios que han dejado comentarios sobre un negocio específico
-
+    @Query(value = " SELECT u.* \n" +
+        " FROM usuario u \n" +
+        " INNER JOIN comentario c ON u.id_usuario = c.id_usuario \n" +
+        " INNER JOIN negocio n ON c.id_negocio = n.id_negocio \n" +
+        " WHERE LOWER(n.nombre_negocio) LIKE LOWER(CONCAT('%', :nombreNegocio, '%')) ", nativeQuery = true)
+    List<Usuario> buscarUsuariosPorComentariosEnNegocio(@Param("nombreNegocio") String nombreNegocio);
+    // Usuarios con más comentarios realizados
+    @Query(value = " SELECT \n" +
+            " u.nombre_usuario AS usuario, \n" +
+            " COUNT(c.id_comentario) AS totalComentarios \n" +
+        " FROM \n" +
+            " usuario u \n" +
+        " LEFT JOIN \n" +
+            " comentario c ON u.id_usuario = c.id_usuario \n" +
+        " GROUP BY \n" +
+            " u.id_usuario, u.nombre_usuario \n" +
+        " HAVING \n" +
+            " COUNT(c.id_comentario) > 0 \n" +
+        " ORDER BY \n" +
+            " totalComentarios DESC ", nativeQuery = true)
+    public List<String[]> usuariosConMasComentariosRealizados();
 }

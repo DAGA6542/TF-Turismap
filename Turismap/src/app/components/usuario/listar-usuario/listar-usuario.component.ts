@@ -14,13 +14,13 @@ import { UsuarioService } from '../../../services/usuario.service';
   imports: [
     MatPaginatorModule, MatTableModule,
     MatIconModule, RouterLink, MatTableModule,
-    MatButtonModule, MatDialogModule],
+    MatButtonModule, MatDialogModule, MatPaginator],
   templateUrl: './listar-usuario.component.html',
   styleUrl: './listar-usuario.component.css'
 })
 export class ListarUsuarioComponent {
   displayedColumns: string[] = [ 'idUsuario', 'username', 'nombreUsuario', 'emailUsuario',
-    'contraseniaUsuario', 'telefonoUsuario', 'enabled', 'accion1', 'accion2'];
+    'telefonoUsuario', 'enabled', 'accion1', 'accion2'];
   datasource: MatTableDataSource<Usuario> = new MatTableDataSource();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -30,9 +30,11 @@ export class ListarUsuarioComponent {
   ngOnInit(): void {
     this.uS.list().subscribe((data) => {
       this.datasource = new MatTableDataSource(data);
+      this.datasource.paginator = this.paginator;
     });
     this.uS.getList().subscribe((data) => {
       this.datasource = new MatTableDataSource(data);
+      this.datasource.paginator = this.paginator;
     });
   }
   openDialog(id: number): void {}
@@ -44,9 +46,5 @@ export class ListarUsuarioComponent {
     });
   }
 
-  // Para mostrar poco de contraseña
-  truncarContra(password: string): string {
-    return password.length > 8 ? password.substring(0, 8) + '...' : password;
-  }
-  
+
 }

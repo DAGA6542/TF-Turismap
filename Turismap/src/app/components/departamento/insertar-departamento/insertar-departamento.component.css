@@ -9,14 +9,14 @@ button {
   font-size: 16px;
   margin: 10px;
 }
-  
+
 .primaryButton{
   background-color: #2925F3;
   color: #ffffff;
   border: none;
   cursor: pointer;
 }
-  
+
 .primaryButton:hover{
   background-color: #4643f5;
 }
@@ -27,7 +27,7 @@ button {
   border: 1px solid #ddd;
   cursor: pointer;
 }
-  
+
 .secondaryButton:hover {
   background-color: #e0e0e0;
 }

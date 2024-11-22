@@ -7,5 +7,4 @@ export class MenbresiaVIP {
     estadoMenbresiaVIP: Boolean = true;
     beneficioMenbresiaVIP: string = "";
     idUsuario: Usuario = new Usuario();
-
 }

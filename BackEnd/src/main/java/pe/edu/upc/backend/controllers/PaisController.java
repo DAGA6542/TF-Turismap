@@ -32,11 +32,11 @@ public class PaisController {
         }).collect(Collectors.toList());
     }
     @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable("id") Integer id) {
+    public void eliminar(@PathVariable("id") Long id) {
         pS.delete(id);
     }
     @GetMapping("/{id}")
-    public PaisDTO buscarPorId(@PathVariable("id") Integer id) {
+    public PaisDTO buscarPorId(@PathVariable("id") Long id) {
         ModelMapper m = new ModelMapper();
         return m.map(pS.listById(id), PaisDTO.class);
     }
@@ -63,10 +63,6 @@ public class PaisController {
     }
     @GetMapping("/obtenerporcodigoiso")
     public PaisDTO obtenerPorCodigoIso(@RequestParam String codigoIso) {
-        /* return pS.obtenerPorCodigoIso(codigoIso).getCodigoIsoPais().transform(y->{
-            ModelMapper m = new ModelMapper();
-            return m.map(y,PaisDTO.class);
-        }); */
         Pais pais = pS.obtenerPorCodigoIso(codigoIso);
         ModelMapper m = new ModelMapper();
         return m.map(pais,PaisDTO.class);

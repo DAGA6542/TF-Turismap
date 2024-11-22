@@ -32,18 +32,18 @@ public class FestividadController {
         }).collect(Collectors.toList());
     }
     @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable("id") int id) {
+    public void eliminar(@PathVariable("id") Long id) {
         fS.delete(id);
     }
     @GetMapping("/festividadporlugarturistico")
-    public List<FestividadDTO> obtenerPorLugarTuristico(@RequestParam int idLugarTuristico) {
-        return fS.obtenerPorLugarTuristico(idLugarTuristico).stream().map(y->{
+    public List<FestividadDTO> obtenerPorLugarTuristico(@RequestParam Long idLugar) {
+        return fS.obtenerPorLugarTuristico(idLugar).stream().map(y->{
             ModelMapper m = new ModelMapper();
             return m.map(y,FestividadDTO.class);
         }).collect(Collectors.toList());
     }
     @GetMapping("/cantidadlugaresturisticosporciudad")
-    public long contarPorLugarTuristico(@RequestParam int idLugarTuristico) {
-        return fS.contarPorLugarTuristico(idLugarTuristico);
+    public long contarPorLugarTuristico(@RequestParam Long idLugar) {
+        return fS.contarPorLugarTuristico(idLugar);
     }
 }

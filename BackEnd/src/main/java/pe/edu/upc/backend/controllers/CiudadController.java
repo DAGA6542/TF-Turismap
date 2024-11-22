@@ -33,12 +33,13 @@ public class CiudadController {
             return m.map(y, CiudadDTO.class);
         }).collect(Collectors.toList());
     }
+
     @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable("id") Integer id) {
+    public void eliminar(@PathVariable("id") Long id) {
         cS.delete(id);
     }
     @GetMapping("/{id}")
-    public CiudadDTO listarPorId(@PathVariable("id") Integer id) {
+    public CiudadDTO listarPorId(@PathVariable("id") Long id) {
         ModelMapper m = new ModelMapper();
         CiudadDTO dto = m.map(cS.listId(id), CiudadDTO.class);
         return dto;
@@ -50,20 +51,7 @@ public class CiudadController {
             return m.map(y, CiudadDTO.class);
         }).collect(Collectors.toList());
     }
-    @GetMapping("/latitudmayor")
-    public List<CiudadDTO> latitudMayor(@RequestParam double latitud) {
-        return cS.latitudMayor(latitud).stream().map(y->{
-            ModelMapper m = new ModelMapper();
-            return m.map(y, CiudadDTO.class);
-        }).collect(Collectors.toList());
-    }
-    @GetMapping("/longitudmenor")
-    public List<CiudadDTO> longitudMenor(@RequestParam double longitud) {
-        return cS.longitudMenor(longitud).stream().map(y->{
-            ModelMapper m = new ModelMapper();
-            return m.map(y, CiudadDTO.class);
-        }).collect(Collectors.toList());
-    }
+
     @GetMapping("/poblacionmayor")
     public List<CiudadDTO> poblacionMayor(@RequestParam Long poblacion) {
         return cS.poblacionMayor(poblacion).stream().map(y->{
@@ -71,9 +59,9 @@ public class CiudadController {
             return m.map(y, CiudadDTO.class);
         }).collect(Collectors.toList());
     }
-    @GetMapping("/cantidades")
-    public List<CantidadTurismoxCiudadDTO> obtenerCantidad() {
-        List<String[]> lista = cS.cantidadTurismo();
+    @GetMapping("/calcularCantidadTurismoPorCiudad")
+    public List<CantidadTurismoxCiudadDTO> calcularCantidadTurismoPorCiudad() {
+        List<String[]> lista = cS.calcularCantidadTurismoPorCiudad();
         List<CantidadTurismoxCiudadDTO> listaDTO = new ArrayList<>();
         for (String[] columna : lista) {
             CantidadTurismoxCiudadDTO dto = new CantidadTurismoxCiudadDTO();

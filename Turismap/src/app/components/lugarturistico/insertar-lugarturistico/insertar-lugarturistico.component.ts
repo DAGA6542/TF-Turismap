@@ -46,9 +46,11 @@ export class InsertarLugarturisticoComponent implements OnInit{
     });
 
     this.form = this.formbuilder.group({
-      hnombreLugarTuristico: ['', Validators.required],
-      hdescripcionLugarTuristico: ['', Validators.required],
-      hnumeroLugarTuristico: ['', Validators.required],
+      hnombreLugarTuristico: ['', [Validators.required, Validators.minLength(3), Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$')]],// Solo letras y espacios
+      hlatitudLugarTuristico: ['', [Validators.required, Validators.pattern('^-?[0-9]{1,2}(\\.[0-9]+)?$')]],// Formato de latitud
+      hlongitudLugarTuristico: ['', [Validators.required, Validators.pattern('^-?[0-9]{1,3}(\\.[0-9]+)?$')]],// Formato de longitud
+      hdescripcionLugarTuristico: ['', [Validators.required, Validators.minLength(10)]],// Mínimo 10 caracteres
+      hnumeroLugarTuristico: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],// Solo números positivos
       hCiudad: ['', Validators.required],
     });
     this.ciuS.list().subscribe((data)=> {
@@ -60,8 +62,10 @@ export class InsertarLugarturisticoComponent implements OnInit{
     if (this.form.valid) {
       this.lugarturistico.idLugar= this.form.value.hidLugarTuristico;
       this.lugarturistico.nombreLugar= this.form.value.hnombreLugarTuristico;
+      this.lugarturistico.latitudLugar = this.form.value.hlatitudLugarTuristico;
+      this.lugarturistico.longitudLugar = this.form.value.hlongitudLugarTuristico;
       this.lugarturistico.descripcionLugar=this.form.value.hdescripcionLugarTuristico;
-      this.lugarturistico.numeroTelefonoLugar=this.form.value.hnumeroLugarTuristico;
+      this.lugarturistico.numeroLugar=this.form.value.hnumeroLugarTuristico;
       this.lugarturistico.idCiudad.idCiudad=this.form.value.hCiudad;
 
       if (this.edicion) {
@@ -86,8 +90,10 @@ export class InsertarLugarturisticoComponent implements OnInit{
         this.form = new FormGroup({
           hidLugarTuristico: new FormControl(data.idLugar),
           hnombreLugarTuristico: new FormControl(data.nombreLugar),
+          hlatitudLugarTuristico: new FormControl(data.latitudLugar),
+          hlongitudLugarTuristico: new FormControl(data.longitudLugar),
           hdescripcionLugarTuristico: new FormControl(data.descripcionLugar),
-          hnumeroLugarTuristico: new FormControl(data.numeroTelefonoLugar),
+          hnumeroLugarTuristico: new FormControl(data.numeroLugar),
           hidCiudad: new FormControl(data.idCiudad),
         });
       });

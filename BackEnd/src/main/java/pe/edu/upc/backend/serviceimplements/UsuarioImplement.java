@@ -32,7 +32,7 @@ public class UsuarioImplement implements IUsuarioService {
     @Override
     public Usuario findOneByUsername(String username) { return uR.findOneByUsername(username); }
     @Override
-    public List<Usuario> obtenerComentario(String nombreNegocio) {
-        return uR.obtenerComentario(nombreNegocio);
-    }
+    public List<Usuario> buscarUsuariosPorComentariosEnNegocio(String nombreNegocio) { return uR.buscarUsuariosPorComentariosEnNegocio(nombreNegocio); }
+    @Override
+    public List<String[]> usuariosConMasComentariosRealizados() { return uR.usuariosConMasComentariosRealizados(); }
 }

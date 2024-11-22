@@ -4,16 +4,16 @@ import pe.edu.upc.backend.entities.Negocio;
 import pe.edu.upc.backend.entities.Usuario;
 import java.time.LocalDate;
 public class ComentarioDTO {
-    private int idComentario;
+    private Long idComentario;
     private String textoComentario;
     private LocalDate fechaComentario;
     private Usuario idUsuario;
     private LugarTuristico idLugarTuristico;
     private Negocio idNegocio;
-    public int getIdComentario() {
+    public Long getIdComentario() {
         return idComentario;
     }
-    public void setIdComentario(int idComentario) {
+    public void setIdComentario(Long idComentario) {
         this.idComentario = idComentario;
     }
     public String getTextoComentario() {

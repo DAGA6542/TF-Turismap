@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environments';
 import { Ciudad } from '../models/ciudad';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { CantidadTurismoxCiudadDTO } from '../models/CantidadTurismoxCiudadDTO';
 
 const base_url = environment.base;
 
@@ -34,5 +35,8 @@ export class CiudadService {
   }
   update(tm: Ciudad) {
     return this.http.put(this.url, tm)
+  }
+  obtenerCantidadTurismoxCiudad(): Observable<CantidadTurismoxCiudadDTO[]> {
+    return this.http.get<CantidadTurismoxCiudadDTO[]>(`${this.url}/calcularCantidadTurismoPorCiudad`);
   }
 }

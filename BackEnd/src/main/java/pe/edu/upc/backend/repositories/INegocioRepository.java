@@ -6,13 +6,13 @@ import org.springframework.stereotype.Repository;
 import pe.edu.upc.backend.entities.Negocio;
 import java.util.List;
 @Repository
-public interface INegocioRepository extends JpaRepository<Negocio, Integer> {
+public interface INegocioRepository extends JpaRepository<Negocio, Long> {
     // Obtener todos los negocios en una ciudad específica
     @Query("Select n from Negocio n where n.idCiudad.idCiudad = :idCiudad")
-    public List<Negocio> obtenerPorCiudad(@Param("idCiudad") int idCiudad);
+    public List<Negocio> obtenerPorCiudad(@Param("idCiudad") Long idCiudad);
     // Contar cuántos negocios hay en una ciudad específica
     @Query("Select count(n) from Negocio n where n.idCiudad.idCiudad = :idCiudad")
-    public long contarPorCiudad(@Param("idCiudad") int idCiudad);
+    public long contarPorCiudad(@Param("idCiudad") Long idCiudad);
     // Obtener negocios con una calificación mayor o igual a un valor específico
     @Query("Select n from Negocio n where n.calificacionNegocio >= :calificacion")
     public List<Negocio> obtenerPorCalificacion(@Param("calificacion") int calificacion);
@@ -34,4 +34,12 @@ public interface INegocioRepository extends JpaRepository<Negocio, Integer> {
     // Obtener todos los negocios ordenados por calificación en orden descendente
     @Query("Select n from Negocio n order by n.calificacionNegocio desc")
     public List<Negocio> obtenerPorOrdenPorCalificacion();
+    @Query("SELECT n FROM Negocio n WHERE n.latitudNegocio >= :latitud")
+    public List<Negocio> latitudMayor(@Param("latitud") double latitud);
+    // longitud menor a lo especificado
+    @Query("SELECT n FROM Negocio n WHERE n.longitudNegocio <= :longitud")
+    public List<Negocio> longitudMenor(@Param("longitud") double longitud);
+    @Query(value="select c.nombre_negocio,  c.latitud_negocio, c.longitud_negocio  \n" +
+            "             from Negocio c ", nativeQuery = true)
+    public List<String[]>coordenadasNeg();
 }

@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { ListarLugarturisticoComponent } from './listar-lugarturistico/listar-lugarturistico.component';
+import { url } from 'node:inspector';
+import { environment } from '../../../environments/environments';
+import { LugarTuristico } from '../../models/lugarturistico';
 
 @Component({
   selector: 'app-lugarturistico',
@@ -10,5 +13,12 @@ import { ListarLugarturisticoComponent } from './listar-lugarturistico/listar-lu
   styleUrl: './lugarturistico.component.css'
 })
 export class LugarturisticoComponent {
-  constructor(public route: ActivatedRoute) {}
-}
+
+  lugar:LugarTuristico=new LugarTuristico();
+
+  constructor(public route: ActivatedRoute) {
+   
+  }
+
+  }
+

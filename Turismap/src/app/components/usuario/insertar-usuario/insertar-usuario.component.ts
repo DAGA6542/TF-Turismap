@@ -6,9 +6,9 @@ import { CommonModule, NgIf } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { Usuario } from '../../../models/usuario';
 import { UsuarioService } from '../../../services/usuario.service';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { Usuario } from '../../../models/usuario';
 
 @Component({
   selector: 'app-insertar-usuario',
@@ -40,21 +40,21 @@ export class InsertarUsuarioComponent {
   ) {}
   ngOnInit(): void {
     this.route.params.subscribe((data:Params)=> {
-      this.id = data['id'];
+      this.id  = data['id'];
       this.edicion = data['id']  > 0;
       this.init()
     });
 
     this.form = this.formbuilder.group({
       idUsuario: [''],
-      username: ['', Validators.required],
-      nombreUsuario: ['', Validators.required],
+      username: ['', [Validators.required, Validators.minLength(3)]],//minimo 3 caracteres
+      nombreUsuario: ['', [Validators.required, Validators.minLength(2),Validators.pattern('^[a-zA-Z ]+$')]], // Solo letras y espacios
       emailUsuario: ['', [Validators.required, Validators.email]],
-      contraseniaUsuario: ['', Validators.required],
+      contraseniaUsuario: ['',[ Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*])[A-Za-z\\d!@#$%^&*]{8,}$')]], // Al menos una mayúscula, una minúscula, un número y un carácter e,
       telefonoUsuario: ['', [Validators.required, Validators.minLength(9), Validators.pattern('^[0-9]+$')]],
       enabled: ['', Validators.required],
     });
-    
+
   }
 
   insertar(): void {
@@ -66,7 +66,7 @@ export class InsertarUsuarioComponent {
       this.usuario.contraseniaUsuario = this.form.value.contraseniaUsuario;
       this.usuario.telefonoUsuario = this.form.value.telefonoUsuario;
       this.usuario.enabled = this.form.value.enabled;
-  
+
       if (this.edicion) {
         this.uS.update(this.usuario).subscribe(() => {
           this.uS.list().subscribe((data) => {
@@ -92,7 +92,7 @@ export class InsertarUsuarioComponent {
       this.form.markAllAsTouched();
     }
   }
-  
+
   init() {
     if (this.edicion) {
       this.uS.listId(this.id).subscribe((data) => {
@@ -108,5 +108,5 @@ export class InsertarUsuarioComponent {
       });
     }
   }
-  
+
 }

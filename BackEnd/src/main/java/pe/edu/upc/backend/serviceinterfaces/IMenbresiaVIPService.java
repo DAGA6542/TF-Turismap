@@ -6,13 +6,14 @@ public interface IMenbresiaVIPService {
     public void insert(MenbresiaVIP menbresiaVIP);
     public List<MenbresiaVIP> list();
     public void update(MenbresiaVIP menbresiaVIP);
-    public void delete(int idMenbresiaVIP);
-    public MenbresiaVIP listById(int idMenbreidMenbresiaVIP);
+    public void delete(Long idMenbresiaVIP);
+    public MenbresiaVIP listById(Long idMenbreidMenbresiaVIP);
     public List<MenbresiaVIP> obtenerMenbresActiv();
-    public List<MenbresiaVIP> obtenerMenbresDeUsuar(int idUsuario);
+    public List<MenbresiaVIP> obtenerMenbresDeUsuar(Long idUsuario);
     public List<MenbresiaVIP> obtenerMenbresiasTipoMayorEspecifico(String tipo);
     public int cantidadMenbresActivas();
     public List<MenbresiaVIP> obtenerMenbresExpiranEnFechaEspecifi(LocalDate fecha);
-    public List<MenbresiaVIP> obtenerMenbresDeUsuario(int idUsuario);
+    public List<MenbresiaVIP> obtenerMenbresDeUsuario(Long idUsuario);
     public List<MenbresiaVIP> obtenerNombreUsuarioYTipoMembresia(String tipo);
+    public List<String[]> usuariosConMasMenbresiasActivas();
 }

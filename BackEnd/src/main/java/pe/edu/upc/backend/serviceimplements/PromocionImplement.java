@@ -17,9 +17,9 @@ public class PromocionImplement implements IPromocionService {
     @Override
     public void update(Promocion promocion) { pR.save(promocion); }
     @Override
-    public void delete(int idPromocion) { pR.deleteById(idPromocion); }
+    public void delete(Long idPromocion) { pR.deleteById(idPromocion); }
     @Override
-    public Promocion listById(int idPromocion) { return pR.findById(idPromocion).orElse(new Promocion()); }
+    public Promocion listById(Long idPromocion) { return pR.findById(idPromocion).orElse(new Promocion()); }
     @Override
     public List<Promocion> listarPorDescuentoMayor(double descuento) { return pR.listarPorDescuentoMayor(descuento); }
     @Override
@@ -38,4 +38,6 @@ public class PromocionImplement implements IPromocionService {
     public List<Promocion> obtenerPorDescripcion(String descripcion) { return pR.obtenerPorDescripcion(descripcion); }
     @Override
     public long contarActivosPorFecha(LocalDate fecha) { return pR.contarActivosPorFecha(fecha); }
+    @Override
+    public List<String[]> promocionesActivaConNegociosParticipantes() { return pR.promocionesActivaConNegociosParticipantes(); }
 }

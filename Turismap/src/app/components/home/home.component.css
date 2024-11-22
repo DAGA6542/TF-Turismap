@@ -1,0 +1,41 @@
+/* Contenedor principal */
+.container {
+    display:flex;
+    flex-direction: column; /* Para apilar el texto y la imagen */
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Altura completa de la pantalla */
+    width: 100; /* Ancho completo de la pantalla */
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Evita desplazamientos */
+    background-color: #f5f5f5; /* Fondo neutro */
+  }
+  
+  /* Introducción */
+  .intro {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333; /* Color del texto */
+  }
+  
+  .app-title {
+    font-size: 2.5rem; /* Título más grande */
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .app-description {
+    font-size: 1.2rem; /* Descripción más pequeña */
+    line-height: 1.5;
+    max-width: 600px; /* Limita el ancho del texto */
+  }
+  
+  /* Imagen principal */
+  .image {
+    width: 100%; /* Ajusta la imagen al ancho completo */
+    height: auto; /* Mantiene las proporciones */
+    max-height: 60%; /* Evita que ocupe demasiada pantalla */
+    object-fit: contain; /* Contiene la imagen respetando proporciones */
+  }
+  

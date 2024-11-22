@@ -54,11 +54,11 @@ export class InsertarFavoritoComponent {
 
     this.form = this.formbuilder.group({
       hidFavorito: [''],
-      hfechaAgregadoFavorito: ['', Validators.required],
-      hfechaModificacionFavorito: ['', Validators.required],
-      hidUsuario: ['', Validators.required],
-      hidLugarTuristico: ['', Validators.required],
-      hidNegocio: ['', Validators.required]
+      hfechaAgregadoFavorito: ['', [Validators.required]],
+      hfechaModificacionFavorito: ['', [Validators.required]],
+      hidUsuario: ['', [Validators.required]],
+      hidLugarTuristico: ['', [Validators.required]],
+      hidNegocio: ['',[Validators.required]]
     });
     this.uS.list().subscribe((data)=>{
       this.listarUsuario = data;
@@ -69,6 +69,12 @@ export class InsertarFavoritoComponent {
     this.nS.list().subscribe((data)=>{
       this.listarNegocio = data;
     })
+    this.form.get('hfechaModificacionFavorito')?.valueChanges.subscribe((fechaModificacion) => {
+      const fechaRegistrada = this.form.get('hfechaAgregadoFavorito')?.value;
+      if (fechaRegistrada && fechaModificacion && new Date(fechaModificacion) < new Date(fechaRegistrada)) {
+        this.form.get('hfechaModificacionFavorito')?.setErrors({ invalidDate: true });
+      }
+    });
   }
 
   insertar(): void {

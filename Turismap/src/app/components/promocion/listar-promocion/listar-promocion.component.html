@@ -1,42 +1,57 @@
 <div class="container" style="padding-top: 10px; padding-left: 10px; padding-right: 10px;">
-    <div class="title-container"><h1 class="title" style="text-align: center;">Lista Promociones</h1></div>
+    <div class="title-container">
+        <h1 class="title" style="text-align: center;">Lista de Promociones</h1>
+    </div>
     <table mat-table [dataSource]="datasource" class="mat-elevation-z8 full-width-table">
         <ng-container matColumnDef="idPromocion">
-            <th mat-header-cell *matHeaderCellDef>idPromocion</th>
+            <th mat-header-cell *matHeaderCellDef>Código </th>
             <td mat-cell *matCellDef="let element">{{ element.idPromocion}}</td>
         </ng-container>
-  
+
         <ng-container matColumnDef="nombrePromocion">
-            <th mat-header-cell *matHeaderCellDef>nombrePromocion</th>
+            <th mat-header-cell *matHeaderCellDef>Nombre</th>
             <td mat-cell *matCellDef="let element">{{ element.nombrePromocion }}</td>
         </ng-container>
-        
+
         <ng-container matColumnDef="descripcionPromocion">
-            <th mat-header-cell *matHeaderCellDef>descripcionPromocion</th>
+            <th mat-header-cell *matHeaderCellDef>Descripción</th>
             <td mat-cell *matCellDef="let element">{{ element.descripcionPromocion }}</td>
         </ng-container>
 
         <ng-container matColumnDef="precioPromocion">
-            <th mat-header-cell *matHeaderCellDef>precioPromocion</th>
-            <td mat-cell *matCellDef="let element">{{ element.precioPromocion }}</td>
+            <th mat-header-cell *matHeaderCellDef>Precio</th>
+            <td mat-cell *matCellDef="let element">{{ element.precioPromocion | currency}}</td>
         </ng-container>
 
         <ng-container matColumnDef="descuentoPromocion">
-            <th mat-header-cell *matHeaderCellDef>descuentoPromocion</th>
-            <td mat-cell *matCellDef="let element">{{ element.descuentoPromocion }}</td>
+            <th mat-header-cell *matHeaderCellDef>Descuento (%)</th>
+            <td mat-cell *matCellDef="let element">{{ element.descuentoPromocion }}%</td>
         </ng-container>
 
         <ng-container matColumnDef="fechaInicioPromocion">
-            <th mat-header-cell *matHeaderCellDef>fechaInicioPromocion</th>
-            <td mat-cell *matCellDef="let element">{{ element.fechaInicioPromocion }}</td>
+            <th mat-header-cell *matHeaderCellDef>Fecha Inicio</th>
+            <td mat-cell *matCellDef="let element">{{ element.fechaInicioPromocion | date:'shortDate'}}</td>
         </ng-container>
 
         <ng-container matColumnDef="fechaFinPromocion">
-            <th mat-header-cell *matHeaderCellDef>fechaFinPromocion</th>
-            <td mat-cell *matCellDef="let element">{{ element.fechaFinPromocion }}</td>
+            <th mat-header-cell *matHeaderCellDef>Fecha Fin</th>
+            <td mat-cell *matCellDef="let element">{{ element.fechaFinPromocion | date:'shortDate' }}</td>
         </ng-container>
-  
+
+        <ng-container matColumnDef="accion1">
+            <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+            <td mat-cell *matCellDef="let element" (click)="delete(element.idPromocion)">
+                <mat-icon style="color:#1100ff ;">delete</mat-icon>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="accion2">
+            <th mat-header-cell *matHeaderCellDef>Actualizar</th>
+            <td mat-cell *matCellDef="let element" [routerLink]="['editar',element.idPromocion]">
+                <mat-icon style="color:#1100ff ;">edit</mat-icon>
+            </td>
+        </ng-container>
+
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
-  </div>
+</div>

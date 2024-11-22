@@ -1,90 +1,143 @@
-<div class="title-container"><h1 class="title"style="text-align: center">Registro de Negocio</h1>
-    <div class="container" style="text-align: center">
-      <form [formGroup]="form" (submit)="insertar()" class="example-form">
-  
-        <mat-form-field class="example-full-width" *ngIf="edicion">
-          <mat-label>Código</mat-label>
-          <input matInput formControlName="hidNegocio" readonly/>
-        </mat-form-field>
-        <br />
-    
-        <mat-form-field class="example-full-width" >
-          <mat-label>Nombre</mat-label>
-          <input matInput formControlName="hnombreNegocio" />
-          <mat-error *ngIf="form.get('hnombreNegocio')?.hasError('required')"
-            >El nombre es obligatorio.</mat-error>
-        </mat-form-field>
-    
-        <br />
-        <mat-form-field class="example-full-width" >
-            <mat-label>Horario</mat-label>
-            <input matInput formControlName="hhorarioNegocio" />
-            <mat-error *ngIf="form.get('hhorarioNegocio')?.hasError('required')"
-              >El horario es obligatorio.</mat-error>
-          </mat-form-field>
-    
-        <br />
-        
-        <mat-form-field>
-            <mat-label>Telefono</mat-label>
-            <input matInput formControlName="hnumeroTelefonoNegocio" />
-            <mat-error *ngIf="form.get('hnumeroTelefonoNegocio')?.hasError('required')">El telefono es obligatorio.</mat-error>
-            <mat-error *ngIf="form.get('telefonoUsuario')?.hasError('minlength')">El teléfono debe tener al menos 9 dígitos.</mat-error>
-            <mat-error *ngIf="form.get('telefonoUsuario')?.hasError('pattern')">El teléfono solo puede contener números.</mat-error>
-          </mat-form-field>
-    
-        <br />
-        <mat-form-field>
-            <mat-label>Calificación</mat-label>
-            <input matInput formControlName="hcalificacionNegocio" />
-            <mat-error *ngIf="form.get('hcalificacionNegocio')?.hasError('required')">La calificación es obligatoria.</mat-error>
-          </mat-form-field>
-    
-        <br />
-        <mat-form-field>
-            <mat-label>Descripción</mat-label>
-            <textarea matInput placeholder="Descripción" formControlName="hdescripcionNegocio"></textarea>
-            <mat-error *ngIf="form.get('hdescripcionNegocio')?.hasError('required')">La descripción es obligatoria.</mat-error>
-          </mat-form-field>
-    
-        <br />
-        <mat-form-field>
-            <mat-label>Reserva</mat-label>
-            <mat-select formControlName="hreservaNegocio">
-              <mat-option *ngFor="let foot of listaValidos" [value]="foot.value">
-                {{ foot.viewValue }}
-              </mat-option>
-            </mat-select>
-            <mat-error *ngIf="form.get('hreservaNegocio')?.hasError('required')"
-              >La reserva es obligatoria.</mat-error>
-          </mat-form-field>
-    
-        <br />
-        <mat-form-field>
-            <mat-label>Código Ciudad</mat-label>
-            <input matInput formControlName="hidCiudad" />
-            <mat-error *ngIf="form.get('hidCiudad')?.hasError('required')"
-              >La ciudad es obligatoria.</mat-error>
-          </mat-form-field>
-    
-        <br />
-        <mat-form-field>
-            <mat-label>Código Promocional</mat-label>
-            <input matInput formControlName="hidPromocion" />
-            <mat-error *ngIf="form.get('hidPromocion')?.hasError('required')"
-              >El código promocional es obligatorio.</mat-error>
-          </mat-form-field>
-        <br />
+<div class="title-container">
+  <h1 class="title" style="text-align: center">Registro de Negocio</h1>
+  <div class="container" style="text-align: center">
+    <form [formGroup]="form" (submit)="insertar()" class="example-form">
 
-        
-        <br />
-        
-        <div style="text-align: center;">
-          <button mat-flat-button  color="warn">Registrar</button>
-        </div>
-        <div style="text-align: center;">
-          <button class="secondaryButton"  routerLink="/negocio"> Cancelar </button>
-        </div>
-      </form>
-    </div>
+      <mat-form-field class="example-full-width" *ngIf="edicion">
+        <mat-label>Código</mat-label>
+        <input matInput formControlName="hidNegocio" readonly />
+      </mat-form-field>
+      <br />
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="hnombreNegocio" required />
+        <mat-error *ngIf="form.get('hnombreNegocio')?.hasError('required')">El nombre es obligatorio.
+        </mat-error>
+        <mat-error *ngIf="form.get('hnombreNegocio')?.hasError('minlength')">
+          El nombre debe tener al menos 3 caracteres.
+        </mat-error>
+        <mat-error *ngIf="form.get('hnombreNegocio')?.hasError('pattern')">
+          El nombre solo puede contener letras y espacios.
+        </mat-error>
+      </mat-form-field>
+
+      <br />
+
+      <mat-form-field>
+        <mat-label>Latitud</mat-label>
+        <input matInput formControlName="hlatitudNegocio" required />
+        <mat-error *ngIf="form.get('hlatitudNegocio')?.hasError('required')">
+          La latitud es obligatorio.
+        </mat-error>
+        <mat-error *ngIf="form.get('hlatitudNegocio')?.hasError('pattern')">
+          La latitud debe estar en el rango de -90 a 90.
+        </mat-error>
+      </mat-form-field>
+
+      <br />
+
+      <mat-form-field>
+        <mat-label>Longitud</mat-label>
+        <input matInput formControlName="hlongitudNegocio" required />
+        <mat-error *ngIf="form.get('hlongitudNegocio')?.hasError('required')">
+          La longitud es obligatorio.
+        </mat-error>
+        <mat-error *ngIf="form.get('hlongitudNegocio')?.hasError('pattern')">
+          La longitud debe estar en el rango de -180 a 180.
+        </mat-error>
+      </mat-form-field>
+
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Horario</mat-label>
+        <input matInput formControlName="hhorarioNegocio" required />
+        <mat-error *ngIf="form.get('hhorarioNegocio')?.hasError('required')">
+          El horario es obligatorio.
+        </mat-error>
+      </mat-form-field>
+
+      <br />
+
+      <mat-form-field>
+        <mat-label>Telefono</mat-label>
+        <input matInput formControlName="hnumeroTelefonoNegocio" required />
+        <mat-error *ngIf="form.get('hnumeroTelefonoNegocio')?.hasError('required')">El telefono es
+          obligatorio.</mat-error>
+        <mat-error *ngIf="form.get('telefonoUsuario')?.hasError('minlength')">El teléfono debe tener al menos 9
+          dígitos.</mat-error>
+        <mat-error *ngIf="form.get('telefonoUsuario')?.hasError('pattern')">El teléfono solo puede contener
+          números.</mat-error>
+      </mat-form-field>
+
+      <br />
+      <mat-form-field>
+        <mat-label>Calificación</mat-label>
+        <input matInput formControlName="hcalificacionNegocio" required />
+        <mat-error *ngIf="form.get('hcalificacionNegocio')?.hasError('required')">
+          La calificación es obligatoria.
+        </mat-error>
+        <mat-error *ngIf="form.get('hcalificacionNegocio')?.hasError('pattern')">
+          La calificación debe ser un número entre 0 y 5.
+        </mat-error>
+      </mat-form-field>
+
+      <br />
+      <mat-form-field>
+        <mat-label>Descripción</mat-label>
+        <textarea matInput placeholder="Descripción" formControlName="hdescripcionNegocio" required></textarea>
+        <mat-error *ngIf="form.get('hdescripcionNegocio')?.hasError('required')">
+          La descripción es obligatoria.
+        </mat-error>
+        <mat-error *ngIf="form.get('hdescripcionNegocio')?.hasError('minlength')">
+          La descripción debe tener al menos 10 caracteres.
+        </mat-error>
+      </mat-form-field>
+
+      <br />
+      <mat-form-field>
+        <mat-label>Reserva</mat-label>
+        <mat-select formControlName="hreservaNegocio"required>
+          <mat-option *ngFor="let foot of listaValidos" [value]="foot.value">
+            {{ foot.viewValue }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('hreservaNegocio')?.hasError('required')">La reserva es obligatoria.</mat-error>
+      </mat-form-field>
+
+      <br />
+      <mat-form-field>
+        <mat-label>Código Ciudad</mat-label>
+        <input matInput formControlName="hidCiudad" required />
+        <mat-error *ngIf="form.get('hidCiudad')?.hasError('required')">
+          La ciudad es obligatoria.
+        </mat-error>
+        <mat-error *ngIf="form.get('hidCiudad')?.hasError('pattern')">
+          El código de la ciudad solo puede contener números.
+        </mat-error>
+      </mat-form-field>
+
+      <br />
+      <mat-form-field>
+        <mat-label>Código Promocional</mat-label>
+        <input matInput formControlName="hidPromocion" required />
+        <mat-error *ngIf="form.get('hidPromocion')?.hasError('required')">
+          El código promocional es obligatorio.
+        </mat-error>
+        <mat-error *ngIf="form.get('hidPromocion')?.hasError('pattern')">
+          El código promocional solo puede contener números.
+        </mat-error>
+      </mat-form-field>
+      <br />
+
+      <br />
+
+      <div style="text-align: center;">
+        <button mat-flat-button color="warn">Registrar</button>
+      </div>
+      <div style="text-align: center;">
+        <button class="secondaryButton" routerLink="/negocio"> Cancelar </button>
+      </div>
+    </form>
   </div>
+</div>
