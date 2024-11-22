@@ -10,8 +10,8 @@ import { ActivatedRoute, Params, Router, RouterLink } from '@angular/router';
 import { MenbresiavipService } from '../../../services/menbresiavip.service';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
-import { Usuario } from '../../../models/usuario';
 import { UsuarioService } from '../../../services/usuario.service';
+import { Usuario } from '../../../models/usuario';
 
 @Component({
   selector: 'app-insertar-menbresiavip',

@@ -6,9 +6,9 @@ import { CommonModule, NgIf } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { Usuario } from '../../../models/Usuario';
 import { UsuarioService } from '../../../services/usuario.service';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { Usuario } from '../../../models/usuario';
 
 @Component({
   selector: 'app-insertar-usuario',
