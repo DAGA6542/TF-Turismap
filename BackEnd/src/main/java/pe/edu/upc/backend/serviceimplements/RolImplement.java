@@ -20,5 +20,5 @@ public class RolImplement implements IRolService {
     @Override
     public Rol listById(Long idRol) { return rR.findById(idRol).orElse(new Rol()); }
     @Override
-    public List<String[]> contarRol() { return rR.contarRol(); }
+    public List<String[]> contarRoles() { return rR.contarRoles(); }
 }

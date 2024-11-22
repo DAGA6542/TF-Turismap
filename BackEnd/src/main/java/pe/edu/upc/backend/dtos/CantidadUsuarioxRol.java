@@ -1,7 +1,7 @@
 package pe.edu.upc.backend.dtos;
 public class CantidadUsuarioxRol {
-public String NombreRol;
-public int CantidadUsuario;
+    private String NombreRol;
+    private int CantidadUsuario;
     public String getNombreRol() {
         return NombreRol;
     }

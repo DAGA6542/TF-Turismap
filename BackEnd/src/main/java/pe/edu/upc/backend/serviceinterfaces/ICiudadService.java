@@ -8,7 +8,7 @@ public interface ICiudadService {
     public void delete(Long idCiudad);
     public Ciudad listId(Long idCiudad);
     public List<Ciudad> buscarNombreCiudad(String nombreCiudad);
-
     public List<Ciudad> poblacionMayor(Long poblacion);
-    public List<String[]>cantidadTurismo();
+    public List<String[]>calcularCantidadTurismoPorCiudad();
+    public List<String[]> cantidadComentarioPorCiudad();
 }

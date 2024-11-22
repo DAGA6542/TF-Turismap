@@ -6,9 +6,10 @@ import pe.edu.upc.backend.entities.Rol;
 import java.util.List;
 @Repository
 public interface IRolRepository extends JpaRepository<Rol, Long> {
-    @Query(value = "select c.rol, count(*)\n" +
-            " from rol c inner join usuario us\n" +
-            " on c.user_id= us.id_usuario\n" +
-            " group by c.rol", nativeQuery = true)
-    public List<String[]> contarRol();
+    @Query(value = " SELECT r.rol, COUNT(*) AS cantidad \n" +
+        " FROM rol r \n" +
+        " INNER JOIN usuario u ON r.user_id = u.id_usuario \n" +
+        " GROUP BY r.rol \n" +
+        " ORDER BY cantidad DESC ", nativeQuery = true)
+    List<String[]> contarRoles();
 }

@@ -6,7 +6,7 @@ import java.time.LocalDate;
 public class Festividad {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idFestividad;
+    private Long idFestividad;
     @Column(name = "nombreFestividad", nullable = false, length = 60)
     private String nombreFestividad;
     @Column(name = "descripcionFestividad", nullable = false, length = 250)
@@ -17,21 +17,21 @@ public class Festividad {
     @JoinColumn(name = "idLugar")
     private LugarTuristico idLugar;
     public Festividad() {}
-    public Festividad(int idFestividad, String nombreFestividad, String descripcionFestividad, LocalDate fechaFestividad) {
+    public Festividad(Long idFestividad, String nombreFestividad, String descripcionFestividad, LocalDate fechaFestividad) {
         this.idFestividad = idFestividad;
         this.nombreFestividad = nombreFestividad;
         this.descripcionFestividad = descripcionFestividad;
         this.fechaFestividad = fechaFestividad;
     }
-    public Festividad(int idFestividad, String nombreFestividad, String descripcionFestividad, LocalDate fechaFestividad, LugarTuristico idLugar) {
+    public Festividad(Long idFestividad, String nombreFestividad, String descripcionFestividad, LocalDate fechaFestividad, LugarTuristico idLugar) {
         this.idFestividad = idFestividad;
         this.nombreFestividad = nombreFestividad;
         this.descripcionFestividad = descripcionFestividad;
         this.fechaFestividad = fechaFestividad;
         this.idLugar = idLugar;
     }
-    public int getIdFestividad() { return idFestividad; }
-    public void setIdFestividad(int idFestividad) { this.idFestividad = idFestividad; }
+    public Long getIdFestividad() { return idFestividad; }
+    public void setIdFestividad(Long idFestividad) { this.idFestividad = idFestividad; }
     public String getNombreFestividad() { return nombreFestividad; }
     public void setNombreFestividad(String nombreFestividad) { this.nombreFestividad = nombreFestividad; }
     public String getDescripcionFestividad() { return descripcionFestividad; }

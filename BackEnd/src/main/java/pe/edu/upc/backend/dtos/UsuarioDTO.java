@@ -6,7 +6,6 @@ public class UsuarioDTO {
     private String username;
     private String emailUsuario;
     private String nombreUsuario;
-    private String contraseniaUsuario;
     private int telefonoUsuario;
     private Boolean enabled;
     private List<Rol> roles;
@@ -27,12 +26,6 @@ public class UsuarioDTO {
     }
     public void setEmailUsuario(String emailUsuario) {
         this.emailUsuario = emailUsuario;
-    }
-    public String getContraseniaUsuario() {
-        return contraseniaUsuario;
-    }
-    public void setContraseniaUsuario(String contraseniaUsuario) {
-        this.contraseniaUsuario = contraseniaUsuario;
     }
     public int getTelefonoUsuario() {
         return telefonoUsuario;

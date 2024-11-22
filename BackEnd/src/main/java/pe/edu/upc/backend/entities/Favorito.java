@@ -15,7 +15,7 @@ public class Favorito {
     @JoinColumn(name = "idUsuario")
     private Usuario idUsuario;
     @ManyToOne
-    @JoinColumn(name = "idLugarTuristico")
+    @JoinColumn(name = "idLugar")
     private LugarTuristico idLugar;
     @ManyToOne
     @JoinColumn(name = "idNegocio")
