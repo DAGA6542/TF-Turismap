@@ -40,11 +40,11 @@ export class InsertarComentarioComponent {
     });
     this.form = this.formbuilder.group({
       hidComentario: [''],
-      htextoComentario: ['', Validators.required],
-      hfechaComentario: ['', Validators.required],
-      hidUsuario: ['', Validators.required],
-      hidLugarTuristico: ['', Validators.required],
-      hidNegocio: ['', Validators.required],
+      htextoComentario: ['', [Validators.required, Validators.minLength(10), Validators.pattern('^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ.,!? ]+$')]],// Permite letras, números y algunos caracteres de puntuación
+      hfechaComentario: ['', [Validators.required]],
+      hidUsuario: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],// Solo números positivos
+      hidLugarTuristico: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],// Solo números positivos
+      hidNegocio: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],// Solo números positivos o vacío
     });
   }
 

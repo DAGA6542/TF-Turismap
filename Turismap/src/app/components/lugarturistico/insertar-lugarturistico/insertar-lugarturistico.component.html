@@ -6,8 +6,14 @@
           <mat-label>Nombre</mat-label>
           <input matInput formControlName="hnombreLugarTuristico" />
           <mat-error *ngIf="form.get('hnombreLugarTuristico')?.hasError('required')"
-            >El nombre es obligatorio.</mat-error
-          >
+            >El nombre es obligatorio.
+          </mat-error>
+          <mat-error *ngIf="form.get('hnombreLugarTuristico')?.hasError('minlength')">
+            El nombre debe tener al menos 3 caracteres.
+          </mat-error>
+          <mat-error *ngIf="form.get('hnombreLugarTuristico')?.hasError('pattern')">
+            El nombre solo puede contener letras y espacios.
+          </mat-error>
         </mat-form-field>
     
         <br />
@@ -16,8 +22,11 @@
           <mat-label>Latitud</mat-label>
           <input matInput formControlName="hlatitudLugarTuristico" />
           <mat-error *ngIf="form.get('hlatitudLugarTuristico')?.hasError('required')"
-            >La latitud es obligatorio.</mat-error
-          >
+            >La latitud es obligatorio.
+          </mat-error>
+          <mat-error *ngIf="form.get('hlatitudLugarTuristico')?.hasError('pattern')">
+            La latitud debe ser un número decimal válido.
+          </mat-error>
         </mat-form-field>
   
       <br />
@@ -25,9 +34,12 @@
       <mat-form-field>
           <mat-label>Longitud</mat-label>
           <input matInput formControlName="hlongitudLugarTuristico" />
-          <mat-error *ngIf="form.get('hlongitudLugarTuristico')?.hasError('required')"
-            >La longitud es obligatorio.</mat-error
-          >
+          <mat-error *ngIf="form.get('hlongitudLugarTuristico')?.hasError('required')">
+            La longitud es obligatorio.
+            </mat-error>
+            <mat-error *ngIf="form.get('hlongitudLugarTuristico')?.hasError('pattern')">
+              La longitud debe ser un número decimal válido.
+            </mat-error>
         </mat-form-field>
   
       <br />
@@ -35,8 +47,11 @@
             <mat-label>Descripcion</mat-label>
             <input matInput formControlName="hdescripcionLugarTuristico" />
             <mat-error *ngIf="form.get('hdescripcionLugarTuristico')?.hasError('required')"
-              >La Descripcion es obligatorio.</mat-error
-            >
+              >La Descripcion es obligatorio.
+            </mat-error>
+            <mat-error *ngIf="form.get('hdescripcionLugarTuristico')?.hasError('minlength')">
+              La descripción debe tener al menos 10 caracteres.
+            </mat-error>
           </mat-form-field>
     
         <br />
@@ -45,8 +60,11 @@
             <mat-label>Numero</mat-label>
             <input matInput formControlName="hnumeroLugarTuristico" />
             <mat-error *ngIf="form.get('hnumeroLugarTuristico')?.hasError('required')"
-              >El Numero es obligatorio.</mat-error
-            >
+              >El Numero es obligatorio.
+            </mat-error>
+            <mat-error *ngIf="form.get('hnumeroLugarTuristico')?.hasError('pattern')">
+              El número debe ser un valor positivo.
+            </mat-error>
           </mat-form-field>
           <br />
           <mat-form-field>
@@ -56,6 +74,9 @@
               <mat-option [value]="ciu.idCiudad">{{ ciu.nombreCiudad }}</mat-option>
               }
             </mat-select>
+            <mat-error *ngIf="form.get('hCiudad')?.hasError('required')">
+              Debes seleccionar una ciudad.
+            </mat-error>
           </mat-form-field>
           <br />
   

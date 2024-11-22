@@ -45,10 +45,10 @@ export class InsertarCiudadComponent implements OnInit {
       this.init()
     });
     this.form = this.formbuilder.group({
-      hnombreCiudad: ['', Validators.required],
-      hpoblacionCiudad: ['', Validators.required],
-      hsuperficieCiudad: ['', Validators.required],
-      hcodigoPostalCiudad: ['', Validators.required],
+      hnombreCiudad: ['', [Validators.required, Validators.minLength(3), Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$')]],// Solo letras y espacios
+      hpoblacionCiudad: ['', [Validators.required, Validators.pattern('^[0-9]+$')]], // Solo números positivos (sin decimales)
+      hsuperficieCiudad: ['', [Validators.required, Validators.pattern('^[0-9]+(\\.[0-9]+)?$')]],// Números positivos (puede tener decimales
+      hcodigoPostalCiudad: ['', [Validators.required, Validators.pattern('^[0-9]{5}$')]], //Debe ser numérico y tener exactamente 5 dígitos
       hDepartamento: ['', Validators.required],
     });
     this.depS.list().subscribe((data) => {

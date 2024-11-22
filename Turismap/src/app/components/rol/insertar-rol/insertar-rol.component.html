@@ -10,7 +10,7 @@
     
         <mat-form-field class="example-full-width" >
           <mat-label>Nombre</mat-label>
-          <mat-select formControlName="hnombreRol">
+          <mat-select formControlName="hnombreRol" >
             @for (food of listaRoles; track food) {
             <mat-option [value]="food.value">{{ food.viewValue }}</mat-option>
             }
@@ -23,10 +23,14 @@
         <br />
         <mat-form-field class="example-full-width" >
             <mat-label>Código Usuario</mat-label>
-            <input matInput formControlName="huser" />
+            <input matInput formControlName="huser" required />
           </mat-form-field>
-          <mat-error *ngIf="form.get('huser')?.hasError('required')"
-          >El codigo usuario es obligatorio.</mat-error>
+          <mat-error *ngIf="form.get('huser')?.hasError('minlength')">
+            El código usuario debe tener al menos 3 caracteres.
+          </mat-error>
+          <mat-error *ngIf="form.get('huser')?.hasError('pattern')">
+            El código usuario solo puede contener números.
+          </mat-error>
         <br />
         
         <div style="text-align: center;">
