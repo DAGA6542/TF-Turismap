@@ -20,7 +20,7 @@ import { UsuarioService } from '../../../services/usuario.service';
 })
 export class ListarUsuarioComponent {
   displayedColumns: string[] = [ 'idUsuario', 'username', 'nombreUsuario', 'emailUsuario',
-     'telefonoUsuario', 'enabled', 'accion1', 'accion2'];
+    'contraseniaUsuario', 'telefonoUsuario', 'enabled', 'accion1', 'accion2'];
   datasource: MatTableDataSource<Usuario> = new MatTableDataSource();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -45,4 +45,10 @@ export class ListarUsuarioComponent {
       });
     });
   }
+
+  // Para mostrar poco de contraseña
+  truncarContra(password: string): string {
+    return password.length > 8 ? password.substring(0, 8) + '...' : password;
+  }
+
 }

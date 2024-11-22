@@ -24,6 +24,10 @@
                 <td mat-cell *matCellDef="let element">{{ element.emailUsuario }}</td>
             </ng-container>
 
+            <ng-container matColumnDef="contraseniaUsuario">
+                <th mat-header-cell *matHeaderCellDef>Contraseña</th>
+                <td mat-cell *matCellDef="let element">{{ truncarContra(element.contraseniaUsuario) }}</td>
+            </ng-container>
 
             <ng-container matColumnDef="telefonoUsuario">
                 <th mat-header-cell *matHeaderCellDef>Telefono</th>

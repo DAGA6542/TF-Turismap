@@ -39,7 +39,7 @@
       </mat-expansion-panel>
 
       <!-- Core -->
-      <mat-expansion-panel *ngIf="isAdmin()">
+      <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>Core</mat-panel-title>
         </mat-expansion-panel-header>
@@ -84,6 +84,12 @@
         <button mat-button routerLink="/reportes/listadonumerolugarturistico" (click)="sidenav.toggle()">
           <mat-icon>bar_chart</mat-icon> Listar Número por Lugar
         </button>
+        <button mat-button routerLink="/reportes/CalcularCantidadCiudadxturismoComponent" (click)="sidenav.toggle()">
+          <mat-icon>pie_chart</mat-icon> Listar Cantidad Lugar Turistico por Ciudad
+        </button>
+        <button mat-button routerLink="/reportes/CantidadRolesComponent" (click)="sidenav.toggle()">
+          <mat-icon>pie_chart</mat-icon> Listar Cantidad de Usuarios por Roles
+        </button>
       </mat-expansion-panel>
     </mat-nav-list>
   </mat-sidenav>
@@ -122,37 +128,37 @@
   <!-- Menú de Ciudad -->
   <mat-menu #menuCiudad="matMenu">
     <button mat-menu-item routerLink="/ciudad">Listar</button>
-    <button mat-menu-item routerLink="/ciudad/insertar">Registrar</button>
+    <button mat-menu-item routerLink="/ciudad/insertar" *ngIf="isAdmin()">Registrar</button>
   </mat-menu>
 
   <!-- Menú de Departamento -->
   <mat-menu #menuDepartamento="matMenu">
     <button mat-menu-item routerLink="/departamento">Listar</button>
-    <button mat-menu-item routerLink="/departamento/insertar">Registrar</button>
+    <button mat-menu-item routerLink="/departamento/insertar" *ngIf="isAdmin()">Registrar</button>
   </mat-menu>
 
   <!-- Menú de País -->
   <mat-menu #menuPais="matMenu">
     <button mat-menu-item routerLink="/pais">Listar</button>
-    <button mat-menu-item routerLink="/pais/insertar">Registrar</button>
+    <button mat-menu-item routerLink="/pais/insertar" *ngIf="isAdmin()">Registrar</button>
   </mat-menu>
 
   <!-- Menú de Negocio -->
   <mat-menu #menuNegocio="matMenu">
     <button mat-menu-item routerLink="/negocio">Listar</button>
-    <button mat-menu-item routerLink="/negocio/insertar">Registrar</button>
+    <button mat-menu-item routerLink="/negocio/insertar" *ngIf="isAdminAndPropietario()">Registrar</button>
   </mat-menu>
 
   <!-- Menú de Promoción -->
   <mat-menu #menuPromocion="matMenu">
     <button mat-menu-item routerLink="/promocion">Listar</button>
-    <button mat-menu-item routerLink="/promocion/insertar">Registrar</button>
+    <button mat-menu-item routerLink="/promocion/insertar" *ngIf="isAdminAndPropietario()">Registrar</button>
   </mat-menu>
 
   <!-- Menú de Lugar Turístico -->
   <mat-menu #menuLugarTuristico="matMenu">
     <button mat-menu-item routerLink="/lugarturistico">Listar</button>
-    <button mat-menu-item routerLink="/lugarturistico/insertar">Registrar</button>
+    <button mat-menu-item routerLink="/lugarturistico/insertar" *ngIf="isAdminAndPropietario()">Registrar</button>
   </mat-menu>
 
   <!-- Menú de Comentario -->
@@ -170,7 +176,7 @@
   <!-- Menú de Festividad -->
   <mat-menu #menuFestividad="matMenu">
     <button mat-menu-item routerLink="/festividad">Listar</button>
-    <button mat-menu-item routerLink="/festividad/insertar">Registrar</button>
+    <button mat-menu-item routerLink="/festividad/insertar" *ngIf="isAdminAndPropietario()">Registrar</button>
   </mat-menu>
 
   <!-- Menú de Membresía VIP -->

@@ -45,5 +45,14 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
-    
+</div>
+
+
+<div>
+    <br>
+    <google-map mapId="f404a59fc2fcb5b5" [center]="center" [zoom]="zoom" height="500px" width="100%">
+        <ng-container *ngFor="let position of markerPositions">
+          <map-advanced-marker [position]="position"></map-advanced-marker>
+        </ng-container>
+      </google-map>
 </div>
