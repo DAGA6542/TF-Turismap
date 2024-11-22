@@ -2,16 +2,10 @@ package pe.edu.upc.backend.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-<<<<<<< .merge_file_QBxiPa
-import pe.edu.upc.backend.dtos.CoordenadasDTO;
 import pe.edu.upc.backend.dtos.CoordenadasNegDTO;
-import pe.edu.upc.backend.dtos.LugarTuristicoDTO;
-=======
->>>>>>> .merge_file_t3wKT3
 import pe.edu.upc.backend.dtos.NegocioDTO;
 import pe.edu.upc.backend.entities.Negocio;
 import pe.edu.upc.backend.serviceinterfaces.INegocioService;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;

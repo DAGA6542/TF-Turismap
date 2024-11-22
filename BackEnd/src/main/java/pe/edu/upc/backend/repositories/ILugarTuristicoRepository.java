@@ -27,15 +27,9 @@ public interface ILugarTuristicoRepository extends JpaRepository<LugarTuristico,
     // longitud menor a lo especificado
     @Query("SELECT lt FROM LugarTuristico lt WHERE lt.longitudLugar <= :longitud")
     public List<LugarTuristico> longitudMenor(@Param("longitud") double longitud);
-<<<<<<< .merge_file_EJ80cW
-
     @Query(value="select c.nombre_lugar,  c.latitud_lugar, c.longitud_lugar  \n" +
             "             from lugar_turistico c ", nativeQuery = true)
     public List<String[]>coordenadas();
-
-}
-=======
     @Query("SELECT lt FROM LugarTuristico lt WHERE lt.latitudLugar >= :latitud AND lt.longitudLugar <= :longitud")
     public List<LugarTuristico> findByLatitudAndLongitud(@Param("latitud") double latitud, @Param("longitud") double longitud);
 }
->>>>>>> .merge_file_2TJOmc
