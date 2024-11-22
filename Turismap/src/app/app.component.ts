@@ -64,15 +64,15 @@ export class AppComponent implements OnInit {
     return this.loginService.verificar();
   }
   isAdmin() {
-    return this.role.toLowerCase() === 'ADMIN';
+    return this.role === 'ADMIN';
   }
   isPropietario() {
-    return this.role.toLowerCase() === 'PROPIETARIO';
+    return this.role === 'PROPIETARIO';
   }
   isAdminAndPropietario() {
-    return this.role.toLowerCase() === 'PROPIETARIO' || this.role.toLowerCase() === 'ADMIN';
+    return this.role === 'PROPIETARIO' || this.role === 'ADMIN';
   }
   isMiembro() {
-    return this.role.toLowerCase() === 'MIEMBRO';
+    return this.role === 'MIEMBRO';
   }
 }
