@@ -41,6 +41,8 @@ import { HomeComponent } from './components/home/home.component';
 import { ReportesComponent } from './components/reportes/reportes.component';
 import { ListarLugarTuristicoPorCiudadComponent } from './components/reportes/listar-lugar-turistico-por-ciudad/listar-lugar-turistico-por-ciudad.component';
 import { ListarNumeroDeLugarTuristicoComponent } from './components/reportes/listar-numero-de-lugar-turistico/listar-numero-de-lugar-turistico.component';
+import { CalcularCantidadCiudadxturismoComponent } from './components/reportes/calcular-cantidad-ciudadxturismo/calcular-cantidad-ciudadxturismo.component';
+import { CantidadRolesComponent } from './components/reportes/cantidad-roles/cantidad-roles.component';
 
 export const routes: Routes = [
     {
@@ -172,6 +174,15 @@ export const routes: Routes = [
             path: 'listadonumerolugarturistico',
             component: ListarNumeroDeLugarTuristicoComponent,
           },
+          {
+            path: 'CalcularCantidadCiudadxturismoComponent',
+            component: CalcularCantidadCiudadxturismoComponent,
+          },
+          {
+            path: 'CantidadRolesComponent',
+            component: CantidadRolesComponent,
+          },
+          
         ],
       },
     {
