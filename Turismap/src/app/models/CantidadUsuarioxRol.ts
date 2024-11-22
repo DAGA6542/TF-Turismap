@@ -1,4 +1,4 @@
 export class CantidadUsuarioxRol {
-    NombreRol: string = "";
-    CantidadUsuario: number = 0;
+    nombreRol: string = "";
+    cantidadUsuario: number = 0;
 }
