@@ -14,8 +14,8 @@ public class Festividad {
     @Column(name = "fechaFestividad", nullable = false)
     private LocalDate fechaFestividad;
     @ManyToOne
-    @JoinColumn(name = "idLugar")
-    private LugarTuristico idLugar;
+    @JoinColumn(name = "idLugarTuristico")
+    private LugarTuristico idLugarTuristico;
     public Festividad() {}
     public Festividad(int idFestividad, String nombreFestividad, String descripcionFestividad, LocalDate fechaFestividad) {
         this.idFestividad = idFestividad;
@@ -28,7 +28,7 @@ public class Festividad {
         this.nombreFestividad = nombreFestividad;
         this.descripcionFestividad = descripcionFestividad;
         this.fechaFestividad = fechaFestividad;
-        this.idLugar = idLugar;
+        this.idLugarTuristico = idLugar;
     }
     public int getIdFestividad() { return idFestividad; }
     public void setIdFestividad(int idFestividad) { this.idFestividad = idFestividad; }
@@ -38,6 +38,11 @@ public class Festividad {
     public void setDescripcionFestividad(String descripcionFestividad) { this.descripcionFestividad = descripcionFestividad; }
     public LocalDate getFechaFestividad() { return fechaFestividad; }
     public void setFechaFestividad(LocalDate fechaFestividad) { this.fechaFestividad = fechaFestividad; }
+<<<<<<< HEAD
     public LugarTuristico getIdLugar() { return idLugar; }
     public void setIdLugar(LugarTuristico idLugar) { this.idLugar  = idLugar; }
+=======
+    public LugarTuristico getIdLugar() { return idLugarTuristico; }
+    public void setIdLugar(LugarTuristico idLugarTuristico) { this.idLugarTuristico = idLugarTuristico; }
+>>>>>>> 3f3a55807d5ee6bb933603c1059464115df1c561
 }
