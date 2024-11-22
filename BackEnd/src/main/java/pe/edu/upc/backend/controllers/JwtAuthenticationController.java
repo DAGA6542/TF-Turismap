@@ -24,7 +24,6 @@ public class JwtAuthenticationController {
     private JwtTokenUtil jwtTokenUtil;
     @Autowired
     private JwtUserDetailsService userDetailsService;
-
     @PostMapping("/login")
     public ResponseEntity<JwtResponse> login(@RequestBody JwtRequest req) throws Exception {
         authenticate(req.getUsername(), req.getPassword());
@@ -32,7 +31,6 @@ public class JwtAuthenticationController {
         final String token = jwtTokenUtil.generateToken(userDetails);
         return ResponseEntity.ok(new JwtResponse(token));
     }
-
     private void authenticate(String username, String password) throws Exception {
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
@@ -41,7 +39,5 @@ public class JwtAuthenticationController {
         } catch (BadCredentialsException e) {
             throw new Exception("INVALID_CREDENTIALS", e);
         }
-
-
     }
 }

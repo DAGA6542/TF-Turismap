@@ -63,10 +63,6 @@ public class PaisController {
     }
     @GetMapping("/obtenerporcodigoiso")
     public PaisDTO obtenerPorCodigoIso(@RequestParam String codigoIso) {
-        /* return pS.obtenerPorCodigoIso(codigoIso).getCodigoIsoPais().transform(y->{
-            ModelMapper m = new ModelMapper();
-            return m.map(y,PaisDTO.class);
-        }); */
         Pais pais = pS.obtenerPorCodigoIso(codigoIso);
         ModelMapper m = new ModelMapper();
         return m.map(pais,PaisDTO.class);

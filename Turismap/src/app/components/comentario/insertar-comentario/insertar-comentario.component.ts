@@ -30,7 +30,7 @@ export class InsertarComentarioComponent {
     private Comen:ComentarioService,
     private router:Router,
     private formbuilder: FormBuilder,
-    private route: ActivatedRoute 
+    private route: ActivatedRoute
   ) {}
   ngOnInit(): void {
     this.route.params.subscribe((data:Params)=> {

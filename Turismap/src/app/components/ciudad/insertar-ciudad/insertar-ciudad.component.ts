@@ -61,6 +61,10 @@ export class InsertarCiudadComponent implements OnInit {
       this.ciudad.nombreCiudad = this.form.value.hnombreCiudad;
       this.ciudad.poblacionCiudad = this.form.value.hpoblacionCiudad;
       this.ciudad.superficieCiudad = this.form.value.hsuperficieCiudad;
+<<<<<<< .merge_file_eIsAXB
+=======
+
+>>>>>>> .merge_file_7Azr1p
       this.ciudad.codigoPostalCiudad = this.form.value.hcodigoPostalCiudad;
       this.ciudad.idDepartamento.idDepartamento = this.form.value.hDepartamento;
 
@@ -88,7 +92,10 @@ export class InsertarCiudadComponent implements OnInit {
           hnombreCiudad: new FormControl(data.nombreCiudad),
           hpoblacionCiudad: new FormControl(data.poblacionCiudad),
           hsuperficieCiudad: new FormControl(data.superficieCiudad),
+<<<<<<< .merge_file_eIsAXB
 
+=======
+>>>>>>> .merge_file_7Azr1p
           hcodigoPostalCiudad: new FormControl(data.codigoPostalCiudad),
           hDepartamento: new FormControl(data.idDepartamento),
         });

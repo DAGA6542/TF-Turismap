@@ -38,6 +38,10 @@ import { ListarRolComponent } from './components/rol/listar-rol/listar-rol.compo
 import { LoginComponent } from './components/login/login.component';
 import { seguridadGuard } from './guard/seguridad.guard';
 import { HomeComponent } from './components/home/home.component';
+import { ReportesComponent } from './components/reportes/reportes.component';
+import { ListarLugarTuristicoPorCiudadComponent } from './components/reportes/listar-lugar-turistico-por-ciudad/listar-lugar-turistico-por-ciudad.component';
+import { ListarNumeroDeLugarTuristicoComponent } from './components/reportes/listar-numero-de-lugar-turistico/listar-numero-de-lugar-turistico.component';
+
 export const routes: Routes = [
     {
         path: '',
@@ -128,7 +132,6 @@ export const routes: Routes = [
             { path: 'editar/:id', component: InsertarPaisComponent }
         ],
         canActivate: [seguridadGuard],
-        
     },
     {
         path: 'promocion', component: PromocionComponent,
@@ -158,8 +161,22 @@ export const routes: Routes = [
         canActivate: [seguridadGuard],
     },
     {
+        path: 'reportes',
+        component: ReportesComponent,
+        children: [
+          {
+            path: 'listadolugarturisticoporciudad',
+            component: ListarLugarTuristicoPorCiudadComponent,
+          },
+          {
+            path: 'listadonumerolugarturistico',
+            component: ListarNumeroDeLugarTuristicoComponent,
+          },
+        ],
+      },
+    {
         path: 'homes',
         component: HomeComponent,
-        canActivate: [seguridadGuard],  
+        canActivate: [seguridadGuard],
     },
 ];

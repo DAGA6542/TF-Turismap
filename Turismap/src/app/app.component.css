@@ -150,10 +150,10 @@ main {
   background-color: #1100ff;
   color: white;
 }
-.custom-menu-item {   
-  color: white; 
+.custom-menu-item {
+  color: white;
   &:hover {
-    color: white; 
+    color: white;
   }
 }
 .left-menu {

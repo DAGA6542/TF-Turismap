@@ -13,23 +13,10 @@ public class LugarTuristicoDTO {
     public String getNombreLugar() { return nombreLugar; }
     public void setNombreLugar(String nombreLugar) { this.nombreLugar = nombreLugar; }
     public String getDescripcionLugar() { return descripcionLugar; }
-
-    public double getLatitudLugar() {
-        return latitudLugar;
-    }
-
-    public void setLatitudLugar(double latitudLugar) {
-        this.latitudLugar = latitudLugar;
-    }
-
-    public double getLongitudLugar() {
-        return longitudLugar;
-    }
-
-    public void setLongitudLugar(double longitudLugar) {
-        this.longitudLugar = longitudLugar;
-    }
-
+    public double getLatitudLugar() { return latitudLugar; }
+    public void setLatitudLugar(double latitudLugar) { this.latitudLugar = latitudLugar; }
+    public double getLongitudLugar() { return longitudLugar; }
+    public void setLongitudLugar(double longitudLugar) { this.longitudLugar = longitudLugar; }
     public void setDescripcionLugar(String descripcionLugar) { this.descripcionLugar = descripcionLugar; }
     public int getNumeroLugar() { return numeroLugar; }
     public void setNumeroLugar(int numeroLugar) { this.numeroLugar = numeroLugar; }

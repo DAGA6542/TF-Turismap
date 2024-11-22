@@ -13,11 +13,12 @@ export function tokenGetter() {
     return null;
   }
 }
+
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideZoneChangeDetection({ eventCoalescing: true }), 
-    provideRouter(routes), 
-    provideClientHydration(), 
+    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideRouter(routes),
+    provideClientHydration(),
     provideAnimationsAsync(),
     provideHttpClient(withInterceptorsFromDi(),withFetch()),
     importProvidersFrom(
@@ -29,5 +30,5 @@ export const appConfig: ApplicationConfig = {
         },
       })
     )
-  ]
+  ],
 };

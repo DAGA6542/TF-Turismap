@@ -1,13 +1,13 @@
 <div class="title-container"><h1 class="title"style="text-align: center">Registro de Favorito</h1>
     <div class="container" style="text-align: center">
       <form [formGroup]="form" (submit)="insertar()" class="example-form">
-  
+
         <mat-form-field class="example-full-width" *ngIf="edicion">
           <mat-label>Codigo</mat-label>
           <input matInput formControlName="hidFavorito" readonly/>
         </mat-form-field>
         <br />
-    
+
         <mat-form-field>
             <mat-label>Fecha Registrada</mat-label>
             <input matInput [matDatepicker]="picker1" formControlName="hfechaAgregadoFavorito" />
@@ -28,10 +28,10 @@
             La fecha es obligatoria.
             </mat-error>
         </mat-form-field>
-  
-    
+
+
         <br />
-        
+
         <mat-form-field>
           <mat-form-field>
             <mat-label>Usuario</mat-label>
@@ -42,7 +42,7 @@
             </mat-select>
           </mat-form-field>
           </mat-form-field>
-    
+
         <br />
         <mat-form-field>
           <mat-label>Lugar Turistico</mat-label>
@@ -52,7 +52,7 @@
             }
           </mat-select>
         </mat-form-field>
-    
+
         <br />
 
         <mat-form-field>
@@ -63,9 +63,9 @@
             }
           </mat-select>
         </mat-form-field>
-    
+
         <br />
-        
+
         <div style="text-align: center;">
           <button mat-flat-button  color="warn">Registrar</button>
         </div>

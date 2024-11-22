@@ -15,8 +15,8 @@ public class Comentario {
     @JoinColumn(name = "idUsuario")
     private Usuario idUsuario;
     @ManyToOne
-    @JoinColumn(name = "idLugarTuristico")
-    private LugarTuristico idLugarTuristico;
+    @JoinColumn(name = "idLugar")
+    private LugarTuristico idLugar;
     @ManyToOne
     @JoinColumn(name = "idNegocio")
     private Negocio idNegocio;
@@ -26,12 +26,12 @@ public class Comentario {
         this.textoComentario = textoComentario;
         this.fechaComentario = fechaComentario;
     }
-    public Comentario(Long idComentario, String textoComentario, LocalDate fechaComentario, Usuario idUsuario, LugarTuristico idLugarTuristico, Negocio idNegocio) {
+    public Comentario(Long idComentario, String textoComentario, LocalDate fechaComentario, Usuario idUsuario, LugarTuristico idLugar, Negocio idNegocio) {
         this.idComentario = idComentario;
         this.textoComentario = textoComentario;
         this.fechaComentario = fechaComentario;
         this.idUsuario = idUsuario;
-        this.idLugarTuristico = idLugarTuristico;
+        this.idLugar = idLugar;
         this.idNegocio = idNegocio;
     }
     public Long getIdComentario() {
@@ -56,11 +56,11 @@ public class Comentario {
     public void setIdUsuario(Usuario idUsuario) {
         this.idUsuario = idUsuario;
     }
-    public LugarTuristico getIdLugarTuristico() {
-        return idLugarTuristico;
+    public LugarTuristico getIdLugar() {
+        return idLugar;
     }
-    public void setIdLugarTuristico(LugarTuristico idLugarTuristico) {
-        this.idLugarTuristico = idLugarTuristico;
+    public void setIdLugar(LugarTuristico idLugar) {
+        this.idLugar = idLugar;
     }
     public Negocio getIdNegocio() {
         return idNegocio;
