@@ -41,12 +41,12 @@ export class InsertarPromocionComponent {
 
     this.form = this.formbuilder.group({
       hidPromocion: [''],
-      hnombrePromocion: ['', Validators.required],
-      hdescripcionPromocion: ['', Validators.required],
-      hprecioPromocion: ['', Validators.required],
-      hdescuentoPromocion: ['', Validators.required],
-      hfechaInicioPromocion: ['', Validators.required],
-      hfechaFinPromocion: ['', Validators.required],
+      hnombrePromocion: ['', [Validators.required, Validators.minLength(3), Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$')]],// Solo letras y espacios
+      hdescripcionPromocion: ['', [Validators.required, Validators.minLength(10)]],// Mínimo 10 caracteres
+      hprecioPromocion: ['', [Validators.required, Validators.pattern('^[0-9]+(\\.[0-9]+)?$')]],// Números positivos con decimales
+      hdescuentoPromocion: ['', [Validators.required, Validators.min(0), Validators.max(100)]],// Porcentaje de descuento entre 0 y 100
+      hfechaInicioPromocion: ['',[ Validators.required]],
+      hfechaFinPromocion: ['', [Validators.required]],
 
     });
   }

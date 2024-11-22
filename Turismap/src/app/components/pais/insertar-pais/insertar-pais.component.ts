@@ -74,14 +74,14 @@ export class InsertarPaisComponent {
 
     this.form = this.formbuilder.group({
       hidPais: [''],
-      hnombrePais: ['', Validators.required],
-      hcodigoIsoPais: ['', Validators.required],
+      hnombrePais: ['', [Validators.required, Validators.minLength(3), Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$')]],// Solo letras y espacios
+      hcodigoIsoPais: ['', [Validators.required, Validators.pattern('^[A-Z]{3}$')]],// Longitud de 3 letras mayúsculas
       hcontinentePais: ['', Validators.required],
-      hcapitalPais: ['', Validators.required],
+      hcapitalPais: ['', [Validators.required, Validators.minLength(3), Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$')]],// Solo letras y espacios
       hmonedaPais: ['', Validators.required],
       hidiomaOficialPais: ['', Validators.required],
-      hpoblacionPais: ['', Validators.required],
-      hsuperficiePais: ['', Validators.required],
+      hpoblacionPais: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],// Solo números positivos
+      hsuperficiePais: ['', [Validators.required, Validators.pattern('^[0-9]+(\\.[0-9]+)?$')]],// Números positivos (puede tener decimales)
     });
   }
 

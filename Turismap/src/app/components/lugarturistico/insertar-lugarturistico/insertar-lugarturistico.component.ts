@@ -46,11 +46,11 @@ export class InsertarLugarturisticoComponent implements OnInit{
     });
 
     this.form = this.formbuilder.group({
-      hnombreLugarTuristico: ['', Validators.required],
-      hlatitudLugarTuristico: ['', Validators.required],
-      hlongitudLugarTuristico: ['', Validators.required],
-      hdescripcionLugarTuristico: ['', Validators.required],
-      hnumeroLugarTuristico: ['', Validators.required],
+      hnombreLugarTuristico: ['', [Validators.required, Validators.minLength(3), Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$')]],// Solo letras y espacios
+      hlatitudLugarTuristico: ['', [Validators.required, Validators.pattern('^-?[0-9]{1,2}(\\.[0-9]+)?$')]],// Formato de latitud
+      hlongitudLugarTuristico: ['', [Validators.required, Validators.pattern('^-?[0-9]{1,3}(\\.[0-9]+)?$')]],// Formato de longitud
+      hdescripcionLugarTuristico: ['', [Validators.required, Validators.minLength(10)]],// Mínimo 10 caracteres
+      hnumeroLugarTuristico: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],// Solo números positivos
       hCiudad: ['', Validators.required],
     });
     this.ciuS.list().subscribe((data)=> {

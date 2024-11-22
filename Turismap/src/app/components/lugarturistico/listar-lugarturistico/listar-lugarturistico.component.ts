@@ -22,7 +22,7 @@ import { LugarTuristicoDTO } from '../../../models/lugarturisticoDTO';
   ],
   templateUrl: './listar-lugarturistico.component.html',
   styleUrl: './listar-lugarturistico.component.css',
- 
+
 })
 export class ListarLugarturisticoComponent implements OnInit {
   coordenadas:LugarTuristicoDTO[]=[];
@@ -38,7 +38,7 @@ export class ListarLugarturisticoComponent implements OnInit {
     'accion1',
     'accion2'
   ];
-  
+
   datasource: MatTableDataSource<LugarTuristico> = new MatTableDataSource();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -46,7 +46,7 @@ export class ListarLugarturisticoComponent implements OnInit {
   constructor(private ltS: LugarturisticoService, private dialog: MatDialog) {}
 
 
-  
+
   ngOnInit(): void {
     this.ltS.list().subscribe((data) => {
       this.datasource = new MatTableDataSource(data);
@@ -67,13 +67,13 @@ export class ListarLugarturisticoComponent implements OnInit {
     this.ltS.obtenerCoordenadas().subscribe(
       (data) => {
         this.coordenadas = data;
-  
+
 
         this.markerPositions = this.coordenadas.map(coord => ({
           lat: coord.latitudLugar,
           lng: coord.longitudLugar
         }));
-  
+
         console.log('Coordenadas cargadas:', this.markerPositions);
       },
       (error) => {

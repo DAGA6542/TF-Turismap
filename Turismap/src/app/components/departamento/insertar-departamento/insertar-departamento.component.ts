@@ -37,10 +37,10 @@ export class InsertarDepartamentoComponent implements OnInit {
   ) { }
   ngOnInit(): void {
     this.form = this.formbuilder.group({
-      hnombreDepartamento: ['', Validators.required],
-      hcapitalDepartamento: ['', Validators.required],
-      hpoblacionDepartamento: ['', Validators.required],
-      hsuperficieDepartamento: ['', Validators.required],
+      hnombreDepartamento: ['', [Validators.required, Validators.minLength(3), Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$')]],// Solo letras y espacios
+      hcapitalDepartamento: ['', [Validators.required, Validators.minLength(3), Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$')]],// Solo letras y espacios
+      hpoblacionDepartamento: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],// Solo números positivos
+      hsuperficieDepartamento: ['', [Validators.required, Validators.pattern('^[0-9]+(\\.[0-9]+)?$')]],// Números positivos (puede tener decimales)
       hPais: ['', Validators.required],
     });
     this.pS.list().subscribe((data) => {
