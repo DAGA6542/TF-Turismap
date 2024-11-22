@@ -64,6 +64,15 @@ export class AppComponent implements OnInit {
     return this.loginService.verificar();
   }
   isAdmin() {
-    return this.role.toLowerCase() === 'ADMIN'; // Ajusta si tu rol está en mayúsculas/minúsculas
+    return this.role.toLowerCase() === 'ADMIN';
+  }
+  isPropietario() {
+    return this.role.toLowerCase() === 'PROPIETARIO';
+  }
+  isAdminAndPropietario() {
+    return this.role.toLowerCase() === 'PROPIETARIO' || this.role.toLowerCase() === 'ADMIN';
+  }
+  isMiembro() {
+    return this.role.toLowerCase() === 'MIEMBRO';
   }
 }
