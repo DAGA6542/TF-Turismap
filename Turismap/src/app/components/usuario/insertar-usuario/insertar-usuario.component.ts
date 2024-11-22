@@ -47,10 +47,10 @@ export class InsertarUsuarioComponent {
 
     this.form = this.formbuilder.group({
       idUsuario: [''],
-      username: ['', Validators.required],
-      nombreUsuario: ['', Validators.required],
+      username: ['', [Validators.required, Validators.minLength(3)]],//minimo 3 caracteres
+      nombreUsuario: ['', [Validators.required, Validators.minLength(2),Validators.pattern('^[a-zA-Z ]+$')]], // Solo letras y espacios
       emailUsuario: ['', [Validators.required, Validators.email]],
-      contraseniaUsuario: ['', Validators.required],
+      contraseniaUsuario: ['',[ Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*])[A-Za-z\\d!@#$%^&*]{8,}$')]], // Al menos una mayúscula, una minúscula, un número y un carácter e,
       telefonoUsuario: ['', [Validators.required, Validators.minLength(9), Validators.pattern('^[0-9]+$')]],
       enabled: ['', Validators.required],
     });
