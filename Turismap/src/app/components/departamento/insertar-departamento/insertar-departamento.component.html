@@ -5,40 +5,67 @@
 
       <mat-form-field class="example-full-width">
         <mat-label>Nombre</mat-label>
-        <input matInput formControlName="hnombreDepartamento" />
-        <mat-error *ngIf="form.get('hnombreDepartamento')?.hasError('required')">El nombre es obligatorio.</mat-error>
+        <input matInput formControlName="hnombreDepartamento" required />
+        <mat-error *ngIf="form.get('hnombreDepartamento')?.hasError('required')">
+          El nombre es obligatorio.
+        </mat-error>
+        <mat-error *ngIf="form.get('hnombreDepartamento')?.hasError('minlength')">
+          El nombre debe tener al menos 3 caracteres.
+        </mat-error>
+        <mat-error *ngIf="form.get('hnombreDepartamento')?.hasError('pattern')">
+          El nombre solo puede contener letras y espacios.
+        </mat-error>
       </mat-form-field>
 
       <br />
       <mat-form-field class="example-full-width">
         <mat-label>Capital</mat-label>
-        <input matInput formControlName="hcapitalDepartamento" />
-        <mat-error *ngIf="form.get('hcapitalDepartamento')?.hasError('required')">La Capital es obligatoria.</mat-error>
+        <input matInput formControlName="hcapitalDepartamento" required />
+        <mat-error *ngIf="form.get('hcapitalDepartamento')?.hasError('required')">
+          La Capital es obligatoria.
+        </mat-error>
+        <mat-error *ngIf="form.get('hcapitalDepartamento')?.hasError('minlength')">
+          La capital debe tener al menos 3 caracteres.
+        </mat-error>
+        <mat-error *ngIf="form.get('hcapitalDepartamento')?.hasError('pattern')">
+          La capital solo puede contener letras y espacios.
+        </mat-error>
       </mat-form-field>
 
       <br />
       <mat-form-field>
         <mat-label>Población</mat-label>
-        <input matInput formControlName="hpoblacionDepartamento" />
-        <mat-error *ngIf="form.get('hpoblacionDepartamento')?.hasError('required')">La población es
-          obligatorio.</mat-error>
+        <input matInput formControlName="hpoblacionDepartamento" required  />
+        <mat-error *ngIf="form.get('hpoblacionDepartamento')?.hasError('required')">
+          La población es obligatorio.
+        </mat-error>
+        <mat-error *ngIf="form.get('hpoblacionDepartamento')?.hasError('pattern')">
+          La población debe ser un valor numérico positivo.
+        </mat-error>
       </mat-form-field>
 
       <br />
       <mat-form-field>
         <mat-label>Superficie</mat-label>
-        <input matInput formControlName="hsuperficieDepartamento" />
-        <mat-error *ngIf="form.get('hsuperficieDepartamento')?.hasError('required')">La superficie es
-          obligatorio.</mat-error>
+        <input matInput formControlName="hsuperficieDepartamento" required />
+        <mat-error *ngIf="form.get('hsuperficieDepartamento')?.hasError('required')">
+          La superficie es obligatorio.
+        </mat-error>
+        <mat-error *ngIf="form.get('hsuperficieDepartamento')?.hasError('pattern')">
+          La superficie debe ser un valor numérico positivo (puede tener decimales).
+        </mat-error>
       </mat-form-field>
       <br />
       <mat-form-field>
         <mat-label>Pais</mat-label>
-        <mat-select formControlName="hPais">
+        <mat-select formControlName="hPais" required>
           @for (pa of listaPaises; track pa) {
           <mat-option [value]="pa.idPais">{{ pa.nombrePais }}</mat-option>
           }
         </mat-select>
+          <mat-error *ngIf="form.get('hPais')?.hasError('required')">
+            Debes seleccionar un país.
+          </mat-error>
       </mat-form-field>
 
       <div style="text-align: center;">
