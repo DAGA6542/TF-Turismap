@@ -42,6 +42,7 @@ export class ListarDepartamentoComponent {
     });
     this.dS.getList().subscribe((data) => {
       this.datasource = new MatTableDataSource(data);
+      this.datasource.paginator = this.paginator;
     });
   }
   openDialog(id: number): void { }

@@ -1,6 +1,8 @@
 <div class="container" style="padding-top: 10px; padding-left: 10px; padding-right: 10px;">
 
-    <div class="title-container"><h1 class="title" style="text-align: center;">Lista Roles</h1></div>
+    <div class="title-container">
+        <h1 class="title" style="text-align: center;">Lista Roles</h1>
+    </div>
 
     <div class="title-container">
         <h1 class="title" style="text-align: center;">Lista de Rol</h1>
@@ -43,7 +45,7 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
-    <mat-paginator [length]="datasource.data.length" [pageSize]="50" [pageSizeOptions]="[4, 10, 50]"
+    <mat-paginator [length]="datasource.data.length" [pageSize]="50" [pageSizeOptions]="[4, 20, 50]"
         aria-label="Seleccionar paginación">
     </mat-paginator>
 </div>
