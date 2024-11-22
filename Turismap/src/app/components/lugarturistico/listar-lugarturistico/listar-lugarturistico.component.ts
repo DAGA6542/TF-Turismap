@@ -54,7 +54,6 @@ export class ListarLugarturisticoComponent implements OnInit {
         alert('Lugar Turístico eliminado');
         this.ngOnInit();
       });
-      
     }
   }
 
