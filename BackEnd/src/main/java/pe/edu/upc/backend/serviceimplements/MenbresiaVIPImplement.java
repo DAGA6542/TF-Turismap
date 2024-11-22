@@ -34,4 +34,6 @@ public class MenbresiaVIPImplement implements IMenbresiaVIPService {
     public List<MenbresiaVIP> obtenerMenbresDeUsuario(Long idUsuario) { return mR.obtenerMenbresDeUsuario(idUsuario); }
     @Override
     public List<MenbresiaVIP> obtenerNombreUsuarioYTipoMembresia(String tipo) { return mR.obtenerNombreUsuarioYTipoMembresia(tipo); }
+    @Override
+    public List<String[]> usuariosConMasMenbresiasActivas() { return mR.usuariosConMasMenbresiasActivas(); }
 }

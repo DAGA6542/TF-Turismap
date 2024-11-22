@@ -39,4 +39,34 @@ public interface INegocioRepository extends JpaRepository<Negocio, Long> {
     // longitud menor a lo especificado
     @Query("SELECT n FROM Negocio n WHERE n.longitudNegocio <= :longitud")
     public List<Negocio> longitudMenor(@Param("longitud") double longitud);
+    // Negocios más populares por calificación
+    @Query(value = " SELECT \n" +
+            " n.nombre_negocio AS negocio, \n" +
+            " c.nombre_ciudad AS ciudad, \n" +
+            " n.calificacion_negocio AS calificacion, \n" +
+            " COUNT(com.id_comentario) AS totalComentarios \n" +
+        " FROM \n" +
+            " negocio n \n" +
+        " JOIN \n" +
+            " ciudad c ON n.id_ciudad = c.id_ciudad \n" +
+        " LEFT JOIN \n" +
+            " comentario com ON n.id_negocio = com.id_negocio \n" +
+        " GROUP BY \n" +
+            " n.id_negocio, c.nombre_ciudad \n" +
+        " ORDER BY \n" +
+            " n.calificacion_negocio DESC, totalComentarios DESC ", nativeQuery = true)
+    public List<String[]> negocioMasPopularPorCalificacion();
+    // Calificación promedio de negocios por ciudad
+    @Query(value = " SELECT \n" +
+            " ci.nombre_ciudad AS ciudad, \n" +
+            " ROUND(AVG(n.calificacion_negocio), 2) AS calificacionPromedio \n" +
+        " FROM \n" +
+            " ciudad ci \n" +
+        " JOIN \n" +
+            " negocio n ON ci.id_ciudad = n.id_ciudad \n" +
+        " GROUP BY \n" +
+            " ci.nombre_ciudad \n" +
+        " ORDER BY \n" +
+            " calificacionPromedio DESC ", nativeQuery = true)
+    public List<String[]> calificacionPromedioNegocioPorCiudad();
 }

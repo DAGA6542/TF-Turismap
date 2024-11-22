@@ -59,9 +59,9 @@ public class CiudadController {
             return m.map(y, CiudadDTO.class);
         }).collect(Collectors.toList());
     }
-    @GetMapping("/cantidades")
-    public List<CantidadTurismoxCiudadDTO> obtenerCantidad() {
-        List<String[]> lista = cS.cantidadTurismo();
+    @GetMapping("/calcularCantidadTurismoPorCiudad")
+    public List<CantidadTurismoxCiudadDTO> calcularCantidadTurismoPorCiudad() {
+        List<String[]> lista = cS.calcularCantidadTurismoPorCiudad();
         List<CantidadTurismoxCiudadDTO> listaDTO = new ArrayList<>();
         for (String[] columna : lista) {
             CantidadTurismoxCiudadDTO dto = new CantidadTurismoxCiudadDTO();

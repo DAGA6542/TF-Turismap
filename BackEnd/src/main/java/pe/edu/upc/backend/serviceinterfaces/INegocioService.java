@@ -19,4 +19,6 @@ public interface INegocioService {
     public List<Negocio> obtenerPorTelefono(int telefono);
     public List<Negocio> obtenerPorCalificacionRango(int min, int max);
     public List<Negocio> obtenerPorOrdenPorCalificacion();
+    public List<String[]> negocioMasPopularPorCalificacion();
+    public List<String[]> calificacionPromedioNegocioPorCiudad();
 }

@@ -44,7 +44,7 @@ public class RolController {
     }
     @GetMapping("/cantidades")
     public List<CantidadUsuarioxRol> obtenerCantidad() {
-        List<String[]> lista = rS.contarRol();
+        List<String[]> lista = rS.contarRoles();
         List<CantidadUsuarioxRol> listaDTO = new ArrayList<>();
         for (String[] columna : lista) {
             CantidadUsuarioxRol dto = new CantidadUsuarioxRol();

@@ -17,4 +17,5 @@ public interface IPromocionService {
     public List<Promocion> obtenerPorRangoPrecio(double min, double max);
     public List<Promocion> obtenerPorDescripcion(String descripcion);
     public long contarActivosPorFecha(LocalDate fecha);
+    public List<String[]> promocionesActivaConNegociosParticipantes();
 }

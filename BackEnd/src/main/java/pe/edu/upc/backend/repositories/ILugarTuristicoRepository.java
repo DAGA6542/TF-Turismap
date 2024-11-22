@@ -13,7 +13,7 @@ public interface ILugarTuristicoRepository extends JpaRepository<LugarTuristico,
     // Contar cuántos lugares turisticos hay por id en una ciudad
     @Query("Select count(l) from LugarTuristico l where l.idCiudad.idCiudad = :idCiudad")
     public long contarPorCiudadL(@Param("idCiudad") Long idCiudad);
-    //Buscar numero por id
+
     @Query("Select lt from LugarTuristico lt where lt.nombreLugar = :nombreLugar")
     public List<LugarTuristico> listarPorNumero(@Param("nombreLugar") String nombreLugar);
     //Buscar lugar turistico por ciudad
@@ -29,4 +29,21 @@ public interface ILugarTuristicoRepository extends JpaRepository<LugarTuristico,
     public List<LugarTuristico> longitudMenor(@Param("longitud") double longitud);
     @Query("SELECT lt FROM LugarTuristico lt WHERE lt.latitudLugar >= :latitud AND lt.longitudLugar <= :longitud")
     public List<LugarTuristico> findByLatitudAndLongitud(@Param("latitud") double latitud, @Param("longitud") double longitud);
+    // Lugares turísticos más comentados
+    @Query(value = " SELECT \n" +
+            " l.nombre_lugar AS lugarTuristico, \n" +
+            " ci.nombre_ciudad AS ciudad, \n" +
+            " COUNT(co.id_comentario) AS totalComentarios, \n" +
+            " MAX(co.fecha_comentario) AS ultimaFechaComentario \n" +
+        " FROM \n " +
+            " lugar_turistico l \n" +
+        " JOIN \n" +
+            " ciudad ci ON l.id_ciudad = ci.id_ciudad \n" +
+        " LEFT JOIN " +
+            " comentario co ON l.id_lugar = co.id_lugar \n" +
+        " GROUP BY \n" +
+            " l.id_lugar, ci.nombre_ciudad \n" +
+        " ORDER BY \n" +
+            " totalComentarios DESC, ultimaFechaComentario DESC ", nativeQuery = true)
+    public List<String[]> lugaresTuristicosMasComentarios();
 }

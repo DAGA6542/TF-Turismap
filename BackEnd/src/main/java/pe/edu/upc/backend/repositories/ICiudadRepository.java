@@ -15,10 +15,37 @@ public interface ICiudadRepository extends JpaRepository<Ciudad, Long> {
     @Query("SELECT c FROM Ciudad c WHERE c.poblacionCiudad >= :poblacion")
     public List<Ciudad> poblacionMayor(@Param("poblacion") Long poblacion);
     // cantidad de turismo
-
-    @Query(value = " select c.nombre_ciudad, count(*)\n" +
-            " from ciudad c inner join lugar_turistico tu\n" +
-            " on c.id_ciudad=tu.id_ciudad\n" +
-            " group by c.nombre_ciudad",nativeQuery = true)
-    public List<String[]>cantidadTurismo();
+    @Query(value = " SELECT c.nombre_ciudad, COUNT(tu.id_lugar) AS cantidad_turismo \n" +
+        " FROM ciudad c \n" +
+        " INNER JOIN lugar_turistico tu ON c.id_ciudad = tu.id_ciudad \n" +
+        " GROUP BY c.nombre_ciudad \n" +
+        " ORDER BY cantidad_turismo DESC ", nativeQuery = true)
+    public List<String[]> calcularCantidadTurismoPorCiudad();
+    // Cantidad de comentario por ciudad
+    @Query(value = " SELECT \n" +
+            " ci.nombre_ciudad AS ciudad, \n" +
+            " COUNT(co.id_comentario) AS totalComentarios \n" +
+        " FROM \n" +
+            " ciudad ci \n" +
+        " LEFT JOIN \n" +
+            " lugar_turistico lt ON ci.id_ciudad = lt.id_ciudad \n" +
+        " LEFT JOIN \n" +
+            " comentario co ON lt.id_lugar = co.id_lugar \n" +
+        " GROUP BY \n" +
+            " ci.nombre_ciudad \n" +
+        " UNION ALL \n" +
+        " SELECT \n" +
+            " ci.nombre_ciudad AS ciudad, \n" +
+            " COUNT(co.id_comentario) AS totalComentarios \n" +
+        " FROM \n" +
+            " ciudad ci \n" +
+        " LEFT JOIN \n" +
+            " negocio n ON ci.id_ciudad = n.id_ciudad \n" +
+        " LEFT JOIN \n" +
+            " comentario co ON n.id_negocio = co.id_negocio \n" +
+        " GROUP BY \n" +
+            " ci.nombre_ciudad \n" +
+        " ORDER BY \n" +
+            " totalComentarios DESC ", nativeQuery = true)
+    public List<String[]> cantidadComentarioPorCiudad();
 }

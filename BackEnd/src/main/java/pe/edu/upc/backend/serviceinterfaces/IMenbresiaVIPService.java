@@ -15,4 +15,5 @@ public interface IMenbresiaVIPService {
     public List<MenbresiaVIP> obtenerMenbresExpiranEnFechaEspecifi(LocalDate fecha);
     public List<MenbresiaVIP> obtenerMenbresDeUsuario(Long idUsuario);
     public List<MenbresiaVIP> obtenerNombreUsuarioYTipoMembresia(String tipo);
+    public List<String[]> usuariosConMasMenbresiasActivas();
 }

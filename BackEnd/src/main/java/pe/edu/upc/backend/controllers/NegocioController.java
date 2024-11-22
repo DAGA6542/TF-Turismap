@@ -2,9 +2,13 @@ package pe.edu.upc.backend.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.backend.dtos.CalifacionPromedioPorCiudadDTO;
 import pe.edu.upc.backend.dtos.NegocioDTO;
+import pe.edu.upc.backend.dtos.NegocioPopularCalificaDTO;
 import pe.edu.upc.backend.entities.Negocio;
 import pe.edu.upc.backend.serviceinterfaces.INegocioService;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 @RestController
@@ -112,5 +116,31 @@ public class NegocioController {
             ModelMapper m = new ModelMapper();
             return m.map(y,NegocioDTO.class);
         }).collect(Collectors.toList());
+    }
+    @GetMapping("/negocioMasPopularPorCalificacion")
+    public List<NegocioPopularCalificaDTO> negocioMasPopularPorCalificacion() {
+        List<String[]> resultados = nS.negocioMasPopularPorCalificacion();
+        List<NegocioPopularCalificaDTO> listaDTO = new ArrayList<>();
+        for (String[] fila : resultados) {
+            NegocioPopularCalificaDTO dto = new NegocioPopularCalificaDTO();
+            dto.setNegocio(fila[0]);
+            dto.setCiudad(fila[1]);
+            dto.setCalificacion(Double.parseDouble(fila[2]));
+            dto.setTotalComentarios(Integer.parseInt(fila[3]));
+            listaDTO.add(dto);
+        }
+        return listaDTO;
+    }
+    @GetMapping("/calificacionPromedioNegocioPorCiudad")
+    public List<CalifacionPromedioPorCiudadDTO> calificacionPromedioNegocioPorCiudad() {
+        List<String[]> resultados = nS.calificacionPromedioNegocioPorCiudad();
+        List<CalifacionPromedioPorCiudadDTO> listaDTO = new ArrayList<>();
+        for (String[] fila : resultados) {
+            CalifacionPromedioPorCiudadDTO dto = new CalifacionPromedioPorCiudadDTO();
+            dto.setCiudad(fila[0]);
+            dto.setCalificacionPromedio(Double.parseDouble(fila[1]));
+            listaDTO.add(dto);
+        }
+        return listaDTO;
     }
 }

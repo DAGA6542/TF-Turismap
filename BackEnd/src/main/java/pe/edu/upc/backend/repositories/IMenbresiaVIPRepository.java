@@ -31,5 +31,21 @@ public interface IMenbresiaVIPRepository extends JpaRepository<MenbresiaVIP, Lon
             " FROM menbresiavip mv \n" +
             " JOIN usuario u ON mv.id_usuario = u.id_usuario \n" +
             " WHERE mv.tipo_menbresiavip = :tipoMenbresiaVIP", nativeQuery = true)
-    List<MenbresiaVIP> obtenerNombreUsuarioYTipoMembresia(@Param("tipoMenbresiaVIP") String tipo);
+    public List<MenbresiaVIP> obtenerNombreUsuarioYTipoMembresia(@Param("tipoMenbresiaVIP") String tipo);
+    // Usuarios con más membresías activas
+    @Query(value = " SELECT \n" +
+            " u.nombre_usuario AS usuario, \n" +
+            " m.tipo_menbresiavip AS tipoMembresia, \n" +
+            " m.beneficio_menbresiavip AS beneficios, \n" +
+            " m.fecha_inicio_menbresiavip AS inicio, \n" +
+            " m.fecha_fin_menbresiavip AS fin \n" +
+        " FROM \n" +
+            " menbresiavip m \n" +
+        " JOIN \n" +
+            " usuario u ON m.id_usuario = u.id_usuario \n" +
+        " WHERE \n" +
+            " m.estado_menbresiavip = TRUE \n" +
+        " ORDER BY \n" +
+            " m.fecha_fin_menbresiavip DESC ", nativeQuery = true)
+    public List<String[]> usuariosConMasMenbresiasActivas();
 }

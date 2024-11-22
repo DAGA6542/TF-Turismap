@@ -38,4 +38,6 @@ public class PromocionImplement implements IPromocionService {
     public List<Promocion> obtenerPorDescripcion(String descripcion) { return pR.obtenerPorDescripcion(descripcion); }
     @Override
     public long contarActivosPorFecha(LocalDate fecha) { return pR.contarActivosPorFecha(fecha); }
+    @Override
+    public List<String[]> promocionesActivaConNegociosParticipantes() { return pR.promocionesActivaConNegociosParticipantes(); }
 }

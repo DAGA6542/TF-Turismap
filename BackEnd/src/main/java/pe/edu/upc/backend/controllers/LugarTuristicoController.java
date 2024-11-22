@@ -4,9 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.backend.dtos.CiudadDTO;
 import pe.edu.upc.backend.dtos.LugarTuristicoDTO;
+import pe.edu.upc.backend.dtos.LugarTuristicoPorComentarioDTO;
 import pe.edu.upc.backend.entities.LugarTuristico;
 import pe.edu.upc.backend.serviceinterfaces.ILugarTuristicoService;
 import pe.edu.upc.backend.dtos.LugarTuristicoPorCiudadDTO;
+
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 @RestController
@@ -91,5 +94,20 @@ public class LugarTuristicoController {
             return m.map(y, LugarTuristicoDTO.class);
         }).collect(Collectors.toList());
     }
-
+    @GetMapping("/lugaresTuristicosMasComentarios")
+    public List<LugarTuristicoPorComentarioDTO> lugaresTuristicosMasComentarios() {
+        List<String[]> resultados = lS.lugaresTuristicosMasComentarios();
+        return resultados.stream().map(row -> {
+            LugarTuristicoPorComentarioDTO dto = new LugarTuristicoPorComentarioDTO();
+            dto.setLugarTuristico(row[0]);
+            dto.setCiudad(row[1]);
+            dto.setTotalComentarios(Long.parseLong(row[2]));
+            if (row[3] != null && !row[3].isEmpty()) {
+                dto.setUltimaFechaComentario(LocalDate.parse(row[3]));
+            } else {
+                dto.setUltimaFechaComentario(null);
+            }
+            return dto;
+        }).collect(Collectors.toList());
+    }
 }

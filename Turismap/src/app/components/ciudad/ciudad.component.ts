@@ -8,6 +8,6 @@ import { ListarCiudadComponent } from './listar-ciudad/listar-ciudad.component';
   templateUrl: './ciudad.component.html',
   styleUrl: './ciudad.component.css'
 })
-export class CiudadComponnent {
+export class CiudadComponent {
   constructor(public route: ActivatedRoute) {}
 }
