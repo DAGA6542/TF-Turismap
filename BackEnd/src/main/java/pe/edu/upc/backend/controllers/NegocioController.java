@@ -2,10 +2,14 @@ package pe.edu.upc.backend.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.backend.dtos.CoordenadasDTO;
+import pe.edu.upc.backend.dtos.CoordenadasNegDTO;
 import pe.edu.upc.backend.dtos.LugarTuristicoDTO;
 import pe.edu.upc.backend.dtos.NegocioDTO;
 import pe.edu.upc.backend.entities.Negocio;
 import pe.edu.upc.backend.serviceinterfaces.INegocioService;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 @RestController
@@ -113,5 +117,18 @@ public class NegocioController {
             ModelMapper m = new ModelMapper();
             return m.map(y,NegocioDTO.class);
         }).collect(Collectors.toList());
+    }
+    @GetMapping("/listarCoordenadas")
+    public List<CoordenadasNegDTO> obtenerCoordenadas() {
+        List<String[]> lista = nS.coordenadasNeg();
+        List<CoordenadasNegDTO> listaDTO = new ArrayList<>();
+        for (String[] columna : lista) {
+            CoordenadasNegDTO dto = new CoordenadasNegDTO();
+            dto.setNombreNegocio(columna[0]);
+            dto.setLatitudNegocio(Double.parseDouble(columna[1]));
+            dto.setLongitudNegocio(Double.parseDouble(columna[2]));
+            listaDTO.add(dto);
+        }
+        return listaDTO;
     }
 }
