@@ -8,15 +8,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { Negocio } from '../../../models/negocio';
 import { NegocioService } from '../../../services/negocio.service';
-import { provideNativeDateAdapter } from '@angular/material/core';
-import { Ciudad } from '../../../models/ciudad';
-import { Promocion } from '../../../models/promocion';
-
 
 @Component({
   selector: 'app-insertar-negocio',
   standalone: true,
-  providers: [provideNativeDateAdapter()],
   imports: [MatFormFieldModule,CommonModule,NgIf, MatButtonModule,MatInputModule,ReactiveFormsModule,
     RouterLink, MatSelectModule, FormsModule],
   templateUrl: './insertar-negocio.component.html',
@@ -24,8 +19,6 @@ import { Promocion } from '../../../models/promocion';
 })
 export class InsertarNegocioComponent {
   form: FormGroup = new FormGroup({});
-  listaciudad: Ciudad[]=[];
-  listapromocion: Promocion[]=[];
   negocio: Negocio = new Negocio();
   edicion: boolean = false;
   id: number = 0;
@@ -52,6 +45,8 @@ export class InsertarNegocioComponent {
     this.form = this.formbuilder.group({
       hidNegocio: [''],
       hnombreNegocio: ['', Validators.required],
+      hlatitudNegocio: ['', Validators.required],
+      hlongitudNegocio: ['', Validators.required],
       hhorarioNegocio: ['', Validators.required],
       hnumeroTelefonoNegocio: ['', Validators.required],
       hcalificacionNegocio: ['', Validators.required],
@@ -65,6 +60,8 @@ export class InsertarNegocioComponent {
     if (this.form.valid) {
       this.negocio.idNegocio = this.form.value.idNegocio;
       this.negocio.nombreNegocio= this.form.value.hnombreNegocio;
+      this.negocio.latitudNegocio = this.form.value.hlatitudNegocio;
+      this.negocio.longitudNegocio = this.form.value.hlongitudNegocio;
       this.negocio.horarioNegocio=this.form.value.hhorarioNegocio;
       this.negocio.numeroTelefonoNegocio=this.form.value.hnumeroTelefonoNegocio;
       this.negocio.calificacionNegocio=this.form.value.hcalificacionNegocio;
@@ -72,8 +69,6 @@ export class InsertarNegocioComponent {
       this.negocio.reservaNegocio=this.form.value.hreservaNegocio;
       this.negocio.idCiudad.idCiudad=this.form.value.hidCiudad;
       this.negocio.idPromocion.idPromocion=this.form.value.hidPromocion;
-
-      console.log(this.negocio);
     
       if (this.edicion) {
         this.nS.update(this.negocio).subscribe((data)=>{
@@ -87,7 +82,6 @@ export class InsertarNegocioComponent {
             this.nS.setList(data);
           });
         });
-
       }
       this.router.navigate(['negocio']);
     }
@@ -98,6 +92,8 @@ export class InsertarNegocioComponent {
         this.form = new FormGroup({
           hidNegocio: new FormControl(data.idNegocio),
           hnombreNegocio: new FormControl(data.nombreNegocio),
+          hlatitudNegocio: new FormControl(data.latitudNegocio),
+          hlongitudNegocio: new FormControl(data.longitudNegocio),
           hhorarioNegocio: new FormControl(data.horarioNegocio),
           hnumeroTelefonoNegocio: new FormControl(data.numeroTelefonoNegocio),
           hcalificacionNegocio: new FormControl(data.calificacionNegocio),

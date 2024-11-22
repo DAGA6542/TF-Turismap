@@ -16,6 +16,26 @@
         </mat-form-field>
     
         <br />
+
+        <mat-form-field>
+          <mat-label>Latitud</mat-label>
+          <input matInput formControlName="hlatitudNegocio" />
+          <mat-error *ngIf="form.get('hlatitudNegocio')?.hasError('required')"
+            >La latitud es obligatorio.</mat-error
+          >
+        </mat-form-field>
+  
+      <br />
+
+      <mat-form-field>
+          <mat-label>Longitud</mat-label>
+          <input matInput formControlName="hlongitudNegocio" />
+          <mat-error *ngIf="form.get('hlongitudNegocio')?.hasError('required')"
+            >La longitud es obligatorio.</mat-error
+          >
+        </mat-form-field>
+  
+      <br />
         <mat-form-field class="example-full-width" >
             <mat-label>Horario</mat-label>
             <input matInput formControlName="hhorarioNegocio" />
@@ -75,8 +95,7 @@
               >El código promocional es obligatorio.</mat-error>
           </mat-form-field>
         <br />
-
-        
+    
         <br />
         
         <div style="text-align: center;">
