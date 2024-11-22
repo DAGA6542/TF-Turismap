@@ -1,12 +1,16 @@
 package pe.edu.upc.backend.controllers;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import pe.edu.upc.backend.dtos.CiudadDTO;
+import pe.edu.upc.backend.dtos.CantidadTurismoxCiudadDTO;
+import pe.edu.upc.backend.dtos.CoordenadasDTO;
 import pe.edu.upc.backend.dtos.LugarTuristicoDTO;
+import pe.edu.upc.backend.dtos.LugarTuristicoPorCiudadDTO;
 import pe.edu.upc.backend.entities.LugarTuristico;
 import pe.edu.upc.backend.serviceinterfaces.ILugarTuristicoService;
-import pe.edu.upc.backend.dtos.LugarTuristicoPorCiudadDTO;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 @RestController
@@ -84,12 +88,18 @@ public class LugarTuristicoController {
             return m.map(y, LugarTuristicoPorCiudadDTO.class);
         }).collect(Collectors.toList());
     }
-    @GetMapping("/listarPorCoordenadas")
-    public List<LugarTuristicoDTO> findByLatitudAndLongitud(@RequestParam double latitud, @RequestParam double longitud){
-        return lS.findByLatitudAndLongitud(latitud,longitud).stream().map(y -> {
-            ModelMapper m = new ModelMapper();
-            return m.map(y, LugarTuristicoDTO.class);
-        }).collect(Collectors.toList());
+    @GetMapping("/listarCoordenadas")
+    public List<CoordenadasDTO> obtenerCoordenadas() {
+        List<String[]> lista = lS.coordenadas();
+        List<CoordenadasDTO> listaDTO = new ArrayList<>();
+        for (String[] columna : lista) {
+            CoordenadasDTO dto = new CoordenadasDTO();
+            dto.setNombreLugar(columna[0]);
+            dto.setLatitudLugar(Double.parseDouble(columna[1]));
+            dto.setLongitudLugar(Double.parseDouble(columna[2]));
+            listaDTO.add(dto);
+        }
+        return listaDTO;
     }
 
 }

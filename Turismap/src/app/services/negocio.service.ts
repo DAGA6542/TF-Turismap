@@ -1,8 +1,10 @@
+
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environments';
 import { Negocio } from '../models/negocio';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { NegocioDTO } from '../models/NegocioDTO';
 
 const base_url = environment.base;
 
@@ -37,5 +39,8 @@ export class NegocioService {
 
   update(tm: Negocio) {
     return this.http.put(this.url, tm);
+}
+obtenerCoordenadasNego(): Observable<NegocioDTO[]> {
+  return this.http.get<NegocioDTO[]>(`${this.url}/listarCoordenadas`);
 }
 }

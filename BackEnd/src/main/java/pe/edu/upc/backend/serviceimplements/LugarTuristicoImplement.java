@@ -40,7 +40,9 @@ public class LugarTuristicoImplement implements ILugarTuristicoService {
     public List<LugarTuristico> listarlugarturisticoporciudad(String nombreCiudad) { return lR.listarlugarturisticoporciudad(nombreCiudad); }
 
     @Override
-    public List<LugarTuristico> findByLatitudAndLongitud(double latitud, double longitud) {
-        return findByLatitudAndLongitud(latitud,longitud);
+    public List<String[]> coordenadas() {
+        return lR.coordenadas();
     }
+
+
 }

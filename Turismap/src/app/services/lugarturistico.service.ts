@@ -4,6 +4,7 @@ import { Observable, Subject } from 'rxjs';
 import { LugarTuristico } from '../models/lugarturistico';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { LugarTuristicoPorCiudadDTO } from '../models/LugarTuristicoPorCiudadDTO';
+import { LugarTuristicoDTO } from '../models/lugarturisticoDTO';
 const base_url = environment.base;
 
 @Injectable({
@@ -47,11 +48,8 @@ export class LugarturisticoService {
     const params = new HttpParams().set('nombreLugarTuristico', nombreLugar); 
     return this.http.get<LugarTuristico[]>(`${this.url}/listarPorNumero`, { params });
   }
-  getCoordenadas(center:{latitud: number, longitud: number}) {
-  
-    return this.http.get<LugarTuristico[]>(`${this.url}/listarPorCoordenadas`, { params:{
-      origin:`${center.latitud},${center.longitud}`
-    } });
+  obtenerCoordenadas(): Observable<LugarTuristicoDTO[]> {
+    return this.http.get<LugarTuristicoDTO[]>(`${this.url}/listarCoordenadas`);
   }
   
 }

@@ -7,11 +7,11 @@ import pe.edu.upc.backend.entities.Festividad;
 import java.util.List;
 
 @Repository
-public interface IFestividadRepository extends JpaRepository<Festividad, Integer> {
+public interface IFestividadRepository extends JpaRepository<Festividad, Long> {
     // Obtener todos las festividades por id en un lugar turistico
     @Query("Select f from Festividad f where f.idLugarTuristico.idLugar = :idLugarTuristico")
-    public List<Festividad> obtenerPorLugarTuristico(@Param("idLugarTuristico") int idLugarTuristico);
+    public List<Festividad> obtenerPorLugarTuristico(@Param("idLugarTuristico") Long idLugarTuristico);
     // Contar cuántas festividades hay por id en un  lugar turistico
     @Query("Select count(f) from Festividad f where f.idLugarTuristico.idLugar = :idLugarTuristico")
-    public long contarPorLugarTuristico(@Param("idLugarTuristico") int idLugarTuristico);
+    public long contarPorLugarTuristico(@Param("idLugarTuristico") Long idLugarTuristico);
 }

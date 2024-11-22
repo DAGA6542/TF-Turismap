@@ -7,7 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { UsuarioComponent } from './components/usuario/usuario.component';
 import { PromocionComponent } from './components/promocion/promocion.component';
 import { PaisComponent } from './components/pais/pais.component';
-import { CiudadComponnent } from './components/ciudad/ciudad.component';
+import { CiudadComponent } from './components/ciudad/ciudad.component';
 import { ComentarioComponent } from './components/comentario/comentario.component';
 import { DepartamentoComponent } from './components/departamento/departamento.component';
 import { FavoritoComponent } from './components/favorito/favorito.component';
@@ -22,7 +22,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, UsuarioComponent, PromocionComponent, PaisComponent,
-    CiudadComponnent, ComentarioComponent, DepartamentoComponent, FavoritoComponent, FestividadComponent,
+    CiudadComponent, ComentarioComponent, DepartamentoComponent, FavoritoComponent, FestividadComponent,
     LugarturisticoComponent, MenbresiavipComponent, NegocioComponent, MatToolbarModule, RouterLink,
     RolComponent, MatMenuModule, MatIconModule, MatButtonModule, CommonModule],
   templateUrl: './app.component.html',

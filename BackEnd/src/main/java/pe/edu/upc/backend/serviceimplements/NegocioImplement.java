@@ -92,4 +92,9 @@ public class NegocioImplement implements INegocioService {
     public List<Negocio> obtenerPorOrdenPorCalificacion() {
         return nR.obtenerPorOrdenPorCalificacion();
     }
+
+    @Override
+    public List<String[]> coordenadasNeg() {
+        return nR.coordenadasNeg();
+    }
 }

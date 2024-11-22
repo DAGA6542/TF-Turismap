@@ -1,6 +1,5 @@
-import { LugarTuristico } from './../../../models/lugarturistico';
-import { Component,  inject,  ViewChild } from '@angular/core';
-import { toSignal} from '@angular/core/rxjs-interop';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
@@ -8,31 +7,32 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { RouterLink, Params } from '@angular/router';
 import { LugarturisticoService } from '../../../services/lugarturistico.service';
-import {GoogleMap, MapAdvancedMarker} from '@angular/google-maps';
-
+import { LugarTuristico } from '../../../models/lugarturistico';
 
 @Component({
   selector: 'app-listar-lugarturistico',
   standalone: true,
-  imports: [MatPaginatorModule, MatTableModule,
-    MatIconModule, RouterLink, MatTableModule,
-    MatButtonModule, MatDialogModule,GoogleMap,MapAdvancedMarker],
+  imports: [
+    MatTableModule,
+    MatButtonModule, MatDialogModule, CommonModule,
+    MatIconModule, RouterLink,
+  ],
   templateUrl: './listar-lugarturistico.component.html',
   styleUrl: './listar-lugarturistico.component.css',
  
 })
-export class ListarLugarturisticoComponent {
+export class ListarLugarturisticoComponent implements OnInit {
 
-  readonly #lugarTuristicoService= inject(LugarturisticoService)
-
-LugarTuristico$=(this.#lugarTuristicoService.getCoordenadas({latitud:0,longitud:0}));
-  $lugarturistico =toSignal(this.LugarTuristico$,{initialValue:[]});
-
-  center: google.maps.LatLngLiteral = {lat: -12.0873795, lng: -77.0500079};
-  zoom = 18;
-  markerPositions: google.maps.LatLngLiteral[] = [];
-  displayedColumns: string[] = ['idLugarTuristico', 'nombre', 'descripcion',
- 'numeroTelefono','idCiudad','accion1', 'accion2'];
+  displayedColumns: string[] = [
+    'idLugar',
+    'nombreLugar',
+    'descripcionLugar',
+    'numeroTelefonoLugar',
+    'nombreCiudad',
+    'accion1',
+    'accion2'
+  ];
+  
   datasource: MatTableDataSource<LugarTuristico> = new MatTableDataSource();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -45,20 +45,15 @@ LugarTuristico$=(this.#lugarTuristicoService.getCoordenadas({latitud:0,longitud:
     this.ltS.list().subscribe((data) => {
       this.datasource = new MatTableDataSource(data);
     });
-
-
-    
     this.ltS.getList().subscribe((data) => {
       this.datasource = new MatTableDataSource(data);
     });
   }
-  openDialog(id: number): void {}
-  delete(id: number) {
-    this.ltS.delete(id).subscribe((data) => {
-      this.ltS.list().subscribe((data) => {
-        this.ltS.setList(data);
+    delete (id: number): void {
+      this.ltS.delete(id).subscribe(() => {
+        alert('Lugar Turístico eliminado');
+        this.ngOnInit();
       });
-    });
-    
+    }
   }
-}
+

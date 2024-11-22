@@ -57,7 +57,7 @@ export class InsertarFestividadComponent implements OnInit {
 
   insertar(): void {
     if (this.form.valid) {
-      this.festividad.idFestividades = this.form.value.hidFestividad;
+      this.festividad.idFestividad = this.form.value.hidFestividad;
       this.festividad.nombreFestividad = this.form.value.hnombreFestividad;
       this.festividad.descripcionFestividad = this.form.value.hdescripcionFestividad;
       this.festividad.fechaFestividad = this.form.value.hfechaFestividad;
@@ -83,7 +83,7 @@ export class InsertarFestividadComponent implements OnInit {
     if (this.edicion) {
       this.festS.listId(this.id).subscribe((data) => {
         this.form = new FormGroup({
-          hidFestividad: new FormControl(data.idFestividades),
+          hidFestividad: new FormControl(data.idFestividad),
           hnombreFestividad: new FormControl(data.nombreFestividad),
           hdescripcionFestividad: new FormControl(data.descripcionFestividad),
           hfechaFestividad: new FormControl(data.fechaFestividad),

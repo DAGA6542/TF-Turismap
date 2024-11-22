@@ -8,7 +8,7 @@ import { InsertarUsuarioComponent } from './components/usuario/insertar-usuario/
 import { ListarUsuarioComponent } from './components/usuario/listar-usuario/listar-usuario.component';
 import { InsertarPaisComponent } from './components/pais/insertar-pais/insertar-pais.component';
 import { ListarPaisComponent } from './components/pais/listar-pais/listar-pais.component';
-import { CiudadComponnent } from './components/ciudad/ciudad.component';
+import { CiudadComponent } from './components/ciudad/ciudad.component';
 import { ComentarioComponent } from './components/comentario/comentario.component';
 import { DepartamentoComponent } from './components/departamento/departamento.component';
 import { FavoritoComponent } from './components/favorito/favorito.component';
@@ -49,7 +49,7 @@ export const routes: Routes = [
         component: LoginComponent,
     },
     {
-        path: 'ciudad', component: CiudadComponnent,
+        path: 'ciudad', component: CiudadComponent,
         children: [
             { path: 'insertar', component: InsertarCiudadComponent },
             { path: 'listar', component: ListarCiudadComponent },
