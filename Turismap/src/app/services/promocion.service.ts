@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environments';
 import { HttpClient } from '@angular/common/http';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Promocion } from '../models/promocion';
+import { PromocionActivaDTO } from '../models/PromocionActivaDTO';
 
 const base_url = environment.base;
 
@@ -36,5 +37,8 @@ export class PromocionService {
   }
   update(tm: Promocion) {
     return this.http.put(this.url, tm);
+  }
+  promocionesActivaConNegociosParticipantes(): Observable<PromocionActivaDTO[]> {
+    return this.http.get<PromocionActivaDTO[]>(`${this.url}/promocionesActivaConNegociosParticipantes`);
   }
 }

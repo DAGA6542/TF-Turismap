@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Usuario } from '../models/usuario';
 import { environment } from '../../environments/environments';
-import { HttpClient } from '@angular/common/http';
-import { Subject } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { Observable, Subject } from 'rxjs';
+import { UsuarioPorComentarioDTO } from '../models/UsuarioPorComentarioDTO';
 
 const base_url = environment.base;
 
@@ -37,5 +38,17 @@ export class UsuarioService {
 
   update(tm: Usuario) {
     return this.http.put(this.url, tm);
+  }
+  buscarUsuariosPorComentariosEnNegocio(nombreNegocio: string): Observable<Usuario[]> {
+    const params = new HttpParams().set('nombreNegocio', nombreNegocio);
+    return this.http.get<Usuario[]>(`${this.url}/buscarUsuariosPorComentariosEnNegocio`, { params });
+  }
+  listarUsuariosConMasComentarios(): Observable<UsuarioPorComentarioDTO[]> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
+    return this.http.get<UsuarioPorComentarioDTO[]>(`${this.url}/listarUsuariosConMasComentarios`, { headers });
+  }
+
+  private getToken(): string {
+    return localStorage.getItem('token') || '';
   }
 }

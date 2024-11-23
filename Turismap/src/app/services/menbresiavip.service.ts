@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environments';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { MenbresiaVIP } from '../models/menbresiavip';
 import { HttpClient } from '@angular/common/http';
+import { UsuarioConMasMenbreDTO } from '../models/UsuarioConMasMenbreDTO';
 
 const base_url = environment.base;
 
@@ -10,7 +11,7 @@ const base_url = environment.base;
   providedIn: 'root'
 })
 export class MenbresiavipService {
-  private url = `${base_url}/menbresiavip`;
+  private url = `${base_url}/membresiavip`;
   private listaCambio = new Subject<MenbresiaVIP[]>();
   
   constructor(private http: HttpClient) {}
@@ -37,5 +38,8 @@ export class MenbresiavipService {
 
   update(tm: MenbresiaVIP) {
     return this.http.put(this.url, tm);
+  }
+  usuariosConMasMembresiasActivas(): Observable<UsuarioConMasMenbreDTO[]> {
+    return this.http.get<UsuarioConMasMenbreDTO[]>(`${this.url}/usuariosConMasMembresiasActivas`);
   }
 }

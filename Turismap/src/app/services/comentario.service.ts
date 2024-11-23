@@ -3,16 +3,15 @@ import { environment } from '../../environments/environments';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { Comentario } from '../models/comentario';
+
 const base_url = environment.base;
 
 @Injectable({
   providedIn: 'root'
 })
 export class ComentarioService {
-  
   private url = `${base_url}/comentario`;
   private listaCambio = new Subject<Comentario[]>();
-  
   constructor(private http: HttpClient) {}
 
   list() {
@@ -34,7 +33,6 @@ export class ComentarioService {
   listId(id:number){
     return this.http.get<Comentario>(`${this.url}/${id}`);
   }
-
   update(tm: Comentario) {
     return this.http.put(this.url, tm);
   }

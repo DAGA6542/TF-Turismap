@@ -1,10 +1,9 @@
-
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environments';
 import { Negocio } from '../models/negocio';
 import { Observable, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { NegocioDTO } from '../models/NegocioDTO';
+import { NegocioDTO } from '../models/negocioDTO';
 
 const base_url = environment.base;
 
@@ -14,7 +13,6 @@ const base_url = environment.base;
 export class NegocioService {
   private url = `${base_url}/negocio`;
   private listaCambio = new Subject<Negocio[]>();
-
   constructor(private http: HttpClient) { }
 
   list() {
@@ -26,7 +24,6 @@ export class NegocioService {
   getList() {
     return this.listaCambio.asObservable();
   }
-
   setList(listaNueva: Negocio[]) {
     this.listaCambio.next(listaNueva);
   }
@@ -36,11 +33,10 @@ export class NegocioService {
   listId(id:number){
     return this.http.get<Negocio>(`${this.url}/${id}`);
   }
-
   update(tm: Negocio) {
     return this.http.put(this.url, tm);
-}
-obtenerCoordenadasNego(): Observable<NegocioDTO[]> {
-  return this.http.get<NegocioDTO[]>(`${this.url}/listarCoordenadas`);
-}
+  }
+  obtenerCoordenadasNego(): Observable<NegocioDTO[]> {
+    return this.http.get<NegocioDTO[]>(`${this.url}/listarCoordenadas`);
+  }
 }

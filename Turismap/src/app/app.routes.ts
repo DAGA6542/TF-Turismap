@@ -43,6 +43,12 @@ import { ListarLugarTuristicoPorCiudadComponent } from './components/reportes/li
 import { ListarNumeroDeLugarTuristicoComponent } from './components/reportes/listar-numero-de-lugar-turistico/listar-numero-de-lugar-turistico.component';
 import { CalcularCantidadCiudadxturismoComponent } from './components/reportes/calcular-cantidad-ciudadxturismo/calcular-cantidad-ciudadxturismo.component';
 import { CantidadRolesComponent } from './components/reportes/cantidad-roles/cantidad-roles.component';
+import { BuscarUsuarioConMasComentariosEnNegocioComponent } from './components/reportes/buscar-usuario-con-mas-comentarios-en-negocio/buscar-usuario-con-mas-comentarios-en-negocio.component';
+import { CalcularTurismoPorCiudadComponent } from './components/reportes/calcular-turismo-por-ciudad/calcular-turismo-por-ciudad.component';
+import { ContarPorLugarTuristicoComponent } from './components/reportes/contar-por-lugar-turistico/contar-por-lugar-turistico.component';
+import { ListarUsuariosConMasComentariosComponent } from './components/reportes/listar-usuarios-con-mas-comentarios/listar-usuarios-con-mas-comentarios.component';
+import { PromocionesActivaConNegocioParticipantesComponent } from './components/reportes/promociones-activa-con-negocio-participantes/promociones-activa-con-negocio-participantes.component';
+import { UsuariosConMasMembresiasActivasComponent } from './components/reportes/usuarios-con-mas-membresias-activas/usuarios-con-mas-membresias-activas.component';
 
 export const routes: Routes = [
     {
@@ -182,7 +188,31 @@ export const routes: Routes = [
             path: 'CantidadRolesComponent',
             component: CantidadRolesComponent,
           },
-          
+          {
+            path: 'BuscarUsuarioConMasComentariosEnNegocioComponent',
+            component: BuscarUsuarioConMasComentariosEnNegocioComponent,
+          },
+          {
+            path: 'CalcularTurismoPorCiudadComponent',
+            component: CalcularTurismoPorCiudadComponent,
+          },
+          {
+            path: 'ContarPorLugarTuristicoComponent',
+            component: ContarPorLugarTuristicoComponent,
+          },
+          {
+            path: 'ListarUsuariosConMasComentariosComponent',
+            component: ListarUsuariosConMasComentariosComponent,
+          },
+          {
+            path: 'PromocionesActivaConNegocioParticipantesComponent',
+            component: PromocionesActivaConNegocioParticipantesComponent,
+          },
+          {
+            path: 'UsuariosConMasMembresiasActivasComponent',
+            component: UsuariosConMasMembresiasActivasComponent,
+          },
+
         ],
       },
     {

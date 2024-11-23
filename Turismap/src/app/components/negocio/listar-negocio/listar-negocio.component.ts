@@ -7,7 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogModule, } from '@angular/material/dialog';
 import { Negocio } from '../../../models/negocio';
 import { NegocioService } from '../../../services/negocio.service';
-import { NegocioDTO } from '../../../models/NegocioDTO';
+import { NegocioDTO } from '../../../models/negocioDTO';
 import { GoogleMap, MapAdvancedMarker } from '@angular/google-maps';
 import { CommonModule } from '@angular/common';
 

@@ -25,10 +25,8 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, UsuarioComponent, PromocionComponent, PaisComponent,
-    CiudadComponent, ComentarioComponent, DepartamentoComponent, FavoritoComponent, FestividadComponent,
-    LugarturisticoComponent, MenbresiavipComponent, NegocioComponent, MatToolbarModule, RouterLink,
-    RolComponent, MatMenuModule, MatIconModule, MatButtonModule, CommonModule, RouterOutlet, RouterLink, MatToolbarModule, MatMenuModule, MatIconModule, MatButtonModule,
+  imports: [RouterOutlet, MatToolbarModule, RouterLink,
+    MatMenuModule, MatIconModule, MatButtonModule, CommonModule, RouterOutlet, RouterLink, MatToolbarModule, MatMenuModule, MatIconModule, MatButtonModule,
     CommonModule, MatListModule, MatSidenavModule, MatExpansionModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
