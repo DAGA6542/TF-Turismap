@@ -21,11 +21,11 @@ public class Favorito {
     @JoinColumn(name = "idNegocio")
     private Negocio idNegocio;
     public Favorito() {}
-    public Favorito(Long idFavorito, LocalDate fechaAgregadoFavorito, LocalDate fechaModificacionFavorito) {
+    /*public Favorito(Long idFavorito, LocalDate fechaAgregadoFavorito, LocalDate fechaModificacionFavorito) {
         this.idFavorito = idFavorito;
         this.fechaAgregadoFavorito = fechaAgregadoFavorito;
         this.fechaModificacionFavorito = fechaModificacionFavorito;
-    }
+    }*/
     public Favorito(Long idFavorito, LocalDate fechaAgregadoFavorito, LocalDate fechaModificacionFavorito, Usuario idUsuario, LugarTuristico idLugar, Negocio idNegocio) {
         this.idFavorito = idFavorito;
         this.fechaAgregadoFavorito = fechaAgregadoFavorito;

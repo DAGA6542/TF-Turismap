@@ -3,6 +3,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.backend.dtos.FestividadDTO;
+import pe.edu.upc.backend.dtos.FestividadPorLugarTuristicoDTO;
+import pe.edu.upc.backend.dtos.LugarTuristicoDTO;
+import pe.edu.upc.backend.dtos.LugarTuristicoPorCiudadDTO;
 import pe.edu.upc.backend.entities.Festividad;
 import pe.edu.upc.backend.serviceinterfaces.IFestividadService;
 import java.util.List;
@@ -31,6 +34,11 @@ public class FestividadController {
             return m.map(y,FestividadDTO.class);
         }).collect(Collectors.toList());
     }
+    @GetMapping("/{id}")
+    public FestividadDTO listPorId(@PathVariable("id") Long id) {
+        ModelMapper m = new ModelMapper();
+        return m.map(fS.listById(id), FestividadDTO.class);
+    }
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Long id) {
         fS.delete(id);
@@ -42,8 +50,16 @@ public class FestividadController {
             return m.map(y,FestividadDTO.class);
         }).collect(Collectors.toList());
     }
-    @GetMapping("/cantidadlugaresturisticosporciudad")
+    @GetMapping("/cantidadfestividadesporlugarturistico")
     public long contarPorLugarTuristico(@RequestParam Long idLugar) {
         return fS.contarPorLugarTuristico(idLugar);
+    }
+
+    @GetMapping("/listarfestividadporlugarturistico")
+    public List<FestividadPorLugarTuristicoDTO> listarfestividadporlugarturistico(@RequestParam String nombreLugar) { // By Diego
+        return fS.listarfestividadporlugarturistico(nombreLugar).stream().map(y -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(y, FestividadPorLugarTuristicoDTO.class);
+        }).collect(Collectors.toList());
     }
 }
